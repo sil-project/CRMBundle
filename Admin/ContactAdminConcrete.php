@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use AppBundle\Admin\ContactAdmin;
+use Librinfo\CRMBundle\Admin\ContactAdmin;
 
 class ContactAdminConcrete extends ContactAdmin
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use AppBundle\Admin\TraceableAdmin;
+use Librinfo\CRMBundle\Admin\TraceableAdmin;
 
 abstract class AddressableAdmin extends TraceableAdmin
 {

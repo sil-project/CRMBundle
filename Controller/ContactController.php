@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace Librinfo\CRMBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Contact;
-use AppBundle\Form\ContactType;
+use Librinfo\CRMBundle\Entity\Contact;
+use Librinfo\CRMBundle\Form\ContactType;
 
 /**
  * Contact controller.
