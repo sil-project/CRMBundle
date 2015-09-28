@@ -24,5 +24,8 @@
             "name": "Libre Informatique",
             "homepage": "http://www.libre-informatique.fr/"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": { "Librinfo\\CRMBundle\\": "" }
+    },
 }
