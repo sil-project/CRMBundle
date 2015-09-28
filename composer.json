@@ -7,10 +7,10 @@
         "symfony/symfony": "2.7.*",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
         "libre-informatique/core-bundle": "^0.1"
-    }
-    "license":  GNU/GPL
-    "keywords": ["e-venement", "libio", "sonata", "symfony"]
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle"
+    },
+    "license":  GNU/GPL,
+    "keywords": ["e-venement", "libio", "sonata", "symfony"],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle",
     "authors": [
         {
            "name": "Baptiste SIMON",
