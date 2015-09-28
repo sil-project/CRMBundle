@@ -1,0 +1,18 @@
+services:
+    app.admin.contact:
+        class: AppBundle\Admin\ContactAdminConcrete
+        arguments: [~, AppBundle\Entity\Contact, AppBundle:ContactAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Contact}
+
+    app.admin.category:
+        class: AppBundle\Admin\CategoryAdminConcrete
+        arguments: [~, AppBundle\Entity\Category, AppBundle:CategoryAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Category}
+
+    app.admin.organism:
+        class: AppBundle\Admin\OrganismAdminConcrete
+        arguments: [~, AppBundle\Entity\Organism, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Organism}

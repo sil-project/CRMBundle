@@ -1,0 +1,24 @@
+AppBundle\Entity\Contact:
+    type: entity
+    fields:
+        firstname:
+            type:       string(255)
+            nullable:   true
+        shortname:
+            type:       string(255)
+            nullable:   true
+        title:
+            type:       string(255)
+            nullable:   true
+        flashOnControl:
+            type:       string
+            nullable:   true
+        password:
+            type:       string(255)
+            nullable:   true
+        familyContact:
+            type:       boolean
+            nullable:   true
+        culture:
+            type:       string(2)
+            nullable:   true        

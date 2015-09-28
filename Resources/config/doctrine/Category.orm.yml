@@ -1,0 +1,8 @@
+AppBundle\Entity\Category:
+    type: entity
+    fields:
+        name: string(255)
+    oneToMany:
+        organisms:
+            targetEntity: Organism
+            mappedBy: product

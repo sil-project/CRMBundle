@@ -1,0 +1,19 @@
+AppBundle\Entity\Organism:
+    type: entity
+    fields:
+        url:
+            type:       string(255)
+            nullable:   true
+        administrativeNumber:
+            type:       string(255)
+            nullable:   true
+        professional_id:
+            type:       guid
+            nullable:   true
+        category_id:
+            type:       guid
+            nullable:   true
+    manyToOne:
+        category:
+            targetEntity:   Category
+            inversedBy:     organisms
