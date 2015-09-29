@@ -52,14 +52,26 @@ The Sonata bundles
 Do not forget to configure the SonataAdminBundle. e.g.:
 
 ```
-    admin:
-        resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-        prefix: /admin
-      
-    _sonata_admin:
-        resource: .
-        type: sonata_admin
-        prefix: /
+# app/config/routing.yml
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+  
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /
+```
+
+```
+# app/config/config.yml
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
 ```
 
 But please, refer to the source doc to get up-to-date :
