@@ -38,7 +38,7 @@ Edit your app/AppKernel.php file and add the required bundles, here:
             
             // The libre-informatique bundles
             new Librinfo\CoreBundle\CoreBundle(),
-            new Librinfo\CoreBundle\CRMBundle(),
+            new Librinfo\CRMBundle\CRMBundle(),
             
             // your personal bundles
         );
