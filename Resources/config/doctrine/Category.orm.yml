@@ -1,4 +1,4 @@
-AppBundle\Entity\Category:
+Librinfo\CRMBundle\Entity\Category:
     type: entity
     fields:
         name: string(255)

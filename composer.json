@@ -6,7 +6,8 @@
         "php": ">=5.3.0",
         "symfony/symfony": "2.7.*",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
-        "libre-informatique/core-bundle": "dev-master"
+        "libre-informatique/core-bundle": "dev-master",
+        "sonata-project/easy-extends-bundle": "^2.1"
     },
     "license":  "GNU-GPL",
     "keywords": ["e-venement", "libio", "sonata", "symfony"],

@@ -1,4 +1,4 @@
-AppBundle\Entity\Contact:
+Librinfo\CRMBundle\Entity\Contact:
     type: entity
     fields:
         firstname:

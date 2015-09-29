@@ -1,18 +1,18 @@
 services:
     app.admin.contact:
-        class: AppBundle\Admin\ContactAdminConcrete
-        arguments: [~, AppBundle\Entity\Contact, AppBundle:ContactAdmin]
+        class: Librinfo\CRMBundle\Admin\ContactAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Contact}
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}
 
     app.admin.category:
-        class: AppBundle\Admin\CategoryAdminConcrete
-        arguments: [~, AppBundle\Entity\Category, AppBundle:CategoryAdmin]
+        class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Category, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Category}
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Category}
 
     app.admin.organism:
-        class: AppBundle\Admin\OrganismAdminConcrete
-        arguments: [~, AppBundle\Entity\Organism, SonataAdminBundle:CRUD]
+        class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Organism}
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Organism}

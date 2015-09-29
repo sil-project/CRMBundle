@@ -1,4 +1,4 @@
-AppBundle\Entity\Organism:
+Librinfo\CRMBundle\Entity\Organism:
     type: entity
     fields:
         url:
