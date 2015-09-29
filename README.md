@@ -19,10 +19,13 @@ Downloading
 
   $ composer require libre-informatique/crm-bundle dev-master
 
-The "libre-informatique" bundles
---------------------------------
+The "libre-informatique" & other bundles
+----------------------------------------
 
-Edit your app/AppKernel.php file and add your "libre-informatique" bundle, for instance the "libre-informatique/core-bundle" :
+Edit your app/AppKernel.php file and add the required bundles, here:
+* Librinfo\CoreBundle\CoreBundle(),
+* Librinfo\CoreBundle\CRMBundle(),
+* Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
     // app/AppKernel.php
     // ...
