@@ -55,7 +55,7 @@ Do not forget to configure the SonataAdminBundle. e.g.:
 # app/config/routing.yml
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
+    prefix: /
   
 _sonata_admin:
     resource: .
@@ -76,3 +76,5 @@ sonata_block:
 
 But please, refer to the source doc to get up-to-date :
 https://sonata-project.org/bundles/admin/2-3/doc/reference/installation.html
+
+Just notice that the ```prefix``` value is ```/``` instead of ```/admin``` as advised by the Sonata Project... By the way, it means that this access is universal, and not a specific "backend" interface. That's a specificity of a software package that intends to be focused on professional workflows.
