@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Librinfo\CRMBundle\Admin\OrganismAdmin;
+use Librinfo\CoreBundle\Admin\AddressableAdmin;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
