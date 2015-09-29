@@ -51,6 +51,27 @@ The Sonata bundles
 
 Do not forget to configure the SonataAdminBundle. e.g.:
 
+```php
+    // app/AppKernel.php
+    // ...
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            
+            // Sonata
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            
+            // your personal bundles
+        );
+    }
+    // ...
+```
+
 ```
 # app/config/routing.yml
 admin:
