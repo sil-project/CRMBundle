@@ -19,8 +19,8 @@ Downloading
 
   $ composer require libre-informatique/crm-bundle dev-master
 
-The "libre-informatique" & other bundles
-----------------------------------------
+The "libre-informatique" bundles
+---------------------------------
 
 Edit your app/AppKernel.php file and add the required bundles, here:
 * Librinfo\CoreBundle\CoreBundle(),
@@ -38,9 +38,23 @@ Edit your app/AppKernel.php file and add the required bundles, here:
             new Librinfo\CoreBundle\CoreBundle(),
             new Librinfo\CoreBundle\CRMBundle(),
             
-            // Adding the Sonata EasyExtendsBundle
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            
             // your personal bundles
         );
     }
+
+The Sonata bundles
+------------------
+
+Do not forget to configure the SonataAdminBundle. e.g.:
+
+  admin:
+      resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+      prefix: /admin
+    
+  _sonata_admin:
+      resource: .
+      type: sonata_admin
+      prefix: /
+
+But please, refer to the source doc to get up-to-date :
+https://sonata-project.org/bundles/admin/2-3/doc/reference/installation.html
