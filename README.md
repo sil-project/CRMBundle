@@ -38,7 +38,7 @@ Edit your app/AppKernel.php file and add the required bundles, here:
             
             // The libre-informatique bundles
             new Librinfo\CoreBundle\CoreBundle(),
-            new Librinfo\CoreBundle\CRMBundle(),
+            new Librinfo\CRMBundle\CRMBundle(),
             
             // your personal bundles
         );
@@ -50,6 +50,27 @@ The Sonata bundles
 ------------------
 
 Do not forget to configure the SonataAdminBundle. e.g.:
+
+```php
+    // app/AppKernel.php
+    // ...
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            
+            // Sonata
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            
+            // your personal bundles
+        );
+    }
+    // ...
+```
 
 ```
 # app/config/routing.yml
@@ -78,3 +99,12 @@ But please, refer to the source doc to get up-to-date :
 https://sonata-project.org/bundles/admin/2-3/doc/reference/installation.html
 
 Just notice that the ```prefix``` value is ```/``` instead of ```/admin``` as advised by the Sonata Project... By the way, it means that this access is universal, and not a specific "backend" interface. That's a specificity of a software package that intends to be focused on professional workflows.
+
+Finish
+------
+
+Publish the assets ...
+
+```
+$ app/console assets:install
+```
