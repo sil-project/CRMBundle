@@ -2,76 +2,43 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CRMBundle\Admin\ContactAdmin;
-use Librinfo\CoreBundle\Admin\AddressableAdmin;
 
 class ContactAdminConcrete extends ContactAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        parent::configureDatagridFilters($datagridMapper);
-        $this->removeInternalFields($datagridMapper);
-        $this->orderFields($datagridMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ListMapper $listMapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $mapper)
     {
-        parent::configureListFields($listMapper);
-        $this->removeInternalFields($listMapper);
-        $this->orderFields($listMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param FormMapper $formMapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
-        AddressableAdmin::configureFormFields($formMapper);
-        $formMapper
-            ->remove('name')
-            ->remove('email')
-            ->tab('General')
-                ->with('')
-                    ->add('title')
-                    ->add('name')
-                    ->add('firstname')
-                    ->add('email')
-                ->end()
-            ->end()
-            ->tab('Ticketting')
-                ->with('History')
-                ->end()
-                ->with('Control')
-                    ->add('flashOnControl')
-                ->end()
-            ->end()
-            ->tab('Specifics')
-                ->with('Communication')
-                    ->add('culture')
-                ->end()
-            ->end()
-        ;
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ShowMapper $showMapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        parent::configureShowFields($showMapper);
-        $this->removeInternalFields($showMapper);
-        $this->orderFields($showMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 }
 

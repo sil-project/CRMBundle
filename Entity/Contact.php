@@ -211,5 +211,10 @@ class Contact extends Addressable
     {
         return $this->culture;
     }
+    
+    public function __toString()
+    {
+        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.parent::__toString();
+    }
 }
 

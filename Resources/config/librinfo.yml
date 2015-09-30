@@ -1,0 +1,56 @@
+parameters:
+    librinfo:
+        Librinfo\CRMBundle\Admin\OrganismAdmin:     # Organisms
+            Sonata\AdminBundle\Form\FormMapper:     # Form
+                add:
+                    General:
+                        '':
+                            category: ~
+        Librinfo\CRMBundle\Admin\ContactAdmin:      # Contacts
+            Sonata\AdminBundle\Datagrid\ListMapper: # List
+                add:
+                    title: ~
+                    firstname: ~
+                    name: ~
+                    email: ~
+                    postalcode: ~
+                    city: ~
+                    country: ~
+                    culture: ~
+                    _action:
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper: # Filters
+                add:
+                    title: ~
+                    name: ~
+                    firstname: ~
+                    address: ~
+                    postalcode: ~
+                    city: ~
+                    country: ~
+                    email: ~
+                    shortname: ~
+                    familyContact: ~
+                    culture: ~
+                    npai: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+            Sonata\AdminBundle\Form\FormMapper:     # Form
+                remove: [name, email]
+                add:
+                    General:
+                        '':
+                            title: ~
+                            name: ~
+                            firstname: ~
+                            email: ~
+                    Ticketting:
+                        History: ~
+                        Control:
+                            flashOnControl: ~
+                    Specifics:
+                        Communication:
+                            culture: ~

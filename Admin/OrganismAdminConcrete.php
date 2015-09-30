@@ -2,54 +2,42 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CRMBundle\Admin\OrganismAdmin;
-use Librinfo\CoreBundle\Admin\AddressableAdmin;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        parent::configureDatagridFilters($datagridMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ListMapper $listMapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $mapper)
     {
-        parent::configureListFields($listMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param FormMapper $formMapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
-        AddressableAdmin::configureFormFields($formMapper);
-        $formMapper
-            ->remove('category_id')
-            ->tab('General')
-                ->with('')
-                    ->add('category')
-                ->end()
-            ->end()
-        ;
-        AddressableAdmin::configureFormFields($formMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ShowMapper $showMapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        parent::configureShowFields($showMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 }
