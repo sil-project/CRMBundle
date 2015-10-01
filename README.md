@@ -79,8 +79,8 @@ The "libre-informatique" bundles
 ---------------------------------
 
 Edit your app/AppKernel.php file and add the required bundles, here:
-* Librinfo\CoreBundle\CoreBundle,
-* Librinfo\CoreBundle\CRMBundle,
+* Librinfo\CoreBundle\LibrinfoCoreBundle,
+* Librinfo\CoreBundle\LibrinfoCRMBundle,
 
 ```php
     // app/AppKernel.php
@@ -91,8 +91,8 @@ Edit your app/AppKernel.php file and add the required bundles, here:
             // ...
             
             // The libre-informatique bundles
-            new Librinfo\CoreBundle\CoreBundle(),
-            new Librinfo\CRMBundle\CRMBundle(),
+            new Librinfo\CoreBundle\LibrinfoCoreBundle(),
+            new Librinfo\CRMBundle\LibrinfoCRMBundle(),
             
             // your personal bundles
         );
