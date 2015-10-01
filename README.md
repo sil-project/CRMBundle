@@ -108,3 +108,39 @@ Publish the assets ...
 ```
 $ app/console assets:install
 ```
+
+Usages
+======
+
+Configuring your SonataAdminBundle interfaces with YAML properties
+------------------------------------------------------------------
+
+This feature is provided by Librinfo\CoreBundle to ease the deployment of new bundles & entities. It works quite closely to the  [Sonata\AdminBundle\MapperBaseMapper](https://github.com/sonata-project/SonataAdminBundle/blob/master/Mapper/BaseMapper.php) & [Sonata\AdminBundle\MapperBaseGroupedMapper](https://github.com/sonata-project/SonataAdminBundle/blob/master/Mapper/BaseGroupedMapper.php) (and their children like [Sonata\AdminBundle\Form\FormMapper](https://github.com/sonata-project/SonataAdminBundle/blob/master/Form/FormMapper.php)) add(), with()/tab() & remove() methods.
+
+So it is structured as :
+
+```
+        AcmeBundle\Admin\DemoAdmin:               # The Admin class extension
+            Sonata\AdminBundle\Form\FormMapper:   # The class of objects that needs to be configured (here the edit/create form)
+                remove: [name, id]                # The fields that need to be removed from inheritance (array)
+                add:                              # What we want to display (associative array)
+                    text:                         # The name of a field that needs to be directly injected (without any tab)
+                        type: textarea            # The type of field to display
+                        required: false           # Other options refering to the BaseMapper super-class used
+                    gfx_tab:                      # A first tab
+                        _options:                 # ... with its options (cf. BaseGroupedMapper::with() options)
+                            description: tab
+                        gfx_group:                # A first group inside the "tab"
+                            _options:             # ... with its options (cf. BaseGroupedMapper::with() options)
+                                description: with
+                            title: ~              # Adding a field, with no option
+                            description:
+                                type: textarea
+                                label: Descriiiiiiption
+                                _options:         # Extra options ("fieldDescriptionOptions" in the BaseMapper::add super-class)
+                                    translation_domain: fr
+                        gfx_group2:
+                            field2: ~
+            Sonata\AdminBundle\Show\ShowMapper:   # The class of objects that needs to be configured (here the "show" view)
+                _copy: Sonata\AdminBundle\Form\FormMapper # indicates to take the configuration of an other class of the current Admin class extension (including its parents configuration)
+```
