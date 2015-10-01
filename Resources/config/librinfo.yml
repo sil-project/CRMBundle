@@ -5,7 +5,10 @@ parameters:
                 add:
                     General:
                         '':
-                            category: ~
+                            category:
+                                type: sonata_type_model_autocomplete
+                                property: name
+                                required: false
         Librinfo\CRMBundle\Admin\ContactAdmin:      # Contacts
             Sonata\AdminBundle\Datagrid\ListMapper: # List
                 add:
