@@ -27,6 +27,6 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Librinfo\\CRMBundle\\": "" }
+        "psr-0": { "Librinfo\\CRMBundle\\": "" }
     }
 }
