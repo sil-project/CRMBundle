@@ -116,4 +116,4 @@ Finish
 Publish the assets ...
 
 ```
-$ app/console assets:install
+$ app/console assets:install --symlink
