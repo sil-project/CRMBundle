@@ -21,6 +21,16 @@ Downloading
   $ composer require libre-informatique/crm-bundle dev-master
 ```
 
+If it fails with the message :
+
+```- libre-informatique/crm-bundle dev-master requires libre-informatique/core-bundle dev-master -> no matching package found.```
+
+Try to install ```libre-informatique/core-bundle``` first :
+
+```
+$ composer require libre-informatique/core-bundle dev-master
+```
+
 The Sonata bundles
 ------------------
 
