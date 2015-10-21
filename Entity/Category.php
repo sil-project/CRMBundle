@@ -1,7 +1,7 @@
 <?php
 
 namespace Librinfo\CRMBundle\Entity;
-use Librinfo\CoreBundle\Entity\Traceable;
+use Librinfo\BaseEntitiesBundle\Entity\Traceable;
 
 /**
  * Category

@@ -1,7 +1,7 @@
 <?php
 
 namespace Librinfo\CRMBundle\Entity;
-use Librinfo\CoreBundle\Entity\Addressable;
+use Librinfo\BaseEntitiesBundle\Entity\Addressable;
 
 /**
  * Organism
