@@ -1,6 +1,9 @@
 <?php
 
 namespace Librinfo\CRMBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Addressable;
 
 /**
@@ -14,20 +17,22 @@ class Organism extends Addressable
     private $url;
 
     /**
-     * @var guid
-     */
-    private $category_id;
-
-    /**
      * @var string
      */
     private $administrativeNumber;
 
     /**
-     * @var guid
+     * @var Collection
      */
-    private $professional_id;
+    private $categories;
 
+    /**
+     * Organism constructor.
+     */
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     /**
      * Set url
@@ -51,30 +56,6 @@ class Organism extends Addressable
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * Set categoryId
-     *
-     * @param guid $categoryId
-     *
-     * @return Organism
-     */
-    public function setCategoryId($categoryId)
-    {
-        $this->category_id = $categoryId;
-
-        return $this;
-    }
-
-    /**
-     * Get categoryId
-     *
-     * @return guid
-     */
-    public function getCategoryId()
-    {
-        return $this->category_id;
     }
 
     /**
@@ -102,55 +83,26 @@ class Organism extends Addressable
     }
 
     /**
-     * Set professionalId
-     *
-     * @param guid $professionalId
-     *
-     * @return Organism
-     */
-    public function setProfessionalId($professionalId)
-    {
-        $this->professional_id = $professionalId;
-
-        return $this;
-    }
-
-    /**
-     * Get professionalId
-     *
-     * @return guid
-     */
-    public function getProfessionalId()
-    {
-        return $this->professional_id;
-    }
-    /**
-     * @var \AppBundle\Entity\Category
-     */
-    private $category;
-
-
-    /**
      * Set category
      *
-     * @param \AppBundle\Entity\Category $category
+     * @param Collection $categories
      *
      * @return Organism
      */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
+    public function setCategories(Collection $categories = null)
     {
-        $this->category = $category;
+        $this->categories = $categories;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get categories
      *
-     * @return \AppBundle\Entity\Category
+     * @return Collection
      */
-    public function getCategory()
+    public function getCategories()
     {
-        return $this->category;
+        return $this->categories;
     }
 }

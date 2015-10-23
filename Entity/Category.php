@@ -1,6 +1,10 @@
 <?php
 
 namespace Librinfo\CRMBundle\Entity;
+
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Traceable;
 
 /**
@@ -12,7 +16,6 @@ class Category extends Traceable
      * @var string
      */
     private $name;
-
 
     /**
      * Set name
@@ -37,8 +40,9 @@ class Category extends Traceable
     {
         return $this->name;
     }
+
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $organisms;
 
@@ -47,17 +51,17 @@ class Category extends Traceable
      */
     public function __construct()
     {
-        $this->organisms = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->organisms = new ArrayCollection();
     }
 
     /**
      * Add organism
      *
-     * @param \AppBundle\Entity\Organism $organism
+     * @param Organism $organism
      *
      * @return Category
      */
-    public function addOrganism(\AppBundle\Entity\Organism $organism)
+    public function addOrganism(Organism $organism)
     {
         $this->organisms[] = $organism;
 
@@ -67,9 +71,9 @@ class Category extends Traceable
     /**
      * Remove organism
      *
-     * @param \AppBundle\Entity\Organism $organism
+     * @param Organism $organism
      */
-    public function removeOrganism(\AppBundle\Entity\Organism $organism)
+    public function removeOrganism(Organism $organism)
     {
         $this->organisms->removeElement($organism);
     }
@@ -77,13 +81,13 @@ class Category extends Traceable
     /**
      * Get organisms
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getOrganisms()
     {
         return $this->organisms;
     }
-    
+
     public function __toString()
     {
         return $this->name;

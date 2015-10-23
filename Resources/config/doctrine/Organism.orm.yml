@@ -2,18 +2,14 @@ Librinfo\CRMBundle\Entity\Organism:
     type: entity
     fields:
         url:
-            type:       string(255)
+            type:       string
+            length:     255
             nullable:   true
         administrativeNumber:
-            type:       string(255)
+            type:       string
+            length:     255
             nullable:   true
-        professional_id:
-            type:       guid
-            nullable:   true
-        category_id:
-            type:       guid
-            nullable:   true
-    manyToOne:
-        category:
+    manyToMany:
+        categories:
             targetEntity:   Category
             inversedBy:     organisms

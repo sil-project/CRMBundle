@@ -1,8 +1,10 @@
 Librinfo\CRMBundle\Entity\Category:
     type: entity
     fields:
-        name: string(255)
-    oneToMany:
+        name:
+            type: string
+            length: 255
+    manyToMany:
         organisms:
             targetEntity: Organism
-            mappedBy: product
+            mappedBy: categories
