@@ -6,10 +6,13 @@ parameters:
                     General:
                         '':
                             categories:
-                                type: sonata_type_model_autocomplete
+                                type: sonata_type_model
                                 property: name
                                 required: false
                                 multiple: true
+            Sonata\AdminBundle\Datagrid\ListMapper: # Filters
+                add:
+                    categories: ~
         Librinfo\CRMBundle\Admin\ContactAdmin:      # Contacts
             Sonata\AdminBundle\Datagrid\ListMapper: # List
                 add:
@@ -51,6 +54,12 @@ parameters:
                             name: ~
                             firstname: ~
                             email: ~
+                            _options:
+                                fieldsOrder:
+                                    - email
+                                    - firstname
+                                    - name
+                                    - title
                     Ticketting:
                         History: ~
                         Control:
@@ -58,3 +67,5 @@ parameters:
                     Specifics:
                         Communication:
                             culture: ~
+
+
