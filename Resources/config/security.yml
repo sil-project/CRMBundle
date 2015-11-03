@@ -1,0 +1,11 @@
+librinfo.security:
+    # Checking Controllers and/or Services access
+    method_access_control:
+        'Librinfo\\UIBundle\\Twig\\Extension\\AdminMenu::showAdminMenu$': 'hasRole("CRM_MANAGER")'
+    # Defining custom Roles hierarchy (as a tree)
+    security.role_hierarchy.roles:
+        ROLE_SUPER_ADMIN:
+            - CRM_MANAGER:
+                - CRM_CONTACT_MANAGER:
+                    - CRM_CONTACT_VIEWER:
+                        - ROLE_TEST

@@ -2,6 +2,7 @@
 
 namespace Librinfo\CRMBundle\DependencyInjection;
 
+use Librinfo\SecurityBundle\Configurator\SecurityConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -28,5 +29,7 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         $loader->load('admin.yml');
         
         $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
+
+        SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
     }
 }
