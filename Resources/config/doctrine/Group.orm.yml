@@ -1,0 +1,20 @@
+Librinfo\CRMBundle\Entity\Group:
+    type:  entity
+    id:
+        contact:
+            type: guid
+            manyToOne:
+                contact:
+                    targetEntity: Librinfo\CRMBundle\Entity\Contact
+        organism:
+            type: guid
+            manyToOne:
+                organism:
+                    targetEntity: Librinfo\CRMBundle\Entity\Organism
+        role:
+            type: guid
+            manyToOne:
+                role:
+                    targetEntity: Librinfo\CRMBundle\Entity\Role
+
+
