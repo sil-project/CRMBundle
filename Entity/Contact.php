@@ -1,13 +1,20 @@
 <?php
 
 namespace Librinfo\CRMBundle\Entity;
-use Librinfo\BaseEntitiesBundle\Entity\Addressable;
+
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AdressableInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Adressable;
 
 /**
  * Contact
  */
-class Contact extends Addressable
+class Contact implements AdressableInterface
 {
+    use Adressable;
+    /**
+     * @var string
+     */
+    private $id;
     /**
      * @var string
      */
@@ -43,6 +50,13 @@ class Contact extends Addressable
      */
     private $culture;
 
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set firstname
@@ -211,10 +225,10 @@ class Contact extends Addressable
     {
         return $this->culture;
     }
-    
+
     public function __toString()
     {
-        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.parent::__toString();
+        return ($this->title ? $this->title . ' ' : '') . $this->firstname . ' ' . parent::__toString();
     }
 }
 

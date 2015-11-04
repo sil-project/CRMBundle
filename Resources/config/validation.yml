@@ -1,8 +1,0 @@
-AppBundle\Entity\Addressable:
-    properties:
-        email:
-            - Email: ~
-AppBundle\Entity\Organism:
-    properties:
-        url:
-            - Url: ~

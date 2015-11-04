@@ -1,5 +1,9 @@
 Librinfo\CRMBundle\Entity\Contact:
     type: entity
+    id:
+        id:
+            type: guid
+            generator:  { strategy: UUID }
     fields:
         firstname:
             type:       string(255)

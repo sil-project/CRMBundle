@@ -2,20 +2,40 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Traceable;
 
 /**
  * Category
  */
-class Category extends Traceable
+class Category
 {
+
+//    use Node,Sortable;
+//    use Treeable;
+//    use NestedSetEntity;
+    /**
+     * @var string
+     */
+    protected $id;
+
     /**
      * @var string
      */
     private $name;
+
+    /**
+     * @var Collection
+     */
+    private $organisms;
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set name
@@ -40,11 +60,6 @@ class Category extends Traceable
     {
         return $this->name;
     }
-
-    /**
-     * @var Collection
-     */
-    private $organisms;
 
     /**
      * Constructor
@@ -88,8 +103,4 @@ class Category extends Traceable
         return $this->organisms;
     }
 
-    public function __toString()
-    {
-        return $this->name;
-    }
 }

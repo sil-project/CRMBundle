@@ -4,13 +4,19 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Addressable;
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AdressableInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Adressable;
 
 /**
  * Organism
  */
-class Organism extends Addressable
+class Organism implements AdressableInterface
 {
+    use Adressable;
+    /**
+     * @var string
+     */
+    private $id;
     /**
      * @var string
      */
@@ -32,6 +38,14 @@ class Organism extends Addressable
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

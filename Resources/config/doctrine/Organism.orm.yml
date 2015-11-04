@@ -1,5 +1,9 @@
 Librinfo\CRMBundle\Entity\Organism:
     type: entity
+    id:
+        id:
+            type: guid
+            generator:  { strategy: UUID }
     fields:
         url:
             type:       string
@@ -11,5 +15,5 @@ Librinfo\CRMBundle\Entity\Organism:
             nullable:   true
     manyToMany:
         categories:
-            targetEntity:   Category
+            targetEntity:   Librinfo\CRMBundle\Entity\Category
             inversedBy:     organisms
