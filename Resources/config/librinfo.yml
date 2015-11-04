@@ -72,6 +72,20 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper: # Filters
+                add:
+                    contact:
+                        field_options:
+                            label: Contact
+                            multiple: true
+                    organism:
+                        field_options:
+                            label: Organism
+                            multiple: true
+                    roles:
+                        field_options:
+                            label: Roles
+                            multiple: true
         Librinfo\CRMBundle\Admin\ContactAdmin:      # Contacts
             Sonata\AdminBundle\Datagrid\ListMapper: # List
                 add:

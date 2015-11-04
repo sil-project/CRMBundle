@@ -16,9 +16,9 @@ class ContactGroupAdmin extends BaseAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('contact', null, array('label' => 'Contact'), null, array('multiple' => true))
-            ->add('organism', null, array('label' => 'Organism'), null, array('multiple' => true))
-            ->add('roles', null, array('label' => 'Roles'), null, array('multiple' => true));
+            ->add('contact')
+            ->add('organism')
+            ->add('roles');
     }
 
     /**
