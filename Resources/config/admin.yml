@@ -16,3 +16,15 @@ services:
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Organism}
+
+    app.admin.role:
+        class: Librinfo\CRMBundle\Admin\RoleAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Role, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Role}
+
+    app.admin.contactgroup:
+        class: Librinfo\CRMBundle\Admin\ContactGroupAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Group}

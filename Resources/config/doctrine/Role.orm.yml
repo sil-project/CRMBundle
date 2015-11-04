@@ -8,3 +8,15 @@ Librinfo\CRMBundle\Entity\Role:
         name:
             type:       string
             length:     255
+    manyToMany:
+        contactGroups:
+            targetEntity: Librinfo\CRMBundle\Entity\ContactGroup
+            mappedBy: roles
+            joinTable:
+                name: librinfo_crm_contactgroups_roles
+                joinColumns:
+                    role_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    contact_group_id:
+                        referencedColumnName: id
