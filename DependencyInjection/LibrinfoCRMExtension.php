@@ -27,6 +27,14 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
         $loader->load('admin.yml');
+
+        if($container->getParameter('kernel.environment') == 'test')
+        {
+            if(!$container->hasParameter('librinfo.datafixtures')){
+                $container->setParameter('librinfo.datafixtures', array());
+            }
+            $this->mergeParameter('librinfo.datafixtures', $container, __DIR__.'/../Resources/config/','datafixtures.yml');
+        }
         
         $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 

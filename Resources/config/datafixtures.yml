@@ -1,0 +1,7 @@
+parameters:
+    librinfo.datafixtures:
+        user:
+            username: 'SDW'
+            password: 'sdw'
+            email: 'sdw@test.fr'
+            role: 'CRM_MANAGER'
