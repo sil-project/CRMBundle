@@ -1,0 +1,29 @@
+Librinfo\CRMBundle\Entity\ContactGroup:
+    type:  entity
+    id:
+        id:
+            type: guid
+            generator:  { strategy: UUID }
+    manyToOne:
+        contact:
+            targetEntity: Librinfo\CRMBundle\Entity\Contact
+            joinColumn:
+                name: contact
+                referencedColumnName: id
+        organism:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            joinColumn:
+                name: organism
+                referencedColumnName: id
+    manyToMany:
+        roles:
+            targetEntity: Librinfo\CRMBundle\Entity\Role
+            inversedBy: contactGroups
+            joinTable:
+                name: librinfo_crm_contactgroups_roles
+                joinColumns:
+                    role_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    contact_group_id:
+                        referencedColumnName: id

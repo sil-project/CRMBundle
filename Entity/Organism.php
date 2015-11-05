@@ -4,15 +4,17 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AdressableInterface;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Adressable;
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AddressableInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Organism
  */
-class Organism implements AdressableInterface
+class Organism implements AddressableInterface, BaseEntityInterface
 {
-    use Adressable;
+    use Addressable, BaseEntity;
     /**
      * @var string
      */

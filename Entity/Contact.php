@@ -2,15 +2,18 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AdressableInterface;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Adressable;
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AddressableInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Contact
  */
-class Contact implements AdressableInterface
+class Contact implements AddressableInterface, BaseEntityInterface
 {
-    use Adressable;
+    use Addressable, BaseEntity;
+
     /**
      * @var string
      */
@@ -225,10 +228,10 @@ class Contact implements AdressableInterface
     {
         return $this->culture;
     }
-
+    
     public function __toString()
     {
-        return ($this->title ? $this->title . ' ' : '') . $this->firstname . ' ' . parent::__toString();
+        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.parent::__toString();
     }
 }
 
