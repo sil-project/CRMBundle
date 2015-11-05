@@ -4,16 +4,16 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
+use Knp\DoctrineBehaviors\Model\Tree\Node;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Category
  */
-class Category implements BaseEntityInterface
+class Category
 {
 
-    use BaseEntity;
+    use BaseEntity, Node;
 
     /**
      * @var string

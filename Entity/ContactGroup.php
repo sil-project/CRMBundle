@@ -4,14 +4,14 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * ContactGroup
  */
-class ContactGroup implements BaseEntityInterface
+class ContactGroup
 {
-
+    use BaseEntity;
     /**
      * @var string
      */

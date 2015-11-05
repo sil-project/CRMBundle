@@ -4,13 +4,14 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Role
  */
-class Role implements BaseEntityInterface
+class Role
 {
+    use BaseEntity;
     /**
      * @var string
      */

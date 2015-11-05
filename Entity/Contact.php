@@ -2,15 +2,13 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\AddressableInterface;
-use Librinfo\BaseEntitiesBundle\Entity\Interfaces\BaseEntityInterface;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Contact
  */
-class Contact implements AddressableInterface, BaseEntityInterface
+class Contact
 {
     use Addressable, BaseEntity;
 
