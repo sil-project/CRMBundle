@@ -5,7 +5,11 @@ librinfo.security:
     # Defining custom Roles hierarchy (as a tree)
     security.role_hierarchy.roles:
         ROLE_SUPER_ADMIN:
-            - CRM_MANAGER:
-                - CRM_CONTACT_MANAGER:
-                    - CRM_CONTACT_VIEWER:
-                        - ROLE_TEST
+            - ROLE_CRM_MANAGER:
+                - ROLE_CRM_CONTACT_MANAGER:
+                    - ROLE_CRM_CONTACT_VIEWER:
+                        - ROLE_CRM_CONTACT_LIST
+                        - ROLE_CRM_CONTACT_VIEW
+                        - ROLE_CRM_CONTACT_CREATE
+                        - ROLE_CRM_CONTACT_EDIT
+                        - ROLE_CRM_CONTACT_EXPORT
