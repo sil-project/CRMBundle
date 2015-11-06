@@ -37,7 +37,7 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         
         $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 
-        if ( class_exists('Librinfo\SecurityBundle\Configurator\SecurityConfigurator') )
-            Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        if ( class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator') )
+            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
     }
 }
