@@ -104,7 +104,7 @@ class ContactGroup
     /**
      * addRole
      *
-     * @param $role
+     * @param Role $role
      *
      * @return $this
      *
@@ -123,7 +123,7 @@ class ContactGroup
     /**
      * removeRole
      *
-     * @param $role
+     * @param Role $role
      *
      * @return $this
      *

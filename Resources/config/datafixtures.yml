@@ -1,7 +1,17 @@
 parameters:
-    librinfo.datafixtures:
+    librinfo.crmbundle.datafixtures:
         user:
             username: 'SDW'
-            password: 'sdw'
-            email: 'sdw@test.fr'
-            role: 'CRM_MANAGER'
+            password: 'testSDW'
+            email: 'testSDW@test.fr'
+            role: 'ROLE_USER'
+        organism:
+            name: 'Librinfo'
+            administrative_number: 1000
+            url : 'https://github.com/libre-informatique/'
+        category:
+            name: 'First category'
+        contact:
+            title: 'title contact'
+        role:
+            name: 'Responsable'
