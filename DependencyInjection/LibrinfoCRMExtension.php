@@ -2,7 +2,6 @@
 
 namespace Librinfo\CRMBundle\DependencyInjection;
 
-use Librinfo\SecurityBundle\Configurator\SecurityConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -28,9 +27,9 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         $loader->load('services.yml');
         $loader->load('admin.yml');
 
-        if($container->getParameter('kernel.environment') == 'test')
+        if ( $container->getParameter('kernel.environment') == 'test' )
         {
-            if(!$container->hasParameter('librinfo.datafixtures')){
+            if ( !$container->hasParameter('librinfo.datafixtures') ){
                 $container->setParameter('librinfo.datafixtures', array());
             }
             $this->mergeParameter('librinfo.datafixtures', $container, __DIR__.'/../Resources/config/','datafixtures.yml');
@@ -38,6 +37,7 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         
         $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 
-        SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        if ( class_exists('Librinfo\SecurityBundle\Configurator\SecurityConfigurator') )
+            Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
     }
 }
