@@ -9,7 +9,7 @@
         "libre-informatique/core-bundle": "dev-interfaces_and_traits",
         "libre-informatique/base-entities-bundle": "dev-interfaces_and_traits",
         "sonata-project/easy-extends-bundle": "^2.1",
-        "stof/doctrine-extensions-bundle": "^v1.2"
+        "stof/doctrine-extensions-bundle": "^1.2"
     },
     "license":  "GPL-3.0",
     "keywords": ["e-venement", "libio", "sonata", "symfony"],
