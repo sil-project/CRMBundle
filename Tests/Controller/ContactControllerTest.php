@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ContactControllerTest extends WebTestCase
 {
     private $datafixtures;
+    private $client;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
+    public function init(){
+        $this->client = static::createClient();
 
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
     }
 
     /**
@@ -22,6 +22,8 @@ class ContactControllerTest extends WebTestCase
      */
     public function testsAdd()
     {
+        $this->init();
+
         $contact = new Contact();
         $contact->setTitle($this->datafixtures['contact']['title']);
 

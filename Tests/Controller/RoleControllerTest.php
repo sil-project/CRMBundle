@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class RoleControllerTest extends WebTestCase
 {
     private $datafixtures;
+    private $client;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
+    public function init(){
+        $this->client = static::createClient();
 
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
     }
 
     /**
@@ -22,6 +22,7 @@ class RoleControllerTest extends WebTestCase
      */
     public function testsAdd()
     {
+        $this->init();
         $role = new Role();
         $role->setName($this->datafixtures['role']['name']);
 

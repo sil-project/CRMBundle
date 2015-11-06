@@ -9,12 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class CategoryControllerTest extends WebTestCase
 {
     private $datafixtures;
+    private $client;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
+    public function init(){
+        $this->client = static::createClient();
 
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
     }
 
 
@@ -24,6 +24,8 @@ class CategoryControllerTest extends WebTestCase
      */
     public function testsAdd()
     {
+        $this->init();
+
         $category = new Category();
 
         $category->setName($this->datafixtures['category']['name']);
@@ -37,6 +39,8 @@ class CategoryControllerTest extends WebTestCase
      */
     public function testsOrganism()
     {
+        $this->init();
+
         $category = new Category();
 
         $organism = new Organism();

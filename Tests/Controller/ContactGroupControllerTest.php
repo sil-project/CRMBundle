@@ -13,11 +13,10 @@ class ContactGroupControllerTest extends WebTestCase
 {
     private $datafixtures;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
+    public function init(){
+        $this->client = static::createClient();
 
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
     }
 
 
@@ -27,6 +26,8 @@ class ContactGroupControllerTest extends WebTestCase
      */
     public function testsAdd()
     {
+        $this->init();
+
         $contactGroup = new ContactGroup();
 
         $contact = new Contact();
@@ -56,6 +57,8 @@ class ContactGroupControllerTest extends WebTestCase
      */
     public function testsRoles()
     {
+        $this->init();
+
         $contactGroup = new ContactGroup();
 
         $roleCollection = new ArrayCollection();

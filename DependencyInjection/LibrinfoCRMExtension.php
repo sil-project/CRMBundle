@@ -35,6 +35,7 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         
         $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 
-        SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        $env = ($container->getParameter('kernel.environment') == 'test') ? '_test':'';
+        SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security'.$env.'.yml');
     }
 }

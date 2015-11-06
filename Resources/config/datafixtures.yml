@@ -4,7 +4,7 @@ parameters:
             username: 'SDW'
             password: 'testSDW'
             email: 'testSDW@test.fr'
-            role: 'ROLE_USER'
+            role: 'ROLE_GLOBAL_TEST'
         organism:
             name: 'Librinfo'
             administrative_number: 1000
