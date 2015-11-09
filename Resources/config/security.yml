@@ -1,15 +1,48 @@
 librinfo.security:
     # Checking Controllers and/or Services access
     method_access_control:
-        'Librinfo\\UIBundle\\Twig\\Extension\\AdminMenu::showAdminMenu$': 'hasRole("CRM_MANAGER")'
+        'Librinfo\\UIBundle\\Twig\\Extension\\AdminMenu::showAdminMenu$': 'hasRole("ROLE_USER")'
     # Defining custom Roles hierarchy (as a tree)
     security.role_hierarchy.roles:
         ROLE_SUPER_ADMIN:
             - ROLE_CRM_MANAGER:
                 - ROLE_CRM_CONTACT_MANAGER:
-                    - ROLE_CRM_CONTACT_VIEWER:
-                        - ROLE_CRM_CONTACT_LIST
-                        - ROLE_CRM_CONTACT_VIEW
+                    - ROLE_CRM_CONTACT_EDITOR:
                         - ROLE_CRM_CONTACT_CREATE
                         - ROLE_CRM_CONTACT_EDIT
                         - ROLE_CRM_CONTACT_EXPORT
+                        - ROLE_CRM_CONTACT_VIEWER:
+                            - ROLE_CRM_CONTACT_LIST
+                            - ROLE_CRM_CONTACT_VIEW
+                - ROLE_CRM_ORGANISM_MANAGER:
+                    - ROLE_CRM_ORGANISM_EDITOR:
+                        - ROLE_CRM_ORGANISM_CREATE
+                        - ROLE_CRM_ORGANISM_EDIT
+                        - ROLE_CRM_ORGANISM_EXPORT
+                        - ROLE_CRM_ORGANISM_VIEWER:
+                            - ROLE_CRM_ORGANISM_LIST
+                            - ROLE_CRM_ORGANISM_VIEW
+                - ROLE_CRM_CATEGORY_MANAGER:
+                    - ROLE_CRM_CATEGORY_EDITOR:
+                        - ROLE_CRM_CATEGORY_CREATE
+                        - ROLE_CRM_CATEGORY_EDIT
+                        - ROLE_CRM_CATEGORY_EXPORT
+                        - ROLE_CRM_CATEGORY_VIEWER:
+                            - ROLE_CRM_CATEGORY_LIST
+                            - ROLE_CRM_CATEGORY_VIEW
+                - ROLE_CRM_ROLE_MANAGER:
+                    - ROLE_CRM_ROLE_EDITOR:
+                        - ROLE_CRM_ROLE_CREATE
+                        - ROLE_CRM_ROLE_EDIT
+                        - ROLE_CRM_ROLE_EXPORT
+                        - ROLE_CRM_ROLE_VIEWER:
+                            - ROLE_CRM_ROLE_LIST
+                            - ROLE_CRM_ROLE_VIEW
+                - ROLE_CRM_CONTACTGROUP_MANAGER:
+                    - ROLE_CRM_CONTACTGROUP_EDITOR:
+                        - ROLE_CRM_CONTACTGROUP_CREATE
+                        - ROLE_CRM_CONTACTGROUP_EDIT
+                        - ROLE_CRM_CONTACTGROUP_EXPORT
+                        - ROLE_CRM_CONTACTGROUP_VIEWER:
+                            - ROLE_CRM_CONTACTGROUP_LIST
+                            - ROLE_CRM_CONTACTGROUP_VIEW
