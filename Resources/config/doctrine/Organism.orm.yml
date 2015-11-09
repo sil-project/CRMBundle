@@ -13,6 +13,10 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+        name:
+            type:       string
+            length:     255
+            nullable:   true
     manyToMany:
         categories:
             targetEntity:   Librinfo\CRMBundle\Entity\Category

@@ -25,6 +25,11 @@ class Organism
     /**
      * @var string
      */
+    private $name;
+
+    /**
+     * @var string
+     */
     private $administrativeNumber;
 
     /**
@@ -71,6 +76,27 @@ class Organism
     {
         return $this->url;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Organism
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+
 
     /**
      * Set administrativeNumber
