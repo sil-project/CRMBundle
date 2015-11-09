@@ -5,12 +5,14 @@ namespace Librinfo\CRMBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Knp\DoctrineBehaviors\Model\Tree\Node;
+use Knp\DoctrineBehaviors\Model\Tree\NodeInterface;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 
 /**
  * Category
  */
-class Category
+class Category implements NodeInterface
 {
 
     use BaseEntity, Node;
