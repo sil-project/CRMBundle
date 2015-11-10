@@ -1,15 +1,21 @@
 services:
-    crm.category:
-        class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Category, SonataAdminBundle:CRUD]
+    crm.contact:
+        class: Librinfo\CRMBundle\Admin\ContactAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Category}
-
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}
+    
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Organism}
+
+    crm.category:
+        class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Category, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Category}
 
     crm.role:
         class: Librinfo\CRMBundle\Admin\RoleAdminConcrete
@@ -23,8 +29,3 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Group}
 
-    crm.contact:
-        class: Librinfo\CRMBundle\Admin\ContactAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}

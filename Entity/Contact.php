@@ -2,9 +2,10 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 
 /**
  * Contact

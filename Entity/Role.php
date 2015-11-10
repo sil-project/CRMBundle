@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Knp\DoctrineBehaviors\Model\Tree\Node;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 /**
  * Role
@@ -13,10 +14,6 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 class Role
 {
     use BaseEntity, Node, Nameable;
-    /**
-     * @var string
-     */
-    private $name;
 
     /**
      * @var Collection
@@ -26,25 +23,6 @@ class Role
     public function __construct()
     {
         $this->contactGroups = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return Role
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
     }
 
     /**
@@ -110,5 +88,4 @@ class Role
     {
         return $this->getName();
     }
-
 }

@@ -1,9 +1,6 @@
 Librinfo\CRMBundle\Entity\Category:
     type: entity
-    fields:
-        name:
-            type: string
-            length: 255
+    fields: ~
     manyToMany:
         organisms:
             targetEntity: Organism

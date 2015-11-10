@@ -4,10 +4,6 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
-                        _options:
-                            groupsOrder:
-                                - Address
-                                - ''
                         '':
                             title: ~
                             firstname: ~

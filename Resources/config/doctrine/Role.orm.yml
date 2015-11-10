@@ -1,9 +1,6 @@
 Librinfo\CRMBundle\Entity\Role:
     type: entity
-    fields:
-        name:
-            type:       string
-            length:     255
+    fields: ~
     manyToMany:
         contactGroups:
             targetEntity: Librinfo\CRMBundle\Entity\ContactGroup
