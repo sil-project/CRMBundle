@@ -27,6 +27,16 @@ parameters:
                             - General
                             - Sales
                             - Specifics
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    title: ~
+                    firstname: ~
+                    _options:
+                        fieldsOrder:
+                            - title
+                            - firstname
+                            - name
+                            - email
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
