@@ -7,9 +7,7 @@
         "symfony/symfony": "2.7.*",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
         "sonata-project/easy-extends-bundle": "^2.1",
-        "stof/doctrine-extensions-bundle": "^1.2"
-    },
-    "require-dev": {
+        "stof/doctrine-extensions-bundle": "^1.2",
         "libre-informatique/base-entities-bundle": "dev-interfaces_and_traits"
     },
     "license":  "GPL-3.0",
