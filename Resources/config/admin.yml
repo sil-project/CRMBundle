@@ -27,4 +27,4 @@ services:
         class: Librinfo\CRMBundle\Admin\ContactAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Contact}
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}
