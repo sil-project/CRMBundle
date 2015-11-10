@@ -11,11 +11,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 class Role
 {
-    use BaseEntity;
-    /**
-     * @var string
-     */
-    private $name;
+    use BaseEntity, Nameable;
 
     /**
      * @var string
@@ -30,25 +26,6 @@ class Role
     public function __construct()
     {
         $this->contactGroups = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return Role
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
     }
 
     /**

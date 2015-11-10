@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Knp\DoctrineBehaviors\Model\Tree\Node;
 use Knp\DoctrineBehaviors\Model\Tree\NodeInterface;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 
 /**
@@ -15,17 +16,12 @@ use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 class Category implements NodeInterface
 {
 
-    use BaseEntity, Node;
+    use BaseEntity, Node, Nameable;
 
     /**
      * @var string
      */
     protected $id;
-
-    /**
-     * @var string
-     */
-    private $name;
 
     /**
      * @var Collection
@@ -38,30 +34,6 @@ class Category implements NodeInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Category
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

@@ -11,7 +11,8 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 class ContactGroup
 {
-    use BaseEntity;
+    use BaseEntity, Nameable;
+    
     /**
      * @var string
      */

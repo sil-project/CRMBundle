@@ -11,7 +11,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
  */
 class Contact
 {
-    use Addressable, BaseEntity, Traceable;
+    use BaseEntity, Addressable, Traceable;
 
     /**
      * @var string
