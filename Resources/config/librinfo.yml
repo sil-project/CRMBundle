@@ -1,144 +1,58 @@
 parameters:
     librinfo:
-        Librinfo\CRMBundle\Admin\OrganismAdmin:     # Organisms
-            Sonata\AdminBundle\Form\FormMapper:     # Form
+        Librinfo\CRMBundle\Entity\Contact:
+            Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
-                        '':
-                            categories:
-                                type: sonata_type_model
-                                property: name
-                                required: false
-                                multiple: true
-                                expanded: false
-            Sonata\AdminBundle\Datagrid\ListMapper: # Filters
-                add:
-                    categories: ~
-        Librinfo\CRMBundle\Admin\RoleAdmin:     # Role
-            Sonata\AdminBundle\Form\FormMapper:     # Form
-                add:
-                    General:
-                        '':
-                            name: ~
-            Sonata\AdminBundle\Datagrid\ListMapper: # Filters
-                add:
-                    name: ~
-                    _action:
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-        Librinfo\CRMBundle\Admin\ContactGroupAdmin:     # Role
-            Sonata\AdminBundle\Form\FormMapper:     # Form
-                add:
-                    General:
-                        '':
-                            contact:
-                                class: Librinfo\CRMBundle\Entity\Contact
-                                type: sonata_type_model
-                                property: name
-                                required: true
-                                multiple: false
-                                expanded: false
-                                by_reference: false
-                            organism:
-                                class: Librinfo\CRMBundle\Entity\Organism
-                                type: sonata_type_model
-                                property: name
-                                required: true
-                                multiple: false
-                                expanded: false
-                                by_reference: false
-                            roles:
-                                class: Librinfo\CRMBundle\Entity\Role
-                                type: sonata_type_model_autocomplete
-                                property: name
-                                required: true
-                                multiple: true
-                                by_reference: false
-            Sonata\AdminBundle\Datagrid\ListMapper: # Filters
-                add:
-                    contact:
                         _options:
-                            associated_tostring: name
-                    organism:
-                        _options:
-                            associated_tostring: name
-                    roles:
-                        _options:
-                            associated_tostring: name
-                    _action:
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-            Sonata\AdminBundle\Datagrid\DatagridMapper: # Filters
-                add:
-                    contact:
-                        field_options:
-                            label: Contact
-                            multiple: true
-                    organism:
-                        field_options:
-                            label: Organism
-                            multiple: true
-                    roles:
-                        field_options:
-                            label: Roles
-                            multiple: true
-        Librinfo\CRMBundle\Admin\ContactAdmin:      # Contacts
-            Sonata\AdminBundle\Datagrid\ListMapper: # List
+                            groupsOrder:
+                                - Address
+                                - ''
+                        '':
+                            title: ~
+                            firstname: ~
+                            _options:
+                                fieldsOrder:
+                                   - title
+                                   - firstname
+                                   - name
+                                   - email
+                    Sales:
+                        Ticketing:
+                            flashOnControl: ~
+                    Specifics:
+                        Communication:
+                            culture: ~
+                            _options:
+                                fieldsOrder:
+                                    - culture
+                    _options:
+                        tabsOrder:
+                            - General
+                            - Sales
+                            - Specifics
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
                     firstname: ~
-                    name: ~
-                    email: ~
-                    postalcode: ~
-                    city: ~
-                    country: ~
-                    culture: ~
-                    _action:
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-            Sonata\AdminBundle\Datagrid\DatagridMapper: # Filters
-                add:
-                    title: ~
-                    name: ~
-                    firstname: ~
-                    address: ~
-                    postalcode: ~
-                    city: ~
-                    country: ~
-                    email: ~
                     shortname: ~
                     familyContact: ~
                     culture: ~
                     npai: ~
                     emailNpai: ~
                     emailNoNewsletter: ~
-            Sonata\AdminBundle\Form\FormMapper:     # Form
-                remove: [name, email]
-                add:
-                    General:
-                        '':
-                            title: ~
-                            name: ~
-                            firstname: ~
-                            email: ~
-                            _options:
-                                fieldsOrder:
-                                    - email
-                                    - firstname
-                                    - name
-                                    - title
-                    Ticketting:
-                        History: ~
-                        Control:
-                            flashOnControl: ~
-                    Specifics:
-                        Communication:
-                            culture: ~
-
-
+                    _options:
+                        fieldsOrder:
+                            - title
+                            - firstname
+                            - name
+                            - email
+                            - zip
+                            - city
+                            - country
+                            - familyContact
+                            - culture
+                            - npai
+                            - emailNpai
+                            - emailNoNewsletter
+        

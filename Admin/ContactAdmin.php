@@ -2,14 +2,13 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\AddressableAdmin;
+use Librinfo\CoreBundle\Admin\Admin;
 
-class ContactAdmin extends AddressableAdmin
+class ContactAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,20 +17,6 @@ class ContactAdmin extends AddressableAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
-            ->add('name')
-            ->add('address')
-            ->add('postalcode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('firstname')
             ->add('shortname')
             ->add('title')
@@ -39,6 +24,20 @@ class ContactAdmin extends AddressableAdmin
             ->add('password')
             ->add('familyContact')
             ->add('culture')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('name')
+            ->add('description')
+            ->add('address')
+            ->add('zip')
+            ->add('city')
+            ->add('country')
+            ->add('npai')
+            ->add('email')
+            ->add('emailNpai')
+            ->add('emailNoNewsletter')
+            ->add('vcardUid')
+            ->add('confirmed')
         ;
     }
 
@@ -49,20 +48,6 @@ class ContactAdmin extends AddressableAdmin
     {
         $listMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
-            ->add('name')
-            ->add('address')
-            ->add('postalcode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('firstname')
             ->add('shortname')
             ->add('title')
@@ -70,6 +55,20 @@ class ContactAdmin extends AddressableAdmin
             ->add('password')
             ->add('familyContact')
             ->add('culture')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('name')
+            ->add('description')
+            ->add('address')
+            ->add('zip')
+            ->add('city')
+            ->add('country')
+            ->add('npai')
+            ->add('email')
+            ->add('emailNpai')
+            ->add('emailNoNewsletter')
+            ->add('vcardUid')
+            ->add('confirmed')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -87,20 +86,6 @@ class ContactAdmin extends AddressableAdmin
     {
         $formMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
-            ->add('name')
-            ->add('address')
-            ->add('postalcode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('firstname')
             ->add('shortname')
             ->add('title')
@@ -108,6 +93,20 @@ class ContactAdmin extends AddressableAdmin
             ->add('password')
             ->add('familyContact')
             ->add('culture')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('name')
+            ->add('description')
+            ->add('address')
+            ->add('zip')
+            ->add('city')
+            ->add('country')
+            ->add('npai')
+            ->add('email')
+            ->add('emailNpai')
+            ->add('emailNoNewsletter')
+            ->add('vcardUid')
+            ->add('confirmed')
         ;
     }
 
@@ -118,20 +117,6 @@ class ContactAdmin extends AddressableAdmin
     {
         $showMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
-            ->add('name')
-            ->add('address')
-            ->add('postalcode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('firstname')
             ->add('shortname')
             ->add('title')
@@ -139,6 +124,20 @@ class ContactAdmin extends AddressableAdmin
             ->add('password')
             ->add('familyContact')
             ->add('culture')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('name')
+            ->add('description')
+            ->add('address')
+            ->add('zip')
+            ->add('city')
+            ->add('country')
+            ->add('npai')
+            ->add('email')
+            ->add('emailNpai')
+            ->add('emailNoNewsletter')
+            ->add('vcardUid')
+            ->add('confirmed')
         ;
     }
 }

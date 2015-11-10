@@ -11,7 +11,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
  */
 class Contact
 {
-    use Addressable, BaseEntity;
+    use Addressable, BaseEntity, Traceable;
 
     /**
      * @var string
@@ -230,7 +230,7 @@ class Contact
     
     public function __toString()
     {
-        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.parent::__toString();
+        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.$this->name;
     }
 }
 
