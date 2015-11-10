@@ -12,7 +12,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 class Organism
 {
-    use Addressable, BaseEntity;
+    use BaseEntity, Traceable, Addressable, Emailable;
     
     /**
      * @var string
