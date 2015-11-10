@@ -16,10 +16,6 @@ class Contact
     /**
      * @var string
      */
-    private $id;
-    /**
-     * @var string
-     */
     private $firstname;
 
     /**
@@ -51,14 +47,6 @@ class Contact
      * @var string
      */
     private $culture;
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set firstname

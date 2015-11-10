@@ -13,20 +13,11 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 class Organism
 {
     use BaseEntity, Traceable, Addressable, Emailable;
-    
-    /**
-     * @var string
-     */
-    private $id;
-    /**
-     * @var string
-     */
-    private $url;
 
     /**
      * @var string
      */
-    private $name;
+    private $url;
 
     /**
      * @var string
