@@ -1,19 +1,11 @@
 Librinfo\CRMBundle\Entity\Organism:
     type: entity
-    id:
-        id:
-            type: guid
-            generator:  { strategy: UUID }
     fields:
         url:
             type:       string
             length:     255
             nullable:   true
         administrativeNumber:
-            type:       string
-            length:     255
-            nullable:   true
-        name:
             type:       string
             length:     255
             nullable:   true

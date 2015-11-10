@@ -17,8 +17,6 @@ class CategoryAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
         ;
     }
@@ -30,8 +28,6 @@ class CategoryAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -50,9 +46,12 @@ class CategoryAdmin extends Admin
     {
         $formMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
+            ->add('parentNode', 'treeable', array(
+                    'class'=> 'LibrinfoCRMBundle:Category',
+                    'required' => false
+                )
+            );
         ;
     }
 
@@ -63,8 +62,6 @@ class CategoryAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
         ;
     }

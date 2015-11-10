@@ -1,15 +1,5 @@
 Librinfo\CRMBundle\Entity\Category:
     type: entity
-    id:
-        id:
-            type: guid
-            generator:  { strategy: UUID }
-#    gedmo:
-#        tree:
-#            type: nested
-#    embedded:
-#        tree:
-#            class: Librinfo\BaseEntitiesBundle\Entity\Treeable
     fields:
         name:
             type: string
@@ -22,19 +12,3 @@ Librinfo\CRMBundle\Entity\Category:
         organisms:
             targetEntity:   Librinfo\CRMBundle\Entity\Organism
             mappedBy:     categories
-#    manyToOne:
-#        parent:
-#            targetEntity: Librinfo\BaseEntitiesBundle\Entity\Treeable
-#            inversedBy: children
-#            joinColumn:
-#                name: parent_id
-#                referencedColumnName: id
-#                onDelete: CASCADE
-#            gedmo:
-#                - treeParent
-#    oneToMany:
-#        children:
-#            targetEntity: Librinfo\BaseEntitiesBundle\Entity\Treeable
-#            mappedBy: parent
-#            orderBy:
-#                lft: ASC

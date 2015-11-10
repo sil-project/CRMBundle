@@ -1,9 +1,5 @@
 Librinfo\CRMBundle\Entity\Role:
     type: entity
-    id:
-        id:
-            type: guid
-            generator:  { strategy: UUID }
     fields:
         name:
             type:       string

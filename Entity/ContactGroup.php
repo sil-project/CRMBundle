@@ -12,11 +12,6 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 class ContactGroup
 {
     use BaseEntity, Nameable;
-    
-    /**
-     * @var string
-     */
-    private $id;
 
     /**
      * @var Contact
@@ -36,14 +31,6 @@ class ContactGroup
     public function __construct()
     {
         $this->roles = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

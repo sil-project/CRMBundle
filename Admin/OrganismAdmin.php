@@ -17,11 +17,9 @@ class OrganismAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
             ->add('address')
-            ->add('postalcode')
+            ->add('postalCode')
             ->add('city')
             ->add('country')
             ->add('npai')
@@ -33,8 +31,7 @@ class OrganismAdmin extends Admin
             ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('professional_id')
-            ->add('category_id')
+//            ->add('categories')
         ;
     }
 
@@ -45,11 +42,9 @@ class OrganismAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
             ->add('address')
-            ->add('postalcode')
+            ->add('postalCode')
             ->add('city')
             ->add('country')
             ->add('npai')
@@ -61,8 +56,7 @@ class OrganismAdmin extends Admin
             ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('professional_id')
-            ->add('category_id')
+            ->add('categories')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -79,12 +73,10 @@ class OrganismAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
-            ->add('user_id')
-            ->add('automatic')
+//            ->add('id')
             ->add('name')
             ->add('address')
-            ->add('postalcode')
+            ->add('postalCode')
             ->add('city')
             ->add('country')
             ->add('npai')
@@ -96,8 +88,7 @@ class OrganismAdmin extends Admin
             ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('professional_id')
-            ->add('category_id')
+            ->add('categories')
         ;
     }
 
@@ -108,11 +99,9 @@ class OrganismAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('user_id')
-            ->add('automatic')
             ->add('name')
             ->add('address')
-            ->add('postalcode')
+            ->add('postalCode')
             ->add('city')
             ->add('country')
             ->add('npai')
@@ -124,8 +113,7 @@ class OrganismAdmin extends Admin
             ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('professional_id')
-            ->add('category_id')
+            ->add('categories')
         ;
     }
 }

@@ -4,6 +4,7 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Knp\DoctrineBehaviors\Model\Tree\Node;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
@@ -11,12 +12,11 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 class Role
 {
-    use BaseEntity, Nameable;
-
+    use BaseEntity, Node, Nameable;
     /**
      * @var string
      */
-    private $id;
+    private $name;
 
     /**
      * @var Collection
@@ -31,9 +31,20 @@ class Role
     /**
      * @return string
      */
-    public function getId()
+    public function getName()
     {
-        return $this->id;
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Role
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
     }
 
     /**

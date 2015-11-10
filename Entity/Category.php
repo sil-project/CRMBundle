@@ -19,22 +19,10 @@ class Category implements NodeInterface
     use BaseEntity, Node, Nameable;
 
     /**
-     * @var string
-     */
-    protected $id;
-
-    /**
      * @var Collection
      */
     private $organisms;
 
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Constructor
