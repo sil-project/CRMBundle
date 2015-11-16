@@ -23,21 +23,18 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
         $loader->load('admin.yml');
 
-        if($container->getParameter('kernel.environment') == 'test')
+        if ($container->getParameter('kernel.environment') == 'test')
         {
-            if(!$container->hasParameter('librinfo.datafixtures')){
-                $container->setParameter('librinfo.datafixtures', array());
-            }
-            $this->mergeParameter('librinfo.datafixtures', $container, __DIR__.'/../Resources/config/','datafixtures.yml');
+            $loader->load('datafixtures.yml');
         }
-        
-        $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 
-        if ( class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator') )
+        $this->mergeParameter('librinfo', $container, __DIR__ . '/../Resources/config');
+
+        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
             \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
     }
 }
