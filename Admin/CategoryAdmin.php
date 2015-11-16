@@ -2,23 +2,20 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
+use Librinfo\CoreBundle\Admin\TreeableAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\Admin;
 
-class CategoryAdmin extends Admin
+class CategoryAdmin extends TreeableAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper
-            ->add('id')
-            ->add('name')
-        ;
+        parent::configureDatagridFilters($datagridMapper);
     }
 
     /**
@@ -26,17 +23,16 @@ class CategoryAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+//        parent::configureListFields($listMapper);
         $listMapper
-            ->add('id')
             ->add('name')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
+                    'show'   => array(),
+                    'edit'   => array(),
                     'delete' => array(),
                 )
-            ))
-        ;
+            ));
     }
 
     /**
@@ -44,15 +40,15 @@ class CategoryAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+//        parent::configureFormFields($formMapper);
         $formMapper
-            ->add('id')
             ->add('name')
             ->add('parentNode', 'treeable', array(
-                    'class'=> 'LibrinfoCRMBundle:Category',
-                    'required' => false
+                    'class'       => 'LibrinfoCRMBundle:Category',
+                    'required'    => false,
+                    'empty_value' => '- - -'
                 )
             );
-        ;
     }
 
     /**
@@ -60,9 +56,9 @@ class CategoryAdmin extends Admin
      */
     protected function configureShowFields(ShowMapper $showMapper)
     {
+//        parent::configureShowFields($showMapper);
         $showMapper
-            ->add('id')
             ->add('name')
-        ;
+            ->add('parentNode');
     }
 }

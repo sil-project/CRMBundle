@@ -8,6 +8,7 @@ use Knp\DoctrineBehaviors\Model\Tree\Node;
 use Knp\DoctrineBehaviors\Model\Tree\NodeInterface;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Treeable;
 use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 
 /**
@@ -16,7 +17,7 @@ use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 class Category implements NodeInterface
 {
 
-    use BaseEntity, Node, Nameable;
+    use BaseEntity, Treeable, Nameable;
 
     /**
      * @var Collection

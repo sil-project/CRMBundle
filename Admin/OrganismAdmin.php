@@ -16,23 +16,8 @@ class OrganismAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
-            ->add('name')
-            ->add('address')
-            ->add('postalCode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('url')
-            ->add('administrativeNumber')
-//            ->add('categories')
-        ;
+            ->add('administrativeNumber');
     }
 
     /**
@@ -41,30 +26,16 @@ class OrganismAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('name')
-            ->add('address')
-            ->add('postalCode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
-            ->add('url')
-            ->add('administrativeNumber')
-            ->add('categories')
+//            ->add('url')
+//            ->add('administrativeNumber')
+//            ->add('categories')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
+                    'show'   => array(),
+                    'edit'   => array(),
                     'delete' => array(),
                 )
-            ))
-        ;
+            ));
     }
 
     /**
@@ -73,23 +44,14 @@ class OrganismAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-//            ->add('id')
-            ->add('name')
-            ->add('address')
-            ->add('postalCode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('categories')
-        ;
+            ->add('categories', 'treeable_choice', [
+                'class'       => 'LibrinfoCRMBundle:Category',
+                'required'    => false,
+                'empty_value' => '- - -',
+                'multiple'    => true
+            ]);
     }
 
     /**
@@ -98,22 +60,8 @@ class OrganismAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
-            ->add('name')
-            ->add('address')
-            ->add('postalCode')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('description')
-            ->add('vcardUid')
-            ->add('confirmed')
             ->add('url')
             ->add('administrativeNumber')
-            ->add('categories')
-        ;
+            ->add('categories');
     }
 }

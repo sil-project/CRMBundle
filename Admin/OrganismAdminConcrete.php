@@ -14,7 +14,7 @@ class OrganismAdminConcrete extends OrganismAdmin
      */
     protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+        parent::configureDatagridFilters($mapper);
     }
 
     /**
@@ -22,7 +22,7 @@ class OrganismAdminConcrete extends OrganismAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+        parent::configureListFields($mapper);
     }
 
     /**
@@ -30,7 +30,7 @@ class OrganismAdminConcrete extends OrganismAdmin
      */
     protected function configureFormFields(FormMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+        parent::configureFormFields($mapper);
     }
 
     /**
@@ -38,6 +38,6 @@ class OrganismAdminConcrete extends OrganismAdmin
      */
     protected function configureShowFields(ShowMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+        parent::configureShowFields($mapper);
     }
 }

@@ -2,12 +2,10 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CRMBundle\Admin\CategoryAdmin;
 
 class CategoryAdminConcrete extends CategoryAdmin
 {
@@ -25,11 +23,10 @@ class CategoryAdminConcrete extends CategoryAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         parent::configureListFields($listMapper);
-        $listMapper
-            ->remove('id')
-            ->remove('automatic')
-            ->remove('user_id')
-        ;
+//        $listMapper
+//            ->remove('id')
+//            ->remove('automatic')
+//            ->remove('user_id');
     }
 
     /**
@@ -38,11 +35,10 @@ class CategoryAdminConcrete extends CategoryAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         parent::configureFormFields($formMapper);
-        $formMapper
-            ->remove('id')
-            ->remove('automatic')
-            ->remove('user_id')
-        ;
+//        $formMapper
+//            ->remove('id')
+//            ->remove('automatic')
+//            ->remove('user_id');
     }
 
     /**
