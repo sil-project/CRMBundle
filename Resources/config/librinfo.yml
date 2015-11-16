@@ -1,5 +1,21 @@
 parameters:
     librinfo:
+        Librinfo\CRMBundle\Entity\Organism:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    Organism:
+                        '':
+                            url: ~
+                            administrativeNumber: ~
+                            categories: ~
+                    _options:
+                        tabsOrder:
+                            - Organism
+                            - General
+                            - Specifics
+                remove:
+                    default:
+                        Organism: ~
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
