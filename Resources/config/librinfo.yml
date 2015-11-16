@@ -7,15 +7,33 @@ parameters:
                         '':
                             url: ~
                             administrativeNumber: ~
-                            categories: ~
+                            categories:
+                                type: treeable_choice
+                                class: Librinfo\CRMBundle\Entity\Category
+                                required: false
+                                empty_value: '- - -'
+                                multiple: true
                     _options:
                         tabsOrder:
                             - Organism
                             - General
                             - Specifics
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    url: ~
+                    administrativeNumber: ~
+                    categories: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~
                 remove:
-                    default:
-                        Organism: ~
+                    zip: ~
+                    city: ~
+                    country: ~
+                    email: ~
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Form\FormMapper:
                 add:

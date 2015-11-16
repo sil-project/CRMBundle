@@ -23,14 +23,14 @@ class OrganismAdminConcrete extends OrganismAdmin
     protected function configureListFields(ListMapper $mapper)
     {
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
-        $mapper
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show'   => array(),
-                    'edit'   => array(),
-                    'delete' => array(),
-                )
-            ));
+//        $mapper
+//            ->add('_action', 'actions', array(
+//                'actions' => array(
+//                    'show'   => array(),
+//                    'edit'   => array(),
+//                    'delete' => array(),
+//                )
+//            ));
     }
 
     /**
@@ -39,13 +39,13 @@ class OrganismAdminConcrete extends OrganismAdmin
     protected function configureFormFields(FormMapper $mapper)
     {
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
-        $mapper
-            ->add('categories', 'treeable_choice', [
-                'class'       => 'LibrinfoCRMBundle:Category',
-                'required'    => false,
-                'empty_value' => '- - -',
-                'multiple'    => true,
-            ]);
+//        $mapper
+//            ->add('categories', 'treeable_choice', [
+//                'class'       => 'LibrinfoCRMBundle:Category',
+//                'required'    => false,
+//                'empty_value' => '- - -',
+//                'multiple'    => true,
+//            ]);
     }
 
     /**
