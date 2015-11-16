@@ -30,10 +30,10 @@ parameters:
                             edit: ~
                             delete: ~
                 remove:
-                    zip: ~
-                    city: ~
-                    country: ~
-                    email: ~
+                    - zip
+                    - city
+                    - country
+                    - email
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
