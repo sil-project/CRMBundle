@@ -6,9 +6,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\Admin;
+use Librinfo\CoreBundle\Admin\CoreAdmin;
 
-class ContactAdmin extends Admin
+class ContactAdmin extends CoreAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
