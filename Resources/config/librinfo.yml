@@ -1,5 +1,26 @@
 parameters:
     librinfo:
+        Librinfo\CRMBundle\Entity\Category:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            name:
+                                type: text
+                            parentNode:
+                                type: treeable
+                                class: Librinfo\CRMBundle\Entity\Category
+                                required: false
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    name: ~
+#                    nodeLevel: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -11,7 +32,6 @@ parameters:
                                 type: treeable_choice
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
-                                empty_value: '- - -'
                                 multiple: true
                     _options:
                         tabsOrder:

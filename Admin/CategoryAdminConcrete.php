@@ -9,43 +9,45 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class CategoryAdminConcrete extends CategoryAdmin
 {
+
+    protected $datagridValues = array(
+
+        '_page'       => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by'    => 'sortMaterializedPath',
+    );
+
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        parent::configureDatagridFilters($datagridMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ListMapper $listMapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $mapper)
     {
-        parent::configureListFields($listMapper);
-//        $listMapper
-//            ->remove('id')
-//            ->remove('automatic')
-//            ->remove('user_id');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param FormMapper $formMapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
-        parent::configureFormFields($formMapper);
-//        $formMapper
-//            ->remove('id')
-//            ->remove('automatic')
-//            ->remove('user_id');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
      * @param ShowMapper $showMapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        parent::configureShowFields($showMapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 }

@@ -13,7 +13,7 @@ services:
 
     crm.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Category, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Category, LibrinfoCoreBundle:TreeableCRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Category}
 
