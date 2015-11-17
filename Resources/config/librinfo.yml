@@ -14,7 +14,6 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
-#                    nodeLevel: ~
                     _action:
                         type: actions
                         actions:
