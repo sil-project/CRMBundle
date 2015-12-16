@@ -1,0 +1,19 @@
+Librinfo\CRMBundle\Entity\Circle:
+    type: entity
+    
+    manyToMany:
+        contacts:
+            targetEntity: Librinfo\CRMBundle\Entity\Contact
+            mappedBy: circles
+    manyToMany:
+        organisms:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            mappedBy: circles
+
+#    manyToOne:
+#        user:
+#            targetEntity: Librinfo\CRMBundle\Entity\User
+#            inversedBy: circles
+#            joinColumn:
+#                name: owner_id
+#                referencedColumnName: id

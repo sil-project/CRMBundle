@@ -30,6 +30,11 @@ class Organism
      * @var Collection
      */
     private $categories;
+    
+    /**
+     * @var Collection
+     */
+    private $circles;    
 
     /**
      * Organism constructor.
@@ -37,14 +42,6 @@ class Organism
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -89,8 +86,6 @@ class Organism
         $this->name = $name;
         return $this;
     }
-
-
 
     /**
      * Set administrativeNumber
@@ -139,4 +134,21 @@ class Organism
     {
         return $this->categories;
     }
+    
+    /**
+     * This function is called by the owning side (Circle::addOrganism) of the N-N relationship
+     * @param \Librinfo\CRMBundle\Entity\Circle $circle
+     */    
+    public function addCircle(Circle $circle)
+    {
+        $this->circles[] = $circle;
+    }    
+    
+    /**
+     * @return Collection
+     */
+    public function getCircles()
+    {
+        return $this->circles;
+    }    
 }

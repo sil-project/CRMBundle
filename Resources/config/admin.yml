@@ -28,4 +28,16 @@ services:
         arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Group}
+            
+    crm.contactphone:
+        class: Librinfo\CRMBundle\Admin\ContactPhoneAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: ContactPhone}
+            
+    crm.circle:
+        class: Librinfo\CRMBundle\Admin\CircleAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\Circle, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}
 

@@ -13,3 +13,16 @@ Librinfo\CRMBundle\Entity\Organism:
         categories:
             targetEntity:   Librinfo\CRMBundle\Entity\Category
             inversedBy:     organisms
+            
+    manyToMany:
+        circles:
+            targetEntity: Librinfo\CRMBundle\Entity\Circle
+            inversedBy: organisms
+            joinTable:
+                name: librinfo_crm_organism_circle
+                joinColumns:
+                    organism_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    circle_id:
+                        referencedColumnName: id            

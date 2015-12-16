@@ -21,4 +21,20 @@ Librinfo\CRMBundle\Entity\Contact:
             nullable:   true
         culture:
             type:       string(2)
-            nullable:   true        
+            nullable:   true       
+    oneToMany:
+        phones:
+            targetEntity: ContactPhone
+            mappedBy: contact
+    manyToMany:
+        circles:
+            targetEntity: Librinfo\CRMBundle\Entity\Circle
+            inversedBy: contacts
+            joinTable:
+                name: librinfo_crm_contact_circle
+                joinColumns:
+                    contact_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    circle_id:
+                        referencedColumnName: id

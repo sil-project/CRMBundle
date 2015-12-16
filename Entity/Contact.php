@@ -2,6 +2,8 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
@@ -12,7 +14,11 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
  */
 class Contact
 {
-    use BaseEntity, Addressable, Traceable, Emailable;
+
+    use BaseEntity,
+        Addressable,
+        Traceable,
+        Emailable;
 
     /**
      * @var string
@@ -48,6 +54,16 @@ class Contact
      * @var string
      */
     private $culture;
+
+    /**
+     * @var Collection
+     */
+    private $phones;
+    
+    /**
+     * @var Collection
+     */
+    private $circles;    
 
     /**
      * Set firstname
@@ -216,10 +232,57 @@ class Contact
     {
         return $this->culture;
     }
-    
+
+    public function __construct()
+    {
+        $this->phones = new ArrayCollection();
+        $this->circles = new ArrayCollection();
+    }
+
     public function __toString()
     {
-        return ($this->title ? $this->title.' ' : '').$this->firstname.' '.$this->name;
+        return ($this->title ? $this->title . ' ' : '') . $this->firstname . ' ' . $this->name;
     }
-}
 
+    /**
+     * Set phones
+     *
+     * @param Collection $phones
+     *
+     * @return Contact
+     */
+    public function setPhones($phones)
+    {
+        $this->phones = $phones;
+
+        return $this;
+    }
+
+    /**
+     * Get phones
+     *
+     * @return Collection
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+    
+    /**
+     * This function is called by the owning side (Circle::addContact) of the N-N relationship
+     * @param \Librinfo\CRMBundle\Entity\Circle $circle
+     */    
+    public function addCircle(Circle $circle)
+    {
+        $this->circles[] = $circle;
+    }    
+    
+    /**
+     * @return Collection
+     */
+    public function getCircles()
+    {
+        return $this->circles;
+    }
+
+}

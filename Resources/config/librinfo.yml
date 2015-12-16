@@ -20,6 +20,8 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
+                            
+                            
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -53,6 +55,8 @@ parameters:
                     - city
                     - country
                     - email
+                    
+                    
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -60,12 +64,21 @@ parameters:
                         '':
                             title: ~
                             firstname: ~
+                            phones:
+                                type: sonata_type_collection
+                                type_options:
+                                    by_reference: true
+                                    delete: true
+                                #by_reference: true
+                                required: false
+                                
                             _options:
                                 fieldsOrder:
                                    - title
                                    - firstname
                                    - name
-                                   - email
+                                   - email   
+                                   - phones
                     Sales:
                         Ticketing:
                             flashOnControl: ~
@@ -90,6 +103,12 @@ parameters:
                             - firstname
                             - name
                             - email
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~                            
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
@@ -114,4 +133,42 @@ parameters:
                             - npai
                             - emailNpai
                             - emailNoNewsletter
-        
+                            
+                            
+        Librinfo\CRMBundle\Entity\ContactPhone:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    number: ~       
+                    contact: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:     
+                    number: ~
+                    contact.firstname: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~                       
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    number: ~
+                    #contact: ~
+                    
+
+        Librinfo\CRMBundle\Entity\Circle:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    #contacts: ~
+                    organisms: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:     
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~                       
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+            
