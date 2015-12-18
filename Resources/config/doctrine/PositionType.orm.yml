@@ -1,0 +1,4 @@
+Librinfo\CRMBundle\Entity\PositionType:
+    type: entity
+
+    lifecycleCallbacks: {  }

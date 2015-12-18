@@ -9,6 +9,10 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+    oneToMany:
+        positions:
+            targetEntity: Position
+            mappedBy: organism
     manyToMany:
         categories:
             targetEntity:   Librinfo\CRMBundle\Entity\Category

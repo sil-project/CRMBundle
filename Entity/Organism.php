@@ -37,12 +37,18 @@ class Organism
     private $circles;    
 
     /**
+     * @var Collection
+     */
+    private $positions;    
+
+    /**
      * Organism constructor.
      */
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->circles = new ArrayCollection();
+        $this->positions = new ArrayCollection();
     }
 
     /**
@@ -164,4 +170,32 @@ class Organism
     {
         return $this->circles;
     }  
+    
+    /**
+     * @param Position $position
+     * @return Organism
+     */    
+    public function addPosition(Position $position)
+    {
+        $this->positions->add($position);
+        return $this;
+    }    
+    
+    /**
+     * @param Position $position
+     * @return Organism
+     */    
+    public function removePosition(Position $position)
+    {
+        $this->positions->removeElement($position);
+        return $this;
+    }      
+    
+    /**
+     * @return Collection
+     */
+    public function getPositions()
+    {
+        return $this->positions;
+    }     
 }

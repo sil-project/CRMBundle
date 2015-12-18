@@ -26,6 +26,9 @@ Librinfo\CRMBundle\Entity\Contact:
         phones:
             targetEntity: ContactPhone
             mappedBy: contact
+        positions:
+            targetEntity: Position
+            mappedBy: contact            
     manyToMany:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle

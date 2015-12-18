@@ -1,0 +1,25 @@
+Librinfo\CRMBundle\Entity\Position:
+    type: entity
+    fields:
+        email:
+            type: string
+            length: 255
+        description:
+            type: text
+        department:
+            type: string
+            length: 255
+    manyToOne:
+        contact:
+            targetEntity: Librinfo\CRMBundle\Entity\Contact
+            inversedBy: positions
+#            cascade:
+#                - persist
+#            joinColumn:
+#                name: contact
+#                referencedColumnName: id    
+        organism:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            inversedBy: positions
+            
+    lifecycleCallbacks: {  }
