@@ -5,7 +5,6 @@ Librinfo\CRMBundle\Entity\Circle:
         contacts:
             targetEntity: Librinfo\CRMBundle\Entity\Contact
             mappedBy: circles
-    manyToMany:
         organisms:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             mappedBy: circles

@@ -55,6 +55,10 @@ parameters:
                     - city
                     - country
                     - email
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    name: ~                    
+
                     
                     
         Librinfo\CRMBundle\Entity\Contact:
@@ -64,13 +68,23 @@ parameters:
                         '':
                             title: ~
                             firstname: ~
+#                            phones:
+#                                type: sonata_type_collection
+#                                type_options:
+#                                    by_reference: true
+#                                    delete: true
+#                                #by_reference: true
+#                                required: false
+
+#                            phones:
+#                                type: sonata_type_native_collection
+#                                by_reference: false
+#                                required: false
+#                                allow_add: true
+
                             phones:
-                                type: sonata_type_collection
-                                type_options:
-                                    by_reference: true
-                                    delete: true
-                                #by_reference: true
-                                required: false
+                                by_reference: false
+                                expanded: false
                                 
                             _options:
                                 fieldsOrder:
@@ -88,9 +102,13 @@ parameters:
                             _options:
                                 fieldsOrder:
                                     - culture
+                    Relationships:
+                        '':
+                            circles: ~
                     _options:
                         tabsOrder:
                             - General
+                            - Relationships
                             - Sales
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -138,8 +156,8 @@ parameters:
         Librinfo\CRMBundle\Entity\ContactPhone:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    number: ~       
-                    contact: ~
+                    number: ~
+                    #contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:     
                     number: ~
@@ -159,8 +177,25 @@ parameters:
         Librinfo\CRMBundle\Entity\Circle:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    #contacts: ~
-                    organisms: ~
+                    Members:
+                        '':
+                            contacts:
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: name
+                                multiple: true
+                                required: false                        
+                            organisms:
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: name
+                                multiple: true
+                                required: false  
+                    _options:
+                        tabsOrder:
+                            - General
+                            - Members
+                            - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:     
                     _action:

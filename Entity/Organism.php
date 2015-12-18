@@ -42,6 +42,7 @@ class Organism
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->circles = new ArrayCollection();
     }
 
     /**
@@ -138,11 +139,23 @@ class Organism
     /**
      * This function is called by the owning side (Circle::addOrganism) of the N-N relationship
      * @param \Librinfo\CRMBundle\Entity\Circle $circle
+     * @return Organism
      */    
     public function addCircle(Circle $circle)
     {
-        $this->circles[] = $circle;
+        $this->circles->add($circle);
+        return $this;
     }    
+    
+    /**
+     * @param Circle $circle
+     * @return Organism
+     */    
+    public function removeCircle(Circle $circle)
+    {
+        $this->circles->removeElement($circle);
+        return $this;
+    }      
     
     /**
      * @return Collection
@@ -150,5 +163,5 @@ class Organism
     public function getCircles()
     {
         return $this->circles;
-    }    
+    }  
 }

@@ -3,9 +3,5 @@ Librinfo\CRMBundle\Entity\Category:
     fields: ~
     manyToMany:
         organisms:
-            targetEntity: Organism
-            mappedBy: categories
-    manyToMany:
-        organisms:
             targetEntity:   Librinfo\CRMBundle\Entity\Organism
             mappedBy:     categories

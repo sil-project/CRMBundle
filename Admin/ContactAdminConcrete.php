@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class ContactAdminConcrete extends ContactAdmin
 {
     /**
-     * @param DatagridMapper $datagridMapper
+     * @param DatagridMapper $mapper
      */
     protected function configureDatagridFilters(DatagridMapper $mapper)
     {
@@ -18,7 +18,7 @@ class ContactAdminConcrete extends ContactAdmin
     }
 
     /**
-     * @param ListMapper $listMapper
+     * @param ListMapper $mapper
      */
     protected function configureListFields(ListMapper $mapper)
     {
@@ -26,7 +26,7 @@ class ContactAdminConcrete extends ContactAdmin
     }
 
     /**
-     * @param FormMapper $formMapper
+     * @param FormMapper $mapper
      */
     protected function configureFormFields(FormMapper $mapper)
     {
@@ -34,7 +34,7 @@ class ContactAdminConcrete extends ContactAdmin
     }
 
     /**
-     * @param ShowMapper $showMapper
+     * @param ShowMapper $mapper
      */
     protected function configureShowFields(ShowMapper $mapper)
     {

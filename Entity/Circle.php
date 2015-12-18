@@ -31,6 +31,7 @@ class Circle
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->organisms = new ArrayCollection();
     }
     
     /**
@@ -40,9 +41,19 @@ class Circle
     public function addContact(Contact $contact)
     {
         $contact->addCircle($this); // synchronously updating inverse side
-        $this->contacts[] = $contact;
+        $this->contacts->add($contact);
         return $this;
     } 
+    
+    /**
+     * @param Contact $contact
+     * @return Circle
+     */
+    public function removeContact(Contact $contact)
+    {
+        $this->contacts->removeElement($contact);
+        return $this;
+    }     
     
     /**
      * @return Collection
@@ -59,9 +70,19 @@ class Circle
     public function addOrganism(Organism $organism)
     {
         $organism->addCircle($this); // synchronously updating inverse side
-        $this->organisms[] = $organism;
+        $this->organisms->add($organism);
         return $this;
     } 
+    
+    /**
+     * @param Organism $organism
+     * @return Circle
+     */
+    public function removeOrganism(Organism $organism)
+    {
+        $this->organisms->removeElement($organism);
+        return $this;
+    }     
     
     /**
      * @return Collection

@@ -48,11 +48,24 @@ class CircleAdmin extends CoreAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $contactFieldOptions = array(
+            'by_reference' => false,
+            //'allow_delete' => true,
+        );
+
         $formMapper
-            ->add('createdAt')
-            ->add('updatedAt')
             ->add('name')
-            ->add('id')
+//            ->add('contacts', null, $contactFieldOptions)
+            ->add('contacts', 'sonata_type_model_autocomplete', array(
+                'by_reference' => false,
+                'property' => 'name',
+                'multiple' => true,
+                'required' => false,
+            ))
+//            ->add('contacts', 'sonata_type_admin', $contactFieldOptions)  // suggests sonata_model_list !?!?
+//            ->add('contacts', 'sonata_type_model', $contactFieldOptions)    // not implemented ?!?!
+//            ->add('contacts', 'sonata_type_model_list', $contactFieldOptions)
+//            ->add('contacts', 'sonata_type_collection', $contactFieldOptions)
         ;
     }
 
