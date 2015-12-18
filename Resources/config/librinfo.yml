@@ -1,5 +1,11 @@
 parameters:
     librinfo:
+
+
+############
+# CATEGORY
+############
+
         Librinfo\CRMBundle\Entity\Category:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -20,8 +26,12 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
-                            
-                            
+
+
+############
+# ORGANISM
+############
+
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -57,10 +67,13 @@ parameters:
                     - email
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-                    name: ~                    
+                    name: ~
 
-                    
-                    
+
+###########
+# CONTACT
+###########
+
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -85,13 +98,13 @@ parameters:
                             phones:
                                 by_reference: false
                                 expanded: false
-                                
+
                             _options:
                                 fieldsOrder:
                                    - title
                                    - firstname
                                    - name
-                                   - email   
+                                   - email
                                    - phones
                     Sales:
                         Ticketing:
@@ -126,7 +139,7 @@ parameters:
                         actions:
                             show: ~
                             edit: ~
-                            delete: ~                            
+                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
@@ -151,15 +164,15 @@ parameters:
                             - npai
                             - emailNpai
                             - emailNoNewsletter
-                            
-                            
+
+
         Librinfo\CRMBundle\Entity\ContactPhone:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     number: ~
                     #contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add:     
+                add:
                     number: ~
                     contact.firstname: ~
                     _action:
@@ -167,12 +180,15 @@ parameters:
                         actions:
                             show: ~
                             edit: ~
-                            delete: ~                       
+                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     number: ~
                     #contact: ~
-                    
+
+##########
+# CIRCLE
+##########
 
         Librinfo\CRMBundle\Entity\Circle:
             Sonata\AdminBundle\Form\FormMapper:
@@ -184,26 +200,82 @@ parameters:
                                 by_reference: false
                                 property: name
                                 multiple: true
-                                required: false                        
+                                required: false
                             organisms:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
                                 multiple: true
-                                required: false  
+                                required: false
                     _options:
                         tabsOrder:
                             - General
                             - Members
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add:     
+                add:
                     _action:
                         type: actions
                         actions:
                             show: ~
                             edit: ~
-                            delete: ~                       
+                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-            
+
+
+############
+# POSITION
+############
+
+        Librinfo\CRMBundle\Entity\Position:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            contact:
+                                required: true
+                                placeholder: ''
+                            name:
+                                required: true
+                            organism:
+                                required: true
+                                placeholder: ''
+                            #position_type: ~
+                            department: ~
+                            email: ~
+                            phone: ~
+                            description: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    contact: ~
+                    name:
+                        label: Position
+                    organism: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~
+
+
+#################
+# POSITION_TYPE
+#################
+
+        Librinfo\CRMBundle\Entity\PositionType:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            name: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    name: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~

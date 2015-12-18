@@ -4,14 +4,18 @@ Librinfo\CRMBundle\Entity\Position:
         email:
             type: string
             length: 255
+            nullable: true
         phone:
             type: string
-            length: 255            
+            length: 255
+            nullable: true
         description:
             type: text
+            nullable: true
         department:
             type: string
             length: 255
+            nullable: true
     manyToOne:
         contact:
             targetEntity: Librinfo\CRMBundle\Entity\Contact
@@ -20,9 +24,9 @@ Librinfo\CRMBundle\Entity\Position:
 #                - persist
 #            joinColumn:
 #                name: contact
-#                referencedColumnName: id    
+#                referencedColumnName: id
         organism:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: positions
-            
+
     lifecycleCallbacks: {  }
