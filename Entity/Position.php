@@ -22,6 +22,11 @@ class Position
     /**
      * @var string
      */
+    private $phone;
+
+    /**
+     * @var string
+     */
     private $description;
 
     /**
@@ -64,6 +69,30 @@ class Position
      * @return string
      */
     public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Position
+     */
+    public function setPhone($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getPhone()
     {
         return $this->email;
     }

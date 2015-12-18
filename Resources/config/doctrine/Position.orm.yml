@@ -4,6 +4,9 @@ Librinfo\CRMBundle\Entity\Position:
         email:
             type: string
             length: 255
+        phone:
+            type: string
+            length: 255            
         description:
             type: text
         department:
