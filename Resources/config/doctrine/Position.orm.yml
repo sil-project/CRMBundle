@@ -18,9 +18,10 @@ Librinfo\CRMBundle\Entity\Position:
             inversedBy: positions
 #            cascade:
 #                - persist
-#            joinColumn:
-#                name: contact
-#                referencedColumnName: id
+            joinColumn:
+                name: contact_id
+                referencedColumnName: id
+                nullable: false
         organism:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: positions

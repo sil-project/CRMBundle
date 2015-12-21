@@ -286,7 +286,7 @@ class Contact
     {
         $this->phones->removeElement($phone);
         return $this;
-    }    
+    }
 
     /**
      * Get phones
@@ -302,22 +302,22 @@ class Contact
      * This function is called by the owning side (Circle::addContact) of the N-N relationship
      * @param \Librinfo\CRMBundle\Entity\Circle $circle
      * @return Contact
-     */    
+     */
     public function addCircle(Circle $circle)
     {
         $this->circles->add($circle);
         return $this;
-    }    
+    }
     
     /**
      * @param Circle $circle
      * @return Contact
-     */    
+     */
     public function removeCircle(Circle $circle)
     {
         $this->circles->removeElement($circle);
         return $this;
-    }      
+    }
     
     /**
      * @return Collection
@@ -330,22 +330,23 @@ class Contact
     /**
      * @param Position $position
      * @return Contact
-     */    
+     */
     public function addPosition(Position $position)
     {
+        $position->setContact($this);
         $this->positions->add($position);
         return $this;
-    }    
+    }
     
     /**
      * @param Position $position
      * @return Contact
-     */    
+     */
     public function removePosition(Position $position)
     {
         $this->positions->removeElement($position);
         return $this;
-    }      
+    }
     
     /**
      * @return Collection
@@ -353,6 +354,6 @@ class Contact
     public function getPositions()
     {
         return $this->positions;
-    }    
+    }
 
 }

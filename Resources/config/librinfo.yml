@@ -103,14 +103,19 @@ parameters:
                     Relationships:
                         '':
                             circles: ~
-                        'Organisms': 
-                            positions: 
+                        Organisms: 
+                            positions:
                                 type: sonata_type_collection
+                                by_reference: false
                                 type_options:
                                     required: false
                                     btn_add: false
                                 required: false
                                 label: false
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
                     _options:
                         tabsOrder:
                             - General
@@ -227,14 +232,13 @@ parameters:
                     General:
                         '':
                             contact:
-                                required: true
                                 placeholder: ''
                             position_type:
-                                required: true
                                 placeholder: ''
                             organism:
-                                required: true
-                                placeholder: ''
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: name
                             department: ~
                             phone: ~
                             description: ~
