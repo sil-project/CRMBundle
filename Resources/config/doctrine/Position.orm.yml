@@ -1,10 +1,6 @@
 Librinfo\CRMBundle\Entity\Position:
     type: entity
     fields:
-        email:
-            type: string
-            length: 255
-            nullable: true
         phone:
             type: string
             length: 255

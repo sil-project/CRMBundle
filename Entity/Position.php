@@ -3,7 +3,8 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Labelable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 
 /**
  * Position
@@ -12,12 +13,8 @@ class Position
 {
 
     use BaseEntity,
-        Nameable;
-
-    /**
-     * @var string
-     */
-    private $email;
+        Labelable,
+        Emailable;
 
     /**
      * @var string
@@ -48,30 +45,6 @@ class Position
      * @var PositionType
      */
     private $position_type;    
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Position
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
 
     /**
      * Set phone

@@ -35,18 +35,17 @@ parameters:
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    Organism:
+                    General:
                         '':
-                            url: ~
-                            administrativeNumber: ~
                             categories:
                                 type: treeable_choice
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                                 multiple: true
+                            url: ~
+                            administrativeNumber: ~
                     _options:
                         tabsOrder:
-                            - Organism
                             - General
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -233,21 +232,16 @@ parameters:
                             position_type:
                                 required: true
                                 placeholder: ''
-                            name:
-                                required: false
                             organism:
                                 required: true
                                 placeholder: ''
                             department: ~
-                            email: ~
                             phone: ~
                             description: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
                     position-type: ~
-                    name:
-                        label: Position label
                     organism: ~
                     _action:
                         type: actions
