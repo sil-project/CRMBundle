@@ -28,7 +28,7 @@ Librinfo\CRMBundle\Entity\Contact:
             mappedBy: contact
         positions:
             targetEntity: Position
-            mappedBy: contact            
+            mappedBy: contact           
     manyToMany:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle

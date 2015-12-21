@@ -28,5 +28,8 @@ Librinfo\CRMBundle\Entity\Position:
         organism:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: positions
+        position_type:
+            targetEntity: Librinfo\CRMBundle\Entity\PositionType
+        
 
     lifecycleCallbacks: {  }

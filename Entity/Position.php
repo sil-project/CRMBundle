@@ -74,27 +74,27 @@ class Position
     }
 
     /**
-     * Set email
+     * Set phone
      *
-     * @param string $email
+     * @param string $phone
      *
      * @return Position
      */
-    public function setPhone($email)
+    public function setPhone($phone)
     {
-        $this->email = $email;
+        $this->phone = $phone;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get phone
      *
      * @return string
      */
     public function getPhone()
     {
-        return $this->email;
+        return $this->phone;
     }
 
     /**

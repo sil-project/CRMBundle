@@ -81,20 +81,6 @@ parameters:
                         '':
                             title: ~
                             firstname: ~
-#                            phones:
-#                                type: sonata_type_collection
-#                                type_options:
-#                                    by_reference: true
-#                                    delete: true
-#                                #by_reference: true
-#                                required: false
-
-#                            phones:
-#                                type: sonata_type_native_collection
-#                                by_reference: false
-#                                required: false
-#                                allow_add: true
-
                             phones:
                                 by_reference: false
                                 expanded: false
@@ -118,6 +104,14 @@ parameters:
                     Relationships:
                         '':
                             circles: ~
+                        'Organisms': 
+                            positions: 
+                                type: sonata_type_collection
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
                     _options:
                         tabsOrder:
                             - General
@@ -236,12 +230,14 @@ parameters:
                             contact:
                                 required: true
                                 placeholder: ''
-                            name:
+                            position_type:
                                 required: true
+                                placeholder: ''
+                            name:
+                                required: false
                             organism:
                                 required: true
                                 placeholder: ''
-                            #position_type: ~
                             department: ~
                             email: ~
                             phone: ~
@@ -249,8 +245,9 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
+                    position-type: ~
                     name:
-                        label: Position
+                        label: Position label
                     organism: ~
                     _action:
                         type: actions
@@ -265,11 +262,11 @@ parameters:
 #################
 
         Librinfo\CRMBundle\Entity\PositionType:
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    General:
-                        '':
-                            name: ~
+#            Sonata\AdminBundle\Form\FormMapper:
+#                add:
+#                    General:
+#                        '':
+#                            name: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
