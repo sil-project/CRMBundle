@@ -231,6 +231,8 @@ parameters:
                 remove: [email, label, emailNpai, emailNoNewsletter]
                 add:
                     General:
+                        _options:
+                            hideTitle: true
                         General:
                             position_type:
                                 placeholder: ''
@@ -249,8 +251,6 @@ parameters:
                         Specifics:
                             emailNpai: ~
                             emailNoNewsletter: ~
-                        _options:
-                            no_add: true
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
