@@ -2,6 +2,8 @@
 
 namespace Librinfo\CRMBundle\Entity\Traits;
 
+use Librinfo\CRMBundle\Entity\Position;
+
 /**
  * Positionable trait
  */

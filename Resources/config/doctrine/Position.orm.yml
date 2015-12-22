@@ -33,6 +33,6 @@ Librinfo\CRMBundle\Entity\Position:
                 - persist
         position_type:
             targetEntity: Librinfo\CRMBundle\Entity\PositionType
-        
+
 
     lifecycleCallbacks: {  }
