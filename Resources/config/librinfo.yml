@@ -228,24 +228,33 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Position:
             Sonata\AdminBundle\Form\FormMapper:
+                remove: [email, label, emailNpai, emailNoNewsletter]
                 add:
                     General:
-                        '':
-                            contact:
-                                placeholder: ''
+                        General:
                             position_type:
+                                placeholder: ''
+                            contact:
                                 placeholder: ''
                             organism:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
-                            department: ~
+                        Details:
+                            label: ~
+                            email: ~
                             phone: ~
+                            department: ~
                             description: ~
+                        Specifics:
+                            emailNpai: ~
+                            emailNoNewsletter: ~
+                        _options:
+                            no_add: true
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
-                    position-type: ~
+                    position_type: ~
                     organism: ~
                     _action:
                         type: actions
