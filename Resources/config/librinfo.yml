@@ -33,7 +33,7 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Traits\Positionable:
-            managedCollections: [positions]
+            #managedCollections: [positions]
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Relationships:
