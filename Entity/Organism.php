@@ -8,14 +8,20 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Librinfo\CRMBundle\Entity\Traits\Positionable;
 
 /**
  * Organism
  */
 class Organism
 {
-    use BaseEntity, Traceable, Addressable, Emailable;
-
+    use BaseEntity,
+        Traceable,
+        Addressable,
+        Emailable,
+        Positionable
+    ;
+    
     /**
      * @var string
      */
@@ -34,12 +40,7 @@ class Organism
     /**
      * @var Collection
      */
-    private $circles;    
-
-    /**
-     * @var Collection
-     */
-    private $positions;    
+    private $circles;
 
     /**
      * Organism constructor.
@@ -146,22 +147,22 @@ class Organism
      * This function is called by the owning side (Circle::addOrganism) of the N-N relationship
      * @param \Librinfo\CRMBundle\Entity\Circle $circle
      * @return Organism
-     */    
+     */
     public function addCircle(Circle $circle)
     {
         $this->circles->add($circle);
         return $this;
-    }    
+    }
     
     /**
      * @param Circle $circle
      * @return Organism
-     */    
+     */
     public function removeCircle(Circle $circle)
     {
         $this->circles->removeElement($circle);
         return $this;
-    }      
+    }
     
     /**
      * @return Collection
@@ -169,33 +170,5 @@ class Organism
     public function getCircles()
     {
         return $this->circles;
-    }  
-    
-    /**
-     * @param Position $position
-     * @return Organism
-     */    
-    public function addPosition(Position $position)
-    {
-        $this->positions->add($position);
-        return $this;
-    }    
-    
-    /**
-     * @param Position $position
-     * @return Organism
-     */    
-    public function removePosition(Position $position)
-    {
-        $this->positions->removeElement($position);
-        return $this;
-    }      
-    
-    /**
-     * @return Collection
-     */
-    public function getPositions()
-    {
-        return $this->positions;
-    }     
+    }
 }

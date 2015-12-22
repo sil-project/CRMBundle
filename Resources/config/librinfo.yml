@@ -29,6 +29,29 @@ parameters:
 
 
 ############
+# POSITIONABLE Trait
+############
+
+        Librinfo\CRMBundle\Entity\Traits\Positionable:
+            managedCollections: [positions]
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    Relationships:
+                        Positions: 
+                            positions:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
+
+############
 # ORGANISM
 ############
 
@@ -44,9 +67,14 @@ parameters:
                                 multiple: true
                             url: ~
                             administrativeNumber: ~
+                    Relationships:
+                        Circles:
+                            circles:
+                                label: ' '
                     _options:
                         tabsOrder:
                             - General
+                            - Relationships
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
@@ -101,21 +129,8 @@ parameters:
                                 fieldsOrder:
                                     - culture
                     Relationships:
-                        '':
+                        Circles:
                             circles: ~
-                        Organisms: 
-                            positions:
-                                type: sonata_type_collection
-                                by_reference: false
-                                type_options:
-                                    required: false
-                                    btn_add: false
-                                required: false
-                                label: false
-                                _options:
-                                    edit: inline
-                                    #inline: table
-                                    allow_delete: true
                     _options:
                         tabsOrder:
                             - General
@@ -237,7 +252,9 @@ parameters:
                             position_type:
                                 placeholder: ''
                             contact:
-                                placeholder: ''
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: name
                             organism:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false

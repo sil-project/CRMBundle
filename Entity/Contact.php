@@ -8,6 +8,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Librinfo\CRMBundle\Entity\Traits\Positionable;
 
 use Librinfo\CRMBundle\Entity\ContactPhone;
 use Librinfo\CRMBundle\Entity\Position;
@@ -21,7 +22,8 @@ class Contact
     use BaseEntity,
         Addressable,
         Traceable,
-        Emailable;
+        Emailable,
+        Positionable;
 
     /**
      * @var string
@@ -66,13 +68,8 @@ class Contact
     /**
      * @var Collection
      */
-    private $circles;    
+    private $circles;
     
-    /**
-     * @var Collection
-     */
-    private $positions;    
-
     /**
      * Set firstname
      *
@@ -326,34 +323,4 @@ class Contact
     {
         return $this->circles;
     }
-    
-    /**
-     * @param Position $position
-     * @return Contact
-     */
-    public function addPosition(Position $position)
-    {
-        $position->setContact($this);
-        $this->positions->add($position);
-        return $this;
-    }
-    
-    /**
-     * @param Position $position
-     * @return Contact
-     */
-    public function removePosition(Position $position)
-    {
-        $this->positions->removeElement($position);
-        return $this;
-    }
-    
-    /**
-     * @return Collection
-     */
-    public function getPositions()
-    {
-        return $this->positions;
-    }
-
 }

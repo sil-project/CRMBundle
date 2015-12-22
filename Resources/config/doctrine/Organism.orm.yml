@@ -13,6 +13,8 @@ Librinfo\CRMBundle\Entity\Organism:
         positions:
             targetEntity: Position
             mappedBy: organism
+            cascade:
+                - persist
     manyToMany:
         categories:
             targetEntity:   Librinfo\CRMBundle\Entity\Category

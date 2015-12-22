@@ -16,15 +16,21 @@ Librinfo\CRMBundle\Entity\Position:
         contact:
             targetEntity: Librinfo\CRMBundle\Entity\Contact
             inversedBy: positions
-#            cascade:
-#                - persist
             joinColumn:
                 name: contact_id
                 referencedColumnName: id
                 nullable: false
+            cascade:
+                - persist
         organism:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: positions
+            joinColumn:
+                name: organism_id
+                referencedColumnName: id
+                nullable: false
+            cascade:
+                - persist
         position_type:
             targetEntity: Librinfo\CRMBundle\Entity\PositionType
         
