@@ -9,9 +9,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
-
 use Librinfo\CRMBundle\Entity\ContactPhone;
-use Librinfo\CRMBundle\Entity\Position;
 
 /**
  * Contact
@@ -64,12 +62,12 @@ class Contact
      * @var Collection
      */
     private $phones;
-    
+
     /**
      * @var Collection
      */
     private $circles;
-    
+
     /**
      * Set firstname
      *
@@ -263,7 +261,7 @@ class Contact
 
         return $this;
     }
-    
+
     /**
      * @param ContactPhone $phone
      * @return Contact
@@ -274,7 +272,7 @@ class Contact
         $this->phones->add($phone);
         return $this;
     }
-    
+
     /**
      * @param ContactPhone $phone
      * @return Contact
@@ -294,7 +292,7 @@ class Contact
     {
         return $this->phones;
     }
-    
+
     /**
      * This function is called by the owning side (Circle::addContact) of the N-N relationship
      * @param \Librinfo\CRMBundle\Entity\Circle $circle
@@ -305,7 +303,7 @@ class Contact
         $this->circles->add($circle);
         return $this;
     }
-    
+
     /**
      * @param Circle $circle
      * @return Contact
@@ -315,7 +313,7 @@ class Contact
         $this->circles->removeElement($circle);
         return $this;
     }
-    
+
     /**
      * @return Collection
      */
@@ -323,4 +321,5 @@ class Contact
     {
         return $this->circles;
     }
+
 }
