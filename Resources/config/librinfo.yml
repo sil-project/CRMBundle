@@ -233,6 +233,7 @@ parameters:
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
+                    owner: ~
                     _action:
                         type: actions
                         actions:
