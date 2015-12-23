@@ -29,15 +29,25 @@ parameters:
 
 
 ############
+# CIRCLABLE Trait
+############
+
+        Librinfo\CRMBundle\Entity\Traits\Circlable:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            circles: ~
+
+############
 # POSITIONABLE Trait
 ############
 
         Librinfo\CRMBundle\Entity\Traits\Positionable:
-            #managedCollections: [positions]
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    Relationships:
-                        Positions:
+                    Positions:
+                        '':
                             positions:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -67,14 +77,10 @@ parameters:
                                 multiple: true
                             url: ~
                             administrativeNumber: ~
-                    Relationships:
-                        Circles:
-                            circles:
-                                label: ' '
                     _options:
                         tabsOrder:
                             - General
-                            - Relationships
+                            - Positions
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
@@ -113,7 +119,6 @@ parameters:
                             phones:
                                 by_reference: false
                                 expanded: false
-
                             _options:
                                 fieldsOrder:
                                    - title
@@ -121,6 +126,7 @@ parameters:
                                    - name
                                    - email
                                    - phones
+                                   - circles
                     Sales:
                         Ticketing:
                             flashOnControl: ~
@@ -130,13 +136,10 @@ parameters:
                             _options:
                                 fieldsOrder:
                                     - culture
-                    Relationships:
-                        Circles:
-                            circles: ~
                     _options:
                         tabsOrder:
                             - General
-                            - Relationships
+                            - Positions
                             - Sales
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -246,7 +249,7 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Position:
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [email, label, emailNpai, emailNoNewsletter]
+                remove: [email, label, emailNpai, emailNoNewsletter, circles]
                 add:
                     General:
                         _options:
@@ -262,6 +265,7 @@ parameters:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
+                            circles: ~
                         Details:
                             label: ~
                             email: ~

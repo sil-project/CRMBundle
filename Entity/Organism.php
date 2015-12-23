@@ -9,6 +9,7 @@ use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
+use Librinfo\CRMBundle\Entity\Traits\Circlable;
 
 /**
  * Organism
@@ -19,7 +20,8 @@ class Organism
         Traceable,
         Addressable,
         Emailable,
-        Positionable
+        Positionable,
+        Circlable
     ;
     
     /**
@@ -36,11 +38,6 @@ class Organism
      * @var Collection
      */
     private $categories;
-    
-    /**
-     * @var Collection
-     */
-    private $circles;
 
     /**
      * Organism constructor.
@@ -141,34 +138,5 @@ class Organism
     public function getCategories()
     {
         return $this->categories;
-    }
-    
-    /**
-     * This function is called by the owning side (Circle::addOrganism) of the N-N relationship
-     * @param \Librinfo\CRMBundle\Entity\Circle $circle
-     * @return Organism
-     */
-    public function addCircle(Circle $circle)
-    {
-        $this->circles->add($circle);
-        return $this;
-    }
-    
-    /**
-     * @param Circle $circle
-     * @return Organism
-     */
-    public function removeCircle(Circle $circle)
-    {
-        $this->circles->removeElement($circle);
-        return $this;
-    }
-    
-    /**
-     * @return Collection
-     */
-    public function getCircles()
-    {
-        return $this->circles;
     }
 }

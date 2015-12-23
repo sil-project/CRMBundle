@@ -2,6 +2,9 @@ Librinfo\CRMBundle\Entity\Circle:
     type: entity
     
     manyToMany:
+        positions:
+            targetEntity: Librinfo\CRMBundle\Entity\Position
+            mappedBy: circles
         contacts:
             targetEntity: Librinfo\CRMBundle\Entity\Contact
             mappedBy: circles

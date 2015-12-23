@@ -9,6 +9,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
+use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
 
 /**
@@ -21,7 +22,9 @@ class Contact
         Addressable,
         Traceable,
         Emailable,
-        Positionable;
+        Positionable,
+        Circlable
+    ;
 
     /**
      * @var string
@@ -62,11 +65,6 @@ class Contact
      * @var Collection
      */
     private $phones;
-
-    /**
-     * @var Collection
-     */
-    private $circles;
 
     /**
      * Set firstname
@@ -243,11 +241,6 @@ class Contact
         $this->positions = new ArrayCollection();
     }
 
-    public function __toString()
-    {
-        return ($this->title ? $this->title . ' ' : '') . $this->firstname . ' ' . $this->name;
-    }
-
     /**
      * Set phones
      *
@@ -292,34 +285,4 @@ class Contact
     {
         return $this->phones;
     }
-
-    /**
-     * This function is called by the owning side (Circle::addContact) of the N-N relationship
-     * @param \Librinfo\CRMBundle\Entity\Circle $circle
-     * @return Contact
-     */
-    public function addCircle(Circle $circle)
-    {
-        $this->circles->add($circle);
-        return $this;
-    }
-
-    /**
-     * @param Circle $circle
-     * @return Contact
-     */
-    public function removeCircle(Circle $circle)
-    {
-        $this->circles->removeElement($circle);
-        return $this;
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getCircles()
-    {
-        return $this->circles;
-    }
-
 }

@@ -33,6 +33,18 @@ Librinfo\CRMBundle\Entity\Position:
                 - persist
         position_type:
             targetEntity: Librinfo\CRMBundle\Entity\PositionType
+    manyToMany:
+        circles:
+            targetEntity: Librinfo\CRMBundle\Entity\Circle
+            inversedBy: positions
+            joinTable:
+                name: ~
+                joinColumns:
+                    position_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    circle_id:
+                        referencedColumnName: id
 
 
     lifecycleCallbacks: {  }

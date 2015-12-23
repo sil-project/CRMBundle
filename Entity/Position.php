@@ -5,6 +5,7 @@ namespace Librinfo\CRMBundle\Entity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Librinfo\CRMBundle\Entity\Traits\Circlable;
 
 /**
  * Position
@@ -14,7 +15,9 @@ class Position
 
     use BaseEntity,
         Labelable,
-        Emailable;
+        Emailable,
+        Circlable
+    ;
 
     /**
      * @var string
@@ -34,7 +37,7 @@ class Position
     /**
      * @var Contact
      */
-    private $contact; 
+    private $contact;
     
     /**
      * @var Organism
