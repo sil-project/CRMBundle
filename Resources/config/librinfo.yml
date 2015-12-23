@@ -206,7 +206,7 @@ parameters:
 ##########
 
         Librinfo\CRMBundle\Entity\Circle:
-
+            managedManyToMany: [contacts, organisms]
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Members:

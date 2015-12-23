@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\CoreBundle\Admin\Traits\Embedded as EmbeddedAdmin;
+use Librinfo\CoreBundle\Admin\Traits\EmbeddedAdmin;
 
 class PositionAdminConcrete extends PositionAdmin
 {
