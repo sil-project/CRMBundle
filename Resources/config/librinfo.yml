@@ -37,7 +37,7 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Relationships:
-                        Positions: 
+                        Positions:
                             positions:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -204,6 +204,7 @@ parameters:
 ##########
 
         Librinfo\CRMBundle\Entity\Circle:
+
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Members:
