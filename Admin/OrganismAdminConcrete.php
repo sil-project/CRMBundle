@@ -2,9 +2,9 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\CoreBundle\Admin\Traits\Embedding;
+use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
-    use Embedding;
+    use HandlesRelationsAdmin;
 }

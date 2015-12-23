@@ -2,10 +2,10 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 
 class ContactAdminConcrete extends ContactAdmin
 {
-    use BaseAdmin;
+    use HandlesRelationsAdmin;
 }
 

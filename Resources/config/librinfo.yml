@@ -102,6 +102,8 @@ parameters:
 ###########
 
         Librinfo\CRMBundle\Entity\Contact:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
