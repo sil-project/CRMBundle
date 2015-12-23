@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
+use Librinfo\UserBundle\Entity\Traits\Ownable;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Organism;
 
@@ -16,24 +17,27 @@ use Librinfo\CRMBundle\Entity\Organism;
  */
 class Circle
 {
-    use BaseEntity, Nameable, Traceable;
-    
+    use BaseEntity,
+        Nameable,
+        Ownable,
+        Traceable;
+
     /**
      * @var Collection
      */
     private $contacts;
-    
+
     /**
      * @var Collection
      */
-    private $organisms;    
-    
+    private $organisms;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
         $this->organisms = new ArrayCollection();
     }
-    
+
     /**
      * @param Contact $contact
      * @return Circle
@@ -43,8 +47,8 @@ class Circle
         $contact->addCircle($this); // synchronously updating inverse side
         $this->contacts->add($contact);
         return $this;
-    } 
-    
+    }
+
     /**
      * @param Contact $contact
      * @return Circle
@@ -53,8 +57,8 @@ class Circle
     {
         $this->contacts->removeElement($contact);
         return $this;
-    }     
-    
+    }
+
     /**
      * @return Collection
      */
@@ -62,7 +66,7 @@ class Circle
     {
         return $this->contacts;
     }
-    
+
     /**
      * @param Organism $organism
      * @return Circle
@@ -72,8 +76,8 @@ class Circle
         $organism->addCircle($this); // synchronously updating inverse side
         $this->organisms->add($organism);
         return $this;
-    } 
-    
+    }
+
     /**
      * @param Organism $organism
      * @return Circle
@@ -82,8 +86,8 @@ class Circle
     {
         $this->organisms->removeElement($organism);
         return $this;
-    }     
-    
+    }
+
     /**
      * @return Collection
      */
@@ -91,6 +95,6 @@ class Circle
     {
         return $this->organisms;
     }
-    
+
 }
 
