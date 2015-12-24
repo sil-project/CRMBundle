@@ -242,20 +242,6 @@ class Contact
     }
 
     /**
-     * Set phones
-     *
-     * @param Collection $phones
-     *
-     * @return Contact
-     */
-    public function setPhones($phones)
-    {
-        $this->phones = $phones;
-
-        return $this;
-    }
-
-    /**
      * @param ContactPhone $phone
      * @return Contact
      */

@@ -21,16 +21,17 @@ Librinfo\CRMBundle\Entity\Contact:
             nullable:   true
         culture:
             type:       string(2)
-            nullable:   true       
+            nullable:   true
     oneToMany:
         phones:
             targetEntity: ContactPhone
             mappedBy: contact
+            cascade: [ persist ]
         positions:
             targetEntity: Position
-            mappedBy: contact       
+            mappedBy: contact
             cascade:
-                - persist            
+                - persist
     manyToMany:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle

@@ -2,54 +2,13 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-
-/**
- * ContactPhone
- */
-class ContactPhone
+class ContactPhone extends Phone
 {
-    use BaseEntity;
-    
-    /**
-     * @var string
-     */
-    private $number;
-    
     /**
      * @var Contact
      */
-    private $contact;   
-    
-    public function __toString()
-    {
-        return $this->number;
-    }
-    
-    /**
-     * Set number
-     *
-     * @param string $number
-     *
-     * @return ContactPhone
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
+    private $contact;
 
-        return $this;
-    }
-
-    /**
-     * Get number
-     *
-     * @return string
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-    
     /**
      * Get contact
      *
@@ -58,22 +17,18 @@ class ContactPhone
     public function getContact()
     {
         return $this->contact;
-    }    
-    
+    }
+
     /**
      * Set contact
      *
      * @param Contact $contact
-     *
      * @return ContactPhone
      */
     public function setContact($contact)
     {
         $this->contact = $contact;
-
         return $this;
     }
-
-
 
 }

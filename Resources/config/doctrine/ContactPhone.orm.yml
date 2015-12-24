@@ -1,16 +1,11 @@
+# info: ContactPhone extends Phone (mapped superclass)
+
 Librinfo\CRMBundle\Entity\ContactPhone:
     type: entity
-    fields:
-        number:
-            type: string
-            length: 255
     manyToOne:
         contact:
             targetEntity: Librinfo\CRMBundle\Entity\Contact
             inversedBy: phones
-            cascade:
-                - persist
             joinColumn:
-                name: contact
-                referencedColumnName: id   
-    lifecycleCallbacks: {  }
+                name: contact_id
+            cascade: [ persist ]

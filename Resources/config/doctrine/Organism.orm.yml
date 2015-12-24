@@ -10,6 +10,10 @@ Librinfo\CRMBundle\Entity\Organism:
             length:     255
             nullable:   true
     oneToMany:
+        phones:
+            targetEntity: OrganismPhone
+            mappedBy: organism
+            cascade: [ persist ]
         positions:
             targetEntity: Position
             mappedBy: organism
@@ -26,4 +30,4 @@ Librinfo\CRMBundle\Entity\Organism:
             inversedBy: organisms
             joinTable:
                 name: librinfo_crm_organism_circle
-        
+

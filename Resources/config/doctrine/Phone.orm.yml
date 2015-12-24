@@ -1,0 +1,12 @@
+# user mapping
+Librinfo\CRMBundle\Entity\Phone:
+    type: mappedSuperclass
+    fields:
+        number:
+            type: string
+            length: 255
+        phoneType:
+            type: string
+            length: 255
+            nullable: true
+
