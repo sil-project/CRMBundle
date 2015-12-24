@@ -47,7 +47,7 @@ class Position
     /**
      * @var PositionType
      */
-    private $position_type;    
+    private $position_type;
 
     /**
      * Set phone
@@ -144,7 +144,6 @@ class Position
     {
         return $this->contact;
     }
-    
 
     /**
      * Set organism
@@ -168,9 +167,7 @@ class Position
     public function getOrganism()
     {
         return $this->organism;
-    }    
-    
-    
+    }
 
     /**
      * Set position_type
@@ -194,5 +191,13 @@ class Position
     public function getPositionType()
     {
         return $this->position_type;
-    }    
+    }
+    
+    /**
+     * @return string
+     **/
+    public function __toString()
+    {
+        return $this->label ? $this->getLabel() : (string)$this->getPositionType();
+    }
 }

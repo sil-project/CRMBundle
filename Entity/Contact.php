@@ -285,4 +285,9 @@ class Contact
     {
         return $this->phones;
     }
+    
+    public function __toString()
+    {
+        return $this->getFirstname().' '.$this->getName();
+    }
 }

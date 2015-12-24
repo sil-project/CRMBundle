@@ -7,6 +7,8 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Category:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
@@ -14,7 +16,7 @@ parameters:
                             name:
                                 type: text
                             parentNode:
-                                type: treeable
+                                type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -33,6 +35,8 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Traits\Circlable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
@@ -44,6 +48,13 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Traits\Positionable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    Positions:
+                        '':
+                            positions:
+                                _options:
+                                    template: LibrinfoCRMBundle:CRUD:show_orm_positions.html.twig
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Positions:
@@ -66,12 +77,14 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Organism:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     General:
                         '':
                             categories:
-                                type: treeable_choice
+                                type: librinfo_baseentities_treeablechoice
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                                 multiple: true
@@ -82,7 +95,7 @@ parameters:
                             - General
                             - Positions
                             - Specifics
-            Sonata\AdminBundle\Datagrid\ListMapper:
+                Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     url: ~
                     administrativeNumber: ~
@@ -185,6 +198,8 @@ parameters:
 
 
         Librinfo\CRMBundle\Entity\ContactPhone:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     number: ~
@@ -210,8 +225,17 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Circle:
             managedManyToMany: [contacts, organisms]
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
+                remove: [owner]
                 add:
+                    General:
+                        '':
+                            owner:
+                                type: entity
+                                class: Librinfo\UserBundle\Entity\User
+                                required: false
                     Members:
                         '':
                             contacts:
@@ -249,6 +273,8 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Position:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [email, label, emailNpai, emailNoNewsletter, circles]
                 add:
@@ -294,11 +320,13 @@ parameters:
 #################
 
         Librinfo\CRMBundle\Entity\PositionType:
-#            Sonata\AdminBundle\Form\FormMapper:
-#                add:
-#                    General:
-#                        '':
-#                            name: ~
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            name: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
@@ -308,3 +336,4 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
+

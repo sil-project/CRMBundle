@@ -46,7 +46,7 @@ class OrganismAdmin extends CoreAdmin
         $formMapper
             ->add('url')
             ->add('administrativeNumber')
-            ->add('categories', 'treeable_choice', [
+            ->add('categories', 'librinfo_baseentities_treeablechoice', [
                 'class'       => 'LibrinfoCRMBundle:Category',
                 'required'    => false,
                 'empty_value' => '- - -',
