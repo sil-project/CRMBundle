@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class CircleAdminController extends CRUDController
 {
-    
     /**
      * To keep backwards compatibility with older Sonata Admin code.
      *
@@ -22,5 +21,5 @@ class CircleAdminController extends CRUDController
         }
 
         return $request;
-    }    
+    }
 }

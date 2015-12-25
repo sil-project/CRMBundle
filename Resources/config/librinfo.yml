@@ -354,7 +354,7 @@ parameters:
                         '':
                             positions:
                                 _options:
-                                    template: LibrinfoCRMBundle:CRUD:show_orm_positions.html.twig
+                                    initializeAssociationAdmin: true
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     Positions:
