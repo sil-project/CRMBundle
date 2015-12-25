@@ -12,7 +12,9 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
  */
 class ContactGroup
 {
-    use BaseEntity, Nameable;
+    use BaseEntity,
+        Nameable
+    ;
 
     /**
      * @var Contact

@@ -17,7 +17,10 @@ use Librinfo\BaseEntitiesBundle\EventListener\TreeableListener;
 class Category implements NodeInterface
 {
 
-    use BaseEntity, Treeable, Nameable;
+    use BaseEntity,
+        Treeable,
+        Nameable
+    ;
 
     /**
      * @var Collection

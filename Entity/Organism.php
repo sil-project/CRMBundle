@@ -10,6 +10,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 
 /**
  * Organism
@@ -21,7 +22,8 @@ class Organism
         Addressable,
         Emailable,
         Positionable,
-        Circlable
+        Circlable,
+        Descriptible
     ;
 
     /**

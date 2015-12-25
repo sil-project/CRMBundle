@@ -31,48 +31,6 @@ parameters:
 
 
 ############
-# CIRCLABLE Trait
-############
-
-        Librinfo\CRMBundle\Entity\Traits\Circlable:
-            Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    General:
-                        '':
-                            circles: ~
-
-############
-# POSITIONABLE Trait
-############
-
-        Librinfo\CRMBundle\Entity\Traits\Positionable:
-            Sonata\AdminBundle\Show\ShowMapper:
-                add:
-                    Positions:
-                        '':
-                            positions:
-                                _options:
-                                    template: LibrinfoCRMBundle:CRUD:show_orm_positions.html.twig
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    Positions:
-                        '':
-                            positions:
-                                type: sonata_type_collection
-                                by_reference: false
-                                type_options:
-                                    required: false
-                                    btn_add: false
-                                required: false
-                                label: false
-                                _options:
-                                    edit: inline
-                                    #inline: table
-                                    allow_delete: true
-
-############
 # ORGANISM
 ############
 
@@ -195,6 +153,12 @@ parameters:
                             _options:
                                 fieldsOrder:
                                     - culture
+                        _options:
+                            groupsOrder:
+                                - Communication
+                                - Address
+                                - Email
+                                - Misc
                     _options:
                         tabsOrder:
                             - General
@@ -328,7 +292,7 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [email, label, emailNpai, emailNoNewsletter, circles]
+                remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
                 add:
                     General:
                         _options:
@@ -344,13 +308,12 @@ parameters:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
-                            circles: ~
-                        Details:
-                            label: ~
                             email: ~
                             phone: ~
+                            circles: ~
                             department: ~
-                            description: ~
+                            description:
+                                type: textarea
                         Specifics:
                             emailNpai: ~
                             emailNoNewsletter: ~
@@ -367,6 +330,48 @@ parameters:
                             delete: ~
 
 
+############
+# CIRCLABLE Trait
+############
+
+        Librinfo\CRMBundle\Entity\Traits\Circlable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            circles: ~
+
+############
+# POSITIONABLE Trait
+############
+
+        Librinfo\CRMBundle\Entity\Traits\Positionable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    Positions:
+                        '':
+                            positions:
+                                _options:
+                                    template: LibrinfoCRMBundle:CRUD:show_orm_positions.html.twig
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    Positions:
+                        Positions:
+                            positions:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
+
 #################
 # POSITION_TYPE
 #################
@@ -374,14 +379,8 @@ parameters:
         Librinfo\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    General:
-                        '':
-                            name: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    name: ~
                     _action:
                         type: actions
                         actions:

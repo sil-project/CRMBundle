@@ -10,7 +10,6 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
  */
 class PositionType
 {
-
     use BaseEntity,
         Nameable;
 }

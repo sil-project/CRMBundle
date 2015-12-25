@@ -4,7 +4,6 @@ namespace Librinfo\CRMBundle\Entity;
 
 class OrganismPhone extends Phone
 {
-
     /**
      * @var Organism
      */

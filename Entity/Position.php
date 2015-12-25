@@ -6,28 +6,24 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 
 /**
  * Position
  */
 class Position
 {
-
     use BaseEntity,
         Labelable,
         Emailable,
-        Circlable
+        Circlable,
+        Descriptible
     ;
 
     /**
      * @var string
      */
     private $phone;
-
-    /**
-     * @var string
-     */
-    private $description;
 
     /**
      * @var string
@@ -71,30 +67,6 @@ class Position
     public function getPhone()
     {
         return $this->phone;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Position
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**

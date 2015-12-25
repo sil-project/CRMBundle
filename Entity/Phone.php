@@ -9,7 +9,6 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 abstract class Phone
 {
-
     use BaseEntity;
 
     /**

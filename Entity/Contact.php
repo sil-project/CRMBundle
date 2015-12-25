@@ -8,6 +8,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
@@ -23,7 +24,8 @@ class Contact
         Traceable,
         Emailable,
         Positionable,
-        Circlable
+        Circlable,
+        Descriptible
     ;
 
     /**

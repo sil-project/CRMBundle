@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\UserBundle\Entity\Traits\Ownable;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Organism;
@@ -20,7 +21,8 @@ class Circle
     use BaseEntity,
         Nameable,
         Ownable,
-        Traceable
+        Traceable,
+        Descriptible
     ;
     
     /**

@@ -13,7 +13,10 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
  */
 class Role
 {
-    use BaseEntity, Node, Nameable;
+    use BaseEntity,
+        Node,
+        Nameable
+    ;
 
     /**
      * @var Collection
