@@ -2,20 +2,24 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\BaseEntitiesBundle\Admin\TreeableAdmin;
+use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class CategoryAdmin extends TreeableAdmin
+class OrganismPhoneAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-
+        $datagridMapper
+            ->add('number')
+            ->add('phoneType')
+            ->add('id')
+        ;
     }
 
     /**
@@ -23,7 +27,18 @@ class CategoryAdmin extends TreeableAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-
+        $listMapper
+            ->add('number')
+            ->add('phoneType')
+            ->add('id')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
+        ;
     }
 
     /**
@@ -31,7 +46,11 @@ class CategoryAdmin extends TreeableAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-
+        $formMapper
+            ->add('number')
+            ->add('phoneType')
+            ->add('id')
+        ;
     }
 
     /**
@@ -39,6 +58,10 @@ class CategoryAdmin extends TreeableAdmin
      */
     protected function configureShowFields(ShowMapper $showMapper)
     {
-
+        $showMapper
+            ->add('number')
+            ->add('phoneType')
+            ->add('id')
+        ;
     }
 }

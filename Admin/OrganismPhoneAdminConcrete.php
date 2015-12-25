@@ -4,7 +4,7 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Librinfo\CoreBundle\Admin\Traits\EmbeddedAdmin;
 
-class ContactPhoneAdminConcrete extends ContactPhoneAdmin
+class OrganismPhoneAdminConcrete extends OrganismPhoneAdmin
 {
     use EmbeddedAdmin;
 }

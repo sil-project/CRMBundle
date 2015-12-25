@@ -1,0 +1,11 @@
+# info: OrganismPhone extends Phone (mapped superclass)
+
+Librinfo\CRMBundle\Entity\OrganismPhone:
+    type: entity
+    manyToOne:
+        organism:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            inversedBy: phones
+            joinColumn:
+                name: organism_id
+            cascade: [ persist ]

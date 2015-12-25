@@ -90,6 +90,18 @@ parameters:
                                 multiple: true
                             url: ~
                             administrativeNumber: ~
+                            phones:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
+                                _options:
+                                    edit: inline
+                                    inline: table
+                                    allow_delete: true
                     _options:
                         tabsOrder:
                             - General
@@ -115,6 +127,31 @@ parameters:
                 add:
                     name: ~
 
+##########
+# ORGANISMPHONE
+##########
+
+        Librinfo\CRMBundle\Entity\OrganismPhone:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    phoneType: ~
+                    number: ~
+                    #organism: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    organism: ~
+                    phoneType: ~
+                    number: ~
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            delete: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    number: ~
+                    #contact: ~
 
 ###########
 # CONTACT
@@ -130,8 +167,17 @@ parameters:
                             title: ~
                             firstname: ~
                             phones:
+                                type: sonata_type_collection
                                 by_reference: false
-                                expanded: false
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
+                                _options:
+                                    edit: inline
+                                    inline: table
+                                    allow_delete: true
                             _options:
                                 fieldsOrder:
                                    - title
@@ -196,18 +242,24 @@ parameters:
                             - emailNpai
                             - emailNoNewsletter
 
+##########
+# CONTACTPHONE
+##########
 
         Librinfo\CRMBundle\Entity\ContactPhone:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
+                    phoneType: ~
                     number: ~
                     #contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
+                    contact: ~
+                    phoneType: ~
                     number: ~
-                    contact.firstname: ~
+
                     _action:
                         type: actions
                         actions:

@@ -23,7 +23,7 @@ class Organism
         Positionable,
         Circlable
     ;
-    
+
     /**
      * @var string
      */
@@ -40,6 +40,11 @@ class Organism
     private $categories;
 
     /**
+     * @var Collection
+     */
+    private $phones;
+
+    /**
      * Organism constructor.
      */
     public function __construct()
@@ -47,6 +52,7 @@ class Organism
         $this->categories = new ArrayCollection();
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
+        $this->phones = new ArrayCollection();
     }
 
     /**
@@ -138,5 +144,35 @@ class Organism
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+
+
+    /**
+     * @param OrganismPhone $phone
+     * @return Organism
+     */
+    public function addPhone(OrganismPhone $phone)
+    {
+        $phone->setOrganism($this);
+        $this->phones->add($phone);
+        return $this;
+    }
+
+    /**
+     * @param OrganismPhone $phone
+     * @return Organism
+     */
+    public function removePhone(OrganismPhone $phone)
+    {
+        $this->phones->removeElement($phone);
+        return $this;
     }
 }

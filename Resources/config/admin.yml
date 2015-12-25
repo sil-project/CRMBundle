@@ -4,12 +4,18 @@ services:
         arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}
-    
+
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Organism}
+
+    crm.organismphone:
+        class: Librinfo\CRMBundle\Admin\OrganismPhoneAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: OrganismPhone}
 
     crm.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
@@ -28,19 +34,19 @@ services:
         arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Group}
-            
+
     crm.contactphone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: ContactPhone}
-            
+
     crm.circle:
         class: Librinfo\CRMBundle\Admin\CircleAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Circle, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}            
-            
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}
+
 #    crm.circle:
 #        class: Librinfo\CRMBundle\Admin\CircleAdmin
 #        arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
