@@ -330,7 +330,8 @@ parameters:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
-                            email: ~
+                            email:
+                                type: email
                             phone: ~
                             circles: ~
                             department: ~
