@@ -48,6 +48,7 @@ parameters:
                                 multiple: true
                             url: ~
                             administrativeNumber: ~
+                        Phones:
                             phones:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -118,12 +119,38 @@ parameters:
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+                add:
+                    default:
+                        _options:
+                            groupsOrder:
+                                - Contact
+                                - Phones
+                                - Address
+                                - Description
+                                - Positions
+                                - Ticketing
+                                - Communication
+                                - Email
+                                - Misc
             Sonata\AdminBundle\Form\FormMapper:
+                remove: [description]
                 add:
                     General:
                         '':
                             title: ~
                             firstname: ~
+                            description:
+                                type: textarea
+                                required: false
+                            _options:
+                                fieldsOrder:
+                                    - title
+                                    - firstname
+                                    - name
+                                    - email
+                                    - circles
+                                    - description
+                        Phones:
                             phones:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -136,14 +163,11 @@ parameters:
                                     edit: inline
                                     inline: table
                                     allow_delete: true
-                            _options:
-                                fieldsOrder:
-                                   - title
-                                   - firstname
-                                   - name
-                                   - email
-                                   - phones
-                                   - circles
+                        _options:
+                            groupsOrder:
+                                - ''
+                                - Phones
+                                - Address
                     Sales:
                         Ticketing:
                             flashOnControl: ~
@@ -294,10 +318,8 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
                 add:
-                    General:
-                        _options:
-                            hideTitle: true
-                        General:
+                    '':
+                        Position:
                             position_type:
                                 placeholder: ''
                             contact:
@@ -350,8 +372,8 @@ parameters:
         Librinfo\CRMBundle\Entity\Traits\Positionable:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
-                    Positions:
-                        '':
+                    '':
+                        Positions:
                             positions:
                                 _options:
                                     initializeAssociationAdmin: true
