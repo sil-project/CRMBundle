@@ -1,0 +1,6 @@
+@media (min-width: 1200px) {
+.sonata-ba-view-container .sonata-ba-view.row { width: 390px; display: inline-block; vertical-align: top; }
+.sonata-collection-row-without-label .sonata-ba-tabs > div { width: 390px; float: left; }
+.sonata-collection-row-without-label .sonata-ba-tabs > div + div { margin-left: 10px; }
+.sonata-collection-row-without-label .field-container > span + span { display: block; clear: both; }
+}

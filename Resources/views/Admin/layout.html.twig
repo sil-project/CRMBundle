@@ -1,0 +1,23 @@
+{#
+
+This file is part of the Libre Informatique DecoratorBundle package.
+
+(c) Baptiste SIMON <baptiste.simon _AT_ libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'LibrinfoUIBundle:Admin:layout.html.twig' %}
+
+{% block body_classes %}{{ parent() }} crm-bundle{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/librinfocrm/css/main.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/main.js') }}"></script>
+{% endblock %}

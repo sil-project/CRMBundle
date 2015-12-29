@@ -43,7 +43,7 @@ class Position
     /**
      * @var PositionType
      */
-    private $position_type;
+    private $positionType;
 
     /**
      * Set phone
@@ -142,27 +142,27 @@ class Position
     }
 
     /**
-     * Set position_type
+     * Set positionType
      *
      * @param string $position_type
      *
      * @return Position
      */
-    public function setPositionType($position_type)
+    public function setPositionType($positionType)
     {
-        $this->position_type = $position_type;
+        $this->positionType = $positionType;
 
         return $this;
     }
 
     /**
-     * Get position_type
+     * Get positionType
      *
      * @return string
      */
     public function getPositionType()
     {
-        return $this->position_type;
+        return $this->positionType;
     }
     
     /**

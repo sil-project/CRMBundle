@@ -28,7 +28,7 @@ Librinfo\CRMBundle\Entity\Position:
                 nullable: false
             cascade:
                 - persist
-        position_type:
+        positionType:
             targetEntity: Librinfo\CRMBundle\Entity\PositionType
     manyToMany:
         circles:
@@ -45,3 +45,4 @@ Librinfo\CRMBundle\Entity\Position:
 
 
     lifecycleCallbacks: {  }
+

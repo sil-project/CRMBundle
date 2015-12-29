@@ -6,7 +6,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Yaml\Yaml;
 use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
+use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -36,5 +38,13 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
 
         if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
             \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+
+        $configSonataAdmin = Yaml::parse(
+            file_get_contents(__DIR__ . '/../Resources/config/bundles/sonata_admin.yml')
+        );
+        DefaultParameters::getInstance($container)
+            ->defineDefaultConfiguration(
+                $configSonataAdmin['default']
+            );
     }
 }

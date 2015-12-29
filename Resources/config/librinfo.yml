@@ -38,6 +38,7 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
+                remove: [description]
                 add:
                     General:
                         '':
@@ -48,6 +49,8 @@ parameters:
                                 multiple: true
                             url: ~
                             administrativeNumber: ~
+                            description:
+                                type: textarea
                         Phones:
                             phones:
                                 type: sonata_type_collection
@@ -141,7 +144,6 @@ parameters:
                             firstname: ~
                             description:
                                 type: textarea
-                                required: false
                             _options:
                                 fieldsOrder:
                                     - title
@@ -320,8 +322,6 @@ parameters:
                 add:
                     '':
                         Position:
-                            position_type:
-                                placeholder: ''
                             contact:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
@@ -330,13 +330,28 @@ parameters:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
                                 property: name
+                            positionType:
+                                placeholder: ''
+                            label: ~
                             email:
                                 type: email
-                            phone: ~
+                            phone:
+                                label: Phone number
                             circles: ~
                             department: ~
                             description:
                                 type: textarea
+                            _options:
+                                fieldsOrder:
+                                    - contact
+                                    - organism
+                                    - positionType
+                                    - label
+                                    - email
+                                    - phone
+                                    - circles
+                                    - department
+                                    - description
                         Specifics:
                             emailNpai: ~
                             emailNoNewsletter: ~
