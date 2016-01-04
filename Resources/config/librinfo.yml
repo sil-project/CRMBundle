@@ -275,8 +275,10 @@ parameters:
                     General:
                         '':
                             owner:
-                                type: entity
-                                class: Librinfo\UserBundle\Entity\User
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: username
+                                multiple: false
                                 required: false
                     Members:
                         '':
