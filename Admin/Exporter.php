@@ -38,31 +38,39 @@ class Exporter extends BaseExporter
         if ( !in_array($format, ['group']) )
             return parent::getResponse($format, $filename, $source);
         
-        // creates the circle
-        $circle = new Circle;
-        $circle->setName(
-            $this->translator->trans('librinfo_crm_export_new_group')
-            .' | '.
-            twig_date_format_filter($this->twig, time())
-        );
-        $user = $this->tokenStorage->getToken()->getUser();
-        $circle->setOwner($user);
-        
-        // sets the circle's content
-        foreach ( $source->getQuery()->iterate() as $elements )
-        foreach ( $elements as $element )
-        {
-            $rc = new \ReflectionClass($element);
-            $circle->{'add'.$rc->getShortName()}($element);
+        switch ( $format ) {
+        case 'group':
+            // creates the circle
+            $circle = new Circle;
+            $circle->setName(
+                $this->translator->trans('librinfo_crm_export_new_group')
+                .' | '.
+                twig_date_format_filter($this->twig, time())
+            );
+            $circle->setOwner($this->tokenStorage->getToken()->getUser());
+            
+            // sets the circle's content
+            foreach ( $source->getQuery()->iterate() as $elements )
+            foreach ( $elements as $element )
+            {
+                $rc = new \ReflectionClass($element);
+                $circle->{'add'.$rc->getShortName()}($element);
+            }
+            
+            // persisting
+            $em = $source->getQuery()->getEntityManager();
+            $em->persist($circle);
+            $em->flush();
+            
+            // redirect to the list
+            return new RedirectResponse($this->router->generate('admin_librinfo_crm_circle_edit', array(
+                'id' => $circle->getId()
+            )));
+        break;
+        default:
+            throw new \RuntimeException('Invalid format');
+        break;
         }
-        
-        // persisting
-        $em = $source->getQuery()->getEntityManager();
-        $em->persist($circle);
-        $em->flush();
-        
-        // redirect to the list
-        return new RedirectResponse($this->router->generate('admin_librinfo_crm_circle_edit', array('id' => $circle->getId())));
     }
 
     /**

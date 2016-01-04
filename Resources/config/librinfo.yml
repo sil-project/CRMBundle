@@ -207,8 +207,6 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
-                    _export_format:
-                        - group
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
@@ -390,6 +388,11 @@ parameters:
                     General:
                         '':
                             circles: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    _export_format:
+                        - group
+                        - test
 
 ############
 # POSITIONABLE Trait
