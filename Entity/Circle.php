@@ -9,8 +9,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\UserBundle\Entity\Traits\Ownable;
-use Librinfo\CRMBundle\Entity\Contact;
-use Librinfo\CRMBundle\Entity\Organism;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Circle
@@ -24,7 +23,7 @@ class Circle
         Traceable,
         Descriptible
     ;
-    
+
     /**
      * @var Collection
      */
@@ -34,17 +33,23 @@ class Circle
      * @var Collection
      */
     private $organisms;
-    
+
     /**
      * @var Collection
      */
     private $positions;
-    
+
+    /**
+     * @var Collection
+     */
+    private $users;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
         $this->organisms = new ArrayCollection();
         $this->positions = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
@@ -77,7 +82,7 @@ class Circle
     }
 
     /**
-     * @param Position $contact
+     * @param Position $position
      * @return Circle
      */
     public function addPosition(Position $position)
@@ -86,7 +91,7 @@ class Circle
         $this->positions->add($position);
         return $this;
     }
-    
+
     /**
      * @param Position $position
      * @return Circle
@@ -96,7 +101,7 @@ class Circle
         $this->positions->removeElement($position);
         return $this;
     }
-    
+
     /**
      * @return Collection
      */
@@ -104,7 +109,7 @@ class Circle
     {
         return $this->positions;
     }
-    
+
     /**
      * @param Organism $organism
      * @return Circle
@@ -132,6 +137,34 @@ class Circle
     public function getOrganisms()
     {
         return $this->organisms;
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return Circle
+     */
+    public function addUser(UserInterface $user)
+    {
+        $this->users->add($user);
+        return $this;
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return Circle
+     */
+    public function removeUser(UserInterface $user)
+    {
+        $this->users->removeElement($user);
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
 
