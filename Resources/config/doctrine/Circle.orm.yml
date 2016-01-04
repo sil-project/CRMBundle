@@ -1,6 +1,6 @@
 Librinfo\CRMBundle\Entity\Circle:
     type: entity
-    
+
     manyToMany:
         positions:
             targetEntity: Librinfo\CRMBundle\Entity\Position
@@ -11,6 +11,8 @@ Librinfo\CRMBundle\Entity\Circle:
         organisms:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             mappedBy: circles
+        users:
+            targetEntity: Librinfo\UserBundle\Entity\User
 
 #    manyToOne:
 #        user:

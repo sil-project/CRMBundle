@@ -280,6 +280,12 @@ parameters:
                                 property: username
                                 multiple: false
                                 required: false
+                            users:
+                                type: sonata_type_model_autocomplete
+                                by_reference: false
+                                property: username
+                                multiple: true
+                                required: false 
                     Members:
                         '':
                             contacts:
