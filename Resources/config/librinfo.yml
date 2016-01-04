@@ -207,6 +207,8 @@ parameters:
                             show: ~
                             edit: ~
                             delete: ~
+                    _export_format:
+                        - group
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
