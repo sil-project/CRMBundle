@@ -5,10 +5,48 @@ namespace Librinfo\CRMBundle\Controller;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class CircleAdminController extends CRUDController
 {
+    /**
+     * This method is called from editAction.
+     *
+     * @param Request $request
+     * @param mixed   $object
+     *
+     * @return Response|null
+     */
+    protected function preEdit(Request $request, $object)
+    {
+        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+    }
+
+    /**
+     * This method is called from showAction.
+     *
+     * @param Request $request
+     * @param mixed   $object
+     *
+     * @return Response|null
+     */
+    protected function preShow(Request $request, $object)
+    {
+        $this->denyAccessUnlessGranted('view', $object, 'Unauthorized access!');
+    }
+
+    /**
+     * This method is called from deleteAction.
+     *
+     * @param Request $request
+     * @param mixed   $object
+     *
+     * @return Response|null
+     */
+    protected function preDelete(Request $request, $object)
+    {
+        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+    }
+
     /**
      * To keep backwards compatibility with older Sonata Admin code.
      *
