@@ -43,7 +43,7 @@ services:
 
     crm.circle:
         class: Librinfo\CRMBundle\Admin\CircleAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Circle, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}
 

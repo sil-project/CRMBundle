@@ -3,6 +3,12 @@ services:
 #        class: Librinfo\CRMBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
 
+    security.access.circle_voter:
+        class:      Librinfo\CRMBundle\Security\Authorization\Voter\CircleVoter
+        public:     false
+        tags:
+            - { name: security.voter }
+
     sonata.admin.exporter:
         class: Librinfo\CRMBundle\Admin\Exporter
         calls:

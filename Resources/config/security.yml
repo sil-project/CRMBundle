@@ -30,6 +30,14 @@ librinfo.security:
                         - ROLE_CRM_CATEGORY_VIEWER:
                             - ROLE_CRM_CATEGORY_LIST
                             - ROLE_CRM_CATEGORY_VIEW
+                - ROLE_CRM_CIRCLE_MANAGER:
+                    - ROLE_CRM_CIRCLE_EDITOR:
+                        - ROLE_CRM_CIRCLE_CREATE
+                        - ROLE_CRM_CIRCLE_EDIT
+                        - ROLE_CRM_CIRCLE_EXPORT
+                        - ROLE_CRM_CIRCLE_VIEWER:
+                            - ROLE_CRM_CIRCLE_LIST
+                            - ROLE_CRM_CIRCLE_VIEW
                 - ROLE_CRM_ROLE_MANAGER:
                     - ROLE_CRM_ROLE_EDITOR:
                         - ROLE_CRM_ROLE_CREATE
