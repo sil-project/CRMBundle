@@ -4,35 +4,15 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Exporter\Source\SourceIteratorInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Sonata\AdminBundle\Export\Exporter as BaseExporter;
+use Librinfo\CoreBundle\Admin\Exporter as CoreExporter;
 use Librinfo\CRMBundle\Entity\Circle;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
-class Exporter extends BaseExporter
+class Exporter extends CoreExporter
 {
-    /**
-     * @var TokenStorageInterface
-     */
-    protected $tokenStorage;
-    
-    /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-    
-    /**
-     * @var \Twig_Environment
-     */
-    protected $twig;
-    
-    /**
-     * @var Router
-     */
-    protected $router;
-    
     public function getResponse($format, $filename, SourceIteratorInterface $source)
     {
         if ( !in_array($format, ['group']) )
@@ -71,49 +51,5 @@ class Exporter extends BaseExporter
             throw new \RuntimeException('Invalid format');
         break;
         }
-    }
-
-    /**
-     * setTokenStorage
-     *
-     * @param $tokenStorage     TokenStorageInterface
-     */
-    public function setTokenStorage(TokenStorageInterface $tokenStorage)
-    {
-        $this->tokenStorage = $tokenStorage;
-        return $this;
-    }
-    
-    /**
-     * setTranslator
-     *
-     * @param $translator     TokenStorageInterface
-     */
-    public function setTranslator(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-        return $this;
-    }
-    
-    /**
-     * setTwig
-     *
-     * @param $twig     \Twig_Environment
-     */
-    public function setTwig(\Twig_Environment $twig)
-    {
-        $this->twig = $twig;
-        return $this;
-    }
-    
-    /**
-     * setRouter
-     *
-     * @param $router     \Twig_Environment
-     */
-    public function setRouter(Router $router)
-    {
-        $this->router = $router;
-        return $this;
     }
 }
