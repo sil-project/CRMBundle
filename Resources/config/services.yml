@@ -9,3 +9,10 @@ services:
         tags:
             - { name: security.voter }
 
+    sonata.admin.exporter:
+        class: Librinfo\CRMBundle\Admin\Exporter
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setTranslator, ['@translator']]
+            - [setTwig, ['@twig']]
+            - [setRouter, ['@router']]

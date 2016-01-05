@@ -22,12 +22,6 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
 
 
 ############
@@ -69,22 +63,20 @@ parameters:
                             - General
                             - Positions
                             - Specifics
-                Sonata\AdminBundle\Datagrid\ListMapper:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove: [createdAt]
                 add:
                     url: ~
-                    administrativeNumber: ~
                     categories: ~
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-                remove:
-                    - zip
-                    - city
-                    - country
-                    - email
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - email
+                            - url
+                            - zip
+                            - city
+                            - country
+                            - categories
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     name: ~
@@ -104,12 +96,6 @@ parameters:
                     organism: ~
                     phoneType: ~
                     number: ~
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     number: ~
@@ -192,6 +178,7 @@ parameters:
                             - Sales
                             - Specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
+                remove: [createdAt]
                 add:
                     title: ~
                     firstname: ~
@@ -201,12 +188,6 @@ parameters:
                             - firstname
                             - name
                             - email
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
@@ -249,13 +230,6 @@ parameters:
                     contact: ~
                     phoneType: ~
                     number: ~
-
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     number: ~
@@ -308,12 +282,6 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     owner: ~
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
 
@@ -368,13 +336,6 @@ parameters:
                     contact: ~
                     position_type: ~
                     organism: ~
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-
 
 ############
 # CIRCLABLE Trait
@@ -388,6 +349,9 @@ parameters:
                     General:
                         '':
                             circles: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    _export_format: [group]
 
 ############
 # POSITIONABLE Trait
@@ -425,12 +389,3 @@ parameters:
         Librinfo\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
-            Sonata\AdminBundle\Datagrid\ListMapper:
-                add:
-                    _action:
-                        type: actions
-                        actions:
-                            show: ~
-                            edit: ~
-                            delete: ~
-
