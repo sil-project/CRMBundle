@@ -11,7 +11,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 /**
  * Position
  */
-class Position
+class Position implements VCardableInterface
 {
     use BaseEntity,
         Labelable,
@@ -171,5 +171,10 @@ class Position
     public function __toString()
     {
         return $this->label ? $this->getLabel() : (string)$this->getPositionType();
+    }
+    
+    public function isPersonal()
+    {
+        return false;
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Librinfo\CoreBundle\Admin\CoreAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class OrganismPhoneAdmin extends Admin
+class OrganismPhoneAdmin extends CoreAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper

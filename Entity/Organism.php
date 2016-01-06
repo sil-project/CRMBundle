@@ -15,7 +15,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 /**
  * Organism
  */
-class Organism
+class Organism implements VCardableInterface
 {
     use BaseEntity,
         Traceable,
@@ -176,5 +176,10 @@ class Organism
     {
         $this->phones->removeElement($phone);
         return $this;
+    }
+    
+    public function isPersonal()
+    {
+        return false;
     }
 }

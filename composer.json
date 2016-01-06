@@ -3,11 +3,12 @@
     "type": "symfony-bundle",
     "description": "CRM Bundle for Symfony",
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "symfony/symfony": "2.7.*",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
         "sonata-project/easy-extends-bundle": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.2",
+        "jeroendesloovere/vcard-bundle": "^1.2",
         "libre-informatique/base-entities-bundle": "dev-master"
     },
     "license":  "GPL-3.0",

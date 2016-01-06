@@ -16,7 +16,7 @@ use Librinfo\CRMBundle\Entity\ContactPhone;
 /**
  * Contact
  */
-class Contact
+class Contact implements VCardableInterface
 {
 
     use BaseEntity,
@@ -277,5 +277,10 @@ class Contact
     public function __toString()
     {
         return $this->getFirstname().' '.$this->getName();
+    }
+    
+    public function isPersonal()
+    {
+        return true;
     }
 }

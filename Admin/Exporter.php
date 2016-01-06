@@ -6,16 +6,15 @@ use Exporter\Source\SourceIteratorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Librinfo\CoreBundle\Admin\Exporter as CoreExporter;
 use Librinfo\CRMBundle\Entity\Circle;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Librinfo\CRMBundle\Admin\Writer\VCardWriter;
 
 class Exporter extends CoreExporter
 {
     public function getResponse($format, $filename, SourceIteratorInterface $source)
     {
-        if ( !in_array($format, ['group']) )
+        if ( !in_array($format, ['group', 'vcard',]) )
             return parent::getResponse($format, $filename, $source);
         
         switch ( $format ) {
@@ -46,6 +45,22 @@ class Exporter extends CoreExporter
             return new RedirectResponse($this->router->generate('admin_librinfo_crm_circle_edit', array(
                 'id' => $circle->getId()
             )));
+        break;
+        case 'vcard':
+            $writer      = new VCardWriter('php://output');
+            $contentType = 'text/vcard';
+            
+            $callback = function() use ($source, $writer) {
+                $handler = \Exporter\Handler::create($source, $writer);
+                $handler->export();
+            };
+
+            $callback($source, $writer);
+            die();
+            return new StreamedResponse($callback, 200, array(
+                'Content-Type'        => $contentType,
+                'Content-Disposition' => sprintf('attachment; filename="%s"', $writer->getFilename($filename)),
+            ));
         break;
         default:
             throw new \RuntimeException('Invalid format');

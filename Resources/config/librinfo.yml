@@ -45,6 +45,7 @@ parameters:
                             administrativeNumber: ~
                             description:
                                 type: textarea
+                                required: false
                         Phones:
                             phones:
                                 type: sonata_type_collection
@@ -77,29 +78,15 @@ parameters:
                             - city
                             - country
                             - categories
+                    _export_format:
+                        csv: [name, address, zip, city, country, email, url, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                        vcard: [name, address, zip, city, country, email, url, description, phones, personal]
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     name: ~
-
-##########
-# ORGANISMPHONE
-##########
-
-        Librinfo\CRMBundle\Entity\OrganismPhone:
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    phoneType: ~
-                    number: ~
-                    #organism: ~
-            Sonata\AdminBundle\Datagrid\ListMapper:
-                add:
-                    organism: ~
-                    phoneType: ~
-                    number: ~
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add:
-                    number: ~
-                    #contact: ~
 
 ###########
 # CONTACT
@@ -130,6 +117,7 @@ parameters:
                             firstname: ~
                             description:
                                 type: textarea
+                                required: false
                             _options:
                                 fieldsOrder:
                                     - title
@@ -188,6 +176,37 @@ parameters:
                             - firstname
                             - name
                             - email
+                    _list_action:
+                        duplicates:
+                            action: duplicates
+                            translation_domain: LibrinfoCRMBundle
+                        import:
+                            action: import
+                            translation_domain: LibrinfoCRMBundle
+                    _export_format:
+                        csv: [title, name, firstname, address, zip, city, country, email, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                        vcard:
+                            - firstname
+                            - name
+                            - address
+                            - zip
+                            - city
+                            - country
+                            - email
+                            - description
+                            - phones
+                            - positions.label
+                            - positions.phone
+                            - positions.email
+                            - positions.organism
+                            - positions.organism.address
+                            - positions.organism.zip
+                            - positions.organism.city
+                            - positions.organism.country
+                            - personal
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     title: ~
@@ -214,6 +233,26 @@ parameters:
                             - emailNoNewsletter
 
 ##########
+# ORGANISMPHONE
+##########
+
+        Librinfo\CRMBundle\Entity\OrganismPhone:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    phoneType: ~
+                    number: ~
+                    organism: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    organism: ~
+                    phoneType: ~
+                    number: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    number: ~
+                    #organism: ~
+
+##########
 # CONTACTPHONE
 ##########
 
@@ -224,7 +263,7 @@ parameters:
                 add:
                     phoneType: ~
                     number: ~
-                    #contact: ~
+                    contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
@@ -317,6 +356,7 @@ parameters:
                             department: ~
                             description:
                                 type: textarea
+                                required: false
                             _options:
                                 fieldsOrder:
                                     - contact
