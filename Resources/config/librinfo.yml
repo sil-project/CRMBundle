@@ -36,11 +36,11 @@ parameters:
                 add:
                     General:
                         '':
-                            categories:
+                            category:
                                 type: librinfo_baseentities_treeablechoice
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
-                                multiple: true
+                                multiple: false
                             url: ~
                             administrativeNumber: ~
                             description:
@@ -68,7 +68,7 @@ parameters:
                 remove: [createdAt]
                 add:
                     url: ~
-                    categories: ~
+                    category: ~
                     _options:
                         fieldsOrder:
                             - name
@@ -77,9 +77,9 @@ parameters:
                             - zip
                             - city
                             - country
-                            - categories
+                            - category
                     _export_format:
-                        csv: [name, address, zip, city, country, email, url, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
+                        csv: [name, address, zip, city, country, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
                         xls: csv
                         json: csv
                         xml: csv
@@ -177,12 +177,12 @@ parameters:
                             - name
                             - email
                     _list_action:
-                        duplicates:
-                            action: duplicates
-                            translation_domain: LibrinfoCRMBundle
-                        import:
-                            action: import
-                            translation_domain: LibrinfoCRMBundle
+#                        duplicates:
+#                            action: duplicates
+#                            translation_domain: LibrinfoCRMBundle
+#                        import:
+#                            action: import
+#                            translation_domain: LibrinfoCRMBundle
                     _export_format:
                         csv: [title, name, firstname, address, zip, city, country, email, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter]
                         xls: csv
@@ -298,7 +298,7 @@ parameters:
                                 by_reference: false
                                 property: username
                                 multiple: true
-                                required: false 
+                                required: false
                     Members:
                         '':
                             contacts:

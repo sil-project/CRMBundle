@@ -1,7 +1,9 @@
 Librinfo\CRMBundle\Entity\Category:
     type: entity
     fields: ~
-    manyToMany:
+
+    oneToMany:
         organisms:
-            targetEntity:   Librinfo\CRMBundle\Entity\Organism
-            mappedBy:     categories
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            mappedBy: category
+            cascade: [ persist ]

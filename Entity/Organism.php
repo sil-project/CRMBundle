@@ -37,9 +37,9 @@ class Organism implements VCardableInterface
     private $administrativeNumber;
 
     /**
-     * @var Collection
+     * @var Category
      */
-    private $categories;
+    private $category;
 
     /**
      * @var Collection
@@ -51,7 +51,6 @@ class Organism implements VCardableInterface
      */
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
@@ -127,25 +126,25 @@ class Organism implements VCardableInterface
     /**
      * Set category
      *
-     * @param Collection $categories
+     * @param Category $category
      *
      * @return Organism
      */
-    public function setCategories(Collection $categories = null)
+    public function setCategory(Category $category = null)
     {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categories
+     * Get category
      *
-     * @return Collection
+     * @return Category
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 
     /**
@@ -177,7 +176,7 @@ class Organism implements VCardableInterface
         $this->phones->removeElement($phone);
         return $this;
     }
-    
+
     public function isPersonal()
     {
         return false;

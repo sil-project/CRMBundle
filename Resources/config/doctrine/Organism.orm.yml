@@ -9,6 +9,7 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+            
     oneToMany:
         phones:
             targetEntity: OrganismPhone
@@ -19,15 +20,19 @@ Librinfo\CRMBundle\Entity\Organism:
             mappedBy: organism
             cascade:
                 - persist
+
     manyToMany:
-        categories:
-            targetEntity:   Librinfo\CRMBundle\Entity\Category
-            inversedBy:     organisms
-            joinTable:
-                name: librinfo_crm_organism_category
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
                 name: librinfo_crm_organism_circle
+
+    manyToOne:
+        category:
+            targetEntity: Librinfo\CRMBundle\Entity\Category
+            inversedBy: organisms
+            joinColumn:
+                name: category_id
+            cascade: [ persist ]
 
