@@ -12,6 +12,7 @@ use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
 
 /**
  * Contact
@@ -25,7 +26,8 @@ class Contact implements VCardableInterface
         Emailable,
         Positionable,
         Circlable,
-        Descriptible
+        Descriptible,
+        Searchable
     ;
 
     /**
@@ -273,12 +275,12 @@ class Contact implements VCardableInterface
     {
         return $this->phones;
     }
-    
+
     public function __toString()
     {
         return $this->getFirstname().' '.$this->getName();
     }
-    
+
     public function isPersonal()
     {
         return true;
