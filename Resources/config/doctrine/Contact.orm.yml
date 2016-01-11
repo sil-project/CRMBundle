@@ -44,3 +44,5 @@ Librinfo\CRMBundle\Entity\Contact:
                 inverseJoinColumns:
                     circle_id:
                         referencedColumnName: id
+
+    test: test
