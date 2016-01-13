@@ -304,9 +304,11 @@ parameters:
                             contacts:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
-                                property: name
+                                property: [firstname, name]
                                 multiple: true
                                 required: false
+                                callback: [Librinfo\CRMBundle\Admin\ContactAdminConcrete, indexSearch]
+                                route: { name: searchable_admin_retrieve_autocomplete_items, parameters: [] }
                             organisms:
                                 type: sonata_type_model_autocomplete
                                 by_reference: false
