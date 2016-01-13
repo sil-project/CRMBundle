@@ -289,30 +289,32 @@ parameters:
                         '':
                             owner:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
-                                property: username
+                                property: username # not used but required
                                 multiple: false
                                 required: false
                             users:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
-                                property: username
+                                property: username # not used but required
                                 multiple: true
                                 required: false
                     Members:
                         '':
                             contacts:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
+                                property: name # not used but required
                                 by_reference: false
-                                property: [firstname, name]
                                 multiple: true
                                 required: false
-                                callback: [Librinfo\CRMBundle\Admin\ContactAdminConcrete, indexSearch]
-                                route: { name: searchable_admin_retrieve_autocomplete_items, parameters: [] }
                             organisms:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
+                                property: name # not used but required
                                 by_reference: false
-                                property: name
                                 multiple: true
                                 required: false
                     _options:
@@ -341,12 +343,14 @@ parameters:
                         Position:
                             contact:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
-                                property: name
+                                property: name # not used but required
                             organism:
                                 type: sonata_type_model_autocomplete
+                                route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
-                                property: name
+                                property: name # not used but required
                             positionType:
                                 placeholder: ''
                             label: ~
