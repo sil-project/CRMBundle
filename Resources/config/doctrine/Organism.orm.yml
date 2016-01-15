@@ -9,7 +9,7 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
-            
+
     oneToMany:
         phones:
             targetEntity: OrganismPhone

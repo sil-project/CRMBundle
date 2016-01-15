@@ -12,6 +12,7 @@ use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Loggable;
 
 /**
  * Organism
@@ -25,7 +26,8 @@ class Organism implements VCardableInterface
         Positionable,
         Circlable,
         Descriptible,
-        Searchable
+        Searchable,
+        Loggable
     ;
 
     /**

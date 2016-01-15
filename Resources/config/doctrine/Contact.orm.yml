@@ -1,5 +1,7 @@
 Librinfo\CRMBundle\Entity\Contact:
     type: entity
+    librinfo:
+        loggable: true
     fields:
         firstname:
             type:       string(255)
