@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\BaseEntitiesBundle\Admin\TreeableAdmin;
+use Librinfo\DoctrineBundle\Admin\TreeableAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;

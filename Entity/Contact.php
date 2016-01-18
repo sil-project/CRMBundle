@@ -4,15 +4,15 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
+use Librinfo\DoctrineBundle\Entity\Traits\Addressable;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Librinfo\DoctrineBundle\Entity\Traits\Emailable;
+use Librinfo\DoctrineBundle\Entity\Traits\Descriptible;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Librinfo\DoctrineBundle\Entity\Traits\Searchable;
 
 /**
  * Contact

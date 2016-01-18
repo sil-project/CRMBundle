@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Librinfo\DoctrineBundle\Entity\SearchIndexEntity;
 
 class ContactSearchIndex extends SearchIndexEntity
 {
