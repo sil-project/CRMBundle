@@ -435,3 +435,11 @@ parameters:
         Librinfo\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+
+#################
+# PHONE_TYPE
+#################
+
+        Librinfo\CRMBundle\Entity\PhoneType:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper

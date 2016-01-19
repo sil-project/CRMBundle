@@ -64,3 +64,9 @@ services:
         arguments: [~, Librinfo\CRMBundle\Entity\PositionType, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: PositionType }
+
+    crm.phone_type:
+        class: Librinfo\CRMBundle\Admin\PhoneTypeAdminConcrete
+        arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: PhoneType }
