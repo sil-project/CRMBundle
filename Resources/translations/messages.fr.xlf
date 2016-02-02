@@ -8,41 +8,49 @@
                 <source>Contact</source>
                 <target>Contact</target>
             </trans-unit>
-            <trans-unit id="entity_list_contact">
-                <source>Contact List</source>
+            <trans-unit id="librinfo.link.contact_list">
+                <source>librinfo.link.contact_list</source>
                 <target>Liste des contacts</target>
             </trans-unit>
-            <trans-unit id="field_contact_title">
-                <source>Title</source>
+            <trans-unit id="librinfo.label.title">
+                <source>librinfo.label.title</source>
                 <target>Titre</target>
             </trans-unit>
-            <trans-unit id="field_contact_firstname">
-                <source>Firstname</source>
+            <trans-unit id="librinfo.label.firstname">
+                <source>librinfo.label.firstname</source>
                 <target>Prénom</target>
             </trans-unit>
-            <trans-unit id="field_contact_family_contact">
-                <source>Family Contact</source>
-                <target>Family contact[FR]</target>
+            <trans-unit id="librinfo.label.family_contact">
+                <source>librinfo.label.family_contact</source>
+                <target>Contact de famille</target>
             </trans-unit>
-            <trans-unit id="field_contact_culture">
-                <source>Culture</source>
+            <trans-unit id="librinfo.label.culture">
+                <source>librinfo.label.culture</source>
                 <target>Langue</target>
             </trans-unit>
-            <trans-unit id="field_contact_shortname">
-                <source>Shortname</source>
+            <trans-unit id="librinfo.label.shortname">
+                <source>librinfo.label.shortname</source>
                 <target>Nom court</target>
             </trans-unit>
-            <trans-unit id="field_contact_circles">
-                <source>Circles</source>
+            <trans-unit id="librinfo.label.circles">
+                <source>librinfo.label.circles</source>
                 <target>Groupes</target>
             </trans-unit>
-            <trans-unit id="field_contact_flash_on_control">
-                <source>Flash On Control</source>
+            <trans-unit id="librinfo.label.flash_on_control">
+                <source>librinfo.label.flash_on_control</source>
                 <target>S'affiche au contrôle</target>
             </trans-unit>
-            <trans-unit id="field_contact_positions">
-                <source>Positions</source>
+            <trans-unit id="librinfo.label.positions">
+                <source>librinfo.label.positions</source>
                 <target>Fonctions</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.contact">
+                <source>librinfo.label.contact</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.contacts">
+                <source>librinfo.label.contacts</source>
+                <target>Contacts</target>
             </trans-unit>
 
 <!-- CIRCLE -->
@@ -50,59 +58,80 @@
                 <source>Circle</source>
                 <target>Groupe</target>
             </trans-unit>
-            <trans-unit id="entity_list_circle">
-                <source>Circle List</source>
+            <trans-unit id="librinfo.link.circle_list">
+                <source>librinfo.link.circle_list</source>
                 <target>Liste des groupes</target>
             </trans-unit>
 
 <!-- ORGANISM -->
-            <trans-unit id="field_organism_url">
-                <source>Url</source>
-                <target>Url</target>
-            </trans-unit>
             <trans-unit id="entity_organism">
                 <source>Organism</source>
                 <target>Organisme</target>
             </trans-unit>
-            <trans-unit id="entity_list_organism">
-                <source>Organism List</source>
+            <trans-unit id="librinfo.link.organism_list">
+                <source>librinfo.link.organism_list</source>
                 <target>Liste des organismes</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.url">
+                <source>librinfo.label.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.administrative_number">
+                <source>librinfo.label.administrative_number</source>
+                <target>Numéro administratif</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.organism">
+                <source>librinfo.label.organism</source>
+                <target>Organisme</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.organisms">
+                <source>librinfo.label.organisms</source>
+                <target>Organismes</target>
             </trans-unit>
 
 <!-- CATEGORY -->
-            <trans-unit id="field_category_parent_node">
-                <source>Parent Node</source>
-                <target>Noeud parent</target>
-            </trans-unit>
             <trans-unit id="entity_category">
                 <source>Category</source>
                 <target>Catégorie</target>
             </trans-unit>
-            <trans-unit id="entity_list_category">
-                <source>Category List</source>
+            <trans-unit id="librinfo.link.category_list">
+                <source>librinfo.link.category_list</source>
                 <target>Liste des catégories</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.parent_node">
+                <source>librinfo.label.parent_node</source>
+                <target>Noeud parent</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.category">
+                <source>librinfo.label.category</source>
+                <target>Contact</target>
             </trans-unit>
 
 <!-- PHONE -->
-            <trans-unit id="field_phone_type">
-                <source>Phone Type</source>
+            <trans-unit id="librinfo.label.phone_type">
+                <source>librinfo.label.phone_type</source>
                 <target>Type</target>
             </trans-unit>
-            <trans-unit id="field_phone_number">
-                <source>Number</source>
-                <target>Numéro</target>
+            <trans-unit id="librinfo.label.phone_number_long">
+                <source>librinfo.label.phone_number_long</source>
+                <target>Numéro de téléphone</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.phones">
+                <source>librinfo.label.phones</source>
+                <target>Numéros de téléphone</target>
+            </trans-unit>
+
 <!-- POSITION -->
-            <trans-unit id="field_position_department">
-                <source>Department</source>
+            <trans-unit id="librinfo.label.department">
+                <source>librinfo.label.department</source>
                 <target>Service</target>
             </trans-unit>
-            <trans-unit id="field_position_position_type">
-                <source>Position Type</source>
+            <trans-unit id="librinfo.label.position_type">
+                <source>librinfo.label.position_type</source>
                 <target>Type de fonction</target>
             </trans-unit>
-            <trans-unit id="field_position_phone">
-                <source>Phone number</source>
+            <trans-unit id="librinfo.label.phone">
+                <source>librinfo.label.phone</source>
                 <target>Téléphone</target>
             </trans-unit>
 
@@ -111,8 +140,8 @@
                 <source>PositionType</source>
                 <target>Type de fonction</target>
             </trans-unit>
-            <trans-unit id="entity_list_positiontype">
-                <source>PositionType List</source>
+            <trans-unit id="librinfo.link.position_type_list">
+                <source>librinfo.link.position_type_list</source>
                 <target>Liste des types de fonction</target>
             </trans-unit>
 
@@ -121,8 +150,8 @@
                 <source>PhoneType</source>
                 <target>Type de téléphone</target>
             </trans-unit>
-            <trans-unit id="entity_list_phonetype">
-                <source>PhoneType List</source>
+            <trans-unit id="librinfo.link.phone_type_list">
+                <source>librinfo.link.phone_type_list</source>
                 <target>Liste des types de téléphone</target>
             </trans-unit>
 

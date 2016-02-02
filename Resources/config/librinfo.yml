@@ -261,9 +261,12 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    phoneType: ~
-                    number: ~
-                    contact: ~
+                    form_group_general:
+                        '':
+                            phoneType: ~
+                            number:
+                                label: librinfo.label.phone_number_long
+                            contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~
@@ -356,8 +359,7 @@ parameters:
                             label: ~
                             email:
                                 type: email
-                            phone:
-                                label: Phone number
+                            phone: ~
                             circles: ~
                             department: ~
                             description:
