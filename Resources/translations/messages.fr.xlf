@@ -2,10 +2,146 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="1">
-                <source>Symfony2 is great</source>
-                <target>J'aime Symfony2</target>
+<!-- ENTITIES -->
+            <trans-unit id="entity_circle">
+                <source>Circle</source>
+                <target>Groupes</target>
             </trans-unit>
+            <trans-unit id="entity_list_circle">
+                <source>Circle List</source>
+                <target>Liste des groupes</target>
+            </trans-unit>
+            <trans-unit id="entity_organism">
+                <source>Organism</source>
+                <target>Organismes</target>
+            </trans-unit>
+            <trans-unit id="entity_list_organism">
+                <source>Organism List</source>
+                <target>Liste des organismes</target>
+            </trans-unit>
+            <trans-unit id="entity_contact">
+                <source>Contact</source>
+                <target>Contacts</target>
+            </trans-unit>
+            <trans-unit id="entity_list_contact">
+                <source>Contact List</source>
+                <target>Liste des contacts</target>
+            </trans-unit>
+            <trans-unit id="entity_category">
+                <source>Category</source>
+                <target>Catégories</target>
+            </trans-unit>
+            <trans-unit id="entity_list_category">
+                <source>Category List</source>
+                <target>Liste des catégories</target>
+            </trans-unit>
+            <trans-unit id="entity_positiontype">
+                <source>PositionType</source>
+                <target>Types de fonction</target>
+            </trans-unit>
+            <trans-unit id="entity_list_positiontype">
+                <source>PositionType List</source>
+                <target>Liste des types de fonction</target>
+            </trans-unit>
+            <trans-unit id="entity_phonetype">
+                <source>PhoneType</source>
+                <target>Types de téléphone</target>
+            </trans-unit>
+            <trans-unit id="entity_list_phonetype">
+                <source>PhoneType List</source>
+                <target>Liste des types de téléphone</target>
+            </trans-unit>
+<!-- CONTACTS -->
+            <trans-unit id="field_contact_title">
+                <source>Title</source>
+                <target>Titre</target>
+            </trans-unit>
+            <trans-unit id="field_contact_firstname">
+                <source>Firstname</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="field_contact_family_contact">
+                <source>Family Contact</source>
+                <target>Family contact[FR]</target>
+            </trans-unit>
+            <trans-unit id="field_contact_culture">
+                <source>Culture</source>
+                <target>Langue</target>
+            </trans-unit>
+            <trans-unit id="field_contact_shortname">
+                <source>Shortname</source>
+                <target>Nom court</target>
+            </trans-unit>
+            <trans-unit id="field_contact_circles">
+                <source>Circles</source>
+                <target>Groupes</target>
+            </trans-unit>
+            <trans-unit id="field_contact_flash_on_control">
+                <source>Flash On Control</source>
+                <target>S'affiche au contrôle</target>
+            </trans-unit>
+            <trans-unit id="field_contact_positions">
+                <source>Positions</source>
+                <target>Fonctions</target>
+            </trans-unit>
+<!-- ORGANISMS -->
+            <trans-unit id="field_organism_url">
+                <source>Url</source>
+                <target>Url</target>
+            </trans-unit>
+<!-- CATEGORIES -->
+            <trans-unit id="field_category_parent_node">
+                <source>Parent Node</source>
+                <target>Noeud parent</target>
+            </trans-unit>
+<!-- PHONES -->
+            <trans-unit id="field_phone_type">
+                <source>Phone Type</source>
+                <target>Type</target>
+            </trans-unit>
+            <trans-unit id="field_phone_number">
+                <source>Number</source>
+                <target>Numéro</target>
+            </trans-unit>
+<!-- POSITIONS -->
+            <trans-unit id="field_position_department">
+                <source>Department</source>
+                <target>Service</target>
+            </trans-unit>
+            <trans-unit id="field_position_position_type">
+                <source>Position Type</source>
+                <target>Type de fonction</target>
+            </trans-unit>
+            <trans-unit id="field_position_phone">
+                <source>Phone number</source>
+                <target>Téléphone</target>
+            </trans-unit>
+<!-- FORMS -->
+            <trans-unit id="form_group_positions">
+                <source>form_group_positions</source>
+                <target>Fonctions</target>
+            </trans-unit>
+            <trans-unit id="form_group_position">
+                <source>form_group_position</source>
+                <target>Fonction</target>
+            </trans-unit>
+            <trans-unit id="form_group_sales">
+                <source>form_group_sales</source>
+                <target>Ventes</target>
+            </trans-unit>
+            <trans-unit id="form_group_ticketing">
+                <source>form_group_ticketing</source>
+                <target>Billetterie</target>
+            </trans-unit>
+            <trans-unit id="form_group_phones">
+                <source>form_group_phones</source>
+                <target>Numéros de téléphone</target>
+            </trans-unit>
+            <trans-unit id="form_group_members">
+                <source>form_group_members</source>
+                <target>Membres</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

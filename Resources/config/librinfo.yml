@@ -11,7 +11,7 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    General:
+                    form_group_general:
                         '':
                             name:
                                 type: text
@@ -34,7 +34,7 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [description]
                 add:
-                    General:
+                    form_group_general:
                         '':
                             category:
                                 type: librinfo_baseentities_treeablechoice
@@ -46,7 +46,7 @@ parameters:
                             description:
                                 type: textarea
                                 required: false
-                        Phones:
+                        form_group_phones:
                             phones:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -61,9 +61,9 @@ parameters:
                                     allow_delete: true
                     _options:
                         tabsOrder:
-                            - General
-                            - Positions
-                            - Specifics
+                            - form_group_general
+                            - form_group_positions
+                            - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [createdAt]
                 add:
@@ -100,18 +100,18 @@ parameters:
                         _options:
                             groupsOrder:
                                 - Contact
-                                - Phones
-                                - Address
+                                - form_group_phones
+                                - form_group_address
                                 - Description
-                                - Positions
-                                - Ticketing
-                                - Communication
-                                - Email
-                                - Misc
+                                - form_group_positions
+                                - form_group_ticketing
+                                - form_group_communication
+                                - form_group_email
+                                - form_group_misc
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [description]
                 add:
-                    General:
+                    form_group_general:
                         '':
                             title: ~
                             firstname: ~
@@ -126,7 +126,7 @@ parameters:
                                     - email
                                     - circles
                                     - description
-                        Phones:
+                        form_group_phones:
                             phones:
                                 type: sonata_type_collection
                                 by_reference: false
@@ -142,29 +142,29 @@ parameters:
                         _options:
                             groupsOrder:
                                 - ''
-                                - Phones
+                                - form_group_phones
                                 - Address
-                    Sales:
-                        Ticketing:
+                    form_group_sales:
+                        form_group_ticketing:
                             flashOnControl: ~
-                    Specifics:
-                        Communication:
+                    form_group_specifics:
+                        form_group_communication:
                             culture: ~
                             _options:
                                 fieldsOrder:
                                     - culture
                         _options:
                             groupsOrder:
-                                - Communication
-                                - Address
-                                - Email
-                                - Misc
+                                - form_group_communication
+                                - form_group_address
+                                - form_group_email
+                                - form_group_misc
                     _options:
                         tabsOrder:
-                            - General
-                            - Positions
-                            - Sales
-                            - Specifics
+                            - form_group_general
+                            - form_group_positions
+                            - form_group_sales
+                            - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [createdAt]
                 add:
@@ -285,7 +285,7 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [owner]
                 add:
-                    General:
+                    form_group_general:
                         '':
                             owner:
                                 type: sonata_type_model_autocomplete
@@ -301,7 +301,7 @@ parameters:
                                 property: username # not used but required
                                 multiple: true
                                 required: false
-                    Members:
+                    form_group_members:
                         '':
                             contacts:
                                 type: sonata_type_model_autocomplete
@@ -319,9 +319,9 @@ parameters:
                                 required: false
                     _options:
                         tabsOrder:
-                            - General
-                            - Members
-                            - Specifics
+                            - form_group_general
+                            - form_group_members
+                            - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     owner: ~
@@ -340,7 +340,7 @@ parameters:
                 remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
                 add:
                     '':
-                        Position:
+                        form_group_position:
                             contact:
                                 type: sonata_type_model_autocomplete
                                 route: { name: searchable_admin_retrieve_autocomplete_items }
@@ -374,7 +374,7 @@ parameters:
                                     - circles
                                     - department
                                     - description
-                        Specifics:
+                        form_group_specifics:
                             emailNpai: ~
                             emailNoNewsletter: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -392,7 +392,7 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    General:
+                    form_group_general:
                         '':
                             circles: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -407,14 +407,14 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     '':
-                        Positions:
+                        form_group_positions:
                             positions:
                                 _options:
                                     initializeAssociationAdmin: true
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    Positions:
-                        Positions:
+                    form_group_positions:
+                        form_group_positions:
                             positions:
                                 type: sonata_type_collection
                                 by_reference: false
