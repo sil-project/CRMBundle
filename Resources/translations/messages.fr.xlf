@@ -2,56 +2,16 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
-<!-- ENTITIES -->
-            <trans-unit id="entity_circle">
-                <source>Circle</source>
-                <target>Groupes</target>
-            </trans-unit>
-            <trans-unit id="entity_list_circle">
-                <source>Circle List</source>
-                <target>Liste des groupes</target>
-            </trans-unit>
-            <trans-unit id="entity_organism">
-                <source>Organism</source>
-                <target>Organismes</target>
-            </trans-unit>
-            <trans-unit id="entity_list_organism">
-                <source>Organism List</source>
-                <target>Liste des organismes</target>
-            </trans-unit>
+
+<!-- CONTACTS -->
             <trans-unit id="entity_contact">
                 <source>Contact</source>
-                <target>Contacts</target>
+                <target>Contact</target>
             </trans-unit>
             <trans-unit id="entity_list_contact">
                 <source>Contact List</source>
                 <target>Liste des contacts</target>
             </trans-unit>
-            <trans-unit id="entity_category">
-                <source>Category</source>
-                <target>Catégories</target>
-            </trans-unit>
-            <trans-unit id="entity_list_category">
-                <source>Category List</source>
-                <target>Liste des catégories</target>
-            </trans-unit>
-            <trans-unit id="entity_positiontype">
-                <source>PositionType</source>
-                <target>Types de fonction</target>
-            </trans-unit>
-            <trans-unit id="entity_list_positiontype">
-                <source>PositionType List</source>
-                <target>Liste des types de fonction</target>
-            </trans-unit>
-            <trans-unit id="entity_phonetype">
-                <source>PhoneType</source>
-                <target>Types de téléphone</target>
-            </trans-unit>
-            <trans-unit id="entity_list_phonetype">
-                <source>PhoneType List</source>
-                <target>Liste des types de téléphone</target>
-            </trans-unit>
-<!-- CONTACTS -->
             <trans-unit id="field_contact_title">
                 <source>Title</source>
                 <target>Titre</target>
@@ -84,17 +44,46 @@
                 <source>Positions</source>
                 <target>Fonctions</target>
             </trans-unit>
-<!-- ORGANISMS -->
+
+<!-- CIRCLE -->
+            <trans-unit id="entity_circle">
+                <source>Circle</source>
+                <target>Groupe</target>
+            </trans-unit>
+            <trans-unit id="entity_list_circle">
+                <source>Circle List</source>
+                <target>Liste des groupes</target>
+            </trans-unit>
+
+<!-- ORGANISM -->
             <trans-unit id="field_organism_url">
                 <source>Url</source>
                 <target>Url</target>
             </trans-unit>
-<!-- CATEGORIES -->
+            <trans-unit id="entity_organism">
+                <source>Organism</source>
+                <target>Organisme</target>
+            </trans-unit>
+            <trans-unit id="entity_list_organism">
+                <source>Organism List</source>
+                <target>Liste des organismes</target>
+            </trans-unit>
+
+<!-- CATEGORY -->
             <trans-unit id="field_category_parent_node">
                 <source>Parent Node</source>
                 <target>Noeud parent</target>
             </trans-unit>
-<!-- PHONES -->
+            <trans-unit id="entity_category">
+                <source>Category</source>
+                <target>Catégorie</target>
+            </trans-unit>
+            <trans-unit id="entity_list_category">
+                <source>Category List</source>
+                <target>Liste des catégories</target>
+            </trans-unit>
+
+<!-- PHONE -->
             <trans-unit id="field_phone_type">
                 <source>Phone Type</source>
                 <target>Type</target>
@@ -103,7 +92,7 @@
                 <source>Number</source>
                 <target>Numéro</target>
             </trans-unit>
-<!-- POSITIONS -->
+<!-- POSITION -->
             <trans-unit id="field_position_department">
                 <source>Department</source>
                 <target>Service</target>
@@ -116,6 +105,73 @@
                 <source>Phone number</source>
                 <target>Téléphone</target>
             </trans-unit>
+
+<!-- POSITION TYPE -->
+            <trans-unit id="entity_positiontype">
+                <source>PositionType</source>
+                <target>Type de fonction</target>
+            </trans-unit>
+            <trans-unit id="entity_list_positiontype">
+                <source>PositionType List</source>
+                <target>Liste des types de fonction</target>
+            </trans-unit>
+
+<!-- PHONE TYPE -->
+            <trans-unit id="entity_phonetype">
+                <source>PhoneType</source>
+                <target>Type de téléphone</target>
+            </trans-unit>
+            <trans-unit id="entity_list_phonetype">
+                <source>PhoneType List</source>
+                <target>Liste des types de téléphone</target>
+            </trans-unit>
+
+<!-- ADMIN LABELS -->
+            <trans-unit id="librinfo.crm.contact_admin.label">
+                <source>librinfo.crm.contact_admin.label</source>
+                <target>Contacts</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.organism_admin.label">
+                <source>librinfo.crm.organism_admin.label</source>
+                <target>Organismes</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.organism_phone_admin.label">
+                <source>librinfo.crm.organism_phone_admin.label</source>
+                <target>Téléphones d'organisme</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.category_admin.label">
+                <source>librinfo.crm.category_admin.label</source>
+                <target>Catégories</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.role_admin.label">
+                <source>librinfo.crm.role_admin.label</source>
+                <target>Rôles</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.contact_group_admin.label">
+                <source>librinfo.crm.contact_group_admin.label</source>
+                <target>ContactGroups</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.contact_phone_admin.label">
+                <source>librinfo.crm.contact_phone_admin.label</source>
+                <target>Téléphones de contacts</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.circle_admin.label">
+                <source>librinfo.crm.circle_admin.label</source>
+                <target>Groupes</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.position_admin.label">
+                <source>librinfo.crm.position_admin.label</source>
+                <target>Fonctions</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.position_type_admin.label">
+                <source>librinfo.crm.position_type_admin.label</source>
+                <target>Types de fonctions</target>
+            </trans-unit>
+            <trans-unit id="librinfo.crm.phone_type_admin.label">
+                <source>librinfo.crm.phone_type_admin.label</source>
+                <target>Types de téléphones</target>
+            </trans-unit>
+
 <!-- FORMS -->
             <trans-unit id="form_group_positions">
                 <source>form_group_positions</source>

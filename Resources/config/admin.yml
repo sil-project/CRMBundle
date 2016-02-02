@@ -3,70 +3,97 @@ services:
         class: Librinfo\CRMBundle\Admin\ContactAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Contact}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.contact_admin.label
 
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Organism}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.organism_admin.label
 
     crm.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: OrganismPhone}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.organism_phone_admin.label
 
     crm.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Category, LibrinfoBaseEntitiesBundle:TreeableCRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Category}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.category_admin.label
 
     crm.role:
         class: Librinfo\CRMBundle\Admin\RoleAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Role, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Role}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.role_admin.label
 
     crm.contactgroup:
         class: Librinfo\CRMBundle\Admin\ContactGroupAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Group}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.contact_group_admin.label
 
     crm.contactphone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: ContactPhone}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.contact_phone_admin.label
 
     crm.circle:
         class: Librinfo\CRMBundle\Admin\CircleAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}
-
-#    crm.circle:
-#        class: Librinfo\CRMBundle\Admin\CircleAdmin
-#        arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
-#        tags:
-#            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Circle}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.circle_admin.label
 
     crm.position:
         class: Librinfo\CRMBundle\Admin\PositionAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Position, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Position }
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.position_admin.label
 
     crm.position_type:
         class: Librinfo\CRMBundle\Admin\PositionTypeAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\PositionType, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: PositionType }
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.position_type_admin.label
 
     crm.phone_type:
         class: Librinfo\CRMBundle\Admin\PhoneTypeAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: PhoneType }
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.phone_type_admin.label
