@@ -445,3 +445,8 @@ parameters:
         Librinfo\CRMBundle\Entity\PhoneType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    label:
+                        sortable: false  # TODO: this should be automatic with the Sortable trait
+
