@@ -104,7 +104,7 @@
             </trans-unit>
             <trans-unit id="librinfo.label.category">
                 <source>librinfo.label.category</source>
-                <target>Contact</target>
+                <target>Categorie</target>
             </trans-unit>
 
 <!-- PHONE -->
