@@ -34,5 +34,6 @@ Librinfo\CRMBundle\Entity\Organism:
             inversedBy: organisms
             joinColumn:
                 name: category_id
+                onDelete: set null
             cascade: [ persist ]
 
