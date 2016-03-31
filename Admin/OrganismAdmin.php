@@ -43,15 +43,15 @@ class OrganismAdmin extends CoreAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->add('url')
-            ->add('administrativeNumber')
-            ->add('categories', 'librinfo_baseentities_treeablechoice', [
-                'class'       => 'LibrinfoCRMBundle:Category',
-                'required'    => false,
-                'empty_value' => '- - -',
-                'multiple'    => true
-            ]);
+//        $formMapper
+//            ->add('url')
+//            ->add('administrativeNumber')
+//            ->add('categories', 'librinfo_baseentities_treeablechoice', [
+//                'class'       => 'LibrinfoCRMBundle:Category',
+//                'required'    => false,
+//                'empty_value' => '- - -',
+//                'multiple'    => true
+//            ]);
     }
 
     /**

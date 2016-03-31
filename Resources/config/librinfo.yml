@@ -18,7 +18,7 @@ parameters:
                             parentNode:
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
-                                required: false
+                                required: true
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
@@ -41,6 +41,7 @@ parameters:
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                                 multiple: false
+                                empty_data: null
                             url: ~
                             administrativeNumber: ~
                             description:
