@@ -28,6 +28,7 @@ Librinfo\CRMBundle\Entity\Contact:
         phones:
             targetEntity: ContactPhone
             mappedBy: contact
+            orphanRemoval: true
             cascade: [ persist ]
         positions:
             targetEntity: Position

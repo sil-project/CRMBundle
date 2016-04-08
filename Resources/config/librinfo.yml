@@ -134,12 +134,16 @@ parameters:
                                 type_options:
                                     required: false
                                     btn_add: false
+                                    #delete: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
                                 required: false
-                                label: false
                                 _options:
                                     edit: inline
                                     inline: table
-                                    allow_delete: true
                         _options:
                             groupsOrder:
                                 - ''
