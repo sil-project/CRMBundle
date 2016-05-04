@@ -15,7 +15,7 @@ parameters:
                         '':
                             name:
                                 type: text
-                            parentNode:
+                            parentNode: 
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: true
@@ -37,11 +37,9 @@ parameters:
                     form_group_general:
                         '':
                             category:
-                                type: librinfo_baseentities_treeablechoice
+                                type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
-                                required: false
-                                multiple: false
-                                empty_data: null
+                                min_node_level: 2  # no root
                             url: ~
                             administrativeNumber: ~
                             description:
@@ -52,14 +50,16 @@ parameters:
                                 type: sonata_type_collection
                                 by_reference: false
                                 type_options:
-                                    required: false
                                     btn_add: false
-                                required: false
-                                label: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true    # if not true, child form fields cannot be required (why ??)
                                 _options:
                                     edit: inline
                                     inline: table
-                                    allow_delete: true
                     _options:
                         tabsOrder:
                             - form_group_general
@@ -132,7 +132,6 @@ parameters:
                                 type: sonata_type_collection
                                 by_reference: false
                                 type_options:
-                                    required: false
                                     btn_add: false
                                     #delete: false
                                     delete_options:
@@ -140,7 +139,7 @@ parameters:
                                         type_options:
                                             mapped: false
                                             required: false
-                                required: false
+                                required: true # if not true, child form fields cannot be required (why ??)
                                 _options:
                                     edit: inline
                                     inline: table
@@ -237,16 +236,22 @@ parameters:
                             - emailNpai
                             - emailNoNewsletter
 
-##########
-# ORGANISMPHONE
-##########
+################
+# ORGANISM PHONE
+################
 
         Librinfo\CRMBundle\Entity\OrganismPhone:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    phoneType: ~
-                    number: ~
-                    organism: ~
+                    form_group_general:
+                        '':
+                            phoneType: ~
+                            number:
+                                label: librinfo.label.phone_number_long
+                                required: true
+                            organism: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     organism: ~
@@ -257,9 +262,9 @@ parameters:
                     number: ~
                     #organism: ~
 
-##########
-# CONTACTPHONE
-##########
+###############
+# CONTACT PHONE
+###############
 
         Librinfo\CRMBundle\Entity\ContactPhone:
             Sonata\AdminBundle\Show\ShowMapper:
@@ -271,6 +276,7 @@ parameters:
                             phoneType: ~
                             number:
                                 label: librinfo.label.phone_number_long
+                                required: true
                             contact: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:

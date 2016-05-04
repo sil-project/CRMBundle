@@ -1,5 +1,7 @@
 Librinfo\CRMBundle\Entity\Category:
     type: entity
+    repositoryClass: Librinfo\CRMBundle\Entity\Repository\CategoryRepository
+
     fields: ~
 
     oneToMany:
