@@ -29,17 +29,17 @@ class Position implements VCardableInterface
      * @var string
      */
     private $department;
-    
+
     /**
      * @var Contact
      */
     private $contact;
-    
+
     /**
      * @var Organism
      */
     private $organism;
-    
+
     /**
      * @var PositionType
      */
@@ -164,7 +164,7 @@ class Position implements VCardableInterface
     {
         return $this->positionType;
     }
-    
+
     /**
      * @return string
      **/
@@ -172,9 +172,33 @@ class Position implements VCardableInterface
     {
         return $this->label ? $this->getLabel() : (string)$this->getPositionType();
     }
-    
+
     public function isPersonal()
     {
         return false;
+    }
+
+    /**
+     * description of the position from the contact point of view
+     * @return string
+     */
+    public function getContactDescription()
+    {
+        $desc = (string)$this->organism;
+        if ( (string)$this )
+            $desc .= " (" . (string)$this . ")";
+        return $desc;
+    }
+
+    /**
+     * description of the position from the organism point of view
+     * @return string
+     */
+    public function getOrganismDescription()
+    {
+        $desc = (string)$this->contact;
+        if ( (string)$this )
+            $desc .= " (" . (string)$this . ")";
+        return $desc;
     }
 }

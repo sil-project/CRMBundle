@@ -23,7 +23,10 @@ abstract class Phone
 
     public function __toString()
     {
-        return $this->number;
+        $str = $this->number;
+        if ( $this->phoneType )
+            $str .= " (" . $this->phoneType . ")";
+        return $str;
     }
 
     /**

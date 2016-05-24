@@ -15,7 +15,7 @@ parameters:
                         '':
                             name:
                                 type: text
-                            parentNode: 
+                            parentNode:
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: true
@@ -30,7 +30,32 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                remove: [positions]
+                add:
+                    default:
+                        form_group_phones:
+                            phones: ~
+                        _options:
+                            groupsOrder:
+                                - ''
+                                - librinfo.crm.organism_admin.label
+                                - form_group_description
+                                - form_group_address
+                                - form_group_phones
+                                - form_group_email
+                                - form_group_positions
+                                - form_group_communication
+                                - form_group_misc
+                    form_group_general:
+                        '':
+                            category: ~
+                            url: ~
+                            administrativeNumber: ~
+                            description: ~
+                        form_group_positions:
+                            positions:
+                                associated_property: organismDescription
+                                label: librinfo.label.contacts
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [description]
                 add:
@@ -95,20 +120,44 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                remove: [description, phones, flashOnControl, positions]
                 add:
-                    default:
+                    form_group_contact:
+                        '':
+                            title: ~
+                            firstname: ~
+                            description: ~
+                            phones: ~
+                            positions:
+                                associated_property: contactDescription
+                            _options:
+                                fieldsOrder:
+                                    - title
+                                    - firstname
+                                    - name
+                                    - email
+                                    - phones
+                                    - positions
+                                    - circles
+                                    - description
                         _options:
                             groupsOrder:
-                                - Contact
+                                - ''
                                 - form_group_phones
-                                - form_group_address
-                                - Description
-                                - form_group_positions
-                                - form_group_ticketing
+                                - Address
+                    form_group_specifics:
+                        form_group_communication:
+                            culture: ~
+                        _options:
+                            groupsOrder:
                                 - form_group_communication
+                                - form_group_address
                                 - form_group_email
                                 - form_group_misc
+                    _options:
+                        tabsOrder:
+                            - form_group_contact
+                            - form_group_specifics
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [description]
                 add:
