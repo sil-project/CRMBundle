@@ -158,11 +158,11 @@
 <!-- ADMIN LABELS -->
             <trans-unit id="librinfo.crm.contact_admin.label">
                 <source>librinfo.crm.contact_admin.label</source>
-                <target>Contacts</target>
+                <target>Contact</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.organism_admin.label">
                 <source>librinfo.crm.organism_admin.label</source>
-                <target>Organismes</target>
+                <target>Organisme</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.organism_phone_admin.label">
                 <source>librinfo.crm.organism_phone_admin.label</source>
@@ -170,11 +170,11 @@
             </trans-unit>
             <trans-unit id="librinfo.crm.category_admin.label">
                 <source>librinfo.crm.category_admin.label</source>
-                <target>Catégories</target>
+                <target>Catégorie</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.role_admin.label">
                 <source>librinfo.crm.role_admin.label</source>
-                <target>Rôles</target>
+                <target>Rôle</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.contact_group_admin.label">
                 <source>librinfo.crm.contact_group_admin.label</source>
@@ -182,23 +182,23 @@
             </trans-unit>
             <trans-unit id="librinfo.crm.contact_phone_admin.label">
                 <source>librinfo.crm.contact_phone_admin.label</source>
-                <target>Téléphones de contacts</target>
+                <target>Téléphone de contact</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.circle_admin.label">
                 <source>librinfo.crm.circle_admin.label</source>
-                <target>Groupes</target>
+                <target>Groupe</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.position_admin.label">
                 <source>librinfo.crm.position_admin.label</source>
-                <target>Fonctions</target>
+                <target>Fonction</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.position_type_admin.label">
                 <source>librinfo.crm.position_type_admin.label</source>
-                <target>Types de fonctions</target>
+                <target>Type de fonctions</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.phone_type_admin.label">
                 <source>librinfo.crm.phone_type_admin.label</source>
-                <target>Types de téléphones</target>
+                <target>Type de téléphones</target>
             </trans-unit>
 
 <!-- FORMS -->
