@@ -5,7 +5,6 @@
     "require": {
         "php": ">=5.4.0",
         "symfony/symfony": "2.8.*",
-        "sonata-project/easy-extends-bundle": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.2",
         "jeroendesloovere/vcard-bundle": "^1.2",
         "libre-informatique/core-bundle": "dev-master",
