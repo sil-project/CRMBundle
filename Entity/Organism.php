@@ -30,6 +30,13 @@ class Organism implements VCardableInterface
         Loggable
     ;
 
+    // CustomerCode constants (TODO: put this in application settings)
+    const CC_PREFIX = 'CL';
+    const CC_LENGTH = 6;
+    // SupplierCode constants (TODO: put this in application settings)
+    const SC_PREFIX = 'FO';
+    const SC_LENGTH = 6;
+
     /**
      * @var string
      */
@@ -44,6 +51,31 @@ class Organism implements VCardableInterface
      * @var Category
      */
     private $category;
+
+    /**
+     * @var bool
+     */
+    private $individual = false;
+
+    /**
+     * @var bool
+     */
+    private $customer = false;
+
+    /**
+     * @var string
+     */
+    private $customerCode;
+
+    /**
+     * @var bool
+     */
+    private $supplier = false;
+
+    /**
+     * @var string
+     */
+    private $supplierCode;
 
     /**
      * @var Collection
@@ -149,6 +181,128 @@ class Organism implements VCardableInterface
     public function getCategory()
     {
         return $this->category;
+    }
+
+
+    /**
+     * Set individual
+     *
+     * @param bool $individual
+     *
+     * @return Organism
+     */
+    public function setIndividual($individual)
+    {
+        $this->customer = $individual;
+
+        return $this;
+    }
+
+    /**
+     * Get individual
+     *
+     * @return bool
+     */
+    public function isIndividual()
+    {
+        return $this->individual;
+    }
+
+
+    /**
+     * Set customer
+     *
+     * @param bool $customer
+     *
+     * @return Organism
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return bool
+     */
+    public function isCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * Set customerCode
+     *
+     * @param string $customerCode
+     *
+     * @return Organism
+     */
+    public function setCustomerCode($customerCode)
+    {
+        $this->customerCode = $customerCode;
+
+        return $this;
+    }
+
+    /**
+     * Get customerCode
+     *
+     * @return string
+     */
+    public function getCustomerCode()
+    {
+        return $this->customerCode;
+    }
+
+    /**
+     * Set supplier
+     *
+     * @param bool $supplier
+     *
+     * @return Organism
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
+
+        return $this;
+    }
+
+    /**
+     * Get supplier
+     *
+     * @return bool
+     */
+    public function isSupplier()
+    {
+        return $this->supplier;
+    }
+
+    /**
+     * Set supplierCode
+     *
+     * @param string $supplierCode
+     *
+     * @return Organism
+     */
+    public function setSupplierCode($supplierCode)
+    {
+        $this->supplierCode = $supplierCode;
+
+        return $this;
+    }
+
+    /**
+     * Get supplierCode
+     *
+     * @return string
+     */
+    public function getSupplierCode()
+    {
+        return $this->supplierCode;
     }
 
     /**

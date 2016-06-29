@@ -1,0 +1,49 @@
+<?php
+
+namespace Librinfo\CRMBundle\Entity\Repository;
+
+use Doctrine\ORM\EntityRepository;
+use Librinfo\CRMBundle\Entity\Organism;
+
+class OrganismRepository extends EntityRepository
+{
+    /**
+     * Returns the nex Organism customerCode
+     *
+     * @return string
+     */
+    public function generateCustomerCode()
+    {
+        $regexp = sprintf('^%s(\d{%d})$', Organism::CC_PREFIX, Organism::CC_LENGTH);
+        $max = $this->createQueryBuilder('c')
+            ->select("SUBSTRING(c.customerCode, '$regexp') AS code")
+            ->andWhere("SUBSTRING(c.customerCode, '$regexp') != ''")
+            ->setMaxResults(1)
+            ->addOrderBy('code', 'desc')
+            ->getQuery()
+            ->getScalarResult()
+        ;
+        return sprintf("%s%0".Organism::CC_LENGTH."d", Organism::CC_PREFIX, (int)$max + 1);
+    }
+
+    /**
+     * Returns the nex Organism supplierCode
+     *
+     * @return string
+     */
+    public function generateSupplierCode()
+    {
+        $regexp = sprintf('^%s(\d{%d})$', Organism::SC_PREFIX, Organism::SC_LENGTH);
+        $max = $this->createQueryBuilder('c')
+            ->select("SUBSTRING(c.supplierCode, '$regexp') AS code")
+            ->andWhere("SUBSTRING(c.supplierCode, '$regexp') != ''")
+            ->setMaxResults(1)
+            ->addOrderBy('code', 'desc')
+            ->getQuery()
+            ->getScalarResult()
+        ;
+
+        return sprintf("%s%0".Organism::SC_LENGTH."d", Organism::SC_PREFIX, (int)$max + 1);
+    }
+
+}

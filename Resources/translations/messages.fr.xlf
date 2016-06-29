@@ -88,6 +88,50 @@
                 <source>librinfo.label.organisms</source>
                 <target>Organismes</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.customer_code">
+                <source>librinfo.label.customer_code</source>
+                <target>Code client</target>
+            </trans-unit>            
+            <trans-unit id="librinfo.label.supplier_code">
+                <source>librinfo.label.supplier_code</source>
+                <target>Code fournisseur</target>
+            </trans-unit>         
+            <trans-unit id="librinfo.label.customer">
+                <source>librinfo.label.customer</source>
+                <target>Client</target>
+            </trans-unit>            
+            <trans-unit id="librinfo.label.supplier">
+                <source>librinfo.label.supplier</source>
+                <target>Fournisseur</target>
+            </trans-unit>         
+            <trans-unit id="librinfo.label.generate_customer_code">
+                <source>librinfo.label.generate_customer_code</source>
+                <target>Générer code</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.generate_supplier_code">
+                <source>librinfo.label.generate_supplier_code</source>
+                <target>Générer code</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.list_organism_name">
+                <source>librinfo.label.list_organism_name</source>
+                <target>Organisme</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.category_name">
+                <source>librinfo.label.category_name</source>
+                <target>Catégorie</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.customer_supplier">
+                <source>librinfo.label.customer_supplier</source>
+                <target>Client / Fournisseur</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.isCustomer">
+                <source>librinfo.label.isCustomer</source>
+                <target>Client</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.isSupplier">
+                <source>librinfo.label.isSupplier</source>
+                <target>Fournisseur</target>
+            </trans-unit>                       
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">

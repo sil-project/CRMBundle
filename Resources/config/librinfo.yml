@@ -30,7 +30,7 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Show\ShowMapper:
-                remove: [positions]
+                remove: [positions, description]
                 add:
                     default:
                         form_group_phones:
@@ -48,10 +48,27 @@ parameters:
                                 - form_group_misc
                     form_group_general:
                         '':
+                            customer: ~
+                            customerCode: ~
+                            supplier: ~
+                            supplierCode: ~
                             category: ~
                             url: ~
                             administrativeNumber: ~
                             description: ~
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - customer
+                                    - customerCode
+                                    - supplier
+                                    - supplierCode
+                                    - circles
+                                    - category
+                                    - administrativeNumber
+                                    - email
+                                    - url
+                                    - description
                         form_group_positions:
                             positions:
                                 associated_property: organismDescription
@@ -61,6 +78,10 @@ parameters:
                 add:
                     form_group_general:
                         '':
+                            customer: ~
+                            customerCode: ~
+                            supplier: ~
+                            supplierCode: ~
                             category:
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
@@ -70,6 +91,19 @@ parameters:
                             description:
                                 type: textarea
                                 required: false
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - customer
+                                    - customerCode
+                                    - supplier
+                                    - supplierCode
+                                    - circles
+                                    - category
+                                    - administrativeNumber
+                                    - email
+                                    - url
+                                    - description
                         form_group_phones:
                             phones:
                                 type: sonata_type_collection
@@ -91,19 +125,22 @@ parameters:
                             - form_group_positions
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
-                remove: [createdAt]
+                remove: [createdAt, zip, country, email]
                 add:
-                    url: ~
-                    category: ~
+                    name:
+                        identifier: true
+                        label: librinfo.label.list_organism_name
+                    category.name: ~
+                    customer_supplier:
+                        template: LibrinfoCRMBundle:OrganismAdmin:list_type.html.twig
+                    circles: ~
                     _options:
                         fieldsOrder:
                             - name
-                            - email
-                            - url
-                            - zip
                             - city
-                            - country
-                            - category
+                            - category.name
+                            - customer_supplier
+                            - circles
                     _export_format:
                         csv: [name, address, zip, city, country, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
                         xls: csv
@@ -113,6 +150,21 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     name: ~
+                    category: ~
+                    customer: ~
+                    customerCode: ~
+                    supplier: ~
+                    supplierCode: ~
+                    circles: ~
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - category
+                            - customer
+                            - customerCode
+                            - supplier
+                            - supplierCode
+                            - circles
 
 ###########
 # CONTACT
@@ -229,7 +281,7 @@ parameters:
                             - firstname
                             - name
                             - email
-                    _list_action:
+#                    _list_action:
 #                        duplicates:
 #                            action: duplicates
 #                            translation_domain: LibrinfoCRMBundle

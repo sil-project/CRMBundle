@@ -11,13 +11,15 @@ services:
 
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.organism_admin.label
                 label_translator_strategy: librinfo_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
 
     crm.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdminConcrete

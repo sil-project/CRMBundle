@@ -1,11 +1,35 @@
 Librinfo\CRMBundle\Entity\Organism:
     type: entity
+    repositoryClass: Librinfo\CRMBundle\Entity\Repository\OrganismRepository
     fields:
         url:
             type:       string
             length:     255
             nullable:   true
         administrativeNumber:
+            type:       string
+            length:     255
+            nullable:   true
+        individual:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+        customer:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+        customerCode:
+            type:       string
+            length:     255
+            nullable:   true
+        supplier:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+        supplierCode:
             type:       string
             length:     255
             nullable:   true

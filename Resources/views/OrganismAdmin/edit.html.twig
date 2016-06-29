@@ -1,0 +1,75 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Baptiste SIMON <beta@e-glop.net>
+(c) Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block bottom_js %}
+    <script>
+        $(document).ready(function(){
+            var prefix = "{{ form.vars.id }}_";
+
+            // Customer Code
+
+            function generateCustomerCode(){
+                var $input = $('input#' + prefix + 'customerCode');
+                $.get($('#customer-code-generator').attr('href'), function(data){
+                    $input.val(data.customer_code);
+                });
+                return false;
+            }
+
+            function toggleCustomerCode(){
+                if( $('#' + prefix + 'customer').prop('checked') ) {
+                    $('label[for=' + prefix + 'customerCode').addClass('required');
+                    var $code = $('#' + prefix + 'customerCode');
+                    if ( $code.val().trim() === "" && {{ form.customerCode.vars.errors|length ? 'false' : 'true' }} )
+                        generateCustomerCode();
+                }
+                else {
+                    $('label[for=' + prefix + 'customerCode').removeClass('required');
+                }
+            }
+
+            toggleCustomerCode();
+            $('#customer-code-generator').click(generateCustomerCode);
+            $('#' + prefix + 'customer').on('ifChanged', toggleCustomerCode);
+
+            // Supplier Code
+
+            function generateSupplierCode(){
+                var $input = $('input#' + prefix + 'supplierCode');
+                $.get($('#supplier-code-generator').attr('href'), function(data){
+                    $input.val(data.supplier_code);
+                });
+                return false;
+            };
+
+            function toggleSupplierCode(){
+                if( $('#' + prefix + 'supplier').prop('checked') ) {
+                    $('label[for=' + prefix + 'supplierCode').addClass('required');
+                    var $code = $('#' + prefix + 'supplierCode');
+                    if ( $code.val().trim() === "" && {{ form.supplierCode.vars.errors|length ? 'false' : 'true' }} )
+                        generateSupplierCode();
+                }
+                else {
+                    $('label[for=' + prefix + 'supplierCode').removeClass('required');
+                }
+            }
+
+            toggleSupplierCode();
+            $('#supplier-code-generator').click(generateSupplierCode);
+            $('#' + prefix + 'supplier').on('ifChanged', toggleSupplierCode);
+
+        });
+    </script>
+{% endblock %}
