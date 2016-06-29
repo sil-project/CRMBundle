@@ -30,11 +30,10 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Show\ShowMapper:
-                remove: [positions, description]
+                forceTabs: true
+                remove: [positions, description, phones]
                 add:
                     default:
-                        form_group_phones:
-                            phones: ~
                         _options:
                             groupsOrder:
                                 - ''
@@ -69,10 +68,18 @@ parameters:
                                     - email
                                     - url
                                     - description
-                        form_group_positions:
+                        form_group_phones:
+                            phones: ~
+                    form_group_contacts:
+                        '':
                             positions:
                                 associated_property: organismDescription
                                 label: librinfo.label.contacts
+                    _options:
+                        tabsOrder:
+                            - form_group_general
+                            - form_group_contacts
+                            - default
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [description]
                 add:

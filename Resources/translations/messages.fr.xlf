@@ -254,6 +254,10 @@
                 <source>form_group_position</source>
                 <target>Fonction</target>
             </trans-unit>
+            <trans-unit id="form_group_contacts">
+                <source>form_group_contacts</source>
+                <target>Contacts</target>
+            </trans-unit>
             <trans-unit id="form_group_sales">
                 <source>form_group_sales</source>
                 <target>Ventes</target>
