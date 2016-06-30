@@ -81,7 +81,7 @@ parameters:
                             - form_group_contacts
                             - default
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [description]
+                remove: [description, positions]
                 add:
                     form_group_general:
                         '':
@@ -126,10 +126,24 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                    form_group_contacts:
+                        '':
+                            positions:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: false
+                                    btn_add: false
+                                required: false
+                                label: false
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
                     _options:
                         tabsOrder:
                             - form_group_general
-                            - form_group_positions
+                            - form_group_contacts
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [createdAt, zip, country, email]

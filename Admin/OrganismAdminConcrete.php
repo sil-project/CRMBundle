@@ -2,8 +2,10 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Form\FormMapper;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
 
@@ -23,6 +25,36 @@ class OrganismAdminConcrete extends OrganismAdmin
     {
         $collection->add('generateCustomerCode'); // generateCustomerCodeAction in CRUD controler
         $collection->add('generateSupplierCode'); // generateCustomerCodeAction in CRUD controler
+    }
+
+    /**
+     * @param FormMapper $mapper
+     */
+    protected function configureFormFields(FormMapper $mapper)
+    {
+        // HandlesRelationsAdmin::configureFormFields
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+
+        // relationships that will be handled by CollectionsManager
+        $type = 'sonata_type_collection';
+
+        foreach ($this->formFieldDescriptions as $fieldname => $fieldDescription)
+            if ($fieldDescription->getType() == $type)
+                $this->addManagedCollections($fieldname);
+
+        // relationships that will be handled by ManyToManyManager
+        foreach ($this->formFieldDescriptions as $fieldname => $fieldDescription)
+        {
+            $mapping = $fieldDescription->getAssociationMapping();
+            if ($mapping['type'] == ClassMetadataInfo::MANY_TO_MANY && !$mapping['isOwningSide'])
+                $this->addManyToManyCollections($fieldname);
+        }
+        // END HandlesRelationsAdmin::configureFormFields
+
+        $subject = $this->getSubject();
+        if ( $subject->isNew() ) {
+            $mapper->removeGroup('', 'form_group_contacts', true);
+        }
     }
 
     /**
