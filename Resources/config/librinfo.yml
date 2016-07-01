@@ -1,7 +1,6 @@
 parameters:
     librinfo:
 
-
 ############
 # CATEGORY
 ############
@@ -81,7 +80,7 @@ parameters:
                             - form_group_contacts
                             - default
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [name, circles, description, positions]
+                remove: [name, circles, description, positions, email, emailNpai, emailNoNewsletter, vcard_uid]
                 add:
                     form_group_general:
                         form_group_individual:
@@ -116,6 +115,8 @@ parameters:
                             url: ~
                             administrativeNumber: ~
                             email: ~
+                            emailNpai: ~
+                            emailNoNewsletter: ~
                             description:
                                 type: textarea
                                 required: false
@@ -132,6 +133,8 @@ parameters:
                                     - category
                                     - administrativeNumber
                                     - email
+                                    - emailNpai
+                                    - emailNoNewsletter
                                     - url
                                     - description
                         form_group_phones:
@@ -518,6 +521,8 @@ parameters:
                             label: ~
                             email:
                                 type: email
+                            emailNpai: ~
+                            emailNoNewsletter: ~
                             phone: ~
                             circles: ~
                             department: ~
@@ -531,13 +536,14 @@ parameters:
                                     - positionType
                                     - label
                                     - email
+                                    - emailNpai
+                                    - emailNoNewsletter
                                     - phone
                                     - circles
                                     - department
                                     - description
                         form_group_specifics:
-                            emailNpai: ~
-                            emailNoNewsletter: ~
+
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact: ~

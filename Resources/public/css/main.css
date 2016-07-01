@@ -6,6 +6,9 @@ div.form-group[id$=_individual] ul li {
 }
 div.form-group[id$=_individual] ul li .radio { display: inline-block; }
 
+div.form-group[id$=_email] .checkbox { display: inline-block; }
+div.form-group[id$=_email] .checkbox + .checkbox { margin-left: 2em; }
+
 /* ??? */
 
 @media (min-width: 1200px) {
