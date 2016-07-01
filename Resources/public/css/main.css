@@ -1,3 +1,13 @@
+/* Organism form */ 
+
+div.form-group[id$=_individual] ul li { 
+    display: inline-block; 
+    margin-right: 2em;
+}
+div.form-group[id$=_individual] ul li .radio { display: inline-block; }
+
+/* ??? */
+
 @media (min-width: 1200px) {
 .sonata-ba-view-container .sonata-ba-view.row { width: 390px; display: inline-block; vertical-align: top; }
 .sonata-collection-row-without-label .sonata-ba-tabs > div { width: 390px; float: left; }

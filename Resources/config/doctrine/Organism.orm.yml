@@ -38,12 +38,11 @@ Librinfo\CRMBundle\Entity\Organism:
         phones:
             targetEntity: OrganismPhone
             mappedBy: organism
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
         positions:
             targetEntity: Position
             mappedBy: organism
-            cascade:
-                - persist
+            cascade: [ persist, remove ]
 
     manyToMany:
         circles:

@@ -14,7 +14,7 @@
             </trans-unit>
             <trans-unit id="librinfo.label.title">
                 <source>librinfo.label.title</source>
-                <target>Titre</target>
+                <target>Titre / civilité</target>
             </trans-unit>
             <trans-unit id="librinfo.label.firstname">
                 <source>librinfo.label.firstname</source>
@@ -72,9 +72,13 @@
                 <source>librinfo.link.organism_list</source>
                 <target>Liste des organismes</target>
             </trans-unit>
+            <trans-unit id="form_group_organism">
+                <source>form_group_organism</source>
+                <target>Organisme</target>
+            </trans-unit>              
             <trans-unit id="librinfo.label.url">
                 <source>librinfo.label.url</source>
-                <target>URL</target>
+                <target>Site web</target>
             </trans-unit>
             <trans-unit id="librinfo.label.administrative_number">
                 <source>librinfo.label.administrative_number</source>
@@ -131,7 +135,23 @@
             <trans-unit id="librinfo.label.isSupplier">
                 <source>librinfo.label.isSupplier</source>
                 <target>Fournisseur</target>
-            </trans-unit>                       
+            </trans-unit>                      
+            <trans-unit id="form_group_individual">
+                <source>form_group_individual</source>
+                <target>Type d'organisme</target>
+            </trans-unit>                      
+            <trans-unit id="librinfo.help.individual">
+                <source>librinfo.help.individual</source>
+                <target>Créera automatiquement un contact physique avec les mêmes informations</target>
+            </trans-unit>                      
+            <trans-unit id="librinfo.label.individual_organism">
+                <source>librinfo.label.individual_organism</source>
+                <target>Individu privé</target>
+            </trans-unit>                                  
+            <trans-unit id="librinfo.label.collective_organism">
+                <source>librinfo.label.collective_organism</source>
+                <target>Collectif (entreprise, association...)</target>
+            </trans-unit>                                  
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">

@@ -18,6 +18,25 @@ file that was distributed with this source code.
         $(document).ready(function(){
             var prefix = "{{ form.vars.id }}_";
 
+            // Individual / Collective
+
+            function toggleIndividual(){
+                var $individual_1 = $('#' + prefix + 'individual_1');
+                if( $individual_1.prop('checked') ) {
+                    $individual_1.closest('ul').next('.help-block').show();
+                    $('#sonata-ba-field-container-' + prefix + 'title').show();
+                    $('#sonata-ba-field-container-' + prefix + 'firstname').show();
+                }
+                else {
+                    $individual_1.closest('ul').next('.help-block').hide();
+                    $('#sonata-ba-field-container-' + prefix + 'title').hide();
+                    $('#sonata-ba-field-container-' + prefix + 'firstname').hide();
+                }
+            }
+
+            toggleIndividual();
+            $('#' + prefix + 'individual').on('ifChanged', toggleIndividual);
+
             // Customer Code
 
             function generateCustomerCode(){

@@ -81,25 +81,48 @@ parameters:
                             - form_group_contacts
                             - default
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [description, positions]
+                remove: [name, circles, description, positions]
                 add:
                     form_group_general:
-                        '':
+                        form_group_individual:
+                            individual:
+                                only_new: true
+                                type: choice
+                                choices:
+                                    0: librinfo.label.collective_organism
+                                    1: librinfo.label.individual_organism
+                                expanded: true
+                                help: librinfo.help.individual
+                                label: false
+                        form_group_organism:
+                            title:
+                                type: text
+                                mapped: false
+                                required: false
+                            firstname:
+                                type: text
+                                mapped: false
+                                required: false
+                            name: ~
                             customer: ~
                             customerCode: ~
                             supplier: ~
                             supplierCode: ~
+                            circles: ~
                             category:
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 min_node_level: 2  # no root
                             url: ~
                             administrativeNumber: ~
+                            email: ~
                             description:
                                 type: textarea
                                 required: false
                             _options:
                                 fieldsOrder:
+                                    - title
+                                    - firstname
                                     - name
                                     - customer
                                     - customerCode
@@ -126,6 +149,8 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                        _options:
+                            groupsOrder: [form_group_individual, form_group_organism, form_group_phones]
                     form_group_contacts:
                         '':
                             positions:
@@ -136,6 +161,7 @@ parameters:
                                     btn_add: false
                                 required: false
                                 label: false
+                                only_not_new: true
                                 _options:
                                     edit: inline
                                     #inline: table

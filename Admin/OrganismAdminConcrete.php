@@ -2,12 +2,13 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\AdminBundle\Form\FormMapper;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
+use Librinfo\CRMBundle\Entity\Contact;
+use Librinfo\CRMBundle\Entity\Position;
+use Librinfo\CRMBundle\Entity\ContactPhone;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
@@ -27,34 +28,70 @@ class OrganismAdminConcrete extends OrganismAdmin
         $collection->add('generateSupplierCode'); // generateCustomerCodeAction in CRUD controler
     }
 
+    public function prePersist($object) {
+        parent::prePersist($object);
+
+        if ( $object->isIndividual() ) {
+            // TODO: different rules for name creation (eg. "Firstname NAME" or "Name, Firstname"...)
+            $firstname = $this->getForm()->get('firstname')->getNormData();
+            $name = $this->getForm()->get('name')->getNormData();
+            $object->setName($firstname . " " . $name);
+        }
+    }
+
     /**
-     * @param FormMapper $mapper
+     * @param Organism $organism
      */
-    protected function configureFormFields(FormMapper $mapper)
-    {
-        // HandlesRelationsAdmin::configureFormFields
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+    public function postPersist($organism) {
+        parent::postPersist($organism);
 
-        // relationships that will be handled by CollectionsManager
-        $type = 'sonata_type_collection';
+        if ( $organism->isIndividual() ) {
+            // Create a new Contact & Position associated to the organism
+            $title = $this->getForm()->get('title')->getNormData();
+            $firstname = $this->getForm()->get('firstname')->getNormData();
+            $name = $this->getForm()->get('name')->getNormData();
+            $contact = new Contact;
+            $contact->setTitle($title);
+            $contact->setFirstname($firstname);
+            $contact->setName($name);
+            $contact->setEmail($organism->getEmail());
+            $contact->setAddress($organism->getAddress());
+            $contact->setZip($organism->getZip());
+            $contact->setCity($organism->getCity());
+            $contact->setCountry($organism->getCountry());
+            $this->getModelManager()->create($contact);
 
-        foreach ($this->formFieldDescriptions as $fieldname => $fieldDescription)
-            if ($fieldDescription->getType() == $type)
-                $this->addManagedCollections($fieldname);
+            foreach($organism->getPhones() as $oPhone) {
+                $cPhone = new ContactPhone;
+                $cPhone->setPhoneType($oPhone->getPhoneType());
+                $cPhone->setNumber($oPhone->getNumber());
+                $cPhone->setContact($contact);
+                $this->getModelManager()->create($cPhone);
+            }
 
-        // relationships that will be handled by ManyToManyManager
-        foreach ($this->formFieldDescriptions as $fieldname => $fieldDescription)
-        {
-            $mapping = $fieldDescription->getAssociationMapping();
-            if ($mapping['type'] == ClassMetadataInfo::MANY_TO_MANY && !$mapping['isOwningSide'])
-                $this->addManyToManyCollections($fieldname);
+            $position = new Position;
+            $position->setOrganism($organism);
+            $position->setContact($contact);
+            $position->setEmail($organism->getEmail());
+            $this->getModelManager()->create($position);
         }
-        // END HandlesRelationsAdmin::configureFormFields
+    }
 
-        $subject = $this->getSubject();
-        if ( $subject->isNew() ) {
-            $mapper->removeGroup('', 'form_group_contacts', true);
+    /**
+     * @param Organism $organism
+     */
+    public function preRemove($organism) {
+        foreach($organism->getPositions() as $position) {
+            $this->getModelManager()->delete($position);
         }
+        foreach($organism->getPhones() as $phone) {
+            $this->getModelManager()->delete($phone);
+        }
+        parent::preRemove($organism);
+    }
+
+    public function preBatchAction($actionName, \Sonata\AdminBundle\Datagrid\ProxyQueryInterface $query, array &$idx, $allElements) {
+        parent::preBatchAction($actionName, $query, $idx, $allElements);
     }
 
     /**

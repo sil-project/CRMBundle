@@ -193,7 +193,7 @@ class Organism implements VCardableInterface
      */
     public function setIndividual($individual)
     {
-        $this->customer = $individual;
+        $this->individual = $individual;
 
         return $this;
     }
