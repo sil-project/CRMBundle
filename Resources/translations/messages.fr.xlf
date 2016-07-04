@@ -151,7 +151,11 @@
             <trans-unit id="librinfo.label.collective_organism">
                 <source>librinfo.label.collective_organism</source>
                 <target>Collectif (entreprise, association...)</target>
-            </trans-unit>                                  
+            </trans-unit>      
+            <trans-unit id="form_group_main_address">
+                <source>form_group_main_address</source>
+                <target>Adresse principale</target>
+            </trans-unit>                                                
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">

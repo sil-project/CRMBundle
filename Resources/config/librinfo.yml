@@ -30,43 +30,37 @@ parameters:
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
-                remove: [positions, description, phones]
+                remove: [positions, description, phones, email, emailNpai, emailNoNewsletter, vcard_uid, address, zip, city, country, npai]
                 add:
-                    default:
-                        _options:
-                            groupsOrder:
-                                - ''
-                                - librinfo.crm.organism_admin.label
-                                - form_group_description
-                                - form_group_address
-                                - form_group_phones
-                                - form_group_email
-                                - form_group_positions
-                                - form_group_communication
-                                - form_group_misc
                     form_group_general:
                         '':
-                            customer: ~
-                            customerCode: ~
-                            supplier: ~
-                            supplierCode: ~
-                            category: ~
+                            customer:
+                                template: LibrinfoCRMBundle:CRUD:show_field_customer.html.twig
+                            supplier:
+                                template: LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig
+                            category.name: ~
                             url: ~
                             administrativeNumber: ~
                             description: ~
+                            email:
+                                template: LibrinfoCRMBundle:CRUD:show_field_email.html.twig
                             _options:
                                 fieldsOrder:
                                     - name
                                     - customer
-                                    - customerCode
                                     - supplier
-                                    - supplierCode
                                     - circles
-                                    - category
+                                    - category.name
                                     - administrativeNumber
                                     - email
                                     - url
                                     - description
+                        form_group_main_address:
+                            address: ~
+                            zip: ~
+                            city: ~
+                            country: ~
+                            npai: ~
                         form_group_phones:
                             phones: ~
                     form_group_contacts:
