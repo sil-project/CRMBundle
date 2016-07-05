@@ -156,6 +156,8 @@
                 <source>form_group_main_address</source>
                 <target>Adresse principale</target>
             </trans-unit>                                                
+                                           
+            
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">
@@ -202,6 +204,10 @@
                 <source>librinfo.label.phone</source>
                 <target>Téléphone</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.position_label">
+                <source>librinfo.label.position_label</source>
+                <target>Libellé de la fonction</target>
+            </trans-unit>                 
 
 <!-- POSITION TYPE -->
             <trans-unit id="entity_positiontype">
@@ -212,6 +218,10 @@
                 <source>librinfo.link.position_type_list</source>
                 <target>Liste des types de fonction</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.position_type_name">
+                <source>librinfo.label.position_type_name</source>
+                <target>Type de fonction</target>
+            </trans-unit>              
 
 <!-- PHONE TYPE -->
             <trans-unit id="entity_phonetype">

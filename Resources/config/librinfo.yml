@@ -35,15 +35,15 @@ parameters:
                     form_group_general:
                         '':
                             customer:
-                                template: LibrinfoCRMBundle:CRUD:show_field_customer.html.twig
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_customer.html.twig'
                             supplier:
-                                template: LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig'
                             category.name: ~
                             url: ~
                             administrativeNumber: ~
                             description: ~
                             email:
-                                template: LibrinfoCRMBundle:CRUD:show_field_email.html.twig
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_email.html.twig'
                             _options:
                                 fieldsOrder:
                                     - name
@@ -68,6 +68,10 @@ parameters:
                             positions:
                                 associated_property: organismDescription
                                 label: librinfo.label.contacts
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_positions.html.twig'
+#                                admin_code: test_code
+                            _options:
+                                class: positions-box
                     _options:
                         tabsOrder:
                             - form_group_general
@@ -494,7 +498,31 @@ parameters:
 
         Librinfo\CRMBundle\Entity\Position:
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                add:
+                    '':
+                        form_group_position:
+                            contact: ~
+                            organism: ~
+                            department: ~
+                            positionType.name: ~
+                            label:
+                                label: librinfo.label.position_label
+                            email: ~
+                            phone: ~
+                            description: ~
+                            _options:
+                                fieldsOrder:
+                                    - contact
+                                    - organism
+                                    - positionType
+                                    - label
+                                    - email
+                                    - emailNpai
+                                    - emailNoNewsletter
+                                    - phone
+                                    - circles
+                                    - department
+                                    - description
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
                 add:
