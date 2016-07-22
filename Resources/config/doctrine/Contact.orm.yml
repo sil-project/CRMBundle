@@ -29,21 +29,13 @@ Librinfo\CRMBundle\Entity\Contact:
             targetEntity: ContactPhone
             mappedBy: contact
             orphanRemoval: true
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
         positions:
             targetEntity: Position
             mappedBy: contact
-            cascade:
-                - persist
+            cascade: [ persist, remove ]
+            
     manyToMany:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle
             inversedBy: contacts
-            joinTable:
-                name: ~
-                joinColumns:
-                    contact_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    circle_id:
-                        referencedColumnName: id

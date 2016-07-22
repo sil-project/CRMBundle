@@ -48,8 +48,6 @@ Librinfo\CRMBundle\Entity\Organism:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle
             inversedBy: organisms
-            joinTable:
-                name: librinfo_crm_organism_circle
 
     manyToOne:
         category:
