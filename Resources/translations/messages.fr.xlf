@@ -66,15 +66,15 @@
 <!-- ORGANISM -->
             <trans-unit id="entity_organism">
                 <source>Organism</source>
-                <target>Organisme</target>
+                <target>Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.link.organism_list">
                 <source>librinfo.link.organism_list</source>
-                <target>Liste des organismes</target>
+                <target>Liste des tierss</target>
             </trans-unit>
             <trans-unit id="form_group_organism">
                 <source>form_group_organism</source>
-                <target>Organisme</target>
+                <target>Tiers</target>
             </trans-unit>              
             <trans-unit id="librinfo.label.url">
                 <source>librinfo.label.url</source>
@@ -86,11 +86,11 @@
             </trans-unit>
             <trans-unit id="librinfo.label.organism">
                 <source>librinfo.label.organism</source>
-                <target>Organisme</target>
+                <target>Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.label.organisms">
                 <source>librinfo.label.organisms</source>
-                <target>Organismes</target>
+                <target>Tierss</target>
             </trans-unit>
             <trans-unit id="librinfo.label.customer_code">
                 <source>librinfo.label.customer_code</source>
@@ -118,7 +118,7 @@
             </trans-unit>                       
             <trans-unit id="librinfo.label.list_organism_name">
                 <source>librinfo.label.list_organism_name</source>
-                <target>Organisme</target>
+                <target>Tiers</target>
             </trans-unit>                       
             <trans-unit id="librinfo.label.category_name">
                 <source>librinfo.label.category_name</source>
@@ -138,7 +138,7 @@
             </trans-unit>                      
             <trans-unit id="form_group_individual">
                 <source>form_group_individual</source>
-                <target>Type d'organisme</target>
+                <target>Type de tiers</target>
             </trans-unit>                      
             <trans-unit id="librinfo.help.individual">
                 <source>librinfo.help.individual</source>
@@ -240,11 +240,11 @@
             </trans-unit>
             <trans-unit id="librinfo.crm.organism_admin.label">
                 <source>librinfo.crm.organism_admin.label</source>
-                <target>Organisme</target>
+                <target>Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.organism_phone_admin.label">
                 <source>librinfo.crm.organism_phone_admin.label</source>
-                <target>Téléphones d'organisme</target>
+                <target>Téléphones de tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.category_admin.label">
                 <source>librinfo.crm.category_admin.label</source>
