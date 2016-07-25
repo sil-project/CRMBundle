@@ -56,11 +56,9 @@ parameters:
                                     - url
                                     - description
                         form_group_main_address:
-                            address: ~
-                            zip: ~
-                            city: ~
-                            country: ~
-                            npai: ~
+                            fulltext_address:
+                                template: LibrinfoCRMBundle:CRUD:show_field_fulltext_address.html.twig
+                                label: librinfo.label.main_address
                         form_group_phones:
                             phones: ~
                     form_group_contacts:

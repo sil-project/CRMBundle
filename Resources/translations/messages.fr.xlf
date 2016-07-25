@@ -70,7 +70,7 @@
             </trans-unit>
             <trans-unit id="librinfo.link.organism_list">
                 <source>librinfo.link.organism_list</source>
-                <target>Liste des tierss</target>
+                <target>Liste des tiers</target>
             </trans-unit>
             <trans-unit id="form_group_organism">
                 <source>form_group_organism</source>
@@ -90,7 +90,7 @@
             </trans-unit>
             <trans-unit id="librinfo.label.organisms">
                 <source>librinfo.label.organisms</source>
-                <target>Tierss</target>
+                <target>Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.label.customer_code">
                 <source>librinfo.label.customer_code</source>
@@ -155,7 +155,11 @@
             <trans-unit id="form_group_main_address">
                 <source>form_group_main_address</source>
                 <target>Adresse principale</target>
-            </trans-unit>                                                
+            </trans-unit>   
+            <trans-unit id="librinfo.label.main_address">
+                <source>librinfo.label.main_address</source>
+                <target>Adresse du tiers</target>
+            </trans-unit>                                                           
                                            
             
 
