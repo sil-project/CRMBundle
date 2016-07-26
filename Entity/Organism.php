@@ -31,10 +31,10 @@ class Organism implements VCardableInterface
     ;
 
     // CustomerCode constants (TODO: put this in application settings)
-    const CC_PREFIX = 'CL';
+    const CC_PREFIX = '';
     const CC_LENGTH = 6;
     // SupplierCode constants (TODO: put this in application settings)
-    const SC_PREFIX = 'FO';
+    const SC_PREFIX = '';
     const SC_LENGTH = 6;
 
     /**
