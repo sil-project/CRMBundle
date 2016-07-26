@@ -52,6 +52,26 @@
                 <source>librinfo.label.contacts</source>
                 <target>Contacts</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.fulltext_name">
+                <source>librinfo.label.fulltext_name</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.fulltext_address">
+                <source>librinfo.label.fulltext_address</source>
+                <target>Adresse du contact</target>
+            </trans-unit>
+            <trans-unit id="form_group_contact">
+                <source>form_group_contact</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="form_tab_organisms">
+                <source>form_tab_organisms</source>
+                <target>Tiers</target>
+            </trans-unit>
+            <trans-unit id="form_tab_organisms_description">
+                <source>form_tab_organisms_description</source>
+                <target>Liste des Tiers auxquels appartient le Contact</target>
+            </trans-unit>
 
 <!-- CIRCLE -->
             <trans-unit id="entity_circle">

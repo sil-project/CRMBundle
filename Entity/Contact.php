@@ -285,4 +285,13 @@ class Contact implements VCardableInterface
     {
         return true;
     }
+
+    /**
+     * ex. "Mr John DOE"
+     * @return string
+     */
+    public function getFulltextName()
+    {
+        return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoupper($this->getName()));
+    }
 }

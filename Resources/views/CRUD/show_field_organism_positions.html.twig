@@ -38,16 +38,7 @@ TODO: compact contact address (add fullAddress getter in Contact entity)
                 {{ elems['phone']|render_view_element(position) }}
             </tr>
             <tr class="sonata-ba-view-container">
-                {{ contact_elems['address']|render_view_element(position.contact) }}
-            </tr>
-            <tr class="sonata-ba-view-container">
-                {{ contact_elems['zip']|render_view_element(position.contact) }}
-            </tr>
-            <tr class="sonata-ba-view-container">
-                {{ contact_elems['city']|render_view_element(position.contact) }}
-            </tr>
-            <tr class="sonata-ba-view-container">
-                {{ contact_elems['country']|render_view_element(position.contact) }}
+                {{ contact_elems['fulltextAddress']|render_view_element(position.contact) }}
             </tr>
             <tr class="sonata-ba-view-container">
                 {{ elems['description']|render_view_element(position) }}
