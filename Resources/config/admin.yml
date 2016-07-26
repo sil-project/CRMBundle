@@ -9,6 +9,17 @@ services:
                 label: librinfo.crm.contact_admin.label
                 label_translator_strategy: librinfo_core.label.strategy.librinfo
 
+
+    crm.contact_embedded:
+        class: Librinfo\CRMBundle\Admin\ContactEmbeddedAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.crm.contact_embedded_admin.label
+              label_translator_strategy: librinfo_core.label.strategy.librinfo
+
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]

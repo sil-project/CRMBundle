@@ -110,8 +110,8 @@ parameters:
                                 type: librinfo_baseentities_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 min_node_level: 2  # no root
+                                required: false
                             url: ~
-                            administrativeNumber: ~
                             email: ~
                             emailNpai: ~
                             emailNoNewsletter: ~
@@ -158,9 +158,9 @@ parameters:
                                 type: sonata_type_collection
                                 by_reference: false
                                 type_options:
-                                    required: false
+                                    required: true
                                     btn_add: false
-                                required: false
+                                required: true
                                 label: false
                                 only_not_new: true
                                 _options:
@@ -417,7 +417,12 @@ parameters:
 
         Librinfo\CRMBundle\Entity\ContactPhone:
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                add:
+                    form_group_general:
+                        '':
+                            phoneType: ~
+                            number:
+                                label: librinfo.label.phone_number_long
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     form_group_general:
@@ -426,10 +431,13 @@ parameters:
                             number:
                                 label: librinfo.label.phone_number_long
                                 required: true
-                            contact: ~
+#                            contact:
+#                                _options:
+#                                    admin_code: crm.contact
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    contact: ~
+                    contact:
+                        admin_code: crm.contact
                     phoneType: ~
                     number: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
@@ -501,7 +509,8 @@ parameters:
                 add:
                     '':
                         form_group_position:
-                            contact: ~
+                            contact:
+                                admin_code: crm.contact
                             organism: ~
                             department: ~
                             positionType.name: ~
@@ -527,46 +536,39 @@ parameters:
                 remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
                 add:
                     '':
-                        form_group_position:
+                        form_group_contact:
                             contact:
-                                type: sonata_type_model_autocomplete
-                                route: { name: searchable_admin_retrieve_autocomplete_items }
-                                by_reference: false
-                                property: name # not used but required
+                                type: sonata_type_admin
+                                label: false
+                                required: true
+                                _options:
+                                    admin_code: crm.contact_embedded
+#                                type: sonata_type_model_autocomplete
+#                                route: { name: searchable_admin_retrieve_autocomplete_items }
+#                                by_reference: false
+#                                property: name # not used but required
+                        form_group_position:
                             organism:
                                 type: sonata_type_model_autocomplete
                                 route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
                                 property: name # not used but required
+                            department: ~
                             positionType:
                                 placeholder: ''
-                            label: ~
+                            label:
+                                label: librinfo.label.position_label
                             email:
                                 type: email
+                                required: false
                             emailNpai: ~
                             emailNoNewsletter: ~
                             phone: ~
-                            department: ~
-                            description:
-                                type: textarea
-                                required: false
-                            _options:
-                                fieldsOrder:
-                                    - contact
-                                    - organism
-                                    - positionType
-                                    - label
-                                    - email
-                                    - emailNpai
-                                    - emailNoNewsletter
-                                    - phone
-                                    - department
-                                    - description
-                        form_group_specifics:
 
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    contact: ~
+                    contact:
+                        admin_code: crm.contact
                     position_type: ~
                     organism: ~
 
