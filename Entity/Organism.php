@@ -78,9 +78,21 @@ class Organism implements VCardableInterface
     private $supplierCode;
 
     /**
+     * @var string
+     */
+    private $iban;
+
+    /**
+     * @var string
+     */
+    private $vat;
+
+    /**
      * @var Collection
      */
     private $phones;
+
+
 
     /**
      * Organism constructor.
@@ -305,6 +317,54 @@ class Organism implements VCardableInterface
         return $this->supplierCode;
     }
 
+    /**
+     * Set iban
+     *
+     * @param string $iban
+     *
+     * @return Organism
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Get iban
+     *
+     * @return string
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * Set vat
+     *
+     * @param string $vat
+     *
+     * @return Organism
+     */
+    public function setVat($vat)
+    {
+        $this->vat = $vat;
+
+        return $this;
+    }
+
+    /**
+     * Get vat
+     *
+     * @return string
+     */
+    public function getVat()
+    {
+        return $this->vat;
+    }
+    
     /**
      * @return Collection
      */

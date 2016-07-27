@@ -1,0 +1,5 @@
+Librinfo\CRMBundle\Entity\Organism:
+    properties:
+        iban:
+            - Iban:
+                message: This is not a valid International Bank Account Number (IBAN).

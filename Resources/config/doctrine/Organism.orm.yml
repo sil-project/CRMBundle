@@ -33,6 +33,14 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+        iban:
+            type:       string
+            length:     255
+            nullable:   true
+        vat:
+            type:       string
+            length:     255
+            nullable:   true
 
     oneToMany:
         phones:

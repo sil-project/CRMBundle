@@ -60,6 +60,9 @@ parameters:
                                 label: librinfo.label.main_address
                         form_group_phones:
                             phones: ~
+                        form_group_administrative:
+                            vat: ~
+                            iban: ~
                     form_group_contacts:
                         '':
                             positions:
@@ -150,8 +153,11 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                        form_group_administrative:
+                            vat: ~
+                            iban: ~
                         _options:
-                            groupsOrder: [form_group_individual, form_group_organism, form_group_phones]
+                            groupsOrder: [form_group_individual, form_group_organism, form_group_phones, form_group_administrative]
                     form_group_contacts:
                         '':
                             positions:

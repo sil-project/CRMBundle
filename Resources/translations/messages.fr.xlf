@@ -180,7 +180,18 @@
                 <source>librinfo.label.main_address</source>
                 <target>Adresse du tiers</target>
             </trans-unit>                                                           
-                                           
+            <trans-unit id="form_group_administrative">
+                <source>form_group_administrative</source>
+                <target>Administratif</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.vat">
+                <source>librinfo.label.vat</source>
+                <target>N° TVA</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.iban">
+                <source>librinfo.label.iban</source>
+                <target>RIB (IBAN)</target>
+            </trans-unit>                                             
             
 
 <!-- CATEGORY -->
