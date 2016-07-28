@@ -24,8 +24,10 @@ class OrganismAdminConcrete extends OrganismAdmin
 
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('generateCustomerCode'); // generateCustomerCodeAction in CRUD controler
-        $collection->add('generateSupplierCode'); // generateCustomerCodeAction in CRUD controler
+        // xxxxxxxAction in CRUD controller
+        $collection->add('generateCustomerCode');
+        $collection->add('generateSupplierCode');
+        $collection->add('validateVat');
     }
 
     public function prePersist($object) {

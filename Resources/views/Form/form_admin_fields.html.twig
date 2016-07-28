@@ -16,6 +16,8 @@
         {% include('LibrinfoCRMBundle:Form:supplier_code.html.twig') %}
     {% elseif form.vars.name == 'email' %}
         {% include('LibrinfoCRMBundle:Form:email.html.twig') %}
+    {% elseif form.vars.name == 'vat' %}
+        {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}
     {% endif %}
 {% endblock form_widget_simple %}
 

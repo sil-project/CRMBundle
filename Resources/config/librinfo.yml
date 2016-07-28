@@ -141,6 +141,7 @@ parameters:
                         form_group_phones:
                             phones:
                                 type: sonata_type_collection
+                                label: false
                                 by_reference: false
                                 type_options:
                                     btn_add: false
@@ -154,10 +155,17 @@ parameters:
                                     edit: inline
                                     inline: table
                         form_group_administrative:
-                            vat: ~
-                            iban: ~
+                            vat:
+                                help: librinfo.help.vat
+                            iban:
+                                help: librinfo.help.iban
                         _options:
-                            groupsOrder: [form_group_individual, form_group_organism, form_group_phones, form_group_administrative]
+                            groupsOrder:
+                                - form_group_individual
+                                - form_group_organism
+                                - form_group_main_address
+                                - form_group_phones
+                                - form_group_administrative
                     form_group_contacts:
                         '':
                             positions:
@@ -284,6 +292,7 @@ parameters:
                         form_group_phones:
                             phones:
                                 type: sonata_type_collection
+                                label: false
                                 by_reference: false
                                 type_options:
                                     btn_add: false

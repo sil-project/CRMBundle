@@ -192,6 +192,38 @@
                 <source>librinfo.label.iban</source>
                 <target>RIB (IBAN)</target>
             </trans-unit>                                             
+            <trans-unit id="librinfo.msg.validating_vat">
+                <source>librinfo.msg.validating_vat</source>
+                <target>Vérification en cours...</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.validate_vat">
+                <source>librinfo.label.validate_vat</source>
+                <target>Vérifier le n° TVA</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.warn.invalid_vat">
+                <source>Not a valid VAT number</source>
+                <target>N° TVA non valide</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.warn.vat_exception">
+                <source>The VAT number is not valid. It must be in format [0-9A-Za-z\+\*\.]{4,14}</source>
+                <target>N° TVA mal formatté. Il doit contenir entre 4 et 14 caractères (chiffres et lettres non accentuées uniquement).</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.warn.invalid_vat_country">
+                <source>The countrycode is not valid. It must be one of %country_codes%</source>
+                <target>Le code pays n'est pas valide. Codes pays acceptés: %country_codes%</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.help.vat">
+                <source>librinfo.help.vat</source>
+                <target>ex. FR 11 123456789 (avec ou sans espaces)</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.help.vat_validation">
+                <source>librinfo.help.vat_validation</source>
+                <target>Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l'UE</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.help.iban">
+                <source>librinfo.help.iban</source>
+                <target>ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)</target>
+            </trans-unit>                                             
             
 
 <!-- CATEGORY -->

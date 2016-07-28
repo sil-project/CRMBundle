@@ -9,6 +9,15 @@ div.form-group[id$=_individual] ul li .radio { display: inline-block; }
 div.form-group[id$=_email] .checkbox { display: inline-block; }
 div.form-group[id$=_email] .checkbox + .checkbox { margin-left: 2em; }
 
+input.form-control[id$=_vat] {
+    width: auto;
+    display: inline-block;
+    margin-right: 5px;
+}
+#validate-vat-link span.glyphicon { color: #999; }
+#validate-vat-ok { color: #00a65a; }
+#validate-vat-error { color: #dd4b39; }
+
 /* ??? */
 
 @media (min-width: 1200px) {

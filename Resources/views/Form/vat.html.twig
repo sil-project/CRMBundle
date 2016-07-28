@@ -1,0 +1,54 @@
+<a href="{{ path('admin_librinfo_crm_organism_validateVat') }}" id="validate-vat-link" >
+    {% trans %}librinfo.label.validate_vat{% endtrans %}
+    <span aria-hidden="true" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+          title="{{ 'librinfo.help.vat_validation'|trans() }}"></span>
+</a>
+
+<span id="validate-vat-wait">{{ 'librinfo.msg.validating_vat'|trans() }}</span>
+<span aria-hidden="true" class="glyphicon glyphicon-ok" id="validate-vat-ok"></span>
+<span id="validate-vat-error">
+    <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>
+    <span id="vat-err-msg">Error Message</span>
+</span>
+
+
+<script>
+    $(document).ready(function(){
+
+        var $input = $('#{{ form.vars.id }}');
+        var validated = false;
+
+        function validateVat() {
+            vatStatus('wait');
+            var url = $('#validate-vat-link').attr('href');
+            var params = { vat: $input.val().trim() };
+            $.getJSON(url, params, function(data){
+                if (data.valid)
+                    vatStatus('ok');
+                else {
+                    var msg = data.msg ? data.msg : '';
+                    vatStatus('error', msg);
+                }
+                validated = true;
+            });
+            return false;
+        }
+
+        function vatStatus(status, msg) {
+            $('[id^=validate-vat-').hide();
+            if (msg)
+                $('#vat-err-msg').text(msg);
+            $('#validate-vat-' + status).show();
+        }
+
+        $input.on('input', function(){
+            if (validated) {
+                vatStatus('link');
+                validated = false;
+            }
+        });
+        $('#validate-vat-link').click(validateVat);
+        vatStatus('link');
+    });
+</script>
+
