@@ -88,6 +88,11 @@ class Organism implements VCardableInterface
     private $vat;
 
     /**
+     * @var int
+     */
+    private $vatVerified = 0;
+
+    /**
      * @var Collection
      */
     private $phones;
@@ -364,7 +369,31 @@ class Organism implements VCardableInterface
     {
         return $this->vat;
     }
-    
+
+    /**
+     * Set vatVerified
+     *
+     * @param int $vatVerified
+     *
+     * @return Organism
+     */
+    public function setVatVerified($vatVerified)
+    {
+        $this->vatVerified = $vatVerified;
+
+        return $this;
+    }
+
+    /**
+     * Get vatVerified
+     *
+     * @return int
+     */
+    public function getVatVerified()
+    {
+        return $this->vatVerified;
+    }
+
     /**
      * @return Collection
      */

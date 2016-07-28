@@ -155,6 +155,8 @@ parameters:
                                     edit: inline
                                     inline: table
                         form_group_administrative:
+                            vatVerified:
+                                type: hidden
                             vat:
                                 help: librinfo.help.vat
                             iban:

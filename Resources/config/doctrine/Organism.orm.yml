@@ -12,12 +12,10 @@ Librinfo\CRMBundle\Entity\Organism:
             nullable:   true
         individual:
             type: boolean
-            nullable: false
             options:
                 default: false
         customer:
             type: boolean
-            nullable: false
             options:
                 default: false
         customerCode:
@@ -26,7 +24,6 @@ Librinfo\CRMBundle\Entity\Organism:
             nullable:   true
         supplier:
             type: boolean
-            nullable: false
             options:
                 default: false
         supplierCode:
@@ -41,6 +38,10 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+        vatVerified:
+            type: smallint
+            options:
+                default: 0
 
     oneToMany:
         phones:
