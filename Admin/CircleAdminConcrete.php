@@ -2,6 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
+use Sonata\AdminBundle\Show\ShowMapper;
 use Librinfo\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class CircleAdminConcrete extends CircleAdmin
@@ -59,6 +60,19 @@ class CircleAdminConcrete extends CircleAdmin
         $query->setParameter('user3', $user);
 
         return $query;
+    }
+
+    /**
+     * @param ShowMapper $mapper
+     */
+    protected function configureShowFields(ShowMapper $mapper)
+    {
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if (!$config['circles']['organisms']) $mapper->remove('organismsCount');
+        if (!$config['circles']['contacts']) $mapper->remove('contactsCount');
+        if (!$config['circles']['positions']) $mapper->remove('positionsCount');
     }
 }
 

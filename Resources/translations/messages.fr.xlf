@@ -2,6 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            
+<!-- MISC -->
+            <trans-unit id="view_list">
+                <source>View list</source>
+                <target>Voir la liste</target>
+            </trans-unit>
+                        
 
 <!-- CONTACTS -->
             <trans-unit id="entity_contact">
@@ -223,6 +230,30 @@
             <trans-unit id="librinfo.help.iban">
                 <source>librinfo.help.iban</source>
                 <target>ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.organisms_count">
+                <source>librinfo.label.organisms_count</source>
+                <target>Tiers</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.contacts_count">
+                <source>librinfo.label.contacts_count</source>
+                <target>Contacts</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.label.positions_count">
+                <source>librinfo.label.positions_count</source>
+                <target>Fonctions</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.value.organisms_count">
+                <source>{0} No organism|{1} 1 organism|[2, Inf[ %count% organisms</source>
+                <target>{0} Aucun Tiers|{1} 1 Tiers|[2, Inf[ %count% Tiers</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.value.contacts_count">
+                <source>{0} No contact|{1} 1 contact|[2, Inf[ %count% contacts</source>
+                <target>{0} Aucun Contact|{1} 1 Contact|[2, Inf[ %count% Contacts</target>
+            </trans-unit>                                             
+            <trans-unit id="librinfo.value.positions_count">
+                <source>{0} No position|{1} 1 position|[2, Inf[ %count% positions</source>
+                <target>{0} Aucune Fonction|{1} 1 Fonction|[2, Inf[ %count% Fonctions</target>
             </trans-unit>                                             
             
 

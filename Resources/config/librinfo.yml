@@ -469,7 +469,29 @@ parameters:
         Librinfo\CRMBundle\Entity\Circle:
             managedManyToMany: [contacts, organisms]
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                remove: [owner]
+                add:
+                    form_group_general:
+                        '':
+                            owner: ~
+                            users: ~
+                    form_group_members:
+                        '':
+                            organismsCount:
+                                _options:
+                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
+                            contactsCount:
+                                _options:
+                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
+                            positionsCount:
+                                _options:
+                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_positions_count.html.twig
+                    _options:
+                        tabsOrder:
+                            - form_group_general
+                            - form_group_members
+                            - form_group_description
+                            - form_group_specifics
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [owner]
                 add:
@@ -498,6 +520,8 @@ parameters:
                                 by_reference: false
                                 multiple: true
                                 required: false
+                                _options:
+                                    admin_code: crm.contact_embedded
                             organisms:
                                 type: sonata_type_model_autocomplete
                                 route: { name: searchable_admin_retrieve_autocomplete_items }

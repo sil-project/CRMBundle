@@ -18,11 +18,23 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('crm');
+        $rootNode = $treeBuilder->root('librinfo_crm');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('circles')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('organisms')->defaultTrue()->end()
+                        ->booleanNode('contacts')->defaultFalse()->end()
+                        ->booleanNode('positions')->defaultFalse()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }

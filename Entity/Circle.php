@@ -189,5 +189,21 @@ class Circle
         return false;
     }
 
+    public function countOrganisms()
+    {
+        dump('here');
+        return $this->organisms->count();
+    }
+
+    public function countContacts()
+    {
+        return $this->contacts->count();
+    }
+
+    public function countPositions()
+    {
+        return $this->positions->count();
+    }
+
 }
 
