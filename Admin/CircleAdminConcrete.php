@@ -3,6 +3,7 @@
 namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Librinfo\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class CircleAdminConcrete extends CircleAdmin
@@ -16,6 +17,30 @@ class CircleAdminConcrete extends CircleAdmin
     {
         $query = parent::createQuery($context);
 
+        $ra = $query->getRootAliases()[0];
+        
+        $query
+            ->addSelect('users')
+            ->leftJoin($ra . '.users', 'users')
+        ;
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if ($config['circles']['organisms'])
+            $query
+                ->addSelect('organisms')
+                ->leftJoin($ra . '.organisms', 'organisms')
+            ;
+        if ($config['circles']['contacts'])
+            $query
+                ->addSelect('contacts')
+                ->leftJoin($ra . '.contacts', 'contacts')
+            ;
+        if ($config['circles']['positions'])
+            $query
+                ->addSelect('positions')
+                ->leftJoin($ra . '.positions', 'positions')
+            ;
+
         $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
         if ($user->isSuperAdmin())
             return $query;
@@ -25,7 +50,6 @@ class CircleAdminConcrete extends CircleAdmin
         // 2. ... OR the current user is the Circle owner
         // 3. ... OR the current user belongs to the circle users
 
-        $ra = $query->getRootAliases()[0];
         $expr = $query->expr();
 
         // 1. the Circle has no Owner and no Users...
@@ -66,6 +90,19 @@ class CircleAdminConcrete extends CircleAdmin
      * @param ShowMapper $mapper
      */
     protected function configureShowFields(ShowMapper $mapper)
+    {
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if (!$config['circles']['organisms']) $mapper->remove('organismsCount');
+        if (!$config['circles']['contacts']) $mapper->remove('contactsCount');
+        if (!$config['circles']['positions']) $mapper->remove('positionsCount');
+    }
+
+    /**
+     * @param ListMapper $mapper
+     */
+    protected function configureListFields(ListMapper $mapper)
     {
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
 

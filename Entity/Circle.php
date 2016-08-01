@@ -191,7 +191,6 @@ class Circle
 
     public function countOrganisms()
     {
-        dump('here');
         return $this->organisms->count();
     }
 

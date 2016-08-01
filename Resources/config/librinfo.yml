@@ -469,29 +469,27 @@ parameters:
         Librinfo\CRMBundle\Entity\Circle:
             managedManyToMany: [contacts, organisms]
             Sonata\AdminBundle\Show\ShowMapper:
-                remove: [owner]
                 add:
-                    form_group_general:
+                    default:
                         '':
                             owner: ~
                             users: ~
-                    form_group_members:
-                        '':
+                        form_group_members:
                             organismsCount:
                                 _options:
                                     template: LibrinfoCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
-                            contactsCount:
-                                _options:
-                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
-                            positionsCount:
-                                _options:
-                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_positions_count.html.twig
-                    _options:
-                        tabsOrder:
-                            - form_group_general
-                            - form_group_members
-                            - form_group_description
-                            - form_group_specifics
+#                            contactsCount:
+#                                _options:
+#                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
+#                            positionsCount:
+#                                _options:
+#                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_positions_count.html.twig
+                        _options:
+                            groupsOrder:
+                                - librinfo.crm.circle_admin.label
+                                - form_group_members
+                                - form_group_description
+                                - form_group_history
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [owner]
                 add:
@@ -511,32 +509,24 @@ parameters:
                                 property: username # not used but required
                                 multiple: true
                                 required: false
-                    form_group_members:
-                        '':
-                            contacts:
-                                type: sonata_type_model_autocomplete
-                                route: { name: searchable_admin_retrieve_autocomplete_items }
-                                property: name # not used but required
-                                by_reference: false
-                                multiple: true
-                                required: false
-                                _options:
-                                    admin_code: crm.contact_embedded
-                            organisms:
-                                type: sonata_type_model_autocomplete
-                                route: { name: searchable_admin_retrieve_autocomplete_items }
-                                property: name # not used but required
-                                by_reference: false
-                                multiple: true
-                                required: false
                     _options:
                         tabsOrder:
                             - form_group_general
-                            - form_group_members
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
+                remove: [name, createdAt]
                 add:
+                    name:
+                        identifier: true
+                        label: librinfo.label.list_circle_name
                     owner: ~
+                    users: ~
+                    organismsCount:
+                        template: LibrinfoCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
+                    contactsCount:
+                        template: LibrinfoCRMBundle:CircleAdmin:list_field_contacts_count.html.twig
+                    positionsCount:
+                        template: LibrinfoCRMBundle:CircleAdmin:list_field_positions_count.html.twig
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
 

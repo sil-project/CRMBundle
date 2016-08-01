@@ -89,6 +89,10 @@
                 <source>librinfo.link.circle_list</source>
                 <target>Liste des groupes</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.list_circle_name">
+                <source>librinfo.label.list_circle_name</source>
+                <target>Groupe</target>
+            </trans-unit>               
 
 <!-- ORGANISM -->
             <trans-unit id="entity_organism">

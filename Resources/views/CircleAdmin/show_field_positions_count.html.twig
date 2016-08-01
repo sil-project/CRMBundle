@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    {% set count = object.countPositions() %}
+    <strong>{% transchoice count %}{0} No position|{1} 1 position|[2, Inf[ %count% positions{% endtranschoice %}</strong>
+
+    {% if count %}
+        &nbsp; − <a href="{{ path('admin_librinfo_crm_position_list', {'filter[circles][value]': object.id}) }}">{{ 'View list'|trans() }}</a>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% set count = object.countContacts() %}
+
+    {% if count %}
+        <a href="{{ path('admin_librinfo_crm_contact_list', {'filter[circles][value]': object.id}) }}">
+            {% transchoice count %}{0} No contact|{1} 1 contact|[2, Inf[ %count% contacts{% endtranschoice %}
+        </a>
+    {% endif %}
+{% endblock %}
+
