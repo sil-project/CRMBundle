@@ -5,6 +5,7 @@ namespace Librinfo\CRMBundle\Admin;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Librinfo\CoreBundle\Admin\Traits\Normalize;
 use Librinfo\CRMBundle\Entity\Organism;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Position;
@@ -12,7 +13,9 @@ use Librinfo\CRMBundle\Entity\ContactPhone;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
-    use HandlesRelationsAdmin;
+    use HandlesRelationsAdmin, Normalize;
+
+    private $configParameter = 'librinfo_crm';
 
     public function getFormTheme()
     {
@@ -30,13 +33,21 @@ class OrganismAdminConcrete extends OrganismAdmin
         $collection->add('validateVat');
     }
 
-    public function prePersist($object) {
+    public function preUpdate($object)
+    {
+        parent::preUpdate($object);
+
+    }
+
+    public function prePersist($object)
+    {
         parent::prePersist($object);
 
         if ( $object->isIndividual() ) {
-            // TODO: different rules for name creation (eg. "Firstname NAME" or "Name, Firstname"...)
-            $firstname = $this->getForm()->get('firstname')->getNormData();
-            $name = $this->getForm()->get('name')->getNormData();
+            // TODO: different rules for name creation in config (eg. "Firstname NAME" or "Name, Firstname"...)
+            $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm')['Contact']['normalize'];
+            $firstname = $this->normalizeField('firstname', $config['firstname']);
+            $name = $this->normalizeField('name', $config['name']);
             $object->setName($firstname . " " . $name);
         }
     }
@@ -44,14 +55,16 @@ class OrganismAdminConcrete extends OrganismAdmin
     /**
      * @param Organism $organism
      */
-    public function postPersist($organism) {
+    public function postPersist($organism)
+    {
         parent::postPersist($organism);
 
         if ( $organism->isIndividual() ) {
             // Create a new Contact & Position associated to the organism
+            $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm')['contacts']['normalize'];
             $title = $this->getForm()->get('title')->getNormData();
-            $firstname = $this->getForm()->get('firstname')->getNormData();
-            $name = $this->getForm()->get('name')->getNormData();
+            $firstname = $this->normalizeField('firstname', $config['firstname']);
+            $name = $this->normalizeField('name', $config['name']);
             $contact = new Contact;
             $contact->setTitle($title);
             $contact->setFirstname($firstname);
@@ -138,7 +151,6 @@ class OrganismAdminConcrete extends OrganismAdmin
             $msg = 'Wrong format for supplier code. It shoud be: ';
             $msg .= Organism::CC_PREFIX ? '%prefix% + %length% digits' : '%length% digits';
             $params = ['%prefix%' => Organism::CC_PREFIX, '%length%' => Organism::CC_LENGTH];
-            dump($msg, $params);
             $errorElement
                 ->with('customerCode')
                     ->addViolation($msg, $params)
@@ -222,7 +234,5 @@ class OrganismAdminConcrete extends OrganismAdmin
                     ->end()
                 ;
         }
-
     }
-
 }

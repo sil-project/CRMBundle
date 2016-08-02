@@ -18,24 +18,24 @@ class CircleAdminConcrete extends CircleAdmin
         $query = parent::createQuery($context);
 
         $ra = $query->getRootAliases()[0];
-        
+
         $query
             ->addSelect('users')
             ->leftJoin($ra . '.users', 'users')
         ;
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if ($config['circles']['organisms'])
+        if ($config['Circle']['allow_organisms'])
             $query
                 ->addSelect('organisms')
                 ->leftJoin($ra . '.organisms', 'organisms')
             ;
-        if ($config['circles']['contacts'])
+        if ($config['Circle']['allow_contacts'])
             $query
                 ->addSelect('contacts')
                 ->leftJoin($ra . '.contacts', 'contacts')
             ;
-        if ($config['circles']['positions'])
+        if ($config['Circle']['allow_positions'])
             $query
                 ->addSelect('positions')
                 ->leftJoin($ra . '.positions', 'positions')
@@ -94,9 +94,9 @@ class CircleAdminConcrete extends CircleAdmin
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if (!$config['circles']['organisms']) $mapper->remove('organismsCount');
-        if (!$config['circles']['contacts']) $mapper->remove('contactsCount');
-        if (!$config['circles']['positions']) $mapper->remove('positionsCount');
+        if (!$config['Circle']['allow_organisms']) $mapper->remove('organismsCount');
+        if (!$config['Circle']['allow_contacts']) $mapper->remove('contactsCount');
+        if (!$config['Circle']['allow_positions']) $mapper->remove('positionsCount');
     }
 
     /**
@@ -107,9 +107,9 @@ class CircleAdminConcrete extends CircleAdmin
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if (!$config['circles']['organisms']) $mapper->remove('organismsCount');
-        if (!$config['circles']['contacts']) $mapper->remove('contactsCount');
-        if (!$config['circles']['positions']) $mapper->remove('positionsCount');
+        if (!$config['Circle']['allow_organisms']) $mapper->remove('organismsCount');
+        if (!$config['Circle']['allow_contacts']) $mapper->remove('contactsCount');
+        if (!$config['Circle']['allow_positions']) $mapper->remove('positionsCount');
     }
 }
 

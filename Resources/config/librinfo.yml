@@ -276,6 +276,7 @@ parameters:
                         form_group_contact:
                             title: ~
                             firstname: ~
+                            name: ~
                             email: ~
                             emailNpai: ~
                             emailNoNewsletter: ~
