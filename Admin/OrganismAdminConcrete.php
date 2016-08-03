@@ -5,7 +5,6 @@ namespace Librinfo\CRMBundle\Admin;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
-use Librinfo\CoreBundle\Admin\Traits\Normalize;
 use Librinfo\CRMBundle\Entity\Organism;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Position;
@@ -13,9 +12,7 @@ use Librinfo\CRMBundle\Entity\ContactPhone;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
-    use HandlesRelationsAdmin, Normalize;
-
-    private $configParameter = 'librinfo_crm';
+    use HandlesRelationsAdmin;
 
     public function getFormTheme()
     {
@@ -44,10 +41,9 @@ class OrganismAdminConcrete extends OrganismAdmin
         parent::prePersist($object);
 
         if ( $object->isIndividual() ) {
-            // TODO: different rules for name creation in config (eg. "Firstname NAME" or "Name, Firstname"...)
-            $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm')['Contact']['normalize'];
-            $firstname = $this->normalizeField('firstname', $config['firstname']);
-            $name = $this->normalizeField('name', $config['name']);
+            // TODO: different rules for organism name creation in config (eg. "Firstname NAME" or "Name, Firstname"...)
+            $firstname = mb_convert_case($this->getForm()->get('firstname')->getNormData(), MB_CASE_TITLE);
+            $name = mb_strtoupper($this->getForm()->get('name')->getNormData());
             $object->setName($firstname . " " . $name);
         }
     }
@@ -61,10 +57,9 @@ class OrganismAdminConcrete extends OrganismAdmin
 
         if ( $organism->isIndividual() ) {
             // Create a new Contact & Position associated to the organism
-            $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm')['contacts']['normalize'];
             $title = $this->getForm()->get('title')->getNormData();
-            $firstname = $this->normalizeField('firstname', $config['firstname']);
-            $name = $this->normalizeField('name', $config['name']);
+            $firstname = $this->getForm()->get('firstname')->getNormData();
+            $name = $this->getForm()->get('name')->getNormData();
             $contact = new Contact;
             $contact->setTitle($title);
             $contact->setFirstname($firstname);
