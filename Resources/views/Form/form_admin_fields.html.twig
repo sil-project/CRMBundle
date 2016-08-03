@@ -1,7 +1,6 @@
 {% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
 
 {% block form_widget_simple %}
-
     {% if form.vars.name == 'customerCode' %}
         {% set attr = attr|merge({'class': attr.class|default('') ~ ' customer-code'}) %}
     {% elseif form.vars.name == 'supplierCode' %}
@@ -20,5 +19,9 @@
         {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}
     {% endif %}
 {% endblock form_widget_simple %}
+
+{% block librinfo_zip_city_widget %}
+    {{ dump() }}
+{% endblock %}
 
 
