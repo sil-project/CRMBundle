@@ -1,5 +1,16 @@
+Librinfo\CRMBundle\Entity\Contact:
+    constraints:
+        - Callback: [validateName]
+
 Librinfo\CRMBundle\Entity\Organism:
     properties:
         iban:
             - Iban:
                 message: This is not a valid International Bank Account Number (IBAN).
+        positions:
+            - Valid: ~
+
+Librinfo\CRMBundle\Entity\Position:
+    properties:
+        contact:
+            - Valid: ~

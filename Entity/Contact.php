@@ -2,6 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
@@ -293,5 +294,18 @@ class Contact implements VCardableInterface
     public function getFulltextName()
     {
         return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoupper($this->getName()));
+    }
+
+    public function validateName(ExecutionContextInterface $context)
+    {
+        // check if name or fistname are filled
+        if ( empty(trim($this->getName()) . trim($this->getFirstname())) ) {
+            $context->buildViolation('librinfo.error.provide_name_or_firstname')
+                ->atPath('name')
+                ->addViolation();
+            $context->buildViolation('librinfo.error.provide_name_or_firstname')
+                ->atPath('firstname')
+                ->addViolation();
+        }
     }
 }

@@ -70,6 +70,7 @@ parameters:
                                 associated_property: organismDescription
                                 label: librinfo.label.contacts
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_organism_positions.html.twig'
+                                cascade_validation: true
 #                                admin_code: test_code
                             _options:
                                 class: positions-box
@@ -277,7 +278,8 @@ parameters:
                         form_group_contact:
                             title: ~
                             firstname: ~
-                            name: ~
+                            name:
+                                required: false
                             email: ~
                             emailNpai: ~
                             emailNoNewsletter: ~

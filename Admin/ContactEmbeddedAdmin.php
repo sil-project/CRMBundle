@@ -35,7 +35,7 @@ class ContactEmbeddedAdmin extends CoreAdmin
         $formMapper
             ->add('title')
             ->add('firstname')
-            ->add('name', 'text', ['required' => true])
+            ->add('name', 'text', ['required' => false])
             ->add('address')
             ->add('zip')
             ->add('city')
