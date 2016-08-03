@@ -1,0 +1,23 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Baptiste SIMON <beta@e-glop.net>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    {{ value }}
+    {% if object.vatVerified > 0 %}
+        <span aria-hidden="true" class="glyphicon glyphicon-ok" id="validate-vat-ok" title="{{ 'Verified VAT number'|trans() }}"></span>
+    {% elseif object.vatVerified < 0 %}
+        <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign" id="validate-vat-error" title="{{ 'Not a valid VAT number'|trans() }}"></span>
+    {% endif %}
+
+{% endblock %}

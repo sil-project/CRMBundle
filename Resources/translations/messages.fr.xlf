@@ -215,6 +215,10 @@
                 <source>Not a valid VAT number</source>
                 <target>N° TVA non valide</target>
             </trans-unit>                                             
+            <trans-unit id="librinfo.warn.verified_vat">
+                <source>Verified VAT number</source>
+                <target>N° TVA vérifié</target>
+            </trans-unit>                                             
             <trans-unit id="librinfo.warn.vat_exception">
                 <source>The VAT number is not valid. It must be in format [0-9A-Za-z\+\*\.]{4,14}</source>
                 <target>N° TVA mal formatté. Il doit contenir entre 4 et 14 caractères (chiffres et lettres non accentuées uniquement).</target>

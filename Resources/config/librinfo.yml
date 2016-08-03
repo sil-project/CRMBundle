@@ -61,7 +61,8 @@ parameters:
                         form_group_phones:
                             phones: ~
                         form_group_administrative:
-                            vat: ~
+                            vat:
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_vat.html.twig'
                             iban: ~
                     form_group_contacts:
                         '':
