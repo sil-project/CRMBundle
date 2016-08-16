@@ -18,6 +18,12 @@ input.form-control[id$=_vat] {
 #validate-vat-ok { color: #00a65a; }
 #validate-vat-error { color: #dd4b39; }
 
+/* Organism list */ 
+
+.glyphicon.is-customer, .glyphicon.is-supplier { color: #00a65a; }
+.glyphicon.is-not-customer, .glyphicon.is-not-supplier { color: #dd4b39; }
+
+
 /* ??? */
 
 @media (min-width: 1200px) {

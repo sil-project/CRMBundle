@@ -3,12 +3,14 @@
 namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\CoreBundle\Validator\ErrorElement;
+use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Position;
 use Librinfo\CRMBundle\Entity\ContactPhone;
+use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
@@ -28,6 +30,15 @@ class OrganismAdminConcrete extends OrganismAdmin
         $collection->add('generateCustomerCode');
         $collection->add('generateSupplierCode');
         $collection->add('validateVat');
+    }
+
+    /**
+     * @param FormMapper $mapper
+     */
+    protected function postConfigureFormFields(FormMapper $mapper)
+    {
+        $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
+        $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
     }
 
     public function preUpdate($object)

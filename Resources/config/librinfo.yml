@@ -196,16 +196,19 @@ parameters:
                     name:
                         identifier: true
                         label: librinfo.label.list_organism_name
+                    customerCode:
+                        template: LibrinfoCRMBundle:OrganismAdmin:list_field_customer.html.twig
+                    supplierCode:
+                        template: LibrinfoCRMBundle:OrganismAdmin:list_field_supplier.html.twig
                     category.name: ~
-                    customer_supplier:
-                        template: LibrinfoCRMBundle:OrganismAdmin:list_type.html.twig
                     circles: ~
                     _options:
                         fieldsOrder:
                             - name
+                            - customerCode
+                            - supplierCode
                             - city
                             - category.name
-                            - customer_supplier
                             - circles
                     _export_format:
                         csv: [name, address, zip, city, country, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]

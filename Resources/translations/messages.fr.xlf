@@ -167,6 +167,14 @@
                 <source>librinfo.label.isSupplier</source>
                 <target>Fournisseur</target>
             </trans-unit>                      
+            <trans-unit id="librinfo.label.isNotCustomer">
+                <source>librinfo.label.isNotCustomer</source>
+                <target>N'est pas un client</target>
+            </trans-unit>                       
+            <trans-unit id="librinfo.label.isNotSupplier">
+                <source>librinfo.label.isNotSupplier</source>
+                <target>N'est pas un fournisseur</target>
+            </trans-unit>                      
             <trans-unit id="form_group_individual">
                 <source>form_group_individual</source>
                 <target>Type de tiers</target>
