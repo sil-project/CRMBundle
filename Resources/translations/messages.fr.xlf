@@ -270,7 +270,7 @@
             <trans-unit id="librinfo.value.positions_count">
                 <source>{0} No position|{1} 1 position|[2, Inf[ %count% positions</source>
                 <target>{0} Aucune Fonction|{1} 1 Fonction|[2, Inf[ %count% Fonctions</target>
-            </trans-unit>                                             
+            </trans-unit>      
             
 
 <!-- CATEGORY -->
