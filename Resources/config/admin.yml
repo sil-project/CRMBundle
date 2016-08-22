@@ -121,3 +121,13 @@ services:
                 group: Customers Relationship Management
                 label: librinfo.crm.phone_type_admin.label
                 label_translator_strategy: librinfo_core.label.strategy.librinfo
+
+    crm.city:
+        class: Librinfo\CRMBundle\Admin\CityAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\City, LibrinfoCRMBundle:CityAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.city_admin.label
+                label_translator_strategy: librinfo_core.label.strategy.librinfo

@@ -1,5 +1,7 @@
 {% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
 
+
+
 {% block form_widget_simple %}
     {% if form.vars.name == 'customerCode' %}
         {% set attr = attr|merge({'class': attr.class|default('') ~ ' customer-code'}) %}
@@ -20,8 +22,174 @@
     {% endif %}
 {% endblock form_widget_simple %}
 
+
+
 {% block librinfo_zip_city_widget %}
-    {{ dump() }}
-{% endblock %}
+{% spaceless %}
+
+    <input type="text" id="{{ id }}_autocomplete_input" value="{{ value }}"
+        {%- if read_only is defined and read_only %} readonly="readonly"{% endif -%}
+        {%- if disabled %} disabled="disabled"{% endif -%}
+        {%- if required %} required="required"{% endif %}
+    />
+
+    <div id="{{ id }}_hidden_inputs_wrap">
+        <input type="hidden" name="{{ full_name }}" {%- if disabled %} disabled="disabled"{% endif %} value="{{ value }}">
+    </div>
+
+    <script>
+        (function ($) {
+            var autocompleteInput = $('#{{ id }}_autocomplete_input');
+            var formId = '{{ form.parent.vars.id }}';
+            autocompleteInput.select2({
+                {%- set allowClearPlaceholder = required ? '' : ' ' -%}
+                placeholder: '{{ placeholder ?: allowClearPlaceholder }}', // allowClear needs placeholder to work properly
+                allowClear: {{ required ? 'false' : 'true' }},
+                enable: {{ disabled ? 'false' : 'true' }},
+                readonly: {{ read_only is defined and read_only or attr.readonly is defined and attr.readonly ? 'true' : 'false' }},
+                minimumInputLength: {{ minimum_input_length }},
+                multiple: false,
+                initSelection : function (element, callback) {
+                    var data = {id: element.val(), text: element.val()};
+                    callback(data);
+                },
+                width: '{{ width }}',
+                dropdownAutoWidth: {{ dropdown_auto_width ? 'true' : 'false' }},
+                containerCssClass: '{{ container_css_class ~ ' form-control' }}',
+                dropdownCssClass: '{{ dropdown_css_class }}',
+                ajax: {
+                    url:  '{{ url ?: path(route.name, route.parameters|default([]))|e('js') }}',
+                    dataType: 'json',
+                    quietMillis: {{ quiet_millis }},
+                    cache: {{ cache ? 'true' : 'false' }},
+                    data: function (term, page) { // page is the one-based page number tracked by Select2
+                        {% block sonata_type_model_autocomplete_ajax_request_parameters %}
+                        return {
+                                //search term
+                                '{{ req_param_name_search }}': term,
+
+                                // page size
+                                '{{ req_param_name_items_per_page }}': {{ items_per_page }},
+
+                                // page number
+                                '{{ req_param_name_page_number }}': page,
+
+                                // admin
+                                {% if sonata_admin.admin is not null %}
+                                    'uniqid': '{{ sonata_admin.admin.uniqid }}',
+                                    'admin_code': '{{ sonata_admin.admin.code }}',
+                                {% elseif admin_code %}
+                                    'admin_code':  '{{ admin_code }}',
+                                {% endif %}
+
+                                 // subclass
+                                {% if app.request.query.get('subclass') %}
+                                    'subclass': '{{ app.request.query.get('subclass') }}',
+                                {% endif %}
+
+                                {% if context == 'filter' %}
+                                    'field':  '{{ full_name|replace({'filter[': '', '][value]': '', '__':'.'}) }}',
+                                    '_context': 'filter'
+                                {% else %}
+                                    'field':  '{{ name }}'
+                                {% endif %}
+
+                                // other parameters
+                                {% if req_params is not empty %},
+                                    {%- for key, value in req_params -%}
+                                        '{{- key|e('js') -}}': '{{- value|e('js') -}}'
+                                        {%- if not loop.last -%}, {% endif -%}
+                                    {%- endfor -%}
+                                {% endif %}
+                        };
+                        {% endblock %}
+                    },
+                    results: function (data, page) {
+                        // notice we return the value of more so Select2 knows if more results can be loaded
+                        return {results: data.items, more: data.more};
+                    }
+                },
+                formatResult: function (item) {
+                    return {% block sonata_type_model_autocomplete_dropdown_item_format %}'<div class="{{ dropdown_item_css_class }}">'+item.label+'<\/div>'{% endblock %};// format of one dropdown item
+                },
+                formatSelection: function (item) {
+                    // console.info('formatSelection {{ name }}', item);
+                    return {% block sonata_type_model_autocomplete_selection_format %}item.{{ name }}{% endblock %};
+                },
+                escapeMarkup: function (m) { return m; }, // we do not want to escape markup since we are displaying html in results
+                createSearchChoice:function(term, data) { // allow user to add custom data (not found in ajax request)
+                    if ( $(data).filter( function() {
+                        return this.{{ name }}.localeCompare(term)===0;
+                    }).length===0) {
+                        return {id:term, {{ name }}:term};
+                    }
+                }
+            });
+
+            autocompleteInput.on('change', function(e) {
+
+                // console.log('change {{ name }} '+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+
+                // remove input
+                if (undefined !== e.removed && null !== e.removed) {
+                    var removedItems = e.removed;
+                    $('#{{ id }}_hidden_inputs_wrap input:hidden').val('');
+                }
+
+                // add new input
+                var el = null;
+                if (undefined !== e.added) {
+                    var addedItems = e.added;
+                    $('#{{ id }}_hidden_inputs_wrap input:hidden').val(addedItems.{{ name }});
+
+                    // Change country according to the selected result
+                    if (undefined !== addedItems.country_code) {
+                        selectCountry(addedItems.country_code);
+                    }
+
+                    {% if name == 'zip' %}
+                        // Change city according to the selected result
+                        if (undefined !== addedItems.city) {
+                            var data = {id: addedItems.city, city: addedItems.city};
+                            $('#' + formId + '_city_autocomplete_input').select2('data', data);
+                            $('#' + formId + '_city_hidden_inputs_wrap input:hidden').val(addedItems.city);
+                        }
+                    {% elseif name == 'city' %}
+                        // Change zip according to the selected result
+                        if (undefined !== addedItems.zip) {
+                            var data = {id: addedItems.zip, zip: addedItems.zip};
+                            $('#' + formId + '_zip_autocomplete_input').select2('data', data);
+                            $('#' + formId + '_zip_hidden_inputs_wrap input:hidden').val(addedItems.zip);
+                        }
+                    {% endif %}
+                }
+            });
+
+            console.log('selectCountry', 'select[name="' + formId + '[country]"]');
+            function selectCountry(country_code) {
+                var $select = $('select#{{ form.parent.vars.id }}_country');
+                $select.find('option').filter(function() {
+                    return $(this).val() == country_code;
+                }).prop('selected', true);
+                $select.trigger('change');
+            }
+
+            // Initialise the autocomplete
+            {% if value is not empty %}
+                var data = {id: '{{ value|e('js') }}', {{ name }}: '{{ value|e('js') }}'};
+                autocompleteInput.select2('data', data);
+            {% endif %}
+
+            // remove unneeded autocomplete text input before form submit
+            $('#{{ id }}_autocomplete_input').closest('form').submit(function()
+            {
+                $('#{{ id }}_autocomplete_input').remove();
+                return true;
+            });
+        })(jQuery);
+    </script>
+
+{% endspaceless %}
+{% endblock %} {# librinfo_zip_city_widget #}
 
 

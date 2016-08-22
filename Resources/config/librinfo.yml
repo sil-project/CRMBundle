@@ -698,9 +698,13 @@ parameters:
                                 required: false
                             zip:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
-                                template: 'LibrinfoCRMBundle:Form/Type:zip_city_type.html.twig'
-                            city: ~
-                            country: ~
+                                required: false
+                            city:
+                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                required: false
+                            country:
+                                type: country
+                                required: false
                             npai: ~
                     form_group_specifics:
                         form_group_communication:
