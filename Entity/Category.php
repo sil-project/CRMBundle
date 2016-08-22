@@ -70,4 +70,14 @@ class Category implements NodeInterface
         return $this->organisms;
     }
 
+
+    /**
+     * Used by Treeable::setChildNodeOf() to sort the tree
+     * @return string
+     */
+    public function getSortField()
+    {
+        return $this->getName();
+    }
+
 }
