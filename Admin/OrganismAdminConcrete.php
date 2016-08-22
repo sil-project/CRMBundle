@@ -11,6 +11,7 @@ use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Position;
 use Librinfo\CRMBundle\Entity\ContactPhone;
 use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
+use Librinfo\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 
 class OrganismAdminConcrete extends OrganismAdmin
 {
