@@ -675,3 +675,45 @@ parameters:
                     label:
                         sortable: false  # TODO: this should be automatic with the Sortable trait
 
+#################
+# ADDRESSABLE
+#################
+
+        Librinfo\DoctrineBundle\Entity\Traits\Addressable:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    zip: ~
+                    city: ~
+                    country: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    zip: ~
+                    city: ~
+                    country: ~
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_group_general:
+                        form_group_main_address:
+                            address:
+                                type: textarea
+                                required: false
+                            zip:
+                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                required: false
+                            city:
+                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                required: false
+                            country:
+                                type: country
+                                required: false
+                            npai: ~
+                    form_group_specifics:
+                        form_group_communication:
+                            vcard_uid:
+                                type: text
+                                read_only: true
+                                disabled: true
+                                required: false
+

@@ -36,10 +36,10 @@ class ContactEmbeddedAdmin extends CoreAdmin
             ->add('title')
             ->add('firstname')
             ->add('name', 'text', ['required' => false])
-            ->add('address')
-            ->add('zip')
-            ->add('city')
-            ->add('country')
+            ->add('address', 'textarea', ['required' => false])
+            ->add('zip', 'librinfo_zip_city', ['required' => false])
+            ->add('city', 'librinfo_zip_city', ['required' => false])
+            ->add('country', 'country', ['required' => false])
         ;
     }
 

@@ -1,0 +1,113 @@
+<?php
+
+namespace Librinfo\CRMBundle\Form\Type;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
+class ZipCityType extends AbstractType
+{
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $compound = function (Options $options) {
+            return $options['multiple'];
+        };
+
+        $resolver->setDefaults(array(
+            'attr' => array(),
+            'compound' => $compound,
+            'model_manager' => null,
+            'class' => null,
+            'admin_code' => null,
+            'callback' => null,
+            'width' => '',
+            'context' => '',
+
+            'placeholder' => '',
+            'minimum_input_length' => 3, //minimum 3 chars should be typed to load ajax data
+            'items_per_page' => 10, //number of items per page
+            'quiet_millis' => 100,
+            'cache' => false,
+            'multiple' => false,
+
+            'to_string_callback' => null,
+
+            // ajax parameters
+            'url' => '',
+            'route' => array('name' => 'admin_librinfo_crm_city_getAddressAutocompleteItems', 'parameters' => array()),
+            'req_params' => array(),
+            'req_param_name_search' => 'q',
+            'req_param_name_page_number' => '_page',
+            'req_param_name_items_per_page' => '_per_page',
+
+            // CSS classes
+            'container_css_class' => '',
+            'dropdown_css_class' => '',
+            'dropdown_item_css_class' => '',
+
+            'dropdown_auto_width' => false,
+
+            'template' => 'LibrinfoCRMBundle:Form/Type:zip_city_type.html.twig',
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->vars['admin_code'] = $options['admin_code'];
+
+        $view->vars['placeholder'] = $options['placeholder'];
+        $view->vars['minimum_input_length'] = $options['minimum_input_length'];
+        $view->vars['items_per_page'] = $options['items_per_page'];
+        $view->vars['width'] = $options['width'];
+
+        // ajax parameters
+        $view->vars['url'] = $options['url'];
+        $view->vars['route'] = $options['route'];
+        $view->vars['req_params'] = $options['req_params'];
+        $view->vars['req_param_name_search'] = $options['req_param_name_search'];
+        $view->vars['req_param_name_page_number'] = $options['req_param_name_page_number'];
+        $view->vars['req_param_name_items_per_page'] = $options['req_param_name_items_per_page'];
+        $view->vars['quiet_millis'] = $options['quiet_millis'];
+        $view->vars['cache'] = $options['cache'];
+
+        // CSS classes
+        $view->vars['container_css_class'] = $options['container_css_class'];
+        $view->vars['dropdown_css_class'] = $options['dropdown_css_class'];
+        $view->vars['dropdown_item_css_class'] = $options['dropdown_item_css_class'];
+        $view->vars['dropdown_auto_width'] = $options['dropdown_auto_width'];
+
+        // template
+        $view->vars['template'] = $options['template'];
+
+        $view->vars['context'] = $options['context'];
+    }
+
+    public function getParent()
+    {
+        return 'text';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'librinfo_zip_city';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+}
+

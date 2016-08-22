@@ -1,0 +1,26 @@
+Librinfo\CRMBundle\Entity\City:
+    type: entity
+    repositoryClass: Librinfo\CRMBundle\Entity\Repository\CityRepository
+
+    indexes:
+      country_index:
+        columns: [ country_code ]
+      zip_index:
+        columns: [ zip ]
+      city_index:
+        columns: [ city ]
+
+    fields:
+        country_code:
+            type:       string(2)
+            nullable:   false
+        zip:
+            type:       string(20)
+            nullable:   false
+        city:
+            type:       string(255)
+            nullable:   false
+
+#TODO : add division (FR: région, US: state), division_code, subdivision (FR: département, US: county), subdivision_code
+
+#TODO : add mulitcolumns unique index
