@@ -153,7 +153,7 @@
             </trans-unit>                       
             <trans-unit id="librinfo.label.category_name">
                 <source>librinfo.label.category_name</source>
-                <target>Catégorie</target>
+                <target>Catégorie de tiers</target>
             </trans-unit>                       
             <trans-unit id="librinfo.label.customer_supplier">
                 <source>librinfo.label.customer_supplier</source>
@@ -276,11 +276,11 @@
 <!-- CATEGORY -->
             <trans-unit id="entity_category">
                 <source>Category</source>
-                <target>Catégorie</target>
+                <target>Catégorie de Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.link.category_list">
                 <source>librinfo.link.category_list</source>
-                <target>Liste des catégories</target>
+                <target>Liste des catégories de tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.label.parent_node">
                 <source>librinfo.label.parent_node</source>
@@ -362,7 +362,7 @@
             </trans-unit>
             <trans-unit id="librinfo.crm.category_admin.label">
                 <source>librinfo.crm.category_admin.label</source>
-                <target>Catégorie</target>
+                <target>Catégorie de Tiers</target>
             </trans-unit>
             <trans-unit id="librinfo.crm.role_admin.label">
                 <source>librinfo.crm.role_admin.label</source>
