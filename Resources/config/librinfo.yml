@@ -235,7 +235,12 @@ parameters:
                         vcard: [name, address, zip, city, country, email, url, description, phones, personal]
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-                    name: ~
+                    name:
+                        label: librinfo.label.organism_name_filter
+                    positions.contact.name:
+                        type: doctrine_orm_callback
+                        callback: [Librinfo\CRMBundle\Admin\OrganismAdmin, contactFilterQueryBuilder]
+                        label: librinfo.label.organism_contact_filter
                     category: ~
                     customer: ~
                     customerCode: ~
@@ -246,6 +251,7 @@ parameters:
                     _options:
                         fieldsOrder:
                             - name
+                            - positions.contact.name
                             - category
                             - customer
                             - customerCode

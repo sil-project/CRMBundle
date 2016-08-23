@@ -279,6 +279,14 @@
                 <source>librinfo.label.alert</source>
                 <target>Alerte</target>
             </trans-unit>              
+            <trans-unit id="librinfo.label.organism_name_filter">
+                <source>librinfo.label.organism_name_filter</source>
+                <target>Nom du tiers</target>
+            </trans-unit>              
+            <trans-unit id="librinfo.label.organism_contact_filter">
+                <source>librinfo.label.organism_contact_filter</source>
+                <target>Contact</target>
+            </trans-unit>              
             
 
 <!-- CATEGORY -->
