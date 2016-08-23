@@ -1,0 +1,13 @@
+{% extends 'LibrinfoCoreBundle:CRUD:base_show.html.twig' %}
+
+{% block bottom_js %}
+    <script>
+        $(document).ready(function(){
+
+            // Remove alert block if empty
+            $alert = $('div.show-alert');
+            if ( !$alert.find('td').eq(0).html().trim() )
+                $alert.remove();
+        });
+    </script>
+{% endblock %}

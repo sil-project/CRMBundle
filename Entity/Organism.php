@@ -93,6 +93,11 @@ class Organism implements VCardableInterface
     private $vatVerified = 0;
 
     /**
+     * @var string
+     */
+    private $alert;
+
+    /**
      * @var Collection
      */
     private $phones;
@@ -394,6 +399,30 @@ class Organism implements VCardableInterface
         return $this->vatVerified;
     }
 
+    /**
+     * Set alert
+     *
+     * @param string $alert
+     *
+     * @return Organism
+     */
+    public function setAlert($alert)
+    {
+        $this->alert = $alert;
+
+        return $this;
+    }
+
+    /**
+     * Get alert
+     *
+     * @return string
+     */
+    public function getAlert()
+    {
+        return $this->alert;
+    }
+    
     /**
      * @return Collection
      */

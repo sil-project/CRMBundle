@@ -271,6 +271,14 @@
                 <source>{0} No position|{1} 1 position|[2, Inf[ %count% positions</source>
                 <target>{0} Aucune Fonction|{1} 1 Fonction|[2, Inf[ %count% Fonctions</target>
             </trans-unit>      
+            <trans-unit id="librinfo.label.organism_description">
+                <source>librinfo.label.organism_description</source>
+                <target>Bloc-notes</target>
+            </trans-unit>              
+            <trans-unit id="librinfo.label.alert">
+                <source>librinfo.label.alert</source>
+                <target>Alerte</target>
+            </trans-unit>              
             
 
 <!-- CATEGORY -->

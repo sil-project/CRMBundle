@@ -23,6 +23,15 @@ input.form-control[id$=_vat] {
 .glyphicon.is-customer, .glyphicon.is-supplier { color: #00a65a; }
 .glyphicon.is-not-customer, .glyphicon.is-not-supplier { color: #dd4b39; }
 
+/* Organism show */
+
+.show-alert .box-header { display: none; }
+.show-alert .box.box-primary { 
+    border-top-color: #dd4b39; 
+    color: #dd4b39; 
+    background-color: #f2dede;
+}
+
 
 /* ??? */
 

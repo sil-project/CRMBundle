@@ -42,6 +42,10 @@ Librinfo\CRMBundle\Entity\Organism:
             type: smallint
             options:
                 default: 0
+        alert:
+            type:       string
+            length:     255
+            nullable:   true
 
     oneToMany:
         phones:

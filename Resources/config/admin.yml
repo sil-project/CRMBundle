@@ -31,6 +31,7 @@ services:
                 label_translator_strategy: librinfo_core.label.strategy.librinfo
         calls:
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
 
     crm.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdminConcrete

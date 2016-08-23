@@ -33,6 +33,10 @@ parameters:
                 remove: [positions, description, phones, email, emailNpai, emailNoNewsletter, vcard_uid, address, zip, city, country, npai]
                 add:
                     form_group_general:
+                        form_group_alert:
+                            alert: ~
+                            _options:
+                                class: show-alert col-md-12
                         '':
                             customer:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_customer.html.twig'
@@ -40,7 +44,8 @@ parameters:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig'
                             category.name: ~
                             url: ~
-                            description: ~
+                            description:
+                                label: librinfo.label.organism_description
                             email:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_email.html.twig'
                             _options:
@@ -50,10 +55,9 @@ parameters:
                                     - supplier
                                     - circles
                                     - category.name
-                                    - administrativeNumber
+                                    - description
                                     - email
                                     - url
-                                    - description
                         form_group_main_address:
                             fulltext_address:
                                 template: LibrinfoCRMBundle:CRUD:show_field_fulltext_address.html.twig
@@ -64,6 +68,13 @@ parameters:
                             vat:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_vat.html.twig'
                             iban: ~
+                        _options:
+                            groupsOrder:
+                                - form_group_alert
+                                - ''
+                                - form_group_main_address
+                                - form_group_phones
+                                - form_group_administrative
                     form_group_contacts:
                         '':
                             positions:
@@ -79,6 +90,7 @@ parameters:
                             description: "Liste des Contacts appartenant à ce Tiers"
                     _options:
                         tabsOrder:
+                            - form_group_alert
                             - form_group_general
                             - form_group_contacts
                             - default
@@ -120,9 +132,11 @@ parameters:
                             email: ~
                             emailNpai: ~
                             emailNoNewsletter: ~
+                            alert: ~
                             description:
                                 type: textarea
                                 required: false
+                                label: librinfo.label.organism_description
                             _options:
                                 fieldsOrder:
                                     - title
@@ -134,12 +148,13 @@ parameters:
                                     - supplierCode
                                     - circles
                                     - category
+                                    - alert
+                                    - description
                                     - administrativeNumber
                                     - email
                                     - emailNpai
                                     - emailNoNewsletter
                                     - url
-                                    - description
                         form_group_phones:
                             phones:
                                 type: sonata_type_collection
@@ -202,6 +217,7 @@ parameters:
                         template: LibrinfoCRMBundle:OrganismAdmin:list_field_supplier.html.twig
                     category.name: ~
                     circles: ~
+                    alert: ~
                     _options:
                         fieldsOrder:
                             - name
@@ -210,8 +226,9 @@ parameters:
                             - city
                             - category.name
                             - circles
+                            - alert
                     _export_format:
-                        csv: [name, address, zip, city, country, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
+                        csv: [name, address, zip, city, country, alert, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
                         xls: csv
                         json: csv
                         xml: csv
@@ -225,6 +242,7 @@ parameters:
                     supplier: ~
                     supplierCode: ~
                     circles: ~
+                    alert: ~
                     _options:
                         fieldsOrder:
                             - name
@@ -234,6 +252,7 @@ parameters:
                             - supplier
                             - supplierCode
                             - circles
+                            - alert
 
 ###########
 # CONTACT
