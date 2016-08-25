@@ -45,6 +45,11 @@ class Position implements VCardableInterface
      */
     private $positionType;
 
+    public function __construct()
+    {
+        $this->emailMessages = new ArrayCollection();
+    }
+
     /**
      * Set phone
      *

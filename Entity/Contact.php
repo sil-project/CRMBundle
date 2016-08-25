@@ -244,6 +244,7 @@ class Contact implements VCardableInterface
         $this->phones = new ArrayCollection();
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
+        $this->emailMessages = new ArrayCollection();
     }
 
     /**
