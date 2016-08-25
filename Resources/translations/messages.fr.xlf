@@ -287,6 +287,10 @@
                 <source>librinfo.label.organism_contact_filter</source>
                 <target>Contact</target>
             </trans-unit>              
+            <trans-unit id="form_group_alert">
+                <source>form_group_alert</source>
+                <target>Alerte</target>
+            </trans-unit>              
             
 
 <!-- CATEGORY -->

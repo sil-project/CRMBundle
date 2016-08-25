@@ -88,11 +88,17 @@ parameters:
                         _options:
                             #TODO tabs descriptions should be translated (improve Sonata Admin)
                             description: "Liste des Contacts appartenant à ce Tiers"
+                    show_tab_emails:
+                        '':
+                            email_history:
+                                template: 'LibrinfoCRMBundle:CRUD:show_field_emails_list.html.twig'
+                                mapped: false
                     _options:
                         tabsOrder:
                             - form_group_alert
                             - form_group_general
                             - form_group_contacts
+                            - show_tab_emails
                             - default
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [name, circles, description, positions, email, emailNpai, emailNoNewsletter, vcard_uid]

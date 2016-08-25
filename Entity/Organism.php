@@ -422,7 +422,7 @@ class Organism implements VCardableInterface
     {
         return $this->alert;
     }
-    
+
     /**
      * @return Collection
      */
@@ -456,5 +456,22 @@ class Organism implements VCardableInterface
     public function isPersonal()
     {
         return false;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEmailRecipients()
+    {
+        $emails = [];
+        if ($this->email)
+            $emails[] = $this->email;
+        foreach ($this->positions as $position){
+            if ($position->getEmail())
+                $emails[] = $position->getEmail();
+            if ($position->getContact()->getEmail())
+                $emails[] = $position->getContact()->getEmail();
+        }
+        return array_unique($emails);
     }
 }

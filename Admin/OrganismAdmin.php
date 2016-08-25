@@ -68,6 +68,15 @@ class OrganismAdmin extends CoreAdmin
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getNewInstance()
+    {
+        $object = parent::getNewInstance();
+        return $object;
+    }
+
+    /**
      * @param QueryBuilder $queryBuilder
      * @param string $alias
      * @param string $field
@@ -75,7 +84,6 @@ class OrganismAdmin extends CoreAdmin
      */
     public static function contactFilterQueryBuilder(ProxyQuery $queryBuilder, $alias, $field, $value)
     {
-        dump($queryBuilder, $alias, $field, $value);
         if (!$value['value']) {
             return;
         }

@@ -4,6 +4,7 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
@@ -40,6 +41,14 @@ class OrganismAdminConcrete extends OrganismAdmin
     {
         $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
         $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
+    }
+
+    /**
+     * @param ShowMapper $mapper
+     */
+    protected function postConfigureShowFields(ShowMapper $mapper)
+    {
+        //$mapper->tab('emails')->with('list')->add('administrative_number')->end()->end();
     }
 
     public function preUpdate($object)
