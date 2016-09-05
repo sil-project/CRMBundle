@@ -56,16 +56,11 @@ class EmailBundleListener implements LoggerAwareInterface, EventSubscriber
 
         $this->logger->debug("[EmailBundleListener] Entering EmailBundleListener for « loadClassMetadata » event");
 
-        // mapping with organisms (many-to-many inverse side)
+        // mapping with Emails (many-to-many inverse side)
         $metadata->mapManyToMany([
             'targetEntity' => 'Librinfo\EmailBundle\Entity\Email',
             'fieldName'    => 'emailMessages',
-            'inversedBy'   => 'organisms',
-            'joinTable'    => [
-                'name'               => 'organisms_emails',
-                'joinColumns'        => ['organism_id' => ['referencedColumnName' => 'id']],
-                'inverseJoinColumns' => ['email_id'    => ['referencedColumnName' => 'id']],
-            ]
+            'mappedBy'     => strtolower($reflectionClass->getShortName()) . 's'  // ex. "organisms"
         ]);
 
         $this->logger->debug("[EmailBundleListener] Added Email mapping metadata to Entity", ['class' => $metadata->getName()]);

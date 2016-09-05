@@ -2,11 +2,12 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
+use Librinfo\CoreBundle\Admin\CoreAdmin;
+use Librinfo\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\CoreAdmin;
 
 class PositionAdmin extends CoreAdmin
 {
@@ -75,5 +76,31 @@ class PositionAdmin extends CoreAdmin
             ->add('name')
             ->add('id')
         ;
+    }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     * @param string $alias
+     * @param string $field
+     * @param array $value
+     *
+     * @todo this is the same as OrganismAdmin#contactFilterQueryBuilder. Unify ?
+     */
+    public static function contactFilterQueryBuilder(ProxyQuery $queryBuilder, $alias, $field, $value)
+    {
+        if (!$value['value']) {
+            return;
+        }
+
+        $search = '%' . $value['value'] . '%';
+        $queryBuilder
+            ->andWhere($queryBuilder->expr()->orX(
+                $queryBuilder->expr()->like("$alias.firstname", ':firstname'),
+                $queryBuilder->expr()->like("$alias.name", ':name')
+            ))
+            ->setParameter('firstname', $search)
+            ->setParameter('name', $search)
+        ;
+        return true;
     }
 }

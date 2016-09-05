@@ -48,7 +48,9 @@ class OrganismAdminConcrete extends OrganismAdmin
      */
     protected function postConfigureShowFields(ShowMapper $mapper)
     {
-        //$mapper->tab('emails')->with('list')->add('administrative_number')->end()->end();
+        // Remove Email messages list if LibrinfoEmailBundle is not installed
+        if (!$this->bundleExists('LibrinfoEmailBundle'))
+            $mapper->removeGroup('', 'show_tab_emails', true);
     }
 
     public function preUpdate($object)

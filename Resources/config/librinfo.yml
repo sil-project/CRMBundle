@@ -641,6 +641,21 @@ parameters:
                     position_type: ~
                     organism: ~
 
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    contact.name:
+                        type: doctrine_orm_callback
+                        callback: [Librinfo\CRMBundle\Admin\PositionAdmin, contactFilterQueryBuilder]
+                        label: librinfo.label.position_contact_filter
+                    organism.name:
+                        label: librinfo.label.position_organism_filter
+                    _options:
+                        fieldsOrder:
+                            - contact.name
+                            - organism.name
+                            - email
+                            - label
+
 ############
 # CIRCLABLE Trait
 ############

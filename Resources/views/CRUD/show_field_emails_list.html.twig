@@ -4,17 +4,45 @@
     {{ sonata_block_render({'type': 'librinfo.email.block.emails_list'}, {'target_entity': object}) }}
 {% endif %}
 
+{% set isOrganism = object is instanceof('Librinfo\\CRMBundle\\Entity\\Organism') %}
 
-<form method="GET" action="{{ path('admin_librinfo_email_email_create', {'force_user': true}) }}">
+<form method="GET" action="{{ path('admin_librinfo_email_email_create') }}" id='send-email-form'>
     <label>Envoyer un email à</label>
     <input type="hidden" name="force_user" value="1">
+    <input type="hidden" name="organisms" value="">
+    <input type="hidden" name="contacts" value="">
+    <input type="hidden" name="positions" value="">
     <select id="new-email-recipients" name="recipients" style="width: auto; height: auto;">
-        <option></option>
-        {% for recipient in object.emailRecipients %}
-            <option value="{{ recipient }}">{{ recipient }}</option>
-        {% endfor %}
+        {% if object.email %}
+            <optgroup label="{{ isOrganism ? 'librinfo.label.organism'|trans : 'librinfo.label.contact'|trans }}">
+            <option data-recipient-type="{{ isOrganism ? 'organisms' : 'contacts' }}" value="{{ object.id }}" selected="selected">
+                {{ object.name }} &lt;{{ object.email }}&gt;
+            </option>
+        {% endif %}
+
+        {% if object.positions|length %}
+            <optgroup label="{{ isOrganism ? 'librinfo.label.contacts'|trans : 'librinfo.label.organisms'|trans }}">
+            {% for position in object.positions if position.email %}
+                <option data-recipient-type="positions" value="{{ position.id }}">
+                    {{ position }} &lt;{{ position.email }}&gt;
+                </option>
+            {% endfor %}
+        {% endif %}
     </select>
     <input type="submit" value="Créer" class="btn btn-small btn-primary">
 </form>
+
+<script>
+    $(function(){
+        $('#send-email-form').submit(function(){
+            var option = $(this).find('option:selected');
+            var type = option.data('recipient-type');
+            $(this).find('input[name=' + type + ']').val(option.val());
+            $(this).find('select').remove();
+            return true;
+        });
+    });
+</script>
+
 </td>
 
