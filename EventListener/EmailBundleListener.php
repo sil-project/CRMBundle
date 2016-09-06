@@ -54,6 +54,11 @@ class EmailBundleListener implements LoggerAwareInterface, EventSubscriber
         if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Librinfo\DoctrineBundle\Entity\Traits\Emailable'))
             return;
 
+        // Check if parents already have the Emailable trait
+        foreach ($metadata->parentClasses as $parent)
+            if ($this->classAnalyzer->hasTrait($parent, 'Librinfo\DoctrineBundle\Entity\Traits\Emailable'))
+                return;
+
         $this->logger->debug("[EmailBundleListener] Entering EmailBundleListener for « loadClassMetadata » event");
 
         // mapping with Emails (many-to-many inverse side)
