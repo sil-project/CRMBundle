@@ -1,6 +1,10 @@
 Librinfo\CRMBundle\Entity\Organism:
     type: entity
     repositoryClass: Librinfo\CRMBundle\Entity\Repository\OrganismRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discriminator
+        type: string
     fields:
         url:
             type:       string

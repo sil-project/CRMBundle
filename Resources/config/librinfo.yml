@@ -580,7 +580,8 @@ parameters:
                         form_group_position:
                             contact:
                                 admin_code: crm.contact
-                            organism: ~
+                            organism:
+                                admin_code: crm.organism
                             department: ~
                             positionType.name: ~
                             label:
@@ -622,6 +623,8 @@ parameters:
                                 route: { name: searchable_admin_retrieve_autocomplete_items }
                                 by_reference: false
                                 property: name # not used but required
+                                _options:
+                                    admin_code: crm.organism
                             department: ~
                             positionType:
                                 placeholder: ''
@@ -639,7 +642,8 @@ parameters:
                     contact:
                         admin_code: crm.contact
                     position_type: ~
-                    organism: ~
+                    organism:
+                        admin_code: crm.organism
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
