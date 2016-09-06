@@ -2,11 +2,12 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
-use Librinfo\DoctrineBundle\Entity\Traits\Labelable;
-use Librinfo\DoctrineBundle\Entity\Traits\Emailable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
 use Librinfo\DoctrineBundle\Entity\Traits\Descriptible;
+use Librinfo\DoctrineBundle\Entity\Traits\Emailable;
+use Librinfo\DoctrineBundle\Entity\Traits\Labelable;
 
 /**
  * Position
