@@ -1,5 +1,4 @@
 <td>
-{% dump(admin) %}
 {% if sonata_block_exists('librinfo.email.block.emails_list') %}
     {{ sonata_block_render({'type': 'librinfo.email.block.emails_list'}, {'target_entity': object}) }}
 {% endif %}
