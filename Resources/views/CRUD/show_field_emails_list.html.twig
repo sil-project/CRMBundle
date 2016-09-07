@@ -1,5 +1,5 @@
 <td>
-
+{% dump(admin) %}
 {% if sonata_block_exists('librinfo.email.block.emails_list') %}
     {{ sonata_block_render({'type': 'librinfo.email.block.emails_list'}, {'target_entity': object}) }}
 {% endif %}
@@ -12,6 +12,8 @@
     <input type="hidden" name="organisms" value="">
     <input type="hidden" name="contacts" value="">
     <input type="hidden" name="positions" value="">
+    <input type="hidden" name="from_admin" value="{{ admin.code }}">
+    <input type="hidden" name="from_id" value="{{ object.id }}">
     <select id="new-email-recipients" name="recipients" style="width: auto; height: auto;">
         {% if object.email %}
             <optgroup label="{{ isOrganism ? 'librinfo.label.organism'|trans : 'librinfo.label.contact'|trans }}">
