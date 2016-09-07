@@ -100,6 +100,10 @@ parameters:
                             - form_group_contacts
                             - show_tab_emails
                             - default
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_show_organism
+                          title: Framacalc de validation
+                          class: framacalc
             Sonata\AdminBundle\Form\FormMapper:
                 remove: [name, circles, description, positions, email, emailNpai, emailNoNewsletter, vcard_uid]
                 add:
@@ -211,6 +215,10 @@ parameters:
                             - form_group_general
                             - form_group_contacts
                             - form_group_specifics
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_form_organism
+                          title: Framacalc de validation
+                          class: framacalc
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [createdAt, zip, country, email]
                 add:
@@ -239,6 +247,10 @@ parameters:
                         json: csv
                         xml: csv
                         vcard: [name, address, zip, city, country, email, url, description, phones, personal]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_list_organism
+                          title: Framacalc de validation
+                          class: framacalc
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     name:
