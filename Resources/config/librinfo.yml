@@ -458,7 +458,12 @@ parameters:
 
         Librinfo\CRMBundle\Entity\OrganismPhone:
             Sonata\AdminBundle\Show\ShowMapper:
-                _copy: Sonata\AdminBundle\Form\FormMapper
+                add:
+                    form_group_general:
+                        '':
+                            phoneType: ~
+                            number:
+                                label: librinfo.label.phone_number_long
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     form_group_general:
@@ -467,10 +472,13 @@ parameters:
                             number:
                                 label: librinfo.label.phone_number_long
                                 required: true
-                            organism: ~
+                            organism:
+                                _options:
+                                    admin_code: crm.organism
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    organism: ~
+                    organism:
+                        admin_code: crm.organism
                     phoneType: ~
                     number: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
