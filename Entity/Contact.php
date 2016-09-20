@@ -2,6 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use AppBundle\Entity\Traits\HasEmailMessages;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -25,6 +26,7 @@ class Contact implements VCardableInterface
         Addressable,
         Traceable,
         Emailable,
+        HasEmailMessages,
         Positionable,
         Circlable,
         Descriptible,

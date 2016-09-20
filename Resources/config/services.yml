@@ -16,14 +16,4 @@ services:
             - [setTranslator, ['@translator']]
             - [setTwig, ['@twig']]
             - [setRouter, ['@router']]
-
-### DOCTRINE MAPPING ###
-
-    librinfo.crm.listener.email_bundle:
-        class: Librinfo\CRMBundle\EventListener\EmailBundleListener
-        tags:
-            - { name: doctrine.event_subscriber }
-        calls:
-            - [setLogger,[@logger]]
-            - [setBundles, [%kernel.bundles%]]
-            - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+            
