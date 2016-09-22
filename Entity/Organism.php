@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\Traits\HasEmailMessages;
+use AppBundle\Entity\Extension\OrganismExtension;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
@@ -21,10 +21,10 @@ use Librinfo\DoctrineBundle\Entity\Traits\Loggable;
 class Organism implements VCardableInterface
 {
     use BaseEntity,
+        OrganismExtension,
         Traceable,
         Addressable,
         Emailable,
-        HasEmailMessages,
         Positionable,
         Circlable,
         Descriptible,

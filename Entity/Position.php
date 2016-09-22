@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\Traits\HasEmailMessages;
+use AppBundle\Entity\Extension\PositionExtension;
 use Doctrine\Common\Collections\ArrayCollection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
@@ -16,9 +16,9 @@ use Librinfo\DoctrineBundle\Entity\Traits\Labelable;
 class Position implements VCardableInterface
 {
     use BaseEntity,
+        PositionExtension,
         Labelable,
         Emailable,
-        HasEmailMessages,
         Circlable,
         Descriptible
     ;
