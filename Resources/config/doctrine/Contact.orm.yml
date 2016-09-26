@@ -34,7 +34,7 @@ Librinfo\CRMBundle\Entity\Contact:
             targetEntity: Position
             mappedBy: contact
             cascade: [ persist, remove ]
-            
+
     manyToMany:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle

@@ -3,6 +3,7 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\Extension\ContactExtension;
+use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,6 +24,7 @@ class Contact implements VCardableInterface
 {
 
     use BaseEntity,
+        OuterExtensible,
         ContactExtension,
         Addressable,
         Traceable,
@@ -246,7 +248,7 @@ class Contact implements VCardableInterface
         $this->phones = new ArrayCollection();
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
-        $this->emailMessages = new ArrayCollection();
+        $this->initExternallyLinkedClasses();
     }
 
     /**

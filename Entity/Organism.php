@@ -3,6 +3,7 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\Extension\OrganismExtension;
+use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
@@ -21,6 +22,7 @@ use Librinfo\DoctrineBundle\Entity\Traits\Loggable;
 class Organism implements VCardableInterface
 {
     use BaseEntity,
+        OuterExtensible,
         OrganismExtension,
         Traceable,
         Addressable,
@@ -114,7 +116,7 @@ class Organism implements VCardableInterface
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
-        $this->emailMessages = new ArrayCollection();
+        $this->initExternallyLinkedClasses();
     }
 
     /**

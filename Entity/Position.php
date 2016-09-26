@@ -3,6 +3,7 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\Extension\PositionExtension;
+use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
@@ -16,6 +17,7 @@ use Librinfo\DoctrineBundle\Entity\Traits\Labelable;
 class Position implements VCardableInterface
 {
     use BaseEntity,
+        OuterExtensible,
         PositionExtension,
         Labelable,
         Emailable,
@@ -50,7 +52,7 @@ class Position implements VCardableInterface
 
     public function __construct()
     {
-        $this->emailMessages = new ArrayCollection();
+        $this->initExternallyLinkedClasses();
     }
 
     /**
