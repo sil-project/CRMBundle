@@ -19,7 +19,6 @@ trait HasContacts
     public function initContacts()
     {
         $this->contacts = new ArrayCollection();
-        $this->externallyLinkedClasses[] = Contact::class;
     }
 
     /**

@@ -19,7 +19,6 @@ trait HasPositions
     public function initPositions()
     {
         $this->positions = new ArrayCollection();
-        $this->externallyLinkedClasses[] = Position::class;
     }
 
     /**

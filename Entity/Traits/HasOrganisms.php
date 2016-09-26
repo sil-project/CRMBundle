@@ -19,7 +19,6 @@ trait HasOrganisms
     public function initOrganisms()
     {
         $this->organisms = new ArrayCollection();
-        $this->externallyLinkedClasses[] = Organism::class;
     }
 
     /**

@@ -116,7 +116,7 @@ class Organism implements VCardableInterface
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
-        $this->initExternallyLinkedClasses();
+        $this->initOuterExtendedClasses();
     }
 
     /**

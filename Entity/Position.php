@@ -52,7 +52,7 @@ class Position implements VCardableInterface
 
     public function __construct()
     {
-        $this->initExternallyLinkedClasses();
+        $this->initOuterExtendedClasses();
     }
 
     /**
@@ -154,7 +154,7 @@ class Position implements VCardableInterface
     /**
      * Set positionType
      *
-     * @param string $position_type
+     * @param string $positionType
      *
      * @return Position
      */
