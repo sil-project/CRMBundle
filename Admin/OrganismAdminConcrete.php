@@ -43,16 +43,6 @@ class OrganismAdminConcrete extends OrganismAdmin
         $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
     }
 
-    /**
-     * @param ShowMapper $mapper
-     */
-    protected function postConfigureShowFields(ShowMapper $mapper)
-    {
-        // Remove Email messages list if LibrinfoEmailBundle is not installed
-        if (!$this->bundleExists('LibrinfoEmailBundle'))
-            $mapper->removeGroup('', 'show_tab_emails', true);
-    }
-
     public function preUpdate($object)
     {
         parent::preUpdate($object);

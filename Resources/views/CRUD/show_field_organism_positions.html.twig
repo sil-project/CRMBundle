@@ -15,11 +15,13 @@ TODO: compact contact address (add fullAddress getter in Contact entity)
         <tbody>
             <tr class="sonata-ba-view-container">
                 <th colspan="2">
+                    {% block organism_position_contact %}
                     {% if contact_admin.isGranted('SHOW') %}
                         <a href="{{ contact_admin.generateObjectUrl('show', position.contact) }}">{{ position.contact|render_relation_element(elems['contact']) }}</a>
                     {% else %}
                         {{ position.contact|render_relation_element(elems['contact']) }}
                     {% endif %}
+                    {% endblock %}
                 </th>
             </tr>
             <tr class="sonata-ba-view-container">
