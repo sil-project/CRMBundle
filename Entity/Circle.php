@@ -25,6 +25,26 @@ class Circle
     ;
 
     /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $color;
+
+    /**
+     * @var bool
+     */
+    private $translatable = false;
+
+    /**
+     * @var bool
+     */
+    private $editable = true;
+
+    /**
      * @var Collection
      */
     private $contacts;
@@ -50,6 +70,102 @@ class Circle
         $this->organisms = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->users = new ArrayCollection();
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Circle
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return Circle
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set translatable
+     *
+     * @param bool $translatable
+     *
+     * @return Circle
+     */
+    public function setTranslatable($translatable)
+    {
+        $this->translatable = $translatable;
+
+        return $this;
+    }
+
+    /**
+     * Get translatable
+     *
+     * @return bool
+     */
+    public function isTranslatable()
+    {
+        return $this->translatable;
+    }
+
+    /**
+     * Set editable
+     *
+     * @param bool $editable
+     *
+     * @return Circle
+     */
+    public function setEditable($editable)
+    {
+        $this->editable = $editable;
+
+        return $this;
+    }
+
+    /**
+     * Get editable
+     *
+     * @return bool
+     */
+    public function isEditable()
+    {
+        return $this->editable;
     }
 
     /**

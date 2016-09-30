@@ -1,6 +1,22 @@
 Librinfo\CRMBundle\Entity\Circle:
     type: entity
 
+    fields:
+        code:
+            type:       string(255)
+            nullable:   true
+        color:
+            type:       string(255)
+            nullable:   true
+        translatable:
+            type:       boolean
+            options:
+                default: false
+        editable:
+            type:       boolean
+            options:
+                default: true
+
     manyToMany:
         positions:
             targetEntity: Librinfo\CRMBundle\Entity\Position

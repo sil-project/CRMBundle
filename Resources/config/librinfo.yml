@@ -524,6 +524,8 @@ parameters:
                 add:
                     default:
                         '':
+                            code: ~
+                            color: ~
                             owner: ~
                             users: ~
                         form_group_members:
@@ -547,6 +549,8 @@ parameters:
                 add:
                     form_group_general:
                         '':
+                            code: ~
+                            color: ~
                             owner:
                                 type: sonata_type_model_autocomplete
                                 route: { name: searchable_admin_retrieve_autocomplete_items }
@@ -571,6 +575,7 @@ parameters:
                     name:
                         identifier: true
                         label: librinfo.label.list_circle_name
+                    code: ~
                     owner: ~
                     users: ~
                     organismsCount:

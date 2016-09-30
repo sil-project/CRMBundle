@@ -93,6 +93,10 @@
                 <source>librinfo.label.list_circle_name</source>
                 <target>Groupe</target>
             </trans-unit>               
+            <trans-unit id="librinfo.label.color">
+                <source>librinfo.label.color</source>
+                <target>Couleur</target>
+            </trans-unit>               
 
 <!-- ORGANISM -->
             <trans-unit id="entity_organism">
