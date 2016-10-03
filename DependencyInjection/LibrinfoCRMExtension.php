@@ -2,21 +2,44 @@
 
 namespace Librinfo\CRMBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
+use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\Yaml\Yaml;
-use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
-use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
 
 /**
  * This is the class that loads and manages your bundle configuration
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoCRMExtension extends LibrinfoCoreExtension
+class LibrinfoCRMExtension extends LibrinfoCoreExtension implements PrependExtensionInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+        // Define Application Circles by parsing circles.yml files in installed Bundles
+
+        $circles = [];
+        $bundles = $container->getParameter('kernel.bundles');
+        foreach ($bundles as $bundleClassName) {
+            $rc = new \ReflectionClass($bundleClassName);
+            $bundleDir = dirname($rc->getFileName());
+            $circlesYml = $bundleDir . '/Resources/config/circles.yml';
+            if (file_exists($circlesYml))
+                $circles = array_merge($circles, Yaml::parse($circlesYml));
+        }
+        if ($circles) {
+            $container->prependExtensionConfig('librinfo_crm', ['Circle' => ['app_circles' => $circles]]);
+            $container->prependExtensionConfig('twig', ['globals' => ['librinfo_app_circles' => $circles]]);
+        }
+
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -44,9 +67,6 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension
         $configSonataAdmin = Yaml::parse(
             file_get_contents(__DIR__ . '/../Resources/config/bundles/sonata_admin.yml')
         );
-        DefaultParameters::getInstance($container)
-            ->defineDefaultConfiguration(
-                $configSonataAdmin['default']
-            );
+        DefaultParameters::getInstance($container)->defineDefaultConfiguration($configSonataAdmin['default']);
     }
 }
