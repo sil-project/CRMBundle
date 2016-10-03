@@ -39,6 +39,15 @@ file that was distributed with this source code.
 
             // Customer Code
 
+            var customer_container = $('#sonata-ba-field-container-' + prefix + 'customer');
+            customer_container.wrap('<div class="form-inline">');
+            customer_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
+            customer_container.find('label').css('margin-left', '0').css('margin-right', '1em');
+            var customer_code_container = $('#sonata-ba-field-container-' + prefix + 'customerCode');
+            customer_code_container.find('input').appendTo(customer_container);
+            customer_code_container.find('a').appendTo(customer_container);
+            customer_code_container.find('label').remove();
+
             function generateCustomerCode(){
                 var $input = $('input#' + prefix + 'customerCode');
                 $.get($('#customer-code-generator').attr('href'), function(data){
@@ -64,6 +73,15 @@ file that was distributed with this source code.
             $('#' + prefix + 'customer').on('ifChanged', toggleCustomerCode);
 
             // Supplier Code
+
+            var supplier_container = $('#sonata-ba-field-container-' + prefix + 'supplier');
+            supplier_container.wrap('<div class="form-inline">');
+            supplier_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
+            supplier_container.find('label').css('margin-left', '0').css('margin-right', '1em');
+            var supplier_code_container = $('#sonata-ba-field-container-' + prefix + 'supplierCode');
+            supplier_code_container.find('input').appendTo(supplier_container);
+            supplier_code_container.find('a').appendTo(supplier_container);
+            supplier_code_container.find('label').remove();
 
             function generateSupplierCode(){
                 var $input = $('input#' + prefix + 'supplierCode');

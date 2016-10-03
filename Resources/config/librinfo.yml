@@ -123,9 +123,13 @@ parameters:
                                 required: false
                             name: ~
                             customer: ~
-                            customerCode: ~
+                            customerCode:
+                                attr:
+                                    placeholder: librinfo.placeholder.customer_code
                             supplier: ~
-                            supplierCode: ~
+                            supplierCode:
+                                attr:
+                                    placeholder: librinfo.placeholder.supplier_code
                             circles: ~
                             category:
                                 type: librinfo_baseentities_treeable
