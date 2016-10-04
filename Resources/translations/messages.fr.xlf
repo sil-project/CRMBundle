@@ -294,7 +294,15 @@
             <trans-unit id="form_group_alert">
                 <source>form_group_alert</source>
                 <target>Alerte</target>
-            </trans-unit>              
+            </trans-unit>        
+            <trans-unit id="librinfo.placeholder.customer_code">
+                <source>librinfo.placeholder.customer_code</source>
+                <target>Code client</target>
+            </trans-unit>
+            <trans-unit id="librinfo.placeholder.supplier_code">
+                <source>librinfo.placeholder.supplier_code</source>
+                <target>Code fournisseur</target>
+            </trans-unit>                  
             
 
 <!-- CATEGORY -->
