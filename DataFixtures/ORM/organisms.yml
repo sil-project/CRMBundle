@@ -1,0 +1,25 @@
+Librinfo\CRMBundle\Entity\Contact:
+    con{1..50}:
+        firstname: '<firstname()>'
+        name: '<lastname()>'
+
+
+Librinfo\CRMBundle\Entity\Organism:
+    org{1..50}:
+        name: '@con<current()>'
+        individual: true
+        email: '90%? <email()>'
+        url: '20%? <safeEmail()>'
+        alert: '10%? <realText(100)>'
+        address: '50%? <streetAddress()>'
+        zip: '80%? <postcode()>'
+        city: '80%? <city()>'
+        country: '30%? France'
+        customer: '50%? true : false'
+        customerCode (unique): 'CLI<numberBetween(1, 100)>'
+
+
+Librinfo\CRMBundle\Entity\Position:
+    pos{1..50}:
+        contact: '@con<current()>'
+        organism: '@org<current()>'
