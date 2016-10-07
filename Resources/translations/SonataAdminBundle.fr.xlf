@@ -10,14 +10,6 @@
                 <source>export_format_group</source>
                 <target>Groupe</target>
             </trans-unit>
-            <trans-unit id="librinfo.label.customers">
-                <source>librinfo.label.customers</source>
-                <target>Tiers (Clients)</target>
-            </trans-unit>                                                        
-            <trans-unit id="librinfo.label.suppliers">
-                <source>librinfo.label.suppliers</source>
-                <target>Tiers (Fournisseurs)</target>
-            </trans-unit>              
         </body>
     </file>
 </xliff>

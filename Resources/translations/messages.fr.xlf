@@ -303,6 +303,10 @@
                 <source>librinfo.placeholder.supplier_code</source>
                 <target>Code fournisseur</target>
             </trans-unit>                  
+            <trans-unit id="librinfo.link.organism_create">
+                <source>librinfo.link.organism_create</source>
+                <target>Nouveau Tiers</target>
+            </trans-unit>                  
             
 
 <!-- CATEGORY -->
