@@ -8,13 +8,13 @@ use Librinfo\CRMBundle\Entity\Organism;
 
 class SupplierCodeGenerator implements CodeGeneratorInterface
 {
+    const ENTITY_CLASS = 'Librinfo\CRMBundle\Entity\Organism';
+    const ENTITY_FIELD = 'supplierCode';
+
     /**
      * @var EntityManager
      */
     private static $em;
-
-    public static $entityClass = 'Librinfo\CRMBundle\Entity\Organism';
-    public static $entityField = 'supplierCode';
 
     // TODO: this should be in app configuration:
     public static $codePrefix = '';
