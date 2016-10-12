@@ -25,6 +25,13 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
         $rootNode
             ->children()
+                ->arrayNode('code_generator')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('supplier')->defaultValue('Librinfo\CRMBundle\CodeGenerator\SupplierCodeGenerator')->end()
+                        ->scalarNode('customer')->defaultValue('Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator')->end()
+                    ->end()
+                ->end()
                 ->arrayNode('Circle')
                     ->addDefaultsIfNotSet()
                     ->children()

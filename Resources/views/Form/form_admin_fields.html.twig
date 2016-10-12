@@ -3,19 +3,8 @@
 
 
 {% block form_widget_simple %}
-    {% if form.vars.name == 'customerCode' %}
-        {% set attr = attr|merge({'class': attr.class|default('') ~ ' customer-code'}) %}
-    {% elseif form.vars.name == 'supplierCode' %}
-        {% set attr = attr|merge({'class': attr.class|default('') ~ ' supplier-code'}) %}
-    {% endif %}
-
     {{ parent() }}
-
-    {% if form.vars.name == 'customerCode' %}
-        {% include('LibrinfoCRMBundle:Form:customer_code.html.twig') %}
-    {% elseif form.vars.name == 'supplierCode' %}
-        {% include('LibrinfoCRMBundle:Form:supplier_code.html.twig') %}
-    {% elseif form.vars.name == 'email' %}
+    {% if form.vars.name == 'email' %}
         {% include('LibrinfoCRMBundle:Form:email.html.twig') %}
     {% elseif form.vars.name == 'vat' %}
         {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}

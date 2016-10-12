@@ -34,13 +34,6 @@ class Organism implements VCardableInterface
         Loggable
     ;
 
-    // CustomerCode constants (TODO: put this in application settings)
-    const CC_PREFIX = '';
-    const CC_LENGTH = 6;
-    // SupplierCode constants (TODO: put this in application settings)
-    const SC_PREFIX = '';
-    const SC_LENGTH = 6;
-
     /**
      * @var string
      */

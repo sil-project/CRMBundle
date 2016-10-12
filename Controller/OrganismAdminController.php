@@ -2,14 +2,13 @@
 
 namespace Librinfo\CRMBundle\Controller;
 
-use Sonata\AdminBundle\Controller\CRUDController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Librinfo\CoreBundle\Controller\CRUDController;
 use Librinfo\CRMBundle\Entity\Organism;
-use Sparkling\VATBundle\Exception\VATException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sparkling\VATBundle\Exception\InvalidCountryCodeException;
 use Sparkling\VATBundle\Exception\InvalidVATNumberException;
+use Sparkling\VATBundle\Exception\VATException;
 
 class OrganismAdminController extends CRUDController
 {
@@ -25,19 +24,6 @@ class OrganismAdminController extends CRUDController
         $code = $repo->generateCustomerCode();
 
         return new JsonResponse(['customer_code' => $code]);
-    }
-
-    /**
-     * generate a supplierCode
-     */
-    public function generateSupplierCodeAction()
-    {
-        $em = $this->admin->getModelManager()->getEntityManager(Organism::class);
-        $repo = $em->getRepository(Organism::class);
-
-        $code = $repo->generateSupplierCode();
-
-        return new JsonResponse(['supplier_code' => $code]);
     }
 
     /**

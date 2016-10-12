@@ -30,8 +30,6 @@ class CategoryRepository extends TreeableRepository
         foreach ($allRootNodes as $root)
             $root->buildTree($all);
 
-        dump('allRouteNodes', $allRootNodes);
-
         return $allRootNodes;
     }
 

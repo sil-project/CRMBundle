@@ -28,9 +28,9 @@ class OrganismAdminConcrete extends OrganismAdmin
 
     protected function configureRoutes(RouteCollection $collection)
     {
+        parent::configureRoutes($collection);
+
         // xxxxxxxAction in CRUD controller
-        $collection->add('generateCustomerCode');
-        $collection->add('generateSupplierCode');
         $collection->add('validateVat');
     }
 
@@ -154,14 +154,13 @@ class OrganismAdminConcrete extends OrganismAdmin
             ;
         }
 
-        $regexp = sprintf('/^%s(\d{%d})$/', Organism::CC_PREFIX, Organism::CC_LENGTH);
-        if ( !empty($code) && !preg_match($regexp, $code) ) {
-            $msg = 'Wrong format for supplier code. It shoud be: ';
-            $msg .= Organism::CC_PREFIX ? '%prefix% + %length% digits' : '%length% digits';
-            $params = ['%prefix%' => Organism::CC_PREFIX, '%length%' => Organism::CC_LENGTH];
+        $registry = $this->getConfigurationPool()->getContainer()->get('librinfo_core.code_generators');
+        $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
+        if ( !empty($code) && !$codeGenerator->validate($code) ) {
+            $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
                 ->with('customerCode')
-                    ->addViolation($msg, $params)
+                    ->addViolation($msg)
                 ->end()
             ;
         }
@@ -209,14 +208,13 @@ class OrganismAdminConcrete extends OrganismAdmin
             ;
         }
 
-        $regexp = sprintf('/^%s(\d{%d})$/', Organism::SC_PREFIX, Organism::SC_LENGTH);
-        if ( !empty($code) && !preg_match($regexp, $code) ) {
-            $msg = 'Wrong format for supplier code. It shoud be: ';
-            $msg .= Organism::SC_PREFIX ? '%prefix% + %length% digits' : '%length% digits';
-            $params = ['%prefix%' => Organism::SC_PREFIX, '%length%' => Organism::SC_LENGTH];
+        $registry = $this->getConfigurationPool()->getContainer()->get('librinfo_core.code_generators');
+        $codeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
+        if ( !empty($code) && !$codeGenerator->validate($code) ) {
+            $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
                 ->with('supplierCode')
-                    ->addViolation($msg, $params)
+                    ->addViolation($msg)
                 ->end()
             ;
         }

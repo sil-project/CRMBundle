@@ -54,6 +54,14 @@ class LibrinfoCRMExtension extends LibrinfoCoreExtension implements PrependExten
 
         $container->setParameter('librinfo_crm', $config);
 
+        // Entity code generators
+        $container->setParameter('librinfo_crm.code_generator.supplier',
+            $container->getParameter('librinfo_crm')['code_generator']['supplier']
+        );
+        $container->setParameter('librinfo_crm.code_generator.customer',
+            $container->getParameter('librinfo_crm')['code_generator']['customer']
+        );
+
         if ($container->getParameter('kernel.environment') == 'test')
         {
             $loader->load('datafixtures.yml');

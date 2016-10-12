@@ -124,10 +124,12 @@ parameters:
                             name: ~
                             customer: ~
                             customerCode:
+                                type: librinfo_entitycode
                                 attr:
                                     placeholder: librinfo.placeholder.customer_code
                             supplier: ~
                             supplierCode:
+                                type: librinfo_entitycode
                                 attr:
                                     placeholder: librinfo.placeholder.supplier_code
                             circles: ~
