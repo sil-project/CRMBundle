@@ -18,7 +18,7 @@ file that was distributed with this source code.
         $(document).ready(function(){
             var prefix = "{{ form.vars.id }}_";
 
-            // Individual / Collective
+            // ********** Individual / Collective
 
             function toggleIndividual(){
                 var $individual_1 = $('#' + prefix + 'individual_1');
@@ -37,7 +37,7 @@ file that was distributed with this source code.
             toggleIndividual();
             $('#' + prefix + 'individual').on('ifChanged', toggleIndividual);
 
-            // Customer Code
+            // ************ Customer Code
 
             var customer_container = $('#sonata-ba-field-container-' + prefix + 'customer');
             customer_container.wrap('<div class="form-inline">');
@@ -57,14 +57,21 @@ file that was distributed with this source code.
             }
 
             function toggleCustomerCode(){
+                var $code = $('#' + prefix + 'customerCode');
+                var $link = $('#' + prefix + 'customerCode_generate_code');
                 if( $('#' + prefix + 'customer').prop('checked') ) {
                     $('label[for=' + prefix + 'customerCode').addClass('required');
-                    var $code = $('#' + prefix + 'customerCode');
+                    if ($code.data('old') !== undefined)
+                        $code.val($code.data('old'));
+                    $code.show().prop('required', true);
+                    $link.show();
                     if ( $code.val().trim() === "" && {{ form.customerCode.vars.errors|length ? 'false' : 'true' }} )
                         generateCustomerCode();
                 }
                 else {
                     $('label[for=' + prefix + 'customerCode').removeClass('required');
+                    $code.hide().prop('required', false).data('old', $code.val()).val('');
+                    $link.hide();
                 }
             }
 
@@ -72,7 +79,7 @@ file that was distributed with this source code.
             $('#customer-code-generator').click(generateCustomerCode);
             $('#' + prefix + 'customer').on('ifChanged', toggleCustomerCode);
 
-            // Supplier Code
+            // ************ Supplier Code
 
             var supplier_container = $('#sonata-ba-field-container-' + prefix + 'supplier');
             supplier_container.wrap('<div class="form-inline">');
@@ -92,14 +99,21 @@ file that was distributed with this source code.
             };
 
             function toggleSupplierCode(){
+                var $code = $('#' + prefix + 'supplierCode');
+                var $link = $('#' + prefix + 'supplierCode_generate_code');
                 if( $('#' + prefix + 'supplier').prop('checked') ) {
                     $('label[for=' + prefix + 'supplierCode').addClass('required');
-                    var $code = $('#' + prefix + 'supplierCode');
+                    if ($code.data('old') !== undefined)
+                        $code.val($code.data('old'));
+                    $code.show().prop('required', true);
+                    $link.show();
                     if ( $code.val().trim() === "" && {{ form.supplierCode.vars.errors|length ? 'false' : 'true' }} )
                         generateSupplierCode();
                 }
                 else {
                     $('label[for=' + prefix + 'supplierCode').removeClass('required');
+                    $code.hide().prop('required', false).data('old', $code.val()).val('');
+                    $link.hide();
                 }
             }
 
