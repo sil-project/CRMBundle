@@ -14,6 +14,8 @@ services:
             - [setTwig, ['@twig']]
             - [setRouter, ['@router']]
 
+    librinfo_crm.app_circles:
+        class: Librinfo\CRMBundle\Services\AppCirclesService
 
 # ENTITY CODE GENERATORS
 
@@ -30,3 +32,5 @@ services:
         arguments: ['%librinfo_crm.code_generator.customer%', '@doctrine.orm.entity_manager']
         tags:
             - { name: librinfo.entity_code_generator }
+
+

@@ -2,9 +2,10 @@
 
 namespace Librinfo\CRMBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Librinfo\CRMBundle\DependencyInjection\Compiler\AppCirclesCompilerPass;
 use Librinfo\CRMBundle\DependencyInjection\Compiler\NormalizerCompilerPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class LibrinfoCRMBundle extends Bundle
 {
@@ -14,5 +15,6 @@ class LibrinfoCRMBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         $container->addCompilerPass(new NormalizerCompilerPass());
+        $container->addCompilerPass(new AppCirclesCompilerPass());
     }
 }

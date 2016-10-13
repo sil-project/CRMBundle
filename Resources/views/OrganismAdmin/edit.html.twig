@@ -39,6 +39,7 @@ file that was distributed with this source code.
 
             // ************ Customer Code
 
+            // Move things around...
             var customer_container = $('#sonata-ba-field-container-' + prefix + 'customer');
             customer_container.wrap('<div class="form-inline">');
             customer_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
@@ -49,11 +50,15 @@ file that was distributed with this source code.
             customer_code_container.find('label').remove();
 
             function generateCustomerCode(){
-                var $input = $('input#' + prefix + 'customerCode');
-                $.get($('#customer-code-generator').attr('href'), function(data){
-                    $input.val(data.customer_code);
+                var $code = $('input#' + prefix + 'customerCode')
+                var url = $('a#' + prefix + 'customerCode_generate_code').attr('href');
+                var data = $code.closest('form').serializeArray();
+                $.post(url, data, function(res){
+                    if (res['error'] !== undefined)
+                        alert(res['error']);
+                    else if (res['code'] !== undefined)
+                        $code.val(res['code']);
                 });
-                return false;
             }
 
             function toggleCustomerCode(){
@@ -76,11 +81,11 @@ file that was distributed with this source code.
             }
 
             toggleCustomerCode();
-            $('#customer-code-generator').click(generateCustomerCode);
             $('#' + prefix + 'customer').on('ifChanged', toggleCustomerCode);
 
             // ************ Supplier Code
 
+            // Move things around...
             var supplier_container = $('#sonata-ba-field-container-' + prefix + 'supplier');
             supplier_container.wrap('<div class="form-inline">');
             supplier_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
@@ -91,12 +96,16 @@ file that was distributed with this source code.
             supplier_code_container.find('label').remove();
 
             function generateSupplierCode(){
-                var $input = $('input#' + prefix + 'supplierCode');
-                $.get($('#supplier-code-generator').attr('href'), function(data){
-                    $input.val(data.supplier_code);
+                var $code = $('input#' + prefix + 'supplierCode')
+                var url = $('a#' + prefix + 'supplierCode_generate_code').attr('href');
+                var data = $code.closest('form').serializeArray();
+                $.post(url, data, function(res){
+                    if (res['error'] !== undefined)
+                        alert(res['error']);
+                    else if (res['code'] !== undefined)
+                        $code.val(res['code']);
                 });
-                return false;
-            };
+            }
 
             function toggleSupplierCode(){
                 var $code = $('#' + prefix + 'supplierCode');
@@ -118,7 +127,6 @@ file that was distributed with this source code.
             }
 
             toggleSupplierCode();
-            $('#supplier-code-generator').click(generateSupplierCode);
             $('#' + prefix + 'supplier').on('ifChanged', toggleSupplierCode);
 
         });

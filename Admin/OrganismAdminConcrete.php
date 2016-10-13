@@ -128,12 +128,6 @@ class OrganismAdminConcrete extends OrganismAdmin
     {
         $this->validateCustomerCode($errorElement, $object);
         $this->validateSupplierCode($errorElement, $object);
-
-//        $errorElement
-//            ->with('name')
-//                ->assertLength(array('max' => 32))
-//            ->end()
-//        ;
     }
 
     /**
@@ -157,7 +151,7 @@ class OrganismAdminConcrete extends OrganismAdmin
         $registry = $this->getConfigurationPool()->getContainer()->get('librinfo_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
         if ( !empty($code) && !$codeGenerator->validate($code) ) {
-            $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
+            $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
                 ->with('customerCode')
                     ->addViolation($msg)
