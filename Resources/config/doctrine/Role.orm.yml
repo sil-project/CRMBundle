@@ -5,11 +5,4 @@ Librinfo\CRMBundle\Entity\Role:
         contactGroups:
             targetEntity: Librinfo\CRMBundle\Entity\ContactGroup
             mappedBy: roles
-            joinTable:
-                name: ~
-                joinColumns:
-                    role_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    contact_group_id:
-                        referencedColumnName: id
+

@@ -39,3 +39,11 @@ Librinfo\CRMBundle\Entity\Contact:
         circles:
             targetEntity: Librinfo\CRMBundle\Entity\Circle
             inversedBy: contacts
+            joinTable:
+                name: ~
+                joinColumns:
+                    circle_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    contact_id:
+                        referencedColumnName: id
