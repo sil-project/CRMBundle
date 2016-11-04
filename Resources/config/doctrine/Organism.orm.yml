@@ -56,10 +56,12 @@ Librinfo\CRMBundle\Entity\Organism:
             targetEntity: OrganismPhone
             mappedBy: organism
             cascade: [ persist, remove ]
+            orphanRemoval: true
         positions:
             targetEntity: Position
             mappedBy: organism
             cascade: [ persist, remove ]
+            orphanRemoval: true
 
     manyToMany:
         circles:
