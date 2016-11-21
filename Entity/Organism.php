@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\Extension\OrganismExtension;
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
 use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

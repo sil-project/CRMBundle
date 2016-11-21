@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\Extension\ContactExtension;
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\ContactExtension;
 use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;

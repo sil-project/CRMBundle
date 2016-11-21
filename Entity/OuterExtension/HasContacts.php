@@ -1,6 +1,6 @@
 <?php
 
-namespace Librinfo\CRMBundle\Entity\Traits;
+namespace Librinfo\CRMBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

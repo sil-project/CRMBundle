@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\Extension\PositionExtension;
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\PositionExtension;
 use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
