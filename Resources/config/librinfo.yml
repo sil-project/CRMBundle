@@ -12,15 +12,15 @@ parameters:
                 add:
                     form_group_general:
                         '':
-                            name:
-                                type: text
-                            parentNode:
-                                type: librinfo_baseentities_treeable
-                                class: Librinfo\CRMBundle\Entity\Category
-                                required: true
+                            treeParent:
+                                required: false
+                                type: sonata_type_model
+                                placeholder: ''
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    name: ~
+                    name:
+                        identifier: true
+                        template: LibrinfoBaseEntitiesBundle:CRUD:list_field_treeable.html.twig
 
 
 ############

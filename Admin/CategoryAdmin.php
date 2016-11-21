@@ -2,13 +2,13 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\BaseEntitiesBundle\Admin\TreeableAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Librinfo\CoreBundle\Admin\CoreAdmin;
 
-class CategoryAdmin extends TreeableAdmin
+class CategoryAdmin extends CoreAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
