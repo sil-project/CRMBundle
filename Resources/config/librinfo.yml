@@ -12,15 +12,16 @@ parameters:
                 add:
                     form_group_general:
                         '':
-                            name:
-                                type: text
-                            parentNode:
-                                type: librinfo_baseentities_treeable
+                            treeParent:
+                                type: librinfo_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
-                                required: true
+                                required: false
+                                placeholder: ''
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    name: ~
+                    name:
+                        identifier: true
+                        template: LibrinfoBaseEntitiesBundle:CRUD:list_field_treeable.html.twig
 
 
 ############
@@ -134,9 +135,8 @@ parameters:
                                     placeholder: librinfo.placeholder.supplier_code
                             circles: ~
                             category:
-                                type: librinfo_baseentities_treeable
+                                type: librinfo_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
-                                min_node_level: 2  # no root
                                 required: false
                             url: ~
                             email: ~

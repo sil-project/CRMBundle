@@ -6,18 +6,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
 use Librinfo\DoctrineBundle\Entity\Traits\Nameable;
-use Librinfo\DoctrineBundle\Entity\Traits\Treeable;
-use Librinfo\DoctrineBundle\Entity\Traits\Tree\NodeInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
 
 /**
  * Category
  */
-class Category implements NodeInterface
+class Category
 {
 
     use BaseEntity,
-        Treeable,
-        Nameable
+        Nameable,
+        NestedTreeable
     ;
 
     /**
@@ -31,6 +30,8 @@ class Category implements NodeInterface
      */
     public function __construct()
     {
+        //init NesteTreeable trreeChildren Collection
+        $this->initCollections();
         $this->organisms = new ArrayCollection();
     }
 
@@ -67,15 +68,4 @@ class Category implements NodeInterface
     {
         return $this->organisms;
     }
-
-
-    /**
-     * Used by Treeable::setChildNodeOf() to sort the tree
-     * @return string
-     */
-    public function getSortField()
-    {
-        return $this->getName();
-    }
-
 }
