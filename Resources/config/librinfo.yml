@@ -13,8 +13,9 @@ parameters:
                     form_group_general:
                         '':
                             treeParent:
+                                type: librinfo_nested_treeable
+                                class: Librinfo\CRMBundle\Entity\Category
                                 required: false
-                                type: sonata_type_model
                                 placeholder: ''
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
@@ -134,9 +135,8 @@ parameters:
                                     placeholder: librinfo.placeholder.supplier_code
                             circles: ~
                             category:
-                                type: librinfo_baseentities_treeable
+                                type: librinfo_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
-                                min_node_level: 2  # no root
                                 required: false
                             url: ~
                             email: ~
