@@ -4,12 +4,11 @@ namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\PositionExtension;
 use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Doctrine\Common\Collections\ArrayCollection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
-use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
-use Librinfo\DoctrineBundle\Entity\Traits\Descriptible;
-use Librinfo\DoctrineBundle\Entity\Traits\Emailable;
-use Librinfo\DoctrineBundle\Entity\Traits\Labelable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Labelable;
 
 /**
  * Position

@@ -4,8 +4,8 @@ namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
-use Librinfo\DoctrineBundle\Entity\Traits\Nameable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 /**
  * ContactGroup

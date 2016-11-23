@@ -6,15 +6,15 @@ use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
 use Librinfo\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\UserBundle\Entity\Traits\Traceable;
-use Librinfo\DoctrineBundle\Entity\Traits\Addressable;
-use Librinfo\DoctrineBundle\Entity\Traits\Emailable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
-use Librinfo\DoctrineBundle\Entity\Traits\Descriptible;
-use Librinfo\DoctrineBundle\Entity\Traits\Searchable;
-use Librinfo\DoctrineBundle\Entity\Traits\Loggable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Loggable;
 
 /**
  * Organism

@@ -2,8 +2,8 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\DoctrineBundle\Entity\Traits\BaseEntity;
-use Librinfo\DoctrineBundle\Entity\Traits\Nameable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 /**
  * PositionType
