@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin\Writer;
 
-use Librinfo\CoreBundle\Admin\BaseWriter;
+use Blast\CoreBundle\Admin\BaseWriter;
 use JeroenDesloovere\VCard\VCard;
 
 class VCardWriter extends BaseWriter

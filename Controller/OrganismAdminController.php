@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Controller;
 
-use Librinfo\CoreBundle\Controller\CRUDController;
+use Blast\CoreBundle\Controller\CRUDController;
 use Librinfo\CRMBundle\Entity\Organism;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;

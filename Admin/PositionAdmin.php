@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\CoreBundle\Admin\CoreAdmin;
+use Blast\CoreBundle\Admin\CoreAdmin;
 use Librinfo\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

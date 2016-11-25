@@ -3,7 +3,7 @@
 namespace Librinfo\CRMBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
 use Librinfo\CRMBundle\Entity\Organism;
 
 class CustomerCodeGenerator implements CodeGeneratorInterface

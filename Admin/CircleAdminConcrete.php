@@ -4,7 +4,7 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Librinfo\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class CircleAdminConcrete extends CircleAdmin
 {

@@ -2,8 +2,8 @@
 
 namespace Librinfo\CRMBundle\DependencyInjection;
 
-use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
-use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
+use Blast\CoreBundle\DependencyInjection\DefaultParameters;
+use Blast\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;

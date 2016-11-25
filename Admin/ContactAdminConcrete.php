@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 
 class ContactAdminConcrete extends ContactAdmin
 {

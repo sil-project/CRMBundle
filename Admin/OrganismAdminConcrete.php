@@ -6,7 +6,7 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Librinfo\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Position;

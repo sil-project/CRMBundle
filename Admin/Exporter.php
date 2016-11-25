@@ -4,7 +4,7 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Exporter\Source\SourceIteratorInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Librinfo\CoreBundle\Admin\Exporter as CoreExporter;
+use Blast\CoreBundle\Admin\Exporter as CoreExporter;
 use Librinfo\CRMBundle\Entity\Circle;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;

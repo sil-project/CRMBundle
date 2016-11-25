@@ -45,7 +45,7 @@ services:
 
     crm.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
-        arguments: [~, Librinfo\CRMBundle\Entity\Category, LibrinfoCoreBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
