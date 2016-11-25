@@ -3,7 +3,7 @@
 namespace Librinfo\CRMBundle\DependencyInjection;
 
 use Blast\CoreBundle\DependencyInjection\DefaultParameters;
-use Blast\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
+use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoCRMExtension extends LibrinfoCoreExtension implements PrependExtensionInterface
+class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}

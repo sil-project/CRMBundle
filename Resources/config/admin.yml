@@ -7,7 +7,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.contact_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
 
     crm.contact_embedded:
@@ -18,7 +18,7 @@ services:
               manager_type: orm
               group: admin
               label: librinfo.crm.contact_embedded_admin.label
-              label_translator_strategy: librinfo_core.label.strategy.librinfo
+              label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
@@ -28,7 +28,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.organism_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
         calls:
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
@@ -41,7 +41,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.organism_phone_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdminConcrete
@@ -51,7 +51,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.category_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.role:
         class: Librinfo\CRMBundle\Admin\RoleAdminConcrete
@@ -61,7 +61,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.role_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.contactgroup:
         class: Librinfo\CRMBundle\Admin\ContactGroupAdminConcrete
@@ -71,7 +71,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.contact_group_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.contactphone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdminConcrete
@@ -81,7 +81,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.contact_phone_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.circle:
         class: Librinfo\CRMBundle\Admin\CircleAdminConcrete
@@ -91,7 +91,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.circle_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.position:
         class: Librinfo\CRMBundle\Admin\PositionAdminConcrete
@@ -101,7 +101,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.position_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.position_type:
         class: Librinfo\CRMBundle\Admin\PositionTypeAdminConcrete
@@ -111,7 +111,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.position_type_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.phone_type:
         class: Librinfo\CRMBundle\Admin\PhoneTypeAdminConcrete
@@ -121,7 +121,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.phone_type_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.city:
         class: Librinfo\CRMBundle\Admin\CityAdmin
@@ -131,4 +131,4 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: librinfo.crm.city_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo

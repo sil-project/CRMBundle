@@ -148,7 +148,7 @@ class OrganismAdminConcrete extends OrganismAdmin
             ;
         }
 
-        $registry = $this->getConfigurationPool()->getContainer()->get('librinfo_core.code_generators');
+        $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
         if ( !empty($code) && !$codeGenerator->validate($code) ) {
             $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
@@ -202,7 +202,7 @@ class OrganismAdminConcrete extends OrganismAdmin
             ;
         }
 
-        $registry = $this->getConfigurationPool()->getContainer()->get('librinfo_core.code_generators');
+        $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
         if ( !empty($code) && !$codeGenerator->validate($code) ) {
             $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
