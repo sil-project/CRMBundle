@@ -225,6 +225,7 @@ parameters:
                     name:
                         identifier: true
                         label: librinfo.label.list_organism_name
+                    city: ~
                     customerCode:
                         template: LibrinfoCRMBundle:OrganismAdmin:list_field_customer.html.twig
                     supplierCode:
@@ -390,6 +391,9 @@ parameters:
                     positions:
                         associated_property: contactDescription
                         label: librinfo.label.organisms
+                    email:
+                        identifier: true
+                    city: ~
                     _options:
                         fieldsOrder:
                             - fulltextName
@@ -429,18 +433,24 @@ parameters:
                             - personal
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
+                    name: ~
                     title: ~
                     firstname: ~
                     shortname: ~
                     familyContact: ~
                     culture: ~
                     npai: ~
+                    email: ~
+                    zip: ~
+                    city: ~
+                    country: ~
                     emailNpai: ~
                     emailNoNewsletter: ~
                     _options:
                         fieldsOrder:
                             - title
                             - firstname
+                            - shortname
                             - name
                             - email
                             - zip
