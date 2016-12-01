@@ -9,6 +9,7 @@
         "jeroendesloovere/vcard-bundle": "^1.2",
         "sparkling/vat-bundle": "~0.1",
         "blast-project/core-bundle": "dev-master",
+        "libre-informatique/user-bundle": "dev-master",
         "libre-informatique/base-entities-bundle": "dev-master"
     },
     "license":  "GPL-3.0",
