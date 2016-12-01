@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Librinfo\UserBundle\Entity\Traits\Traceable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
