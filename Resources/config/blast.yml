@@ -21,7 +21,7 @@ parameters:
                 add:
                     name:
                         identifier: true
-                        template: LibrinfoBaseEntitiesBundle:CRUD:list_field_treeable.html.twig
+                        template: BlastBaseEntitiesBundle:CRUD:list_field_treeable.html.twig
 
 
 ############

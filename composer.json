@@ -11,7 +11,7 @@
         "sonata-project/user-bundle": "3.x-dev",
         "blast-project/core-bundle": "dev-master",
         "libre-informatique/user-bundle": "dev-master",
-        "libre-informatique/base-entities-bundle": "dev-master"
+        "blast-project/base-entities-bundle": "dev-master"
     },
     "license":  "GPL-3.0",
     "keywords": ["e-venement", "libio", "sonata", "symfony"],
