@@ -5,7 +5,7 @@ namespace Librinfo\CRMBundle\DependencyInjection;
 use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Loader\FileLoader;
 use Symfony\Component\Yaml\Yaml;
 
 
@@ -43,7 +43,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
     /**
      * {@inheritdoc}
      */
-    public function loadSecurity()
+    public function loadSecurity(ContainerBuilder $container)
     {
         if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
             \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
@@ -53,7 +53,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
     /**
      * {@inheritdoc}
      */
-    public function loadDataFixtures(ContainerBuilder $container, Loader\FileLoader $loader)
+    public function loadDataFixtures(ContainerBuilder $container, FileLoader $loader)
     {
         // the fixtures
         if ($container->getParameter('kernel.environment') == 'test')
