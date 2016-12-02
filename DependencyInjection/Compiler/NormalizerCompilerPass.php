@@ -13,7 +13,7 @@ class NormalizerCompilerPass implements CompilerPassInterface
         $config = $container->getParameter('librinfo_crm');
         foreach ($config as $class => $settings) {
             $class = "Librinfo\\CRMBundle\\Entity\\" . $class;
-            if ( class_exists($class) && !empty($settings['normalize']) ) {
+            if ( class_exists($class, false) && !empty($settings['normalize']) ) {
                 $arg = [$class => $settings['normalize']];
                 $service->addMethodCall('addActions', [$arg]);
             }
