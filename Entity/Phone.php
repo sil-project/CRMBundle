@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Phone

@@ -6,15 +6,15 @@ use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
 
 /**
  * Organism

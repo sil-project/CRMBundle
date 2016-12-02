@@ -7,15 +7,15 @@ use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Emailable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 
 /**
  * Contact

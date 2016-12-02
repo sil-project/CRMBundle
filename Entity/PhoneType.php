@@ -2,9 +2,9 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Guidable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Labelable;
-use Librinfo\BaseEntitiesBundle\Entity\Traits\Sortable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Labelable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Sortable;
 
 class PhoneType
 {

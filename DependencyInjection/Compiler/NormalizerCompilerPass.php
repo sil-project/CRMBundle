@@ -9,7 +9,7 @@ class NormalizerCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $service = $container->getDefinition('librinfo.base_entities.listener.normalize');
+        $service = $container->getDefinition('blast_base_entities.listener.normalize');
         $config = $container->getParameter('librinfo_crm');
         foreach ($config as $class => $settings) {
             $class = "Librinfo\\CRMBundle\\Entity\\" . $class;

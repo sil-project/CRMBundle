@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
 class OrganismSearchIndex extends SearchIndexEntity
 {
