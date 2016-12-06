@@ -33,7 +33,11 @@ class ContactEmbeddedAdmin extends CoreAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
+            ->add('title', 'blast_custom_choice', [
+                'blast_choices' => ['Mr', 'Mrs'],
+                'choices_field' => 'contact.title',
+                'required' => false,
+            ])
             ->add('firstname')
             ->add('name', 'text', ['required' => false])
             ->add('address', 'textarea', ['required' => false])
