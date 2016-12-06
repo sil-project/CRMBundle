@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Blast\CoreBundle\Admin\CoreAdmin;
-use Librinfo\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
+use Blast\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 
 class OrganismAdmin extends CoreAdmin
 {

@@ -2,12 +2,12 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Librinfo\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 
 class PositionAdmin extends CoreAdmin
 {
