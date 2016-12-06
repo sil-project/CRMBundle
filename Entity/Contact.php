@@ -1,21 +1,29 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2016 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\ContactExtension;
+use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Librinfo\CRMBundle\Entity\Traits\Positionable;
-use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\ContactPhone;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Librinfo\CRMBundle\Entity\Traits\Positionable;
+use Librinfo\UserBundle\Entity\Traits\Traceable;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Contact

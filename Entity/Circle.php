@@ -1,14 +1,22 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2016 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
+use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Librinfo\UserBundle\Entity\Traits\Ownable;
+use Librinfo\UserBundle\Entity\Traits\Traceable;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
