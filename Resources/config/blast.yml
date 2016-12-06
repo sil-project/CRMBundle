@@ -242,7 +242,7 @@ parameters:
                             - category.name
                             - circles
                             - alert
-                    _export_format:
+                    _export_formats:
                         csv: [name, address, zip, city, country, alert, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
                         xls: csv
                         json: csv
@@ -408,14 +408,7 @@ parameters:
                             - email
                             - city
                             - positions
-#                    _list_action:
-#                        duplicates:
-#                            action: duplicates
-#                            translation_domain: LibrinfoCRMBundle
-#                        import:
-#                            action: import
-#                            translation_domain: LibrinfoCRMBundle
-                    _export_format:
+                    _export_formats:
                         csv: [title, name, firstname, address, zip, city, country, email, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter]
                         xls: csv
                         json: csv
@@ -721,7 +714,7 @@ parameters:
                             circles: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    _export_format: [group]
+                    _export_formats: [group]
 
 ############
 # POSITIONABLE Trait
