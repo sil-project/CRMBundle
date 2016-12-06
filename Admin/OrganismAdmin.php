@@ -1,14 +1,22 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2016 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Admin;
 
+use Blast\CoreBundle\Admin\CoreAdmin;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Librinfo\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 
 class OrganismAdmin extends CoreAdmin
 {
@@ -82,7 +90,7 @@ class OrganismAdmin extends CoreAdmin
      * @param string $field
      * @param array $value
      */
-    public static function contactFilterQueryBuilder(ProxyQuery $queryBuilder, $alias, $field, $value)
+    public static function contactFilterQueryBuilder(ProxyQueryInterface $queryBuilder, $alias, $field, $value)
     {
         if (!$value['value']) {
             return;
