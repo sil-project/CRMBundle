@@ -13,7 +13,7 @@ parameters:
                     form_group_general:
                         '':
                             treeParent:
-                                type: librinfo_nested_treeable
+                                type: blast_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                                 placeholder: ''
@@ -135,7 +135,7 @@ parameters:
                                     placeholder: librinfo.placeholder.supplier_code
                             circles: ~
                             category:
-                                type: librinfo_nested_treeable
+                                type: blast_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                             url: ~
