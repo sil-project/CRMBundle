@@ -13,7 +13,7 @@ parameters:
                     form_group_general:
                         '':
                             treeParent:
-                                type: librinfo_nested_treeable
+                                type: blast_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                                 placeholder: ''
@@ -31,7 +31,19 @@ parameters:
         Librinfo\CRMBundle\Entity\Organism:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
-                remove: [positions, description, phones, email, emailNpai, emailNoNewsletter, vcard_uid, address, zip, city, country, npai]
+                remove:
+                    positions: ~
+                    description: ~
+                    phones: ~
+                    email: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    vcard_uid: ~
+                    address: ~
+                    zip: ~
+                    city: ~
+                    country: ~
+                    npai: ~
                 add:
                     form_group_general:
                         form_group_alert:
@@ -100,7 +112,15 @@ parameters:
                           title: Framacalc de validation
                           class: framacalc
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [name, circles, description, positions, email, emailNpai, emailNoNewsletter, vcard_uid]
+                remove:
+                    name: ~
+                    circles: ~
+                    description: ~
+                    positions: ~
+                    email: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    vcard_uid: ~
                 add:
                     form_group_general:
                         form_group_individual:
@@ -135,7 +155,7 @@ parameters:
                                     placeholder: librinfo.placeholder.supplier_code
                             circles: ~
                             category:
-                                type: librinfo_nested_treeable
+                                type: blast_nested_treeable
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                             url: ~
@@ -220,7 +240,11 @@ parameters:
                           title: Framacalc de validation
                           class: framacalc
             Sonata\AdminBundle\Datagrid\ListMapper:
-                remove: [createdAt, zip, country, email]
+                remove:
+                    createdAt: ~
+                    zip: ~
+                    country: ~
+                    email: ~
                 add:
                     name:
                         identifier: true
@@ -242,7 +266,7 @@ parameters:
                             - category.name
                             - circles
                             - alert
-                    _export_format:
+                    _export_formats:
                         csv: [name, address, zip, city, country, alert, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
                         xls: csv
                         json: csv
@@ -286,7 +310,21 @@ parameters:
         Librinfo\CRMBundle\Entity\Contact:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
-                remove: [name, circles, description, phones, flashOnControl, positions, address, zip, city, country, npai, emailNpai, emailNoNewsletter, vcard_uid]
+                remove:
+                    name: ~
+                    circles: ~
+                    description: ~
+                    phones: ~
+                    flashOnControl: ~
+                    positions: ~
+                    address: ~
+                    zip: ~
+                    city: ~
+                    country: ~
+                    npai: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    vcard_uid: ~
                 add:
                     form_group_general:
                         '':
@@ -323,7 +361,15 @@ parameters:
                           title: Framacalc de validation
                           class: framacalc
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [name, circles, positions, description, email, emailNpai, emailNoNewsletter, vcard_uid]
+                remove:
+                    name: ~
+                    circles: ~
+                    positions: ~
+                    description: ~
+                    email: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    vcard_uid: #
                 add:
                     form_group_general:
                         form_group_contact:
@@ -390,7 +436,11 @@ parameters:
                           title: Framacalc de validation
                           class: framacalc
             Sonata\AdminBundle\Datagrid\ListMapper:
-                remove: [name, zip, country, createdAt]
+                remove:
+                    name: ~
+                    zip: ~
+                    country: ~
+                    createdAt: ~
                 add:
                     fulltextName:
                         identifier: true
@@ -408,14 +458,7 @@ parameters:
                             - email
                             - city
                             - positions
-#                    _list_action:
-#                        duplicates:
-#                            action: duplicates
-#                            translation_domain: LibrinfoCRMBundle
-#                        import:
-#                            action: import
-#                            translation_domain: LibrinfoCRMBundle
-                    _export_format:
+                    _export_formats:
                         csv: [title, name, firstname, address, zip, city, country, email, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter]
                         xls: csv
                         json: csv
@@ -573,7 +616,8 @@ parameters:
                                 - form_group_description
                                 - form_group_history
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [owner]
+                remove:
+                    owner: ~
                 add:
                     form_group_general:
                         '':
@@ -598,7 +642,9 @@ parameters:
                             - form_group_general
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
-                remove: [name, createdAt]
+                remove:
+                    name: ~
+                    createdAt: ~
                 add:
                     name:
                         identifier: true
@@ -650,7 +696,13 @@ parameters:
                                     - department
                                     - description
             Sonata\AdminBundle\Form\FormMapper:
-                remove: [email, label, emailNpai, emailNoNewsletter, circles, description]
+                remove:
+                    email: ~
+                    label: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    circles: ~
+                    description: ~
                 add:
                     '':
                         form_group_contact:
@@ -721,7 +773,7 @@ parameters:
                             circles: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    _export_format: [group]
+                    _export_formats: [group]
 
 ############
 # POSITIONABLE Trait
