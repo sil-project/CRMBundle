@@ -33,4 +33,11 @@ services:
         tags:
             - { name: blast.entity_code_generator }
 
+### FORM TYPES ###
+
+    librinfo_crm.form.type.zipcity:
+        class: Librinfo\CRMBundle\Form\Type\ZipCityType
+        tags:
+            - { name: form.type, alias: librinfo_zip_city }
+
 

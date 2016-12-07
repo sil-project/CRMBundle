@@ -373,7 +373,11 @@ parameters:
                 add:
                     form_group_general:
                         form_group_contact:
-                            title: ~
+                            title:
+                                type: blast_custom_choice
+                                blast_choices: ['Mr', 'Mrs']
+                                choices_field: contact.title
+                                required: false
                             firstname: ~
                             name:
                                 required: false
