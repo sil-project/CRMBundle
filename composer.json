@@ -8,9 +8,7 @@
         "stof/doctrine-extensions-bundle": "^1.2",
         "jeroendesloovere/vcard-bundle": "^1.2",
         "sparkling/vat-bundle": "~0.1",
-        "sonata-project/user-bundle": "3.x-dev",
         "blast-project/core-bundle": "dev-master",
-        "libre-informatique/user-bundle": "dev-master",
         "blast-project/base-entities-bundle": "dev-master"
     },
     "license":  "GPL-3.0",

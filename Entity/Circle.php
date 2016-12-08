@@ -16,7 +16,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\UserBundle\Entity\Traits\Ownable;
-use Librinfo\UserBundle\Entity\Traits\Traceable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
