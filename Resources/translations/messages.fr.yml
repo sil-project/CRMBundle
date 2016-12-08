@@ -13,6 +13,7 @@
 'librinfo.link.positiontype_list': 'Liste des types de fonctions'
 'librinfo.link.phonetype_list': 'Liste des types de téléphones'
 'librinfo.link.position_type_create': 'Créer un type de fonction'
+'librinfo.link.phone_type_create': 'Créer un type de téléphone'
 'librinfo.link.contact_list': 'Liste des contacts'
 'librinfo.label.title': 'Titre / civilité'
 'librinfo.label.firstname': 'Prénom'
