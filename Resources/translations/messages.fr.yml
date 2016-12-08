@@ -10,6 +10,8 @@
 'export_format_group': 'Groupe'
 'View list': 'Voir la liste'
 'Contact': 'Contact'
+'librinfo.link.positiontype_list': 'Liste des types de fonctions'
+'librinfo.link.phonetype_list': 'Liste des types de téléphones'
 'librinfo.link.contact_list': 'Liste des contacts'
 'librinfo.label.title': 'Titre / civilité'
 'librinfo.label.firstname': 'Prénom'
