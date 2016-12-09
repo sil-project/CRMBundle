@@ -10,13 +10,15 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\UserBundle\Entity\Traits\Ownable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -26,10 +28,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Circle
 {
     use BaseEntity,
+        OuterExtensible,
         Nameable,
         Ownable,
-        Traceable,
-        Descriptible
+        Timestampable,
+        Descriptible,
+        CircleExtension
     ;
 
     /**

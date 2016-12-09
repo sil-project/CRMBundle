@@ -17,12 +17,12 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
 
 /**
  * Organism
@@ -32,7 +32,7 @@ class Organism implements VCardableInterface
     use BaseEntity,
         OuterExtensible,
         OrganismExtension,
-        Traceable,
+        Timestampable,
         Addressable,
         Emailable,
         Positionable,
