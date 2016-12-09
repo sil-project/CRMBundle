@@ -31,7 +31,6 @@ class Organism implements VCardableInterface
 {
     use BaseEntity,
         OuterExtensible,
-        OrganismExtension,
         Traceable,
         Addressable,
         Emailable,
@@ -39,7 +38,8 @@ class Organism implements VCardableInterface
         Circlable,
         Descriptible,
         Searchable,
-        Loggable
+        Loggable,
+        OrganismExtension
     ;
 
     /**

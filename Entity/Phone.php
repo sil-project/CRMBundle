@@ -9,7 +9,9 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 abstract class Phone
 {
-    use BaseEntity;
+    use BaseEntity,
+        \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\PhoneExtension
+    ;
 
     /**
      * @var string

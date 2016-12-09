@@ -29,7 +29,8 @@ class Circle
         Nameable,
         Ownable,
         Traceable,
-        Descriptible
+        Descriptible,
+        \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension
     ;
 
     /**

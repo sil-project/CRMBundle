@@ -17,11 +17,11 @@ class Position implements VCardableInterface
 {
     use BaseEntity,
         OuterExtensible,
-        PositionExtension,
         Labelable,
         Emailable,
         Circlable,
-        Descriptible
+        Descriptible,
+        PositionExtension
     ;
 
     /**

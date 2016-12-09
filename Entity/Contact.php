@@ -33,14 +33,14 @@ class Contact implements VCardableInterface
 
     use BaseEntity,
         OuterExtensible,
-        ContactExtension,
         Addressable,
         Traceable,
         Emailable,
         Positionable,
         Circlable,
         Descriptible,
-        Searchable
+        Searchable,
+        ContactExtension
     ;
 
     /**
