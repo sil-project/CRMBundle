@@ -16,13 +16,13 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\CRMBundle\Entity\ContactPhone;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
@@ -34,7 +34,7 @@ class Contact implements VCardableInterface
     use BaseEntity,
         OuterExtensible,
         Addressable,
-        Traceable,
+        Timestampable,
         Emailable,
         Positionable,
         Circlable,
