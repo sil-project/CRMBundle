@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ZipCityType extends AbstractType
 {
@@ -28,7 +27,7 @@ class ZipCityType extends AbstractType
             'context' => '',
 
             'placeholder' => '',
-            'minimum_input_length' => 3, //minimum 3 chars should be typed to load ajax data
+            'minimum_input_length' => 2, //minimum 2 chars should be typed to load ajax data
             'items_per_page' => 10, //number of items per page
             'quiet_millis' => 100,
             'cache' => false,
