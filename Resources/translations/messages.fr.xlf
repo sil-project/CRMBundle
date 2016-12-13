@@ -8,8 +8,11 @@
                 <source>View list</source>
                 <target>Voir la liste</target>
             </trans-unit>
+            <trans-unit id="form_tab_history.form_group_history">
+                <source>form_tab_history.form_group_history</source>
+                <target>Historique</target>
+            </trans-unit>
                         
-
 <!-- CONTACTS -->
             <trans-unit id="entity_contact">
                 <source>Contact</source>
