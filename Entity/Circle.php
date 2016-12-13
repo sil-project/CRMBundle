@@ -10,7 +10,6 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
@@ -33,7 +32,6 @@ class Circle
         Ownable,
         Timestampable,
         Descriptible,
-        CircleExtension
         \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension
     ;
 
