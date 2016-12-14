@@ -24,12 +24,15 @@ class CityRepository extends EntityRepository
         if ($items_per_page == 0)
             $items_per_page = 1; // avoid division by zero
 
+        $pattern = $field == 'zip' || $field == 'ZIP' ? $term . '%' : '%' . $term . '%';
+        
         // Count results (before pagination)
         $query =  $this->createQueryBuilder('c')
             ->andWhere("c.$field LIKE :pattern")
-            ->setParameter('pattern', '%'.$term.'%')
+            ->setParameter('pattern', $pattern)
         ;
-        if ($country_code)
+        
+        if ( $country_code )
             $query->andWhere('c.country_code = :country_code')->setParameter('country_code', $country_code);
         $countQuery = clone($query);
         $count = $countQuery->select('count(DISTINCT c.id) as cnt')
@@ -37,7 +40,7 @@ class CityRepository extends EntityRepository
             ->getSingleScalarResult()
         ;
 
-        $lastPage = (int)ceil($count / $items_per_page);
+        $lastPage = (int) ceil($count / $items_per_page);
 
         if ($page > $lastPage)
             $items = [];

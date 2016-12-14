@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CityAdminController extends CRUDController
 {
-
     /**
      * Retrieve list of items for address autocomplete form fields.
      *
@@ -25,9 +24,8 @@ class CityAdminController extends CRUDController
     public function getAddressAutocompleteItemsAction(Request $request)
     {
         // check user permission
-        if (false === $this->admin->isGranted('LIST')) {
+        if ( false === $this->admin->isGranted('LIST') ) 
             throw new AccessDeniedException();
-        }
 
         $em = $this->admin->getModelManager()->getEntityManager(City::class);
         $repo = $em->getRepository(City::class);
@@ -41,7 +39,9 @@ class CityAdminController extends CRUDController
         $results = $repo->getAddressAutocompleteItems($field, $searchTerm, $page, $items_per_page, $country_code);
 
         $items = $results['items'];
-        foreach ($items as $k => $item) {
+        
+        foreach ( $items as $k => $item ) 
+        {
             $format = $field == 'zip' ? '<strong>%s</strong> %s, %s' : '%s <strong>%s</strong>, %s';
             $label = sprintf($format, $item['zip'], $item['city'], $item['country_code']);
             $items[$k]['label'] = $label;

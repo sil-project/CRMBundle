@@ -1,7 +1,5 @@
 {% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
 
-
-
 {% block form_widget_simple %}
     {{ parent() }}
     {% if form.vars.name == 'email' %}
@@ -10,8 +8,6 @@
         {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}
     {% endif %}
 {% endblock form_widget_simple %}
-
-
 
 {% block librinfo_zip_city_widget %}
 {% spaceless %}
@@ -99,7 +95,7 @@
                     }
                 },
                 formatResult: function (item) {
-                    return {% block sonata_type_model_autocomplete_dropdown_item_format %}'<div class="{{ dropdown_item_css_class }}">'+item.label+'<\/div>'{% endblock %};// format of one dropdown item
+                    return {% block sonata_type_model_autocomplete_dropdown_item_format %}'<div class="{{ dropdown_item_css_class }}">' + item.label + '<\/div>'{% endblock %};// format of one dropdown item
                 },
                 formatSelection: function (item) {
                     // console.info('formatSelection {{ name }}', item);
@@ -107,10 +103,10 @@
                 },
                 escapeMarkup: function (m) { return m; }, // we do not want to escape markup since we are displaying html in results
                 createSearchChoice:function(term, data) { // allow user to add custom data (not found in ajax request)
-                    if ( $(data).filter( function() {
+        if ( $(data).filter( function() {
                         return this.{{ name }}.localeCompare(term)===0;
                     }).length===0) {
-                        return {id:term, {{ name }}:term};
+                        return {id:term, {{ name }}:term, label: term};
                     }
                 }
             });
