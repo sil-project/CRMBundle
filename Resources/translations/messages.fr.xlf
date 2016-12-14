@@ -314,6 +314,35 @@
                 <source>Alert</source>
                 <target>Alerte</target>
             </trans-unit>
+            <trans-unit id="librinfo.label.active">
+                <source>librinfo.label.active</source>
+                <target>Actif</target>
+            </trans-unit>
+            <trans-unit id="form_tab_info">
+                <source>form_tab_info</source>
+                <target>Renseignements divers</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.source">
+                <source>librinfo.label.source</source>
+                <target>Source</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.catalogue_sent">
+                <source>librinfo.label.catalogue_sent</source>
+                <target>Catalogue envoyé</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.first_catalogue_sent_date">
+                <source>librinfo.label.first_catalogue_sent_date</source>
+                <target>Date premier envoi catalogue</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.last_catalogue_sent_date">
+                <source>librinfo.label.last_catalogue_sent_date</source>
+                <target>Date dernier envoi catalogue</target>
+            </trans-unit>
+            <trans-unit id="librinfo.label.catalogue_send_mean">
+                <source>librinfo.label.catalogue_send_mean</source>
+                <target>Méthode d'envoi</target>
+            </trans-unit>
+            
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">

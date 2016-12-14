@@ -50,6 +50,23 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
+        active: 
+            type:       boolean
+        catalogue_sent:
+            type:       boolean
+            nullable:   true
+        last_catalogue_sent_date:
+            type:       date
+            nullable:   true
+        first_catalogue_sent_date:
+            type:       date
+            nullable:   true
+        catalogue_send_mean:
+            type: text
+            nullable: true
+        source:
+            type: text
+            nullable: true
 
     oneToMany:
         phones:

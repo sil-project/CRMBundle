@@ -101,6 +101,36 @@ class Organism implements VCardableInterface
      * @var string
      */
     private $alert;
+    
+    /**
+     * @var boolean
+     */
+    private $active;
+
+    /**
+     * @var boolean
+     */
+    private $catalogue_sent;
+
+    /**
+     * @var \DateTime
+     */
+    private $last_catalogue_sent_date;
+
+    /**
+     * @var \DateTime
+     */
+    private $first_catalogue_sent_date;
+
+    /**
+     * @ var string
+     */
+    private $catalogue_send_mean;
+    
+    /**
+     * @var string
+     */
+    private $source;
 
     /**
      * @var Collection
@@ -114,6 +144,7 @@ class Organism implements VCardableInterface
      */
     public function __construct()
     {
+        $this->active = true;
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
@@ -427,6 +458,144 @@ class Organism implements VCardableInterface
     public function getAlert()
     {
         return $this->alert;
+    }
+    
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Organism
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set catalogue_sent
+     *
+     * @param boolean $catalogueSent
+     * @return Organism
+     */
+    public function setCatalogueSent($catalogueSent)
+    {
+        $this->catalogue_sent = $catalogueSent;
+
+        return $this;
+    }
+
+    /**
+     * Get catalogue_sent
+     *
+     * @return boolean 
+     */
+    public function getCatalogueSent()
+    {
+        return $this->catalogue_sent;
+    }
+    
+    /**
+     * Set catalogue_send_mean
+     *
+     * @param boolean $catalogueSendMean
+     * @return Organism
+     */
+    public function setCatalogueSendMean($catalogueSendMean)
+    {
+        $this->catalogue_send_mean = $catalogueSendMean;
+
+        return $this;
+    }
+
+    /**
+     * Get catalogue_send_mean
+     *
+     * @return boolean 
+     */
+    public function getCatalogueSendMean()
+    {
+        return $this->catalogue_send_mean;
+    }
+
+    /**
+     * Set last_catalogue_sent_date
+     *
+     * @param \DateTime $lastCatalogueSentDate
+     * @return Organism
+     */
+    public function setLastCatalogueSentDate($lastCatalogueSentDate)
+    {
+        $this->last_catalogue_sent_date = $lastCatalogueSentDate;
+
+        return $this;
+    }
+
+    /**
+     * Get last_catalogue_sent_date
+     *
+     * @return \DateTime 
+     */
+    public function getLastCatalogueSentDate()
+    {
+        return $this->last_catalogue_sent_date;
+    }
+
+    /**
+     * Set first_catalogue_sent_date
+     *
+     * @param \DateTime $firstCatalogueSentDate
+     * @return Organism
+     */
+    public function setFirstCatalogueSentDate($firstCatalogueSentDate)
+    {
+        $this->first_catalogue_sent_date = $firstCatalogueSentDate;
+
+        return $this;
+    }
+
+    /**
+     * Get first_catalogue_sent_date
+     *
+     * @return \DateTime 
+     */
+    public function getFirstCatalogueSentDate()
+    {
+        return $this->first_catalogue_sent_date;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return Organism
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string 
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     /**
