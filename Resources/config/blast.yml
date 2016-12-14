@@ -479,7 +479,6 @@ parameters:
                                     btn_add: false
                                 required: false
                                 label: false
-                                only_not_new: true
                                 _options:
                                     edit: inline
                                     #inline: table
