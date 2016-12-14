@@ -135,7 +135,10 @@ parameters:
                                 label: false
                         form_group_organism:
                             title:
-                                type: text
+                                type: blast_custom_choice
+                                blast_choices: ['Mr', 'Mrs']
+                                choices_field: contact.title
+                                required: false
                                 mapped: false
                                 required: false
                             firstname:
@@ -699,6 +702,8 @@ parameters:
                                     - circles
                                     - department
                                     - description
+                        _options:
+                            tabsOrder: [form_group_position, form_group_specifics]
             Sonata\AdminBundle\Form\FormMapper:
                 remove:
                     email: ~
@@ -707,6 +712,10 @@ parameters:
                     emailNoNewsletter: ~
                     circles: ~
                     description: ~
+                    createdAt: ~
+                    createdBy: ~
+                    updatedAt: ~
+                    updatedBy: ~
                 add:
                     '':
                         form_group_contact:
@@ -739,6 +748,10 @@ parameters:
                             emailNpai: ~
                             emailNoNewsletter: ~
                             phone: ~
+                        _options:
+                            groupsOrder: [form_group_contact, form_group_position, form_gorup_specifics]
+                    _options:
+                        tabsOrder: [form_group_position, form_group_contact, form_group_specifics]
 
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
@@ -807,7 +820,8 @@ parameters:
                                     edit: inline
                                     #inline: table
                                     allow_delete: true
-
+                    _options:
+                        tabsOrder: [form_group_positions, form_group_specifics]
 #################
 # POSITION_TYPE
 #################
@@ -832,7 +846,7 @@ parameters:
 # ADDRESSABLE
 #################
 
-        Librinfo\DoctrineBundle\Entity\Traits\Addressable:
+        Blast\BaseEntitiesBundle\Entity\Traits\Addressable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     zip: ~
