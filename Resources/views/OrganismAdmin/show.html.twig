@@ -1,13 +1,23 @@
 {% extends 'BlastCoreBundle:CRUD:base_show.html.twig' %}
 
-{% block bottom_js %}
-    <script>
-        $(document).ready(function(){
-
-            // Remove alert block if empty
-            $alert = $('div.show-alert');
-            if ( !$alert.find('td').eq(0).html().trim() )
-                $alert.remove();
-        });
-    </script>
+{% block show %}
+    {% if object.alert is not null %}
+        <div class="show-alert col-md-12 ">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table">
+                            <tbody>
+                                <tr class="sonata-ba-view-container message">
+                                    <th>{{ 'Alert'| trans() }}</th>
+                                    <td>{{ object.alert| trans() }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {{ parent() }}
 {% endblock %}

@@ -310,7 +310,10 @@
                 <source>librinfo.link.organism_create</source>
                 <target>Nouveau Tiers</target>
             </trans-unit>                  
-            
+            <trans-unit id="alert">
+                <source>Alert</source>
+                <target>Alerte</target>
+            </trans-unit>
 
 <!-- CATEGORY -->
             <trans-unit id="entity_category">

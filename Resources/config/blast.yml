@@ -46,10 +46,6 @@ parameters:
                     npai: ~
                 add:
                     form_group_general:
-                        form_group_alert:
-                            alert: ~
-                            _options:
-                                class: show-alert col-md-12
                         '':
                             customer:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_customer.html.twig'
