@@ -85,11 +85,6 @@ parameters:
                                 - form_group_main_address
                                 - form_group_phones
                                 - form_group_administrative
-                    form_tab_info:
-                        source: ~
-                        catalogue_sent: ~
-                        first_catalogue_sent_date: ~
-                        last_catalogue_sent_date: ~
                     form_group_contacts:
                         '':
                             positions:
@@ -103,13 +98,26 @@ parameters:
                         _options:
                             #TODO tabs descriptions should be translated (improve Sonata Admin)
                             description: "Liste des Contacts appartenant à ce Tiers"
-                    
+                    form_tab_info:
+                        '':
+                            source:
+                                type: blast_custom_choice
+                                choices_field: organism.source
+                                blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
+                                required: false
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            catalogue_sent: ~
+                            catalogue_send_mean: ~
+                            first_catalogue_sent_date: ~
+                            last_catalogue_sent_date: ~
                     _options:
                         tabsOrder:
-                            - form_group_alert
                             - form_group_general
+                            - form_tab_info
                             - form_group_contacts
-                            - default
+                            - form_group_specifics
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_crm
                           title: Framacalc de validation
