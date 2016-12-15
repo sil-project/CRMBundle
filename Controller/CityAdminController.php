@@ -2,8 +2,8 @@
 
 namespace Librinfo\CRMBundle\Controller;
 
+use Blast\CoreBundle\Controller\CRUDController;
 use Librinfo\CRMBundle\Entity\City;
-use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

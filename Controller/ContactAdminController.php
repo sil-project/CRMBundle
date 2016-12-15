@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Controller;
 
-use Sonata\AdminBundle\Controller\CRUDController;
+use Blast\CoreBundle\Controller\CRUDController;
 
 class ContactAdminController extends CRUDController
 {

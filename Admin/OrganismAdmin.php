@@ -81,6 +81,7 @@ class OrganismAdmin extends CoreAdmin
     public function getNewInstance()
     {
         $object = parent::getNewInstance();
+        
         return $object;
     }
 
@@ -92,9 +93,8 @@ class OrganismAdmin extends CoreAdmin
      */
     public static function contactFilterQueryBuilder(ProxyQueryInterface $queryBuilder, $alias, $field, $value)
     {
-        if (!$value['value']) {
+        if (!$value['value']) 
             return;
-        }
 
         $search = '%' . $value['value'] . '%';
         $queryBuilder

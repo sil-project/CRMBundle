@@ -4,7 +4,6 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Librinfo\CRMBundle\Entity\Organism;
@@ -53,7 +52,8 @@ class OrganismAdminConcrete extends OrganismAdmin
     {
         parent::prePersist($object);
 
-        if ( $object->isIndividual() ) {
+        if ( $object->isIndividual() ) 
+        {
             // TODO: different rules for organism name creation in config (eg. "Firstname NAME" or "Name, Firstname"...)
             $firstname = mb_convert_case($this->getForm()->get('firstname')->getNormData(), MB_CASE_TITLE);
             $name = mb_strtoupper($this->getForm()->get('name')->getNormData());
@@ -68,7 +68,8 @@ class OrganismAdminConcrete extends OrganismAdmin
     {
         parent::postPersist($organism);
 
-        if ( $organism->isIndividual() ) {
+        if ( $organism->isIndividual() ) 
+        {
             // Create a new Contact & Position associated to the organism
             $title = $this->getForm()->get('title')->getNormData();
             $firstname = $this->getForm()->get('firstname')->getNormData();
@@ -84,7 +85,8 @@ class OrganismAdminConcrete extends OrganismAdmin
             $contact->setCountry($organism->getCountry());
             $this->getModelManager()->create($contact);
 
-            foreach($organism->getPhones() as $oPhone) {
+            foreach($organism->getPhones() as $oPhone) 
+            {
                 $cPhone = new ContactPhone;
                 $cPhone->setPhoneType($oPhone->getPhoneType());
                 $cPhone->setNumber($oPhone->getNumber());
@@ -103,17 +105,19 @@ class OrganismAdminConcrete extends OrganismAdmin
     /**
      * @param Organism $organism
      */
-    public function preRemove($organism) {
-        foreach($organism->getPositions() as $position) {
+    public function preRemove($organism) 
+    {
+        foreach($organism->getPositions() as $position)
             $this->getModelManager()->delete($position);
-        }
-        foreach($organism->getPhones() as $phone) {
+        
+        foreach($organism->getPhones() as $phone)
             $this->getModelManager()->delete($phone);
-        }
+        
         parent::preRemove($organism);
     }
 
-    public function preBatchAction($actionName, \Sonata\AdminBundle\Datagrid\ProxyQueryInterface $query, array &$idx, $allElements) {
+    public function preBatchAction($actionName, \Sonata\AdminBundle\Datagrid\ProxyQueryInterface $query, array &$idx, $allElements) 
+    {
         parent::preBatchAction($actionName, $query, $idx, $allElements);
     }
 
@@ -136,7 +140,8 @@ class OrganismAdminConcrete extends OrganismAdmin
      * @param ErrorElement $errorElement
      * @param Organism $object
      */
-    public function validateCustomerCode(ErrorElement $errorElement, $object) {
+    public function validateCustomerCode(ErrorElement $errorElement, $object) 
+    {
         $is_new = empty($object->getId());
         $code = $object->getCustomerCode();
 
@@ -190,7 +195,8 @@ class OrganismAdminConcrete extends OrganismAdmin
      * @param ErrorElement $errorElement
      * @param Organism $object
      */
-    public function validateSupplierCode(ErrorElement $errorElement, $object) {
+    public function validateSupplierCode(ErrorElement $errorElement, $object) 
+    {
         $is_new = empty($object->getId());
         $code = $object->getSupplierCode();
 

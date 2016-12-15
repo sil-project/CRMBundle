@@ -7,12 +7,10 @@ use Librinfo\CRMBundle\Entity\Organism;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sparkling\VATBundle\Exception\InvalidCountryCodeException;
-use Sparkling\VATBundle\Exception\InvalidVATNumberException;
 use Sparkling\VATBundle\Exception\VATException;
 
 class OrganismAdminController extends CRUDController
 {
-
     /**
      * generate a customerCode
      */

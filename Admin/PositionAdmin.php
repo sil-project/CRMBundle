@@ -88,9 +88,8 @@ class PositionAdmin extends CoreAdmin
      */
     public static function contactFilterQueryBuilder(ProxyQuery $queryBuilder, $alias, $field, $value)
     {
-        if (!$value['value']) {
+        if ( !$value['value'] ) 
             return;
-        }
 
         $search = '%' . $value['value'] . '%';
         $queryBuilder

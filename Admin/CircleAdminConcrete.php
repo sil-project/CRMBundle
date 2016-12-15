@@ -20,29 +20,29 @@ class CircleAdminConcrete extends CircleAdmin
         $ra = $query->getRootAliases()[0];
 
         $query
-            ->addSelect('users')
-            ->leftJoin($ra . '.users', 'users')
+                ->addSelect('users')
+                ->leftJoin($ra . '.users', 'users')
         ;
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if ($config['Circle']['allow_organisms'])
+        if ( $config['Circle']['allow_organisms'] )
             $query
                 ->addSelect('organisms')
                 ->leftJoin($ra . '.organisms', 'organisms')
             ;
-        if ($config['Circle']['allow_contacts'])
+        if ( $config['Circle']['allow_contacts'] )
             $query
                 ->addSelect('contacts')
                 ->leftJoin($ra . '.contacts', 'contacts')
             ;
-        if ($config['Circle']['allow_positions'])
+        if ( $config['Circle']['allow_positions'] )
             $query
                 ->addSelect('positions')
                 ->leftJoin($ra . '.positions', 'positions')
             ;
 
         $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
-        if ($user->isSuperAdmin())
+        if ( $user->isSuperAdmin() )
             return $query;
 
         // we add 3 conditions :
@@ -54,31 +54,28 @@ class CircleAdminConcrete extends CircleAdmin
 
         // 1. the Circle has no Owner and no Users...
         $subquery1 = $query->getEntityManager()->createQueryBuilder()
-                ->select('u1.id')
-                ->from('Librinfo\CRMBundle\Entity\Circle', 'c1')
-                ->join('c1.users',  'u1')
-                ->where($expr->eq('c1', $ra));
+            ->select('u1.id')
+            ->from('Librinfo\CRMBundle\Entity\Circle', 'c1')
+            ->join('c1.users', 'u1')
+            ->where($expr->eq('c1', $ra));
         $dql1 = $expr->andX(
-                $expr->isNull($ra.'.owner'),
-                $expr->not($expr->exists($subquery1->getDql()))
+                $expr->isNull($ra . '.owner'), $expr->not($expr->exists($subquery1->getDql()))
         );
 
         // 2. the current user is the Circle owner
-        $dql2 = $expr->eq($ra.".owner", ':user2');
+        $dql2 = $expr->eq($ra . ".owner", ':user2');
 
         // 3. the current user belongs to the circle users
         $subquery3 = $query->getEntityManager()->createQueryBuilder()
-                ->select('c3.id')
-                ->from('Librinfo\CRMBundle\Entity\Circle', 'c3')
-                ->join('c3.users',  'u3')
-                ->where($expr->eq('u3', ':user3'))
-                ->andWhere($expr->eq('c3', $ra));
+            ->select('c3.id')
+            ->from('Librinfo\CRMBundle\Entity\Circle', 'c3')
+            ->join('c3.users', 'u3')
+            ->where($expr->eq('u3', ':user3'))
+            ->andWhere($expr->eq('c3', $ra));
         $dql3 = $expr->exists($subquery3->getDql());
 
         $query->andWhere($expr->orX(
-                $dql1,
-                $dql2,
-                $dql3
+            $dql1, $dql2, $dql3
         ));
         $query->setParameter('user2', $user);
         $query->setParameter('user3', $user);
@@ -94,9 +91,12 @@ class CircleAdminConcrete extends CircleAdmin
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if (!$config['Circle']['allow_organisms']) $mapper->remove('organismsCount');
-        if (!$config['Circle']['allow_contacts']) $mapper->remove('contactsCount');
-        if (!$config['Circle']['allow_positions']) $mapper->remove('positionsCount');
+        if ( !$config['Circle']['allow_organisms'] )
+            $mapper->remove('organismsCount');
+        if ( !$config['Circle']['allow_contacts'] )
+            $mapper->remove('contactsCount');
+        if ( !$config['Circle']['allow_positions'] )
+            $mapper->remove('positionsCount');
     }
 
     /**
@@ -107,9 +107,12 @@ class CircleAdminConcrete extends CircleAdmin
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if (!$config['Circle']['allow_organisms']) $mapper->remove('organismsCount');
-        if (!$config['Circle']['allow_contacts']) $mapper->remove('contactsCount');
-        if (!$config['Circle']['allow_positions']) $mapper->remove('positionsCount');
+        if ( !$config['Circle']['allow_organisms'] )
+            $mapper->remove('organismsCount');
+        if ( !$config['Circle']['allow_contacts'] )
+            $mapper->remove('contactsCount');
+        if ( !$config['Circle']['allow_positions'] )
+            $mapper->remove('positionsCount');
     }
-}
 
+}
