@@ -80,7 +80,6 @@ parameters:
                             iban: ~
                         _options:
                             groupsOrder:
-                                - form_group_alert
                                 - ''
                                 - form_group_main_address
                                 - form_group_phones
@@ -159,7 +158,9 @@ parameters:
                                 type: text
                                 mapped: false
                                 required: false
-                            name: ~
+                            name:
+                                type: blast_unique_field
+                                return_link: true
                             customer: ~
                             customerCode:
                                 type: librinfo_entitycode
@@ -176,10 +177,13 @@ parameters:
                                 class: Librinfo\CRMBundle\Entity\Category
                                 required: false
                             url: ~
-                            email: ~
+                            email:
+                                type: blast_unique_field
+                                return_link: true
                             emailNpai: ~
                             emailNoNewsletter: ~
-                            alert: ~
+                            alert:
+                                type: textarea
                             description:
                                 type: textarea
                                 required: false
@@ -434,7 +438,9 @@ parameters:
                             firstname: ~
                             name:
                                 required: false
-                            email: ~
+                            email:
+                                type: blast_unique_field
+                                return_link: true
                             emailNpai: ~
                             emailNoNewsletter: ~
                             description:
