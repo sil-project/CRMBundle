@@ -161,6 +161,8 @@ parameters:
                             name:
                                 type: blast_unique_field
                                 return_link: true
+                                attr:
+                                    maxlength: 35
                             customer: ~
                             customerCode:
                                 type: librinfo_entitycode
