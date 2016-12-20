@@ -19,6 +19,7 @@ Librinfo\CRMBundle\Entity\Position:
                 nullable: false
             cascade:
                 - persist
+            orphanRemoval: true
         organism:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: positions
