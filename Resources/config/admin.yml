@@ -21,7 +21,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo
 
     crm.organism:
-        class: Librinfo\CRMBundle\Admin\OrganismAdminConcrete
+        class: Librinfo\CRMBundle\Admin\OrganismAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
