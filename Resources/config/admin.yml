@@ -32,6 +32,19 @@ services:
         calls:
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+    
+    crm.customer:
+        class: Librinfo\CRMBundle\Admin\CustomerAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.organism_admin.label
+                label_translator_strategy: blast_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
 
     crm.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdminConcrete
