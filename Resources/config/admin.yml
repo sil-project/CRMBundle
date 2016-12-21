@@ -43,6 +43,8 @@ services:
                 label: librinfo.crm.organism_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
         calls:
+            - [setManager, [@doctrine.orm.entity_manager]]
+            - [setCodeGenerator, [@librinfo_crm.code_generator.customer]]
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
 
