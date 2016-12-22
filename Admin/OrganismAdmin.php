@@ -12,6 +12,7 @@ namespace Librinfo\CRMBundle\Admin;
 
 use Blast\CoreBundle\Admin\CoreAdmin;
 use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\ContactPhone;
 use Librinfo\CRMBundle\Entity\Organism;
