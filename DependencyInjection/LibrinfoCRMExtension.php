@@ -8,7 +8,6 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
 use Symfony\Component\Yaml\Yaml;
 
-
 /**
  * This is the class that loads and manages your bundle configuration
  *
@@ -24,17 +23,19 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
         // Define Application Circles by parsing circles.yml files in installed Bundles
         $circles = [];
         $bundles = $container->getParameter('kernel.bundles');
-        foreach ($bundles as $bundleClassName) {
+        
+        foreach ( $bundles as $bundleClassName ) 
+        {
             $rc = new \ReflectionClass($bundleClassName);
-        if ($container->getParameter('kernel.environment') == 'test')
-            $loader->load('datafixtures.yml'); // not defined yet??
 
             $bundleDir = dirname($rc->getFileName());
             $circlesYml = $bundleDir . '/Resources/config/circles.yml';
             if (file_exists($circlesYml))
                 $circles = array_merge($circles, Yaml::parse($circlesYml));
         }
-        if ($circles) {
+        
+        if ( $circles ) 
+        {
             $container->prependExtensionConfig('librinfo_crm', ['Circle' => ['app_circles' => $circles]]);
             $container->prependExtensionConfig('twig', ['globals' => ['librinfo_app_circles' => $circles]]);
         }
@@ -45,8 +46,9 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
      */
     public function loadSecurity(ContainerBuilder $container)
     {
-        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
+        if ( class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator') )
             \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        
         return $this;
     }
     
@@ -56,8 +58,9 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
     public function loadDataFixtures(ContainerBuilder $container, FileLoader $loader)
     {
         // the fixtures
-        if ($container->getParameter('kernel.environment') == 'test')
+        if ( $container->getParameter('kernel.environment') == 'test' )
             $loader->load('datafixtures.yml');
+        
         return $this;
     }
     
@@ -74,6 +77,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
         $container->setParameter('librinfo_crm.code_generator.customer',
             $container->getParameter('librinfo_crm')['code_generator']['customer']
         );
+        
         return $this;
     }
 }
