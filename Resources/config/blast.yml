@@ -1,3 +1,5 @@
+
+
 parameters:
     blast:
 
@@ -186,6 +188,7 @@ parameters:
                             emailNoNewsletter: ~
                             alert:
                                 type: textarea
+                                required: false
                             description:
                                 type: textarea
                                 required: false
@@ -940,4 +943,43 @@ parameters:
                                 read_only: true
                                 disabled: true
                                 required: false
-
+        ### ContactSearchIndex  ###
+        Librinfo\CRMBundle\Entity\ContactSearchIndex:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    main_tab:
+                        main_group:
+                            id: ~
+                            field: ~
+                            keyword: ~
+    
+            # FORM    
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    main_tab:
+                        main_group:
+                            id: ~
+                            field: ~
+                            keyword: ~
+    
+            # LIST    
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    id: ~
+                    field: ~
+                    keyword: ~
+    
+                    _actions:
+                        show: ~
+                        edit: ~
+                        delete: ~
+                        duplicate:
+                            template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
+            # FILTERS 
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    id: ~
+                    field: ~
+                    keyword: ~
+    

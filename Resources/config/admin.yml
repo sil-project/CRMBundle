@@ -147,3 +147,17 @@ services:
                 group: Customers Relationship Management
                 label: librinfo.crm.city_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
+
+    librinfo_crm.admin.contact_search_index:
+        class: Librinfo\CRMBundle\Admin\ContactSearchIndexAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\ContactSearchIndex, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: ContactSearchIndex
+        calls: 
+            - [ setTemplate, [ edit, BlastCoreBundle:CRUD:base_edit.html.twig ] ]
+            - [ setTemplate, [ list, BlastCoreBundle:CRUD:base_list.html.twig ] ]
+            - [ setTemplate, [ show, BlastCoreBundle:CRUD:base_show.html.twig ] ]
+            
