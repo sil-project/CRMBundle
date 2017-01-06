@@ -2,142 +2,19 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
 use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 
 class ContactAdmin extends CoreAdmin
 {
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper
-            ->add('id')
-            ->add('firstname')
-            ->add('shortname')
-            ->add('title')
-            ->add('flashOnControl')
-            ->add('password')
-            ->add('familyContact')
-            ->add('culture')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('description')
-            ->add('address')
-            ->add('zip')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('vcardUid')
-            ->add('confirmed')
-        ;
-    }
+    use HandlesRelationsAdmin;
 
-    /**
-     * @param ListMapper $listMapper
-     */
-    protected function configureListFields(ListMapper $listMapper)
+    public function getFormTheme()
     {
-        $listMapper
-            ->add('id')
-            ->add('firstname')
-            ->add('shortname')
-            ->add('title')
-            ->add('flashOnControl')
-            ->add('password')
-            ->add('familyContact')
-            ->add('culture')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('description')
-            ->add('address')
-            ->add('zip')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('vcardUid')
-            ->add('confirmed')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
-                )
-            ))
-        ;
-    }
+        return array_merge(
+            parent::getFormTheme(),
+            array('LibrinfoCRMBundle:Form:form_admin_fields.html.twig')
+        );
 
-    /**
-     * @param FormMapper $formMapper
-     */
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $formMapper
-            ->add('id')
-            ->add('firstname')
-            ->add('shortname')
-            ->add('title')
-            ->add('flashOnControl')
-            ->add('password')
-            ->add('familyContact')
-            ->add('culture')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('description')
-            ->add('address')
-            ->add('zip')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('vcardUid')
-            ->add('confirmed')
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('firstname')
-            ->add('shortname')
-            ->add('title')
-            ->add('flashOnControl')
-            ->add('password')
-            ->add('familyContact')
-            ->add('culture')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('description')
-            ->add('address')
-            ->add('zip')
-            ->add('city')
-            ->add('country')
-            ->add('npai')
-            ->add('email')
-            ->add('emailNpai')
-            ->add('emailNoNewsletter')
-            ->add('vcardUid')
-            ->add('confirmed')
-        ;
     }
 }

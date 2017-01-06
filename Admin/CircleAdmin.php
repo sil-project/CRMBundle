@@ -2,83 +2,117 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class CircleAdmin extends CoreAdmin
 {
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('id')
-        ;
-    }
+   use BaseAdmin;
 
     /**
-     * @param ListMapper $listMapper
+     * {@inheritdoc}
      */
-    protected function configureListFields(ListMapper $listMapper)
+    public function createQuery($context = 'list')
     {
-        $listMapper
-                ->add('createdAt')
-                ->add('updatedAt')
-                ->add('name')
-                ->add('id')
-                ->add('_action', 'actions', array(
-                    'actions' => array(
-                        'show' => array(),
-                        'edit' => array(),
-                        'delete' => array(),
-                    )
-                ))
-        ;
-    }
+        $query = parent::createQuery($context);
 
-    /**
-     * @param FormMapper $formMapper
-     */
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $contactFieldOptions = array(
-            'by_reference' => false,
-            //'allow_delete' => true,
+        $ra = $query->getRootAliases()[0];
+
+        $query
+                ->addSelect('users')
+                ->leftJoin($ra . '.users', 'users')
+        ;
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if ( $config['Circle']['allow_organisms'] )
+            $query
+                ->addSelect('organisms')
+                ->leftJoin($ra . '.organisms', 'organisms')
+            ;
+        if ( $config['Circle']['allow_contacts'] )
+            $query
+                ->addSelect('contacts')
+                ->leftJoin($ra . '.contacts', 'contacts')
+            ;
+        if ( $config['Circle']['allow_positions'] )
+            $query
+                ->addSelect('positions')
+                ->leftJoin($ra . '.positions', 'positions')
+            ;
+
+        $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
+        if ( $user->isSuperAdmin() )
+            return $query;
+
+        // we add 3 conditions :
+        // 1. the Circle has no Owner and no Users
+        // 2. ... OR the current user is the Circle owner
+        // 3. ... OR the current user belongs to the circle users
+
+        $expr = $query->expr();
+
+        // 1. the Circle has no Owner and no Users...
+        $subquery1 = $query->getEntityManager()->createQueryBuilder()
+            ->select('u1.id')
+            ->from('Librinfo\CRMBundle\Entity\Circle', 'c1')
+            ->join('c1.users', 'u1')
+            ->where($expr->eq('c1', $ra));
+        $dql1 = $expr->andX(
+                $expr->isNull($ra . '.owner'), $expr->not($expr->exists($subquery1->getDql()))
         );
 
-        $formMapper
-            ->add('name')
-//            ->add('contacts', null, $contactFieldOptions)
-            ->add('contacts', 'sonata_type_model_autocomplete', array(
-                'by_reference' => false,
-                'property' => 'name',
-                'multiple' => true,
-                'required' => false,
-            ))
-//            ->add('contacts', 'sonata_type_admin', $contactFieldOptions)  // suggests sonata_model_list !?!?
-//            ->add('contacts', 'sonata_type_model', $contactFieldOptions)    // not implemented ?!?!
-//            ->add('contacts', 'sonata_type_model_list', $contactFieldOptions)
-//            ->add('contacts', 'sonata_type_collection', $contactFieldOptions)
-        ;
+        // 2. the current user is the Circle owner
+        $dql2 = $expr->eq($ra . ".owner", ':user2');
+
+        // 3. the current user belongs to the circle users
+        $subquery3 = $query->getEntityManager()->createQueryBuilder()
+            ->select('c3.id')
+            ->from('Librinfo\CRMBundle\Entity\Circle', 'c3')
+            ->join('c3.users', 'u3')
+            ->where($expr->eq('u3', ':user3'))
+            ->andWhere($expr->eq('c3', $ra));
+        $dql3 = $expr->exists($subquery3->getDql());
+
+        $query->andWhere($expr->orX(
+            $dql1, $dql2, $dql3
+        ));
+        $query->setParameter('user2', $user);
+        $query->setParameter('user3', $user);
+
+        return $query;
     }
 
     /**
-     * @param ShowMapper $showMapper
+     * @param ShowMapper $mapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        $showMapper
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('name')
-            ->add('id')
-        ;
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if ( !$config['Circle']['allow_organisms'] )
+            $mapper->remove('organismsCount');
+        if ( !$config['Circle']['allow_contacts'] )
+            $mapper->remove('contactsCount');
+        if ( !$config['Circle']['allow_positions'] )
+            $mapper->remove('positionsCount');
+    }
+
+    /**
+     * @param ListMapper $mapper
+     */
+    protected function configureListFields(ListMapper $mapper)
+    {
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        if ( !$config['Circle']['allow_organisms'] )
+            $mapper->remove('organismsCount');
+        if ( !$config['Circle']['allow_contacts'] )
+            $mapper->remove('contactsCount');
+        if ( !$config['Circle']['allow_positions'] )
+            $mapper->remove('positionsCount');
     }
 }
