@@ -14,8 +14,16 @@ services:
             - [setTwig, ['@twig']]
             - [setRouter, ['@router']]
 
+    # repository as a service
+    librinfo_crm.repository.circle:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - Librinfo\CRMBundle\Entity\Circle  
+
     librinfo_crm.app_circles:
         class: Librinfo\CRMBundle\Services\AppCirclesService
+        arguments: ['@librinfo_crm.repository.circle']
 
 # ENTITY CODE GENERATORS
 

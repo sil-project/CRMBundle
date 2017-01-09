@@ -2,6 +2,7 @@
 
 namespace Librinfo\CRMBundle\Services;
 
+use Doctrine\ORM\EntityRepository;
 use Librinfo\CRMBundle\Entity\Contact;
 use Librinfo\CRMBundle\Entity\Organism;
 use Librinfo\CRMBundle\Entity\Position;
@@ -9,7 +10,13 @@ use Librinfo\CRMBundle\Entity\Position;
 class AppCirclesService
 {
     private $circles = [];
+    private $circleRepository;
 
+    public function __construct(EntityRepository $repository)
+    {
+        $this->circleRepository = $repository;
+    }
+    
     /**
      * @param string $key
      * @param array $circle (as defined in circles.yml files)
@@ -45,7 +52,10 @@ class AppCirclesService
     {
         if (!isset($this->circles[$key]))
             throw new \Exception(sprintf('The app circle "%s" has not been defined. You must declare it in your Bundle circles.yml', $key));
-        return $this->circles[$key];
+        
+        $circle = $this->circles[$key];
+        dump($circle);
+        return $this->circleRepository->find($circle['id']);
     }
 
     /**
