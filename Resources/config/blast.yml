@@ -785,10 +785,6 @@ parameters:
                                 required: true
                                 _options:
                                     admin_code: crm.contact_embedded
-#                                type: sonata_type_model_autocomplete
-#                                route: { name: searchable_admin_retrieve_autocomplete_items }
-#                                by_reference: false
-#                                property: name # not used but required
                         form_group_position:
                             organism:
                                 type: sonata_type_model_autocomplete
@@ -809,7 +805,7 @@ parameters:
                             emailNoNewsletter: ~
                             phone: ~
                         _options:
-                            groupsOrder: [form_group_contact, form_group_position, form_gorup_specifics]
+                            groupsOrder: [form_group_contact, form_group_position, form_group_specifics]
                     _options:
                         tabsOrder: [form_group_position, form_group_contact, form_group_specifics]
 
