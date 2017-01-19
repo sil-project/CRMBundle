@@ -24,7 +24,7 @@ trait HasOrganisms
     /**
      * This function is called by the owning side of the N-N relationship
      * @param Organism $organism
-     * @return this
+     * @return self
      */
     public function addOrganism(Organism $organism)
     {
@@ -34,7 +34,7 @@ trait HasOrganisms
 
     /**
      * @param Organism $organism
-     * @return this
+     * @return self
      */
     public function removeOrganism(Organism $organism)
     {

@@ -24,7 +24,7 @@ trait HasPositions
     /**
      * This function is called by the owning side of the N-N relationship
      * @param Position $position
-     * @return this
+     * @return self
      */
     public function addPosition(Position $position)
     {
@@ -34,7 +34,7 @@ trait HasPositions
 
     /**
      * @param Position $position
-     * @return this
+     * @return self
      */
     public function removePosition(Position $position)
     {

@@ -24,7 +24,7 @@ trait HasContacts
     /**
      * This function is called by the owning side of the N-N relationship
      * @param Contact $contact
-     * @return this
+     * @return self
      */
     public function addContact(Contact $contact)
     {
@@ -34,7 +34,7 @@ trait HasContacts
 
     /**
      * @param Contact $contact
-     * @return this
+     * @return self
      */
     public function removeContact(Contact $contact)
     {

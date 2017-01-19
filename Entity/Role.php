@@ -52,7 +52,7 @@ class Role
      *
      * @param ContactGroup $contactGroup
      *
-     * @return $this
+     * @return self
      *
      */
     public function addContactGroup(ContactGroup $contactGroup)
@@ -71,7 +71,7 @@ class Role
      *
      * @param ContactGroup $contactGroup
      *
-     * @return $this
+     * @return self
      *
      */
     public function removeContactGroup(ContactGroup $contactGroup)
