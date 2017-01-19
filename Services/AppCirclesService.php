@@ -54,7 +54,7 @@ class AppCirclesService
             throw new \Exception(sprintf('The app circle "%s" has not been defined. You must declare it in your Bundle circles.yml', $key));
         
         $circle = $this->circles[$key];
-        dump($circle);
+        
         return $this->circleRepository->find($circle['id']);
     }
 
