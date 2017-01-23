@@ -16,6 +16,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 
@@ -31,6 +32,7 @@ class Position implements VCardableInterface
         Emailable,
         Circlable,
         Descriptible,
+        Searchable,
         PositionExtension
     ;
 
