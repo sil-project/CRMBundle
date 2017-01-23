@@ -825,12 +825,14 @@ parameters:
                         label: librinfo.label.position_contact_filter
                     organism.name:
                         label: librinfo.label.position_organism_filter
+                    email: ~
+                    label: ~
                     _options:
                         fieldsOrder:
                             - contact.name
                             - organism.name
-                            - email
                             - label
+                            - email
 
 ############
 # CIRCLABLE Trait
