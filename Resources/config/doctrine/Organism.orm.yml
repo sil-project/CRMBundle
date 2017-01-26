@@ -14,11 +14,11 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
-        individual:
+        isIndividual:
             type: boolean
             options:
                 default: false
-        customer:
+        isCustomer:
             type: boolean
             options:
                 default: false
@@ -26,7 +26,7 @@ Librinfo\CRMBundle\Entity\Organism:
             type:       string
             length:     255
             nullable:   true
-        supplier:
+        isSupplier:
             type: boolean
             options:
                 default: false

@@ -9,6 +9,7 @@ librinfo:
         category_list: 'Liste des catégories de tiers'
         organism_create: 'Nouveau Tiers'
         position_type_list: 'Liste des types de fonction'
+        position_type_create: 'Nouveau type de fonction'
         phone_type_list: 'Liste des types de téléphone'
     label:
         title: 'Titre / civilité'
@@ -31,8 +32,8 @@ librinfo:
         organisms: 'Tiers'
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'
-        customer: 'Client'
-        supplier: 'Fournisseur'
+        is_customer: 'Client'
+        is_supplier: 'Fournisseur'
         generate_customer_code: 'Générer code'
         generate_supplier_code: 'Générer code'
         list_organism_name: 'Tiers'

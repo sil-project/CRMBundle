@@ -41,7 +41,7 @@ class Organism implements VCardableInterface
         Loggable,
         OrganismExtension
     ;
-
+    
     /**
      * @var string
      */
@@ -60,12 +60,12 @@ class Organism implements VCardableInterface
     /**
      * @var bool
      */
-    private $individual = false;
+    private $isIndividual = false;
 
     /**
      * @var bool
      */
-    private $customer = false;
+    private $isCustomer = false;
 
     /**
      * @var string
@@ -75,7 +75,7 @@ class Organism implements VCardableInterface
     /**
      * @var bool
      */
-    private $supplier = false;
+    private $isSupplier = false;
 
     /**
      * @var string
@@ -244,52 +244,69 @@ class Organism implements VCardableInterface
 
 
     /**
-     * Set individual
+     * Set isIndividual
      *
-     * @param bool $individual
-     *
+     * @param boolean $isIndividual
      * @return Organism
      */
-    public function setIndividual($individual)
+    public function setIsIndividual($isIndividual)
     {
-        $this->individual = $individual;
+        $this->isIndividual = $isIndividual;
 
         return $this;
     }
 
     /**
-     * Get individual
+     * Get isIndividual
+     *
+     * @return boolean 
+     */
+    public function getIsIndividual()
+    {
+        return $this->isIndividual;
+    }
+
+    /**
+     * Set isCustomer
+     *
+     * @param boolean $isCustomer
+     * @return Organism
+     */
+    public function setIsCustomer($isCustomer)
+    {
+        $this->isCustomer = $isCustomer;
+
+        return $this;
+    }
+
+    /**
+     * Get isCustomer
+     *
+     * @return boolean 
+     */
+    public function getIsCustomer()
+    {
+        return $this->isCustomer;
+    }
+
+    /**
+     * Alias for  getIsIndividual
      *
      * @return bool
      */
     public function isIndividual()
     {
-        return $this->individual;
-    }
-
-
-    /**
-     * Set customer
-     *
-     * @param bool $customer
-     *
-     * @return Organism
-     */
-    public function setCustomer($customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
+        return $this->isIndividual;
     }
 
     /**
-     * Get customer
+     * Alias for getIsCustomer
      *
      * @return bool
      */
     public function isCustomer()
     {
-        return $this->customer;
+        return $this->isCustomer;
     }
 
     /**
@@ -317,27 +334,36 @@ class Organism implements VCardableInterface
     }
 
     /**
-     * Set supplier
+     * Set isSupplier
      *
-     * @param bool $supplier
-     *
+     * @param boolean $isSupplier
      * @return Organism
      */
-    public function setSupplier($supplier)
+    public function setIsSupplier($isSupplier)
     {
-        $this->supplier = $supplier;
+        $this->isSupplier = $isSupplier;
 
         return $this;
     }
 
     /**
-     * Get supplier
+     * Get isSupplier
+     *
+     * @return boolean 
+     */
+    public function getIsSupplier()
+    {
+        return $this->isSupplier;
+    }
+
+    /**
+     * Alias for getIsSupplier
      *
      * @return bool
      */
     public function isSupplier()
     {
-        return $this->supplier;
+        return $this->isSupplier;
     }
 
     /**

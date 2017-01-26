@@ -50,9 +50,9 @@ parameters:
                     form_group_general:
                         '':
                             active: ~
-                            customer:
+                            isCustomer:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_customer.html.twig'
-                            supplier:
+                            isSupplier:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig'
                             category.name: ~
                             url: ~
@@ -63,8 +63,8 @@ parameters:
                             _options:
                                 fieldsOrder:
                                     - name
-                                    - customer
-                                    - supplier
+                                    - isCustomer
+                                    - isSupplier
                                     - circles
                                     - category.name
                                     - description
@@ -136,7 +136,7 @@ parameters:
                 add:
                     form_group_general:
                         form_group_individual:
-                            individual:
+                            isIndividual:
                                 only_new: true
                                 type: choice
                                 choices:
@@ -165,12 +165,12 @@ parameters:
                                 return_link: true
                                 attr:
                                     maxlength: 35
-                            customer: ~
+                            isCustomer: ~
                             customerCode:
                                 type: librinfo_entitycode
                                 attr:
                                     placeholder: librinfo.placeholder.customer_code
-                            supplier: ~
+                            isSupplier: ~
                             supplierCode:
                                 type: librinfo_entitycode
                                 attr:
@@ -199,9 +199,9 @@ parameters:
                                     - title
                                     - firstname
                                     - name
-                                    - customer
+                                    - isCustomer
                                     - customerCode
-                                    - supplier
+                                    - isSupplier
                                     - supplierCode
                                     - circles
                                     - category
@@ -347,9 +347,9 @@ parameters:
                         callback: [Librinfo\CRMBundle\Admin\OrganismAdmin, contactFilterQueryBuilder]
                         label: librinfo.label.organism_contact_filter
                     category: ~
-                    customer: ~
+                    isCustomer: ~
                     customerCode: ~
-                    supplier: ~
+                    isSupplier: ~
                     supplierCode: ~
                     circles: ~
                     alert: ~
@@ -358,9 +358,9 @@ parameters:
                             - name
                             - positions.contact.name
                             - category
-                            - customer
+                            - isCustomer
                             - customerCode
-                            - supplier
+                            - isSupplier
                             - supplierCode
                             - circles
                             - alert
