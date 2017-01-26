@@ -11,6 +11,7 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtensionInterface;
 use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
@@ -27,7 +28,7 @@ use Librinfo\CRMBundle\Entity\Traits\Positionable;
 /**
  * Organism
  */
-class Organism implements VCardableInterface
+class Organism implements VCardableInterface, OrganismExtensionInterface
 {
     use BaseEntity,
         OuterExtensible,
