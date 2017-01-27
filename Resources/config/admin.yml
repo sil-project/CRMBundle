@@ -1,5 +1,5 @@
 services:
-    crm.contact:
+    librinfo_crm.admin.contact:
         class: Librinfo\CRMBundle\Admin\ContactAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
@@ -10,7 +10,7 @@ services:
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
 
-    crm.contact_embedded:
+    librinfo_crm.admin.contact_embedded:
         class: Librinfo\CRMBundle\Admin\ContactEmbeddedAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
@@ -20,7 +20,7 @@ services:
               label: librinfo.crm.contact_embedded_admin.label
               label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.organism:
+    librinfo_crm.admin.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
         tags:
@@ -33,7 +33,7 @@ services:
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
     
-    crm.customer:
+    librinfo_crm.admin.customer:
         class: Librinfo\CRMBundle\Admin\CustomerAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
         tags:
@@ -48,7 +48,7 @@ services:
             - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
 
-    crm.organismphone:
+    librinfo_crm.admin.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, SonataAdminBundle:CRUD]
         tags:
@@ -58,7 +58,7 @@ services:
                 label: librinfo.crm.organism_phone_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.category:
+    librinfo_crm.admin.category:
         class: Librinfo\CRMBundle\Admin\CategoryAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
         tags:
@@ -68,7 +68,7 @@ services:
                 label: librinfo.crm.category_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.role:
+    librinfo_crm.admin.role:
         class: Librinfo\CRMBundle\Admin\RoleAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Role, SonataAdminBundle:CRUD]
         tags:
@@ -78,7 +78,7 @@ services:
                 label: librinfo.crm.role_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.contactgroup:
+    librinfo_crm.admin.contactgroup:
         class: Librinfo\CRMBundle\Admin\ContactGroupAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
         tags:
@@ -88,7 +88,7 @@ services:
                 label: librinfo.crm.contact_group_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.contactphone:
+    librinfo_crm.admin.contactphone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, SonataAdminBundle:CRUD]
         tags:
@@ -98,7 +98,7 @@ services:
                 label: librinfo.crm.contact_phone_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.circle:
+    librinfo_crm.admin.circle:
         class: Librinfo\CRMBundle\Admin\CircleAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
         tags:
@@ -108,7 +108,7 @@ services:
                 label: librinfo.crm.circle_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.position:
+    librinfo_crm.admin.position:
         class: Librinfo\CRMBundle\Admin\PositionAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Position, SonataAdminBundle:CRUD]
         tags:
@@ -118,7 +118,7 @@ services:
                 label: librinfo.crm.position_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.position_type:
+    librinfo_crm.admin.position_type:
         class: Librinfo\CRMBundle\Admin\PositionTypeAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\PositionType, SonataAdminBundle:CRUD]
         tags:
@@ -128,7 +128,7 @@ services:
                 label: librinfo.crm.position_type_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.phone_type:
+    librinfo_crm.admin.phone_type:
         class: Librinfo\CRMBundle\Admin\PhoneTypeAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, SonataAdminBundle:CRUD]
         tags:
@@ -138,7 +138,7 @@ services:
                 label: librinfo.crm.phone_type_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    crm.city:
+    librinfo_crm.admin.city:
         class: Librinfo\CRMBundle\Admin\CityAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\City, LibrinfoCRMBundle:CityAdmin]
         tags:

@@ -606,11 +606,11 @@ parameters:
                                 required: true
                             organism:
                                 _options:
-                                    admin_code: crm.organism
+                                    admin_code: librinfo_crm.admin.organism
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     organism:
-                        admin_code: crm.organism
+                        admin_code: librinfo_crm.admin.organism
                     phoneType: ~
                     number: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
@@ -640,11 +640,11 @@ parameters:
                                 required: true
 #                            contact:
 #                                _options:
-#                                    admin_code: crm.contact
+#                                    admin_code: librinfo_crm.admin.contact
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact:
-                        admin_code: crm.contact
+                        admin_code: librinfo_crm.admin.contact
                     phoneType: ~
                     number: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
@@ -739,9 +739,9 @@ parameters:
                     '':
                         form_group_position:
                             contact:
-                                admin_code: crm.contact
+                                admin_code: librinfo_crm.admin.contact
                             organism:
-                                admin_code: crm.organism
+                                admin_code: librinfo_crm.admin.organism
                             department: ~
                             positionType.name: ~
                             label:
@@ -784,7 +784,7 @@ parameters:
                                 label: false
                                 required: true
                                 _options:
-                                    admin_code: crm.contact_embedded
+                                    admin_code: librinfo_crm.admin.contact_embedded
                         form_group_position:
                             organism:
                                 type: sonata_type_model_autocomplete
@@ -792,7 +792,7 @@ parameters:
                                 by_reference: false
                                 property: name # not used but required
                                 _options:
-                                    admin_code: crm.organism
+                                    admin_code: librinfo_crm.admin.organism
                             department: ~
                             positionType:
                                 placeholder: ''
@@ -812,10 +812,10 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     contact:
-                        admin_code: crm.contact
+                        admin_code: librinfo_crm.admin.contact
                     position_type: ~
                     organism:
-                        admin_code: crm.organism
+                        admin_code: librinfo_crm.admin.organism
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
