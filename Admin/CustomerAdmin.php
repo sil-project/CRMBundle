@@ -38,7 +38,7 @@ class CustomerAdmin extends BaseOrganismAdmin
     {
         $query = parent::createQuery($context);
 
-        $query->andWhere('o.customer = true');
+        $query->andWhere('o.is_customer = true');
 
         return $query;
     }
@@ -50,7 +50,7 @@ class CustomerAdmin extends BaseOrganismAdmin
     {
         $object = parent::getNewInstance();
        
-        $object->setCustomer(true);
+        $object->setisCustomer(true);
         $object->setCustomerCode($this->codeGenerator->generate($object));
         
         return $object;
