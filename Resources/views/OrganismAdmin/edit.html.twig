@@ -13,122 +13,16 @@ file that was distributed with this source code.
 
 {% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
 
+{% block form %}
+    {{ parent() }}
+    
+    <div class="js-data" 
+         id="organism-form" 
+         data-unique-id="{{ form.vars.id }}" 
+         data-errors="{{ form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
+    ></div>
+{% endblock %}
+
 {% block bottom_js %}
-    <script>
-        $(document).ready(function(){
-            var prefix = "{{ form.vars.id }}_";
-
-            // ********** Individual / Collective
-
-            function toggleIndividual(){
-                var $individual_1 = $('#' + prefix + 'individual_1');
-                if( $individual_1.prop('checked') ) {
-                    $individual_1.closest('ul').next('.help-block').show();
-                    $('#sonata-ba-field-container-' + prefix + 'title').show();
-                    $('#sonata-ba-field-container-' + prefix + 'firstname').show();
-                }
-                else {
-                    $individual_1.closest('ul').next('.help-block').hide();
-                    $('#sonata-ba-field-container-' + prefix + 'title').hide();
-                    $('#sonata-ba-field-container-' + prefix + 'firstname').hide();
-                }
-            }
-
-            toggleIndividual();
-            $('#' + prefix + 'individual').on('ifChanged', toggleIndividual);
-
-            // ************ Customer Code
-
-            // Move things around...
-            var customer_container = $('#sonata-ba-field-container-' + prefix + 'customer');
-            customer_container.wrap('<div class="form-inline">');
-            customer_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
-            customer_container.find('label').css('margin-left', '0').css('margin-right', '1em');
-            var customer_code_container = $('#sonata-ba-field-container-' + prefix + 'customerCode');
-            customer_code_container.find('input').appendTo(customer_container);
-            customer_code_container.find('a').appendTo(customer_container);
-            customer_code_container.find('label').remove();
-
-            function generateCustomerCode(){
-                var $code = $('input#' + prefix + 'customerCode')
-                var url = $('a#' + prefix + 'customerCode_generate_code').attr('href');
-                var data = $code.closest('form').serializeArray();
-                $.post(url, data, function(res){
-                    if (res['error'] !== undefined)
-                        alert(res['error']);
-                    else if (res['code'] !== undefined)
-                        $code.val(res['code']);
-                });
-            }
-
-            function toggleCustomerCode(){
-                var $code = $('#' + prefix + 'customerCode');
-                var $link = $('#' + prefix + 'customerCode_generate_code');
-                if( $('#' + prefix + 'customer').prop('checked') ) {
-                    $('label[for=' + prefix + 'customerCode').addClass('required');
-                    if ($code.data('old') !== undefined)
-                        $code.val($code.data('old'));
-                    $code.show().prop('required', true);
-                    $link.show();
-                    if ( $code.val().trim() === "" && {{ form.customerCode.vars.errors|length ? 'false' : 'true' }} )
-                        generateCustomerCode();
-                }
-                else {
-                    $('label[for=' + prefix + 'customerCode').removeClass('required');
-                    $code.hide().prop('required', false).data('old', $code.val()).val('');
-                    $link.hide();
-                }
-            }
-
-            toggleCustomerCode();
-            $('#' + prefix + 'customer').on('ifChanged', toggleCustomerCode);
-
-            // ************ Supplier Code
-
-            // Move things around...
-            var supplier_container = $('#sonata-ba-field-container-' + prefix + 'supplier');
-            supplier_container.wrap('<div class="form-inline">');
-            supplier_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
-            supplier_container.find('label').css('margin-left', '0').css('margin-right', '1em');
-            var supplier_code_container = $('#sonata-ba-field-container-' + prefix + 'supplierCode');
-            supplier_code_container.find('input').appendTo(supplier_container);
-            supplier_code_container.find('a').appendTo(supplier_container);
-            supplier_code_container.find('label').remove();
-
-            function generateSupplierCode(){
-                var $code = $('input#' + prefix + 'supplierCode')
-                var url = $('a#' + prefix + 'supplierCode_generate_code').attr('href');
-                var data = $code.closest('form').serializeArray();
-                $.post(url, data, function(res){
-                    if (res['error'] !== undefined)
-                        alert(res['error']);
-                    else if (res['code'] !== undefined)
-                        $code.val(res['code']);
-                });
-            }
-
-            function toggleSupplierCode(){
-                var $code = $('#' + prefix + 'supplierCode');
-                var $link = $('#' + prefix + 'supplierCode_generate_code');
-                if( $('#' + prefix + 'supplier').prop('checked') ) {
-                    $('label[for=' + prefix + 'supplierCode').addClass('required');
-                    if ($code.data('old') !== undefined)
-                        $code.val($code.data('old'));
-                    $code.show().prop('required', true);
-                    $link.show();
-                    if ( $code.val().trim() === "" && {{ form.supplierCode.vars.errors|length ? 'false' : 'true' }} )
-                        generateSupplierCode();
-                }
-                else {
-                    $('label[for=' + prefix + 'supplierCode').removeClass('required');
-                    $code.hide().prop('required', false).data('old', $code.val()).val('');
-                    $link.hide();
-                }
-            }
-
-            toggleSupplierCode();
-            $('#' + prefix + 'supplier').on('ifChanged', toggleSupplierCode);
-
-        });
-    </script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/organism.js') }}"></script>
 {% endblock %}
