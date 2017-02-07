@@ -1,5 +1,7 @@
 
 
+
+
 parameters:
     blast:
 
@@ -980,4 +982,75 @@ parameters:
                     id: ~
                     field: ~
                     keyword: ~
+        ### Address  ###
+        Librinfo\CRMBundle\Entity\Address:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    main_tab:
+                        main_group:
+                            firstName: ~
+                            postCode: ~
+                            street: ~
+                            city: ~
+                            country: ~
+                            npai: ~
+                            vcardUid: ~
+                            confirmed: ~
+                            id: ~
+                            createdAt: ~
+                            updatedAt: ~
+    
+            # FORM    
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    main_tab:
+                        main_group:
+                            firstName: ~
+                            postCode: ~
+                            street: ~
+                            city: ~
+                            country: ~
+                            npai: ~
+                            vcardUid: ~
+                            confirmed: ~
+                            id: ~
+                            createdAt: ~
+                            updatedAt: ~
+    
+            # LIST    
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    firstName: ~
+                    postCode: ~
+                    street: ~
+                    city: ~
+                    country: ~
+                    npai: ~
+                    vcardUid: ~
+                    confirmed: ~
+                    id: ~
+                    createdAt: ~
+                    updatedAt: ~
+    
+                    _actions:
+                        show: ~
+                        edit: ~
+                        delete: ~
+                        duplicate:
+                            template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
+            # FILTERS 
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    firstName: ~
+                    postCode: ~
+                    street: ~
+                    city: ~
+                    country: ~
+                    npai: ~
+                    vcardUid: ~
+                    confirmed: ~
+                    id: ~
+                    createdAt: ~
+                    updatedAt: ~
     

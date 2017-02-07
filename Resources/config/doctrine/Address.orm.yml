@@ -1,0 +1,43 @@
+Librinfo\CRMBundle\Entity\Address:
+    type: entity
+
+    fields:
+        firstName:
+            type: string
+            nullable: true
+        postCode:
+            type: string
+            nullable: true
+        street:
+            type: string
+            nullable: true
+        city:
+            type: string
+            nullable: true
+        country:
+            type: string
+            nullable: true
+        npai:
+            type: boolean
+            default: false
+        vcardUid:
+            type: string
+            nullable: true
+        confirmed:
+            type: boolean
+            default: true
+            
+    manyToOne:
+#        organism:
+#            targetEntity: Librinfo\CRMBundle\Entity\Organism
+#            inversedBy: addresses
+#            joinColumn:
+#                name: organism_id
+#            cascade: [ persist ]
+        contact:
+            targetEntity: Librinfo\CRMBundle\Entity\Contact
+            inversedBy: addresses
+            joinColumn:
+                name: contact_id
+            cascade: [ persist ]  
+            
