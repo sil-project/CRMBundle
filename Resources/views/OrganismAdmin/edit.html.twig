@@ -19,7 +19,8 @@ file that was distributed with this source code.
     <div class="js-data" 
          id="organism-form" 
          data-unique-id="{{ form.vars.id }}" 
-         data-errors="{{ form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
+         data-customer-error="{{ form.customerCode.vars.errors|length ? 'false' : 'true' }}"
+         data-supplier-error="{{ form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
     ></div>
 {% endblock %}
 

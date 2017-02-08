@@ -3,7 +3,6 @@ $(document).ready(function(){
     
     var formDataElement = $('.js-data#organism-form');
     var prefix = formDataElement.data('unique-id') + '_';
-    var errors = formDataElement.data('errors');
     
     // ********** Individual / Collective
 
@@ -40,7 +39,7 @@ $(document).ready(function(){
     customerCodeContainer.find('label').remove();
 
     function generateCustomerCode(){
-        var code = $('input#' + prefix + 'customerCode')
+        var code = $('input#' + prefix + 'customerCode');
         var url = $('a#' + prefix + 'customerCode_generate_code').attr('href');
         var data = code.closest('form').serializeArray();
         
@@ -65,7 +64,7 @@ $(document).ready(function(){
             code.show().prop('required', true);
             link.show();
             
-            if ( code.val().trim() === "" && errors )
+            if ( code.val().trim() === "" && formDataElement.data('customer-error') )
                 generateCustomerCode();
         }
         else {
@@ -93,7 +92,7 @@ $(document).ready(function(){
     supplierCodeContainer.find('label').remove();
 
     function generateSupplierCode(){
-        var code = $('input#' + prefix + 'supplierCode')
+        var code = $('input#' + prefix + 'supplierCode');
         var url = $('a#' + prefix + 'supplierCode_generate_code').attr('href');
         var data = code.closest('form').serializeArray();
         $.post(url, data, function(res){
@@ -116,7 +115,7 @@ $(document).ready(function(){
             
             code.show().prop('required', true);
             link.show();
-            if ( code.val().trim() === "" && errors )
+            if ( code.val().trim() === "" && formDataElement.data('supplier-error') )
                 generateSupplierCode();
         }
         else {
