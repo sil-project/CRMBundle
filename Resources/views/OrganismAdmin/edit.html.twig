@@ -25,5 +25,7 @@ file that was distributed with this source code.
 {% endblock %}
 
 {% block bottom_js %}
+    {{ parent() }}
     <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/organism.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/zipCity.js') }}"></script>
 {% endblock %}
