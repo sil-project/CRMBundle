@@ -89,8 +89,6 @@ The "libre-informatique" bundles
 ---------------------------------
 
 Edit your app/AppKernel.php file and add the required bundles, here:
-* Blast\CoreBundle\BlastCoreBundle,
-* Blast\CoreBundle\LibrinfoCRMBundle,
 
 ```php
     // app/AppKernel.php
