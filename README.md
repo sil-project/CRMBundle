@@ -12,7 +12,7 @@ Prequiresites
 * having composer installed (here in ```/usr/local/bin/composer```, having ```/usr/local/bin``` in your path)
 
 Optional:
-* having libre-informatique/core-bundle installed, or if not, follow the README instructions of the Core bundle 
+* having blast-project/core-bundle installed, or if not, follow the README instructions of the Core bundle 
 
 Downloading
 -----------
