@@ -1,14 +1,3 @@
-{% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
-
-{% block form_widget_simple %}
-    {{ parent() }}
-    {% if form.vars.name == 'email' %}
-        {% include('LibrinfoCRMBundle:Form:email.html.twig') %}
-    {% elseif form.vars.name == 'vat' %}
-        {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}
-    {% endif %}
-{% endblock form_widget_simple %}
-
 {% block librinfo_zip_city_widget %}
     {%- set allowClearPlaceholder = required ? '' : ' ' -%}
 
@@ -67,7 +56,7 @@
         <div id="{{ id }}_hidden_inputs_wrap">
             <input type="hidden" name="{{ full_name }}" {%- if disabled %} disabled="disabled"{% endif %} value="{{ value }}">
         </div>
-
+{% dump %}
         <input 
             type="text" 
             id="{{ id }}_autocomplete_input" 
@@ -107,5 +96,4 @@
         />
     {% endspaceless %}
 {% endblock librinfo_zip_city_widget %}
-
 

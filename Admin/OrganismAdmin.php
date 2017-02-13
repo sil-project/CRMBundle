@@ -13,10 +13,10 @@ namespace Librinfo\CRMBundle\Admin;
 use Blast\CoreBundle\Admin\CoreAdmin;
 use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
-use Librinfo\CRMBundle\Entity\Contact;
-use Librinfo\CRMBundle\Entity\ContactPhone;
 use Librinfo\CRMBundle\Entity\Organism;
-use Librinfo\CRMBundle\Entity\Position;
+//use Librinfo\CRMBundle\Entity\Contact;
+//use Librinfo\CRMBundle\Entity\ContactPhone;
+//use Librinfo\CRMBundle\Entity\Position;
 use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 use Librinfo\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -31,7 +31,7 @@ class OrganismAdmin extends CoreAdmin
     {
         return array_merge(
             parent::getFormTheme(),
-            array('LibrinfoCRMBundle:Form:form_admin_fields.html.twig')
+            array('LibrinfoCRMBundle:Form:fields.html.twig')
         );
     }
 
@@ -74,43 +74,43 @@ class OrganismAdmin extends CoreAdmin
     /**
      * @param Organism $organism
      */
-    public function postPersist($organism)
-    {
-        parent::postPersist($organism);
-
-        if ( $organism->isIndividual() )
-        {
-            // Create a new Contact & Position associated to the organism
-            $title = $this->getForm()->get('title')->getNormData();
-            $firstname = $this->getForm()->get('firstname')->getNormData();
-            $name = $this->getForm()->get('name')->getNormData();
-            $contact = new Contact;
-            $contact->setTitle($title);
-            $contact->setFirstname($firstname);
-            $contact->setName($name);
-            $contact->setEmail($organism->getEmail());
-            $contact->setAddress($organism->getAddress());
-            $contact->setZip($organism->getZip());
-            $contact->setCity($organism->getCity());
-            $contact->setCountry($organism->getCountry());
-            $this->getModelManager()->create($contact);
-
-            foreach($organism->getPhones() as $oPhone)
-            {
-                $cPhone = new ContactPhone;
-                $cPhone->setPhoneType($oPhone->getPhoneType());
-                $cPhone->setNumber($oPhone->getNumber());
-                $cPhone->setContact($contact);
-                $this->getModelManager()->create($cPhone);
-            }
-
-            $position = new Position;
-            $position->setOrganism($organism);
-            $position->setContact($contact);
-            $position->setEmail($organism->getEmail());
-            $this->getModelManager()->create($position);
-        }
-    }
+//    public function postPersist($organism)
+//    {
+//        parent::postPersist($organism);
+//
+//        if ( $organism->isIndividual() )
+//        {
+//            // Create a new Contact & Position associated to the organism
+//            $title = $this->getForm()->get('title')->getNormData();
+//            $firstname = $this->getForm()->get('firstname')->getNormData();
+//            $name = $this->getForm()->get('name')->getNormData();
+//            $contact = new Contact;
+//            $contact->setTitle($title);
+//            $contact->setFirstname($firstname);
+//            $contact->setName($name);
+//            $contact->setEmail($organism->getEmail());
+//            $contact->setAddress($organism->getAddress());
+//            $contact->setZip($organism->getZip());
+//            $contact->setCity($organism->getCity());
+//            $contact->setCountry($organism->getCountry());
+//            $this->getModelManager()->create($contact);
+//
+//            foreach($organism->getPhones() as $oPhone)
+//            {
+//                $cPhone = new ContactPhone;
+//                $cPhone->setPhoneType($oPhone->getPhoneType());
+//                $cPhone->setNumber($oPhone->getNumber());
+//                $cPhone->setContact($contact);
+//                $this->getModelManager()->create($cPhone);
+//            }
+//
+//            $position = new Position;
+//            $position->setOrganism($organism);
+//            $position->setContact($contact);
+//            $position->setEmail($organism->getEmail());
+//            $this->getModelManager()->create($position);
+//        }
+//    }
 
     /**
      * @param Organism $organism

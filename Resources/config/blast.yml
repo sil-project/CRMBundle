@@ -496,6 +496,24 @@ parameters:
                                     edit: inline
                                     #inline: table
                                     allow_delete: true
+                    form_tab_address_book:
+                        
+                        form_group_other_addresses:
+                            addresses:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: false
+                                type_options:
+                                    btn_add: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true
+                                _options:
+                                    sortable: updatedAt
+                                    edit: inline
                     _options:
                         tabsOrder:
                             - form_group_general
@@ -528,17 +546,13 @@ parameters:
                             - city
                             - positions
                     _export_formats:
-                        csv: [title, name, firstname, address, zip, city, country, email, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter]
+                        csv: [title, name, firstname, email, description, createdAt, updatedAt, vcardUid, emailNpai, emailNoNewsletter]
                         xls: csv
                         json: csv
                         xml: csv
                         vcard:
                             - firstname
                             - name
-                            - address
-                            - zip
-                            - city
-                            - country
                             - email
                             - description
                             - phones
@@ -563,11 +577,7 @@ parameters:
                     shortname: ~
                     familyContact: ~
                     culture: ~
-                    npai: ~
                     email: ~
-                    zip: ~
-                    city: ~
-                    country: ~
                     emailNpai: ~
                     emailNoNewsletter: ~
                     _options:
@@ -577,12 +587,8 @@ parameters:
                             - shortname
                             - name
                             - email
-                            - zip
-                            - city
-                            - country
                             - familyContact
                             - culture
-                            - npai
                             - emailNpai
                             - emailNoNewsletter
 
@@ -982,7 +988,10 @@ parameters:
                     id: ~
                     field: ~
                     keyword: ~
-        ### Address  ###
+                    
+################        
+# ADDRESS
+###############
         Librinfo\CRMBundle\Entity\Address:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -990,33 +999,35 @@ parameters:
                     main_tab:
                         main_group:
                             firstName: ~
-                            postCode: ~
                             street: ~
                             city: ~
+                            postCode: ~
                             country: ~
                             npai: ~
-                            vcardUid: ~
                             confirmed: ~
-                            id: ~
-                            createdAt: ~
-                            updatedAt: ~
-    
             # FORM    
             Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                    createdBy: ~
+                    updatedBy: ~
                 add:
                     main_tab:
                         main_group:
                             firstName: ~
-                            postCode: ~
+                            lastName:
+                                type: text
                             street: ~
-                            city: ~
-                            country: ~
+                            city:
+                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                zip_field: postCode
+                            postCode:
+                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                zip_field: postCode
+                            country:
+                                type: country
                             npai: ~
-                            vcardUid: ~
-                            confirmed: ~
-                            id: ~
-                            createdAt: ~
-                            updatedAt: ~
     
             # LIST    
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -1027,18 +1038,10 @@ parameters:
                     city: ~
                     country: ~
                     npai: ~
-                    vcardUid: ~
-                    confirmed: ~
-                    id: ~
-                    createdAt: ~
-                    updatedAt: ~
-    
                     _actions:
                         show: ~
                         edit: ~
                         delete: ~
-                        duplicate:
-                            template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
             # FILTERS 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
@@ -1048,9 +1051,7 @@ parameters:
                     city: ~
                     country: ~
                     npai: ~
-                    vcardUid: ~
                     confirmed: ~
-                    id: ~
                     createdAt: ~
                     updatedAt: ~
     

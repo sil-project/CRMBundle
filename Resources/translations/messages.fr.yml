@@ -73,6 +73,13 @@ librinfo:
         position_label: 'Libellé de la fonction'
         position_type_name: 'Type de fonction'
         active: 'Actif'
+        first_name: Prénom
+        last_name: Nom
+        post_code: Code postal
+        street: Rue
+        city: Ville
+        country: Pays
+        default_address: Addresse principale
     help:
         vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
         vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
@@ -144,3 +151,6 @@ librinfo:
 'form_tab_history.form_group_history': 'Historique'
 'Contact': 'Contact'
 'Organism': 'Tiers'
+'form_tab_address_book': 'Carnet d''adresses'
+'form_group_default_address': Adresse principale
+'form_group_other_addresses': Autres adresses

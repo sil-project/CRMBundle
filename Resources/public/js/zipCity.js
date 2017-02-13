@@ -1,14 +1,15 @@
     
 var setupAutocompleteInputs = function() {
 
-    var inputs = $('.zipcity-autocomplete');
-    
+    var inputs = $('input.zipcity-autocomplete');
+
     if(inputs.length > 0){
         $(inputs).each(setupAutocomplete);
     }
 }; 
     
 var setupAutocomplete = function(key, autocompleteInput){
+    
     autocompleteInput = $(autocompleteInput);
     var config = $(autocompleteInput).data('config');
 
@@ -18,7 +19,7 @@ var setupAutocomplete = function(key, autocompleteInput){
         enable: config.options.allowclear,
         readonly: config.options.readonly,
         minimumInputLength: config.options.minimumInputLength,
-        multiple: config.options.miltiple,
+        multiple: config.options.multiple,
         initSelection : function (element, callback) {
             var data = {id: element.val(), text: element.val()};
             callback(data);
@@ -127,8 +128,7 @@ var setupAutocomplete = function(key, autocompleteInput){
         autocompleteInput.select2('data', data);
     }
     // remove unneeded autocomplete text input before form submit
-    $('#' + config.id + '_autocomplete_input').closest('form').submit(function()
-    {
+    $('#' + config.id + '_autocomplete_input').closest('form').submit(function() {
         $('#' + config.id + '_autocomplete_input').remove();
 
         return true;
@@ -136,4 +136,4 @@ var setupAutocomplete = function(key, autocompleteInput){
 };
 
 $(document).ready(setupAutocompleteInputs);
-$(document).on('sonata-admin-setup-list-modal sonata-admin-append-form-element', setupAutocompleteInputs);
+$(document).on('sonata-admin-setup-list-modal sonata-admin-append-form-element sonata.add_element', setupAutocompleteInputs);

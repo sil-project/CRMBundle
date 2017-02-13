@@ -14,7 +14,6 @@ file that was distributed with this source code.
 {% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
 
 {% block bottom_js %}
-    <script>
-        
-    </script>
+     {{ parent() }}
+     <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/zipCity.js') }}"></script>
 {% endblock %}

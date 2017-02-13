@@ -13,7 +13,7 @@ class ContactAdmin extends CoreAdmin
     {
         return array_merge(
             parent::getFormTheme(),
-            array('LibrinfoCRMBundle:Form:form_admin_fields.html.twig')
+            array('LibrinfoCRMBundle:Form:fields.html.twig')
         );
 
     }

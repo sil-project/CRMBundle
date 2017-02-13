@@ -11,10 +11,11 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\ContactExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Librinfo\CRMBundle\Entity\OuterExtension\HasAddresses;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
@@ -30,16 +31,16 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  */
 class Contact implements VCardableInterface
 {
-
     use BaseEntity,
         OuterExtensible,
-        Addressable,
+        Nameable,
         Timestampable,
         Emailable,
         Positionable,
         Circlable,
         Descriptible,
         Searchable,
+        HasAddresses,
         ContactExtension
     ;
 
@@ -292,7 +293,11 @@ class Contact implements VCardableInterface
 
     public function __toString()
     {
-        return $this->getFirstname().' '.$this->getName();
+        return sprintf(
+            '%s %s',
+            $this->getFirstname(),
+            $this->getName()
+        );
     }
 
     public function isPersonal()
@@ -311,7 +316,7 @@ class Contact implements VCardableInterface
 
     public function validateName(ExecutionContextInterface $context)
     {
-        // check if name or fistname are filled
+        // check if name or firstname are filled
         if ( empty(trim($this->getName()) . trim($this->getFirstname())) ) {
             $context->buildViolation('librinfo.error.provide_name_or_firstname')
                 ->atPath('name')

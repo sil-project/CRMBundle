@@ -16,6 +16,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Address
@@ -84,6 +85,22 @@ class Address implements AddressExtensionInterface, VCardableInterface
      */
     private $contact;
 
+    public function __construct()
+    {
+        $this->addresses = new ArrayCollection();
+    }
+    
+    public function __toString()
+    {
+        return sprintf(
+           '%s %s, %s %s',
+           $this->getFirstName(),
+           $this->getLastName(),
+           $this->getStreet(),
+           $this->getCountry()     
+        );
+    }   
+    
     /**
      * Set firstName
      *

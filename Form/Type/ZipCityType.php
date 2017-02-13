@@ -49,8 +49,6 @@ class ZipCityType extends AbstractType
             'dropdown_item_css_class' => '',
 
             'dropdown_auto_width' => false,
-
-            'template' => 'LibrinfoCRMBundle:Form/Type:zip_city_type.html.twig',
             'zip_field' => 'zip',
             'city_field' => 'city',
             'linked' => true
@@ -87,9 +85,6 @@ class ZipCityType extends AbstractType
         $view->vars['dropdown_css_class'] = $options['dropdown_css_class'];
         $view->vars['dropdown_item_css_class'] = $options['dropdown_item_css_class'];
         $view->vars['dropdown_auto_width'] = $options['dropdown_auto_width'];
-
-        // template
-        $view->vars['template'] = $options['template'];
 
         $view->vars['context'] = $options['context'];
     }

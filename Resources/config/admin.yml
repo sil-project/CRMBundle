@@ -8,6 +8,8 @@ services:
                 group: Customers Relationship Management
                 label: librinfo.crm.contact_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:ContactAdmin:edit.html.twig]]
 
 
     librinfo_crm.admin.contact_embedded:
@@ -156,4 +158,17 @@ services:
               manager_type: orm
               group: admin
               label: ContactSearchIndex
-            
+
+    librinfo_crm.admin.address:
+        class: Librinfo\CRMBundle\Admin\AddressAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Address, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo_crm.admin.address.label
+              label_translator_strategy: blast_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:AddressAdmin:edit.html.twig]]
+
+

@@ -47,7 +47,7 @@ trait HasAddresses
     /**
      * @return Collection
      */
-    public function getAddresss()
+    public function getAddresses()
     {
         return $this->addresses;
     }

@@ -25,6 +25,11 @@ Librinfo\CRMBundle\Entity\Contact:
             type:       string(2)
             nullable:   true
     oneToMany:
+        addresses:
+            targetEntity: Librinfo\CRMBundle\Entity\Address
+            mappedBy: contact
+            cascade: [persist, remove]
+            orphanRemoval: true
         phones:
             targetEntity: ContactPhone
             mappedBy: contact
