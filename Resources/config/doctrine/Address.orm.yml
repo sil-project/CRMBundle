@@ -5,6 +5,9 @@ Librinfo\CRMBundle\Entity\Address:
         firstName:
             type: string
             nullable: true
+        lastName:
+            type: string
+            nullable: true
         postCode:
             type: string
             nullable: true
