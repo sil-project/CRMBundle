@@ -1,0 +1,23 @@
+Librinfo\CRMBundle\Entity\Country:
+    type: entity
+
+    fields:
+        code:
+            type: string
+            length: 2
+            unique: true
+        enabled:
+            type: boolean
+
+    oneToMany:
+        provinces:
+            targetEntity: Librinfo\CRMBundle\Entity\Province
+            mappedBy: country
+            orphanRemoval: true
+            cascade: [ all ]
+            orderBy: { 'name': 'ASC' }
+
+    indexes:
+        code_index:
+            columns: [ code ]
+

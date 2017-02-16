@@ -1,0 +1,25 @@
+Librinfo\CRMBundle\Entity\Province:
+    type: entity
+
+    fields:
+        code:
+            type: string
+            unique: true
+        name:
+            type: string
+        abbreviation:
+            type: string
+            nullable: true
+
+    manyToOne:
+        country:
+            targetEntity: Librinfo\CRMBundle\Entity\Country
+            inversedBy: provinces
+            joinColumn:
+                name: country_id
+            referencedColumnName: id
+            nullable: false
+
+    uniqueConstraints:
+        country_provincename_idx:
+            columns: [ country_id, name ]
