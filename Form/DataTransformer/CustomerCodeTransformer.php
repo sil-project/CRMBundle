@@ -2,7 +2,7 @@
 
 namespace Librinfo\CRMBundle\Form\DataTransformer;
 
-use Librinfo\CRMBundle\CodeGenerator\CusomerCodeGenerator;
+use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
 use Symfony\Component\Form\DataTransformerInterface;
 
 class CustomerCodeTransformer implements DataTransformerInterface
@@ -24,7 +24,8 @@ class CustomerCodeTransformer implements DataTransformerInterface
     public function reverseTransform($code)
     {
         if (preg_match('/^[0-9]+$/', $code))
-          return sprintf('%s%0'.CusomerCodeGenerator::$codeLength.'d', CustomerCodeGenerator::$codePrefix, (int)$code);
+          return sprintf('%s%0'.CustomerCodeGenerator::$codeLength.'d', CustomerCodeGenerator::$codePrefix, (int)$code);
+        
         return trim($code);
     }
 }

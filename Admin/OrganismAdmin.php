@@ -27,14 +27,6 @@ class OrganismAdmin extends CoreAdmin
 {
     use HandlesRelationsAdmin;
 
-    public function getFormTheme()
-    {
-        return array_merge(
-            parent::getFormTheme(),
-            array('LibrinfoCRMBundle:Form:fields.html.twig')
-        );
-    }
-
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);

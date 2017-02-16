@@ -33,6 +33,8 @@ parameters:
 ############
 
         Librinfo\CRMBundle\Entity\Organism:
+            form_theme:
+                - LibrinfoCRMBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 remove:
@@ -381,7 +383,6 @@ parameters:
                     phones: ~
                     flashOnControl: ~
                     positions: ~
-                    address: ~
                     zip: ~
                     city: ~
                     country: ~
@@ -393,13 +394,11 @@ parameters:
                     form_group_general:
                         '':
                             fulltextName: ~
-                            fulltextAddress: ~
                             description: ~
                             phones: ~
                             _options:
                                 fieldsOrder:
                                     - fulltextName
-                                    - fulltextAddress
                                     - email
                                     - phones
                                     - positions
@@ -518,6 +517,7 @@ parameters:
                         tabsOrder:
                             - form_group_general
                             - form_tab_organisms
+                            - form_tab_address_book
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_crm
                           title: Framacalc de validation
@@ -560,7 +560,6 @@ parameters:
                             - positions.phone
                             - positions.email
                             - positions.organism
-                            - positions.organism.address
                             - positions.organism.zip
                             - positions.organism.city
                             - positions.organism.country
