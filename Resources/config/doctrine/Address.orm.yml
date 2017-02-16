@@ -17,7 +17,12 @@ Librinfo\CRMBundle\Entity\Address:
         city:
             type: string
             nullable: true
-        country:
+        countryCode:
+            type: string
+        provinceCode:
+            type: string
+            nullable: true
+        provinceName:
             type: string
             nullable: true
         npai:
@@ -29,7 +34,7 @@ Librinfo\CRMBundle\Entity\Address:
         confirmed:
             type: boolean
             default: true
-            
+
     manyToOne:
 #        organism:
 #            targetEntity: Librinfo\CRMBundle\Entity\Organism
@@ -42,5 +47,5 @@ Librinfo\CRMBundle\Entity\Address:
             inversedBy: addresses
             joinColumn:
                 name: contact_id
-            cascade: [ persist ]  
-            
+            cascade: [ persist ]
+

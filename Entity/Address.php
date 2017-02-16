@@ -34,7 +34,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
      * @var string
      */
     private $firstName;
-    
+
     /**
      * @var string
      */
@@ -58,7 +58,17 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * @var string
      */
-    private $country;
+    private $countryCode;
+
+    /**
+     * @var string
+     */
+    private $provinceCode;
+
+    /**
+     * @var string
+     */
+    private $provinceName;
 
     /**
      * @var boolean
@@ -89,7 +99,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     {
         $this->addresses = new ArrayCollection();
     }
-    
+
     public function __toString()
     {
         return sprintf(
@@ -97,10 +107,10 @@ class Address implements AddressExtensionInterface, VCardableInterface
            $this->getFirstName(),
            $this->getLastName(),
            $this->getStreet(),
-           $this->getCountry()     
+           $this->getCountry()
         );
-    }   
-    
+    }
+
     /**
      * Set firstName
      *
@@ -117,13 +127,13 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get firstName
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
         return $this->firstName;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -156,7 +166,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get postCode
      *
-     * @return string 
+     * @return string
      */
     public function getPostCode()
     {
@@ -179,7 +189,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get street
      *
-     * @return string 
+     * @return string
      */
     public function getStreet()
     {
@@ -202,7 +212,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get city
      *
-     * @return string 
+     * @return string
      */
     public function getCity()
     {
@@ -210,26 +220,72 @@ class Address implements AddressExtensionInterface, VCardableInterface
     }
 
     /**
-     * Set country
+     * Set countryCode
      *
-     * @param string $country
+     * @param string $countryCode
      * @return Address
      */
-    public function setCountry($country)
+    public function setCountryCode($countryCode = null)
     {
-        $this->country = $country;
+        $this->countryCode = $countryCode;
 
         return $this;
     }
 
     /**
-     * Get country
+     * Get countryCode
      *
-     * @return string 
+     * @return string
      */
-    public function getCountry()
+    public function getCountryCode()
     {
-        return $this->country;
+        return $this->countryCode;
+    }
+
+    /**
+     * Set provinceCode
+     *
+     * @param string $provinceCode
+     * @return Address
+     */
+    public function setProvinceCode($provinceCode = null)
+    {
+        $this->provinceCode = $provinceCode;
+
+        return $this;
+    }
+
+    /**
+     * Get provinceCode
+     *
+     * @return string
+     */
+    public function getProvinceCode()
+    {
+        return $this->provinceCode;
+    }
+
+    /**
+     * Set provinceName
+     *
+     * @param string $provinceName
+     * @return Address
+     */
+    public function setProvinceName($provinceName = null)
+    {
+        $this->provinceName = $provinceName;
+
+        return $this;
+    }
+
+    /**
+     * Get provinceName
+     *
+     * @return string
+     */
+    public function getProvinceName()
+    {
+        return $this->provinceName;
     }
 
     /**
@@ -248,7 +304,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get npai
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getNpai()
     {
@@ -271,7 +327,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get vcardUid
      *
-     * @return string 
+     * @return string
      */
     public function getVcardUid()
     {
@@ -294,13 +350,13 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get confirmed
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getConfirmed()
     {
         return $this->confirmed;
     }
-    
+
     /**
      * Set organism
      *
@@ -317,7 +373,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get organism
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism 
+     * @return \Librinfo\CRMBundle\Entity\Organism
      */
     public function getOrganism()
     {
@@ -340,13 +396,13 @@ class Address implements AddressExtensionInterface, VCardableInterface
     /**
      * Get contact
      *
-     * @return \Librinfo\CRMBundle\Entity\Contact 
+     * @return \Librinfo\CRMBundle\Entity\Contact
      */
     public function getContact()
     {
         return $this->contact;
     }
-    
+
     public function isPersonal()
     {
         return true;
