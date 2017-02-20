@@ -152,5 +152,6 @@ librinfo:
 'Contact': 'Contact'
 'Organism': 'Tiers'
 'form_tab_address_book': 'Carnet d''adresses'
+'form_group_addresses': Addresses
 'form_group_default_address': Adresse principale
 'form_group_other_addresses': Autres adresses
