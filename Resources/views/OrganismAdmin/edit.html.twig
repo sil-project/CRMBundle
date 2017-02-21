@@ -15,12 +15,12 @@ file that was distributed with this source code.
 
 {% block form %}
     {{ parent() }}
-    
-    <div class="js-data" 
-         id="organism-form" 
-         data-unique-id="{{ form.vars.id }}" 
-         data-customer-error="{{ form.customerCode.vars.errors|length ? 'false' : 'true' }}"
-         data-supplier-error="{{ form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
+
+    <div class="js-data"
+         id="organism-form"
+         data-unique-id="{{ form.vars.id }}"
+         data-customer-error="{{ form.customerCode is defined and form.customerCode.vars.errors|length ? 'false' : 'true' }}"
+         data-supplier-error="{{ form.supplierCode is defined and form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
     ></div>
 {% endblock %}
 

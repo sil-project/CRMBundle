@@ -10,26 +10,27 @@
 
 namespace Librinfo\CRMBundle\Admin;
 
-use Doctrine\ORM\EntityManager;
 use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
 use Librinfo\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
+use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
+use Sonata\AdminBundle\Form\FormMapper;
 
 class CustomerAdmin extends BaseOrganismAdmin
 {
     /**
-     *
-     * @var EntityManager
-     */
-    private $manager;
-    
-    /**
-     *
-     * @var SeedProducerCodeGenerator
+     * @var CustomerCodeGenerator
      */
     private $codeGenerator;
-    
+
     protected $baseRouteName = 'admin_librinfo_crm_customer';
     protected $baseRoutePattern = 'librinfo/crm/customer';
+    protected $classnameLabel = 'Customer';
+
+    public function configureFormFields(FormMapper $mapper)
+    {
+        parent::configureFormFields($mapper);
+        $this->renameFormGroup('form_group_organism', 'form_group_general', 'form_group_customer');
+    }
 
     /**
      * {@inheritdoc}
@@ -38,35 +39,34 @@ class CustomerAdmin extends BaseOrganismAdmin
     {
         $query = parent::createQuery($context);
 
-        $query->andWhere('o.is_customer = true');
+        $query->andWhere('o.isCustomer = true');
 
         return $query;
     }
-    
+
+    /**
+     * @param FormMapper $mapper
+     */
+    protected function postConfigureFormFields(FormMapper $mapper)
+    {
+        $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
+    }
+
     /**
      * {@inheritdoc}
      */
     public function getNewInstance()
     {
         $object = parent::getNewInstance();
-       
+
         $object->setisCustomer(true);
         $object->setCustomerCode($this->codeGenerator->generate($object));
-        
+
         return $object;
     }
-    
+
     /**
-     * 
-     * @param EntityManager $manager
-     */
-    public function setManager(EntityManager $manager)
-    {
-        $this->manager = $manager;
-    }
-    
-    /**
-     * 
+     *
      * @param SeedProducerCodeGenerator $codeGenerator
      */
     public function setCodeGenerator(CustomerCodeGenerator $codeGenerator)

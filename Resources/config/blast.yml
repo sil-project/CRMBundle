@@ -369,6 +369,75 @@ parameters:
                             - circles
                             - alert
 
+
+############
+# CUSTOMER
+############
+
+        # SHOW
+        Librinfo\CRMBundle\Admin\CustomerAdmin:
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    customerCode: ~
+                    supplierCode: ~
+                    isCustomer: ~
+                    isSupplier: ~
+                add:
+                    form_group_general:
+                        '':
+                            customerCode: ~
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - customerCode
+                                    - active
+                                    - circles
+                                    - category.name
+                                    - description
+                                    - email
+                                    - url
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    isSupplier: ~
+                    supplierCode: ~
+                    isCustomer: ~
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                    customerCode: ~
+                    supplierCode: ~
+                    city: ~
+                add:
+                    createdAt: ~
+                    name:
+                        identifier: true
+                        label: librinfo.label.list_customer_name
+                    customerCode: ~
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - customerCode
+                            - category.name
+                            - circles
+                            - alert
+                            - active
+                            - createdAt
+            # FILTERS
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                remove:
+                    isCustomer: ~
+                    isSupplier: ~
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - customerCode
+                            - positions.contact.name
+                            - category
+                            - circles
+                            - alert
+
 ###########
 # CONTACT
 ###########
@@ -496,7 +565,7 @@ parameters:
                                     #inline: table
                                     allow_delete: true
                     form_tab_address_book:
-                        
+
                         form_group_other_addresses:
                             addresses:
                                 type: sonata_type_collection
@@ -958,8 +1027,8 @@ parameters:
                             id: ~
                             field: ~
                             keyword: ~
-    
-            # FORM    
+
+            # FORM
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     main_tab:
@@ -967,28 +1036,28 @@ parameters:
                             id: ~
                             field: ~
                             keyword: ~
-    
-            # LIST    
+
+            # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     id: ~
                     field: ~
                     keyword: ~
-    
+
                     _actions:
                         show: ~
                         edit: ~
                         delete: ~
                         duplicate:
                             template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
-            # FILTERS 
+            # FILTERS
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     id: ~
                     field: ~
                     keyword: ~
-                    
-################        
+
+################
 # ADDRESS
 ###############
         Librinfo\CRMBundle\Entity\Address:
@@ -1004,7 +1073,7 @@ parameters:
                             country: ~
                             npai: ~
                             confirmed: ~
-            # FORM    
+            # FORM
             Sonata\AdminBundle\Form\FormMapper:
                 remove:
                     createdAt: ~
@@ -1024,11 +1093,11 @@ parameters:
                             postCode:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
                                 zip_field: postCode
-                            country:
+                            countryCode:
                                 type: country
                             npai: ~
-    
-            # LIST    
+
+            # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     firstName: ~
@@ -1041,7 +1110,7 @@ parameters:
                         show: ~
                         edit: ~
                         delete: ~
-            # FILTERS 
+            # FILTERS
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     firstName: ~
@@ -1053,4 +1122,4 @@ parameters:
                     confirmed: ~
                     createdAt: ~
                     updatedAt: ~
-    
+
