@@ -6,6 +6,7 @@ use Blast\CoreBundle\Controller\CRUDController;
 use Librinfo\CRMBundle\Entity\Organism;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sparkling\VATBundle\Exception\InvalidCountryCodeException;
 use Sparkling\VATBundle\Exception\VATException;
 
@@ -48,5 +49,30 @@ class OrganismAdminController extends CRUDController
         }
 
         return new JsonResponse(['valid'=>$valid, 'vat'=>$vat, 'msg'=>$msg]);
+    }
+
+    /**
+     * @param Request $request
+     * @param mixed   $object
+     *
+     * @return Response|null
+     */
+    protected function preEdit(Request $request, $object)
+    {
+        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
+            throw new NotFoundHttpException();
+    }
+
+
+    /**
+     * @param Request $request
+     * @param mixed   $object
+     *
+     * @return Response|null
+     */
+    protected function preShow(Request $request, $object)
+    {
+        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
+            throw new NotFoundHttpException();
     }
 }

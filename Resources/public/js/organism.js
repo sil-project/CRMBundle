@@ -25,18 +25,21 @@ $(document).ready(function(){
 
     // ************ Customer Code
 
-    // Move things around...
     var customerContainer = $('#sonata-ba-field-container-' + prefix + 'isCustomer');
   
-    customerContainer.wrap('<div class="form-inline">');
-    customerContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
-    customerContainer.find('label').css('margin-left', '0').css('margin-right', '1em');
-    
-    var customerCodeContainer = $('#sonata-ba-field-container-' + prefix + 'customerCode');
-    
-    customerCodeContainer.find('input').appendTo(customerContainer);
-    customerCodeContainer.find('a').appendTo(customerContainer);
-    customerCodeContainer.find('label').remove();
+    if (customerContainer.length) {
+        customerContainer.wrap('<div class="form-inline">');
+        customerContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
+        customerContainer.find('label').css('margin-left', '0').css('margin-right', '1em');
+
+        var customerCodeContainer = $('#sonata-ba-field-container-' + prefix + 'customerCode');
+
+        customerCodeContainer.find('input').appendTo(customerContainer);
+        customerCodeContainer.find('a').appendTo(customerContainer);
+        customerCodeContainer.find('label').remove();    
+        
+        toggleCustomerCode();
+    }
 
     function generateCustomerCode(){
         var code = $('input#' + prefix + 'customerCode');
@@ -74,7 +77,6 @@ $(document).ready(function(){
         }
     }
 
-    toggleCustomerCode();
     $('#' + prefix + 'isCustomer').on('ifChanged', toggleCustomerCode);
 
     // ************ Supplier Code
