@@ -10,6 +10,7 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
@@ -30,7 +31,7 @@ class Circle
         Nameable,
         Timestampable,
         Descriptible,
-        \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension
+        CircleExtension
     ;
 
     /**
@@ -68,17 +69,11 @@ class Circle
      */
     private $positions;
 
-    /**
-     * @var Collection
-     */
-    private $users;
-
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
         $this->organisms = new ArrayCollection();
         $this->positions = new ArrayCollection();
-        $this->users = new ArrayCollection();
     }
 
     /**
@@ -262,56 +257,6 @@ class Circle
     public function getOrganisms()
     {
         return $this->organisms;
-    }
-
-    /**
-     * @param UserInterface $user
-     * @return Circle
-     */
-    public function addUser(UserInterface $user)
-    {
-        $this->users->add($user);
-        return $this;
-    }
-
-    /**
-     * @param UserInterface $user
-     * @return Circle
-     */
-    public function removeUser(UserInterface $user)
-    {
-        $this->users->removeElement($user);
-        return $this;
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * @param UserInterface $user
-     * @return boolean
-     */
-    public function isAccessibleBy(UserInterface $user)
-    {
-        // no owner and no users : everybody has access to the circle
-        if ( !$this->getOwner() && $this->getUsers()->isEmpty() )
-            return true;
-
-        // current user is the circle owner
-        if ( $this->getOwner() && $user->getId() === $this->getOwner()->getId() )
-            return true;
-
-        // current user belongs to the circle users
-        foreach ( $this->getUsers() as $u)
-        if ( $user->getId() === $u->getId() )
-            return true;
-
-        return false;
     }
 
     public function countOrganisms()
