@@ -17,7 +17,6 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\UserBundle\Entity\Traits\Ownable;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -29,7 +28,6 @@ class Circle
     use BaseEntity,
         OuterExtensible,
         Nameable,
-        Ownable,
         Timestampable,
         Descriptible,
         \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension
