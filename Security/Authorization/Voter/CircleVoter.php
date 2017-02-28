@@ -32,12 +32,12 @@ class CircleVoter extends AbstractVoter
 
         // double-check that the User object is the expected entity (this
         // only happens when you did not configure the security system properly)
-        if ( !$user instanceof User )
-        {
-            throw new \LogicException('The user is somehow not our User class!');
-        }
+//        if ( !$user instanceof User )
+//        {
+//            throw new \LogicException('The user is somehow not our User class!');
+//        }
         
-        if ( $user->isSuperAdmin() )
+        if ( $user->hasRole('ROLE_SUPER_ADMIN') )
         {
             return true;
         }
