@@ -158,6 +158,8 @@ librinfo:
         phone_type_list: 'Liste des types de téléphone'
         position_type_create: 'Nouveau type de fonction'
         position_type_list: 'Liste des types de fonction'
+        circle_create: 'Nouveau groupe'
+        category_create: 'Nouvelle catégorie de tiers'
     placeholder:
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'
