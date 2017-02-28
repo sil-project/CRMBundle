@@ -43,7 +43,7 @@ class CircleAdmin extends CoreAdmin
             ;
 
         $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
-        if ( $user->isSuperAdmin() )
+        if ( $user->hasRole('ROLE_SUPER_ADMIN') )
             return $query;
 
         // we add 3 conditions :
@@ -89,8 +89,8 @@ class CircleAdmin extends CoreAdmin
      */
     protected function configureShowFields(ShowMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
-
+        parent::configureShowFields($mapper);
+        
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
         if ( !$config['Circle']['allow_organisms'] )
             $mapper->remove('organismsCount');
@@ -105,7 +105,7 @@ class CircleAdmin extends CoreAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
-        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
+        parent::configureListFields($mapper);
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
         if ( !$config['Circle']['allow_organisms'] )
