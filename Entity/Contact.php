@@ -251,12 +251,25 @@ class Contact implements VCardableInterface
     {
         return $this->culture;
     }
-
-    public function __construct()
+    
+    public function initCollections()
     {
         $this->phones = new ArrayCollection();
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
+    }
+
+    public function __construct()
+    {
+        $this->initCollections();
+        $this->initOuterExtendedClasses();
+    }
+    
+    // implementation of __clone for duplication
+    public function __clone()
+    {
+        $this->id = null;
+        $this->initCollections();
         $this->initOuterExtendedClasses();
     }
 

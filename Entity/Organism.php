@@ -138,18 +138,28 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      */
     private $phones;
 
-
-
-    /**
-     * Organism constructor.
-     */
-    public function __construct()
+    public function initContact()
     {
         $this->active = true;
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
         $this->initOuterExtendedClasses();
+    }
+
+    /**
+     * Organism constructor.
+     */
+    public function __construct()
+    {
+        $this->initcontact();
+    }
+    
+    // implementation of __clone for duplication
+    public function __clone()
+    {
+        $this->id = null;
+        $this->initContact();
     }
 
     /**
