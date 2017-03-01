@@ -107,7 +107,7 @@ class Address implements AddressExtensionInterface, VCardableInterface
            $this->getFirstName(),
            $this->getLastName(),
            $this->getStreet(),
-           $this->getCountry()
+           $this->getCountryCode()
         );
     }
 
