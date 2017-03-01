@@ -99,6 +99,9 @@ librinfo:
         customer_supplier: 'Client / Fournisseur'
         default_address: Addresse principale
         department: 'Service'
+        email: 'Email'
+        email_npai: 'Mauvais courriel'
+        email_no_newsletter: 'Pas de Newsletter'
         family_contact: 'Contact de famille'
         first_catalogue_sent_date: 'Date premier envoi catalogue'
         first_name: Prénom
