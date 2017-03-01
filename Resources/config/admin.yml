@@ -1,7 +1,7 @@
 services:
     librinfo_crm.admin.contact:
         class: Librinfo\CRMBundle\Admin\ContactAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Contact, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -14,7 +14,7 @@ services:
 
     librinfo_crm.admin.contact_embedded:
         class: Librinfo\CRMBundle\Admin\ContactEmbeddedAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Contact, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -51,7 +51,7 @@ services:
 
     librinfo_crm.admin.organismphone:
         class: Librinfo\CRMBundle\Admin\OrganismPhoneAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -71,7 +71,7 @@ services:
 
     librinfo_crm.admin.role:
         class: Librinfo\CRMBundle\Admin\RoleAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Role, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Role, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -81,7 +81,7 @@ services:
 
     librinfo_crm.admin.contactgroup:
         class: Librinfo\CRMBundle\Admin\ContactGroupAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -91,7 +91,7 @@ services:
 
     librinfo_crm.admin.contactphone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -111,7 +111,7 @@ services:
 
     librinfo_crm.admin.position:
         class: Librinfo\CRMBundle\Admin\PositionAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Position, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\Position, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -121,7 +121,7 @@ services:
 
     librinfo_crm.admin.position_type:
         class: Librinfo\CRMBundle\Admin\PositionTypeAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\PositionType, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -131,7 +131,7 @@ services:
 
     librinfo_crm.admin.phone_type:
         class: Librinfo\CRMBundle\Admin\PhoneTypeAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, SonataAdminBundle:CRUD]
+        arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
