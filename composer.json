@@ -4,7 +4,7 @@
     "description": "CRM Bundle for Symfony",
     "require": {
         "php": ">=5.4.0",
-        "symfony/symfony": "2.8.*",
+        "symfony/symfony": "3.2.*",
         "stof/doctrine-extensions-bundle": "^1.2",
         "jeroendesloovere/vcard-bundle": "^1.2",
         "sparkling/vat-bundle": "~0.1",
