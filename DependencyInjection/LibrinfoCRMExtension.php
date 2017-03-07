@@ -31,7 +31,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
             $bundleDir = dirname($rc->getFileName());
             $circlesYml = $bundleDir . '/Resources/config/circles.yml';
             if (file_exists($circlesYml))
-                $circles = array_merge($circles, Yaml::parse($circlesYml));
+                $circles = array_merge($circles, Yaml::parse( file_get_contents ( $circlesYml )));
         }
         
         if ( $circles ) 

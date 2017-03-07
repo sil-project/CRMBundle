@@ -17,7 +17,7 @@ services:
     # repository as a service
     librinfo_crm.repository.circle:
         class: Doctrine\ORM\EntityRepository
-        factory: ["@doctrine", getRepository]
+        factory: ['@doctrine', getRepository]
         arguments:
             - Librinfo\CRMBundle\Entity\Circle  
 
