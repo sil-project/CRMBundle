@@ -106,7 +106,7 @@ parameters:
                     form_tab_info:
                         '':
                             source:
-                                type: blast_custom_choice
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
                                 blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
                                 required: false
@@ -154,7 +154,7 @@ parameters:
                                 type: checkbox
                                 required: false
                             title:
-                                type: blast_custom_choice
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 blast_choices: ['Mr', 'Mrs']
                                 choices_field: contact.title
                                 required: false
@@ -165,7 +165,7 @@ parameters:
                                 mapped: false
                                 required: false
                             name:
-                                type: blast_unique_field
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 attr:
                                     maxlength: 35
@@ -186,7 +186,7 @@ parameters:
                                 required: false
                             url: ~
                             email:
-                                type: blast_unique_field
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                             emailNpai: ~
                             emailNoNewsletter: ~
@@ -264,7 +264,7 @@ parameters:
                     form_tab_info:
                         '':
                             source:
-                                type: blast_custom_choice
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
                                 blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
                                 required: false
@@ -275,7 +275,7 @@ parameters:
                                 type: checkbox
                                 required: false
                             catalogue_send_mean:
-                                type: blast_custom_choice
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.catalogue_send_mean
                                 blast_choices: [Courrier, Email]
                                 required: false
@@ -506,7 +506,7 @@ parameters:
                     form_group_general:
                         form_group_contact:
                             title:
-                                type: blast_custom_choice
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 blast_choices: ['Mr', 'Mrs']
                                 choices_field: contact.title
                                 required: false
@@ -514,7 +514,7 @@ parameters:
                             name:
                                 required: false
                             email:
-                                type: blast_unique_field
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                             emailNpai: ~
                             emailNoNewsletter: ~
@@ -1014,7 +1014,7 @@ parameters:
                         form_group_communication:
                             vcard_uid:
                                 type: text
-                                read_only: true
+#                                read_only: true
                                 disabled: true
                                 required: false
         ### ContactSearchIndex  ###
