@@ -251,7 +251,7 @@ class Contact implements VCardableInterface
     {
         return $this->culture;
     }
-    
+
     public function initCollections()
     {
         $this->phones = new ArrayCollection();
@@ -264,7 +264,7 @@ class Contact implements VCardableInterface
         $this->initCollections();
         $this->initOuterExtendedClasses();
     }
-    
+
     // implementation of __clone for duplication
     public function __clone()
     {
@@ -327,7 +327,7 @@ class Contact implements VCardableInterface
         return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoupper($this->getName()));
     }
 
-    public function validateName(ExecutionContextInterface $context)
+    public function validateName(ExecutionContextInterface $context, $payload)
     {
         // check if name or firstname are filled
         if ( empty(trim($this->getName()) . trim($this->getFirstname())) ) {
