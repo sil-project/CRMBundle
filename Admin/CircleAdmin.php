@@ -17,21 +17,25 @@ class CircleAdmin extends CoreAdmin
     public function createQuery($context = 'list')
     {
         $query = parent::createQuery($context);
-
+        
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        
+        if( !isset($config['Circle']['enabled']) || $config['Circle']['enabled'] == false )
+            return $query;
+        
         $ra = $query->getRootAliases()[0];
 
         $query
-                ->addSelect('users')
-                ->leftJoin($ra . '.users', 'users')
+            ->addSelect('users')
+            ->leftJoin($ra . '.users', 'users')
         ;
 
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if ( $config['Circle']['allow_organisms'] )
+        if ( $config['Circle']['allow_organizations'] )
             $query
                 ->addSelect('organisms')
                 ->leftJoin($ra . '.organisms', 'organisms')
             ;
-        if ( $config['Circle']['allow_contacts'] )
+        if ( $config['Circle']['allow_individuals'] )
             $query
                 ->addSelect('contacts')
                 ->leftJoin($ra . '.contacts', 'contacts')
@@ -42,7 +46,7 @@ class CircleAdmin extends CoreAdmin
                 ->leftJoin($ra . '.positions', 'positions')
             ;
 
-        $user = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
+        $user = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();
         if ( $user->hasRole('ROLE_SUPER_ADMIN') )
             return $query;
 
@@ -92,9 +96,9 @@ class CircleAdmin extends CoreAdmin
         parent::configureShowFields($mapper);
         
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if ( !$config['Circle']['allow_organisms'] )
+        if ( !$config['Circle']['allow_organizations'] )
             $mapper->remove('organismsCount');
-        if ( !$config['Circle']['allow_contacts'] )
+        if ( !$config['Circle']['allow_individuals'] )
             $mapper->remove('contactsCount');
         if ( !$config['Circle']['allow_positions'] )
             $mapper->remove('positionsCount');
@@ -108,9 +112,9 @@ class CircleAdmin extends CoreAdmin
         parent::configureListFields($mapper);
 
         $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
-        if ( !$config['Circle']['allow_organisms'] )
+        if ( !$config['Circle']['allow_organizations'] )
             $mapper->remove('organismsCount');
-        if ( !$config['Circle']['allow_contacts'] )
+        if ( !$config['Circle']['allow_individuals'] )
             $mapper->remove('contactsCount');
         if ( !$config['Circle']['allow_positions'] )
             $mapper->remove('positionsCount');

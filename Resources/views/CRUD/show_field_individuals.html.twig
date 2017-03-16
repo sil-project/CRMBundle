@@ -1,0 +1,52 @@
+
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{#
+
+TODO: refactor this. We should be able to embed related admins in show views
+TODO: put each individual in its own box (pseudo groups)
+
+#}
+
+{% block field %}
+    {% set elems = field_description.associationadmin.show.elements %}
+    {% set organism_admin = elems['individual'].associationadmin %}
+    {% set individual_elems = organism_admin.show.elements %}
+
+    <div class="blast-show-collection">
+        {% for position in value %}
+            <div class="box box-primary">
+                <table class="table li-crm-position blast-show-collection-element">
+                    <tbody>
+                        <tr class="sonata-ba-view-container">
+                            <th colspan="2">
+                                {% block individual %}
+                                    {% if organism_admin.isGranted('SHOW') %}
+                                        <a href="{{ organism_admin.generateObjectUrl('show', position.individual) }}">{{ position.individual|render_relation_element(elems['individual']) }}</a>
+                                    {% else %}
+                                        {{ position.individual|render_relation_element(elems['individual']) }}
+                                    {% endif %}
+                                {% endblock %}
+                            </th>
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ elems['department']|render_view_element(position) }}
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ elems['positionType.name']|render_view_element(position) }}
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ elems['label']|render_view_element(position) }}
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ elems['email']|render_view_element(position) }}
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ elems['description']|render_view_element(position) }}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

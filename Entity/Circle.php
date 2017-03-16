@@ -57,11 +57,6 @@ class Circle
     /**
      * @var Collection
      */
-    private $contacts;
-
-    /**
-     * @var Collection
-     */
     private $organisms;
 
     /**
@@ -71,7 +66,6 @@ class Circle
 
     public function __construct()
     {
-        $this->contacts = new ArrayCollection();
         $this->organisms = new ArrayCollection();
         $this->positions = new ArrayCollection();
     }
@@ -170,35 +164,6 @@ class Circle
     public function isEditable()
     {
         return $this->editable;
-    }
-
-    /**
-     * @param Contact $contact
-     * @return Circle
-     */
-    public function addContact(Contact $contact)
-    {
-        $contact->addCircle($this); // synchronously updating inverse side
-        $this->contacts->add($contact);
-        return $this;
-    }
-
-    /**
-     * @param Contact $contact
-     * @return Circle
-     */
-    public function removeContact(Contact $contact)
-    {
-        $this->contacts->removeElement($contact);
-        return $this;
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getContacts()
-    {
-        return $this->contacts;
     }
 
     /**

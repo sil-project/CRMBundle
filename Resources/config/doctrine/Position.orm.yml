@@ -10,21 +10,21 @@ Librinfo\CRMBundle\Entity\Position:
             length: 255
             nullable: true
     manyToOne:
-        contact:
-            targetEntity: Librinfo\CRMBundle\Entity\Contact
-            inversedBy: positions
+        individual:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            inversedBy: organizations
             joinColumn:
-                name: contact_id
+                name: individual_id
                 referencedColumnName: id
                 nullable: false
             cascade:
                 - persist
             orphanRemoval: true
-        organism:
+        organization:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
-            inversedBy: positions
+            inversedBy: individuals
             joinColumn:
-                name: organism_id
+                name: organization_id
                 referencedColumnName: id
                 nullable: false
             cascade:

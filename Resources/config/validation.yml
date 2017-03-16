@@ -1,6 +1,6 @@
-Librinfo\CRMBundle\Entity\Contact:
-    constraints:
-        - Callback: [validateName]
+#Librinfo\CRMBundle\Entity\Contact:
+#    constraints:
+#        - Callback: [validateName]
 
 Librinfo\CRMBundle\Entity\Organism:
     properties:
@@ -12,5 +12,5 @@ Librinfo\CRMBundle\Entity\Organism:
 
 Librinfo\CRMBundle\Entity\Position:
     properties:
-        contact:
+        individual:
             - Valid: ~

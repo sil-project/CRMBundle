@@ -36,13 +36,12 @@ Librinfo\CRMBundle\Entity\Address:
             default: true
 
     manyToOne:
-        contact:
-            targetEntity: Librinfo\CRMBundle\Entity\Contact
+        organism:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: addresses
             joinColumn:
-                name: contact_id
+                name: organism_id
                 referencedColumnName: id
                 nullable: true
-                onDelete: CASCADE
-            cascade: [ persist, remove ]
-
+                onDelete: SET NULL
+#            cascade: [ persist]

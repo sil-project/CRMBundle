@@ -21,9 +21,6 @@ Librinfo\CRMBundle\Entity\Circle:
         positions:
             targetEntity: Librinfo\CRMBundle\Entity\Position
             mappedBy: circles
-        contacts:
-            targetEntity: Librinfo\CRMBundle\Entity\Contact
-            mappedBy: circles
         organisms:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             mappedBy: circles

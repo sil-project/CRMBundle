@@ -8,9 +8,9 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 /**
- * ContactGroup
+ * OrganismGroup
  */
-class ContactGroup
+class OrganismGroup
 {
     use BaseEntity,
         Nameable

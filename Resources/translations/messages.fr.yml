@@ -32,17 +32,28 @@ form_group_individual: Type de tiers
 form_group_main_address: Adresse principale
 form_group_members: Membres
 form_group_organism: Tiers
+form_group_default_address: Addresse principale
 form_group_other_addresses: Autres adresses
-form_group_phones: Numéros de téléphone
+form_group_default_phone: Numéro principal
+form_group_phones: Autres numéros de téléphone
 form_group_position: Fonction
-form_group_positions: Fonctions
+form_tab_individuals: Individus
+form_tab_organizations: Organisations
 form_group_sales: Ventes
 form_group_ticketing: Billetterie
+form_tab_phones: Numéros de téléphone
 form_tab_address_book: Carnet d'adresses
 form_tab_history.form_group_history: Historique
 form_tab_info: Renseignements divers
 form_tab_organisms: Tiers
 form_tab_organisms_description: Liste des Tiers auxquels appartient le Contact
+form_tab_position.form_group_general: 'Fonction'
+show_tab_phones: Numéros de téléphone
+show_tab_addresses: Carnet d'adresses
+show_tab_individuals: Individus
+show_tab_organizations: Organisations
+show_tab_info: Renseignements divers
+show_group_administrative: Administratif
 
 librinfo:
     crm:
@@ -80,6 +91,7 @@ librinfo:
     label:
         active: 'Actif'
         administrative_number: 'Numéro administratif'
+        addresses: 'Adresses'
         alert: 'Alerte'
         catalogue_send_mean: 'Méthode d''envoi'
         catalogue_sent: 'Catalogue envoyé'
@@ -106,6 +118,7 @@ librinfo:
         first_catalogue_sent_date: 'Date premier envoi catalogue'
         first_name: Prénom
         firstname: 'Prénom'
+        lastname: 'Nom de famille'
         flash_on_control: 'S''affiche au contrôle'
         fulltext_address: 'Adresse du contact'
         fulltext_name: 'Nom'
@@ -151,6 +164,11 @@ librinfo:
         validate_vat: 'Vérifier le n° TVA'
         validating_vat: 'Vérification en cours...'
         vat: 'N° TVA'
+        tree_parent: 'Catégorie parente'
+        set_default_address: 'Adresse principale'
+        set_default_phone: 'Principal'
+        individual: 'Individu'
+        organization: 'Organisation'
     link:
         category_list: 'Liste des catégories de tiers'
         circle_list: 'Liste des groupes'

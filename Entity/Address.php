@@ -16,7 +16,6 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Address
@@ -89,16 +88,6 @@ class Address implements AddressExtensionInterface, VCardableInterface
      * @var \Librinfo\CRMBundle\Entity\Organism
      */
     private $organism;
-
-    /**
-     * @var \Librinfo\CRMBundle\Entity\Contact
-     */
-    private $contact;
-
-    public function __construct()
-    {
-        $this->addresses = new ArrayCollection();
-    }
 
     public function __toString()
     {
@@ -378,29 +367,6 @@ class Address implements AddressExtensionInterface, VCardableInterface
     public function getOrganism()
     {
         return $this->organism;
-    }
-
-    /**
-     * Set contact
-     *
-     * @param \Librinfo\CRMBundle\Entity\Contact $contact
-     * @return Address
-     */
-    public function setContact(\Librinfo\CRMBundle\Entity\Contact $contact = null)
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return \Librinfo\CRMBundle\Entity\Contact
-     */
-    public function getContact()
-    {
-        return $this->contact;
     }
 
     public function isPersonal()

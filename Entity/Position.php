@@ -47,14 +47,14 @@ class Position implements VCardableInterface
     private $department;
 
     /**
-     * @var Contact
+     * @var \Librinfo\CRMBundle\Entity\Organism
      */
-    private $contact;
+    private $individual;
 
     /**
-     * @var Organism
+     * @var \Librinfo\CRMBundle\Entity\Organism
      */
-    private $organism;
+    private $organization;
 
     /**
      * @var PositionType
@@ -115,30 +115,6 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set contact
-     *
-     * @param string $contact
-     *
-     * @return Position
-     */
-    public function setContact($contact)
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return string
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
-
-    /**
      * Set organism
      *
      * @param string $organism
@@ -185,13 +161,61 @@ class Position implements VCardableInterface
     {
         return $this->positionType;
     }
+    
+    /**
+     * Set individual
+     *
+     * @param \Librinfo\CRMBundle\Entity\Organism $individual
+     *
+     * @return Position
+     */
+    public function setIndividual(\Librinfo\CRMBundle\Entity\Organism $individual)
+    {
+        $this->individual = $individual;
+
+        return $this;
+    }
+
+    /**
+     * Get individual
+     *
+     * @return \Librinfo\CRMBundle\Entity\Organism
+     */
+    public function getIndividual()
+    {
+        return $this->individual;
+    }
+
+    /**
+     * Set organization
+     *
+     * @param \Librinfo\CRMBundle\Entity\Organism $organization
+     *
+     * @return Position
+     */
+    public function setOrganization(\Librinfo\CRMBundle\Entity\Organism $organization)
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @return \Librinfo\CRMBundle\Entity\Organism
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
+    }
 
     /**
      * @return string
      **/
     public function __toString()
     {
-        return $this->label ? $this->getLabel() : (string)$this->getPositionType();
+       (string) $this->getPositionType();
     }
 
     public function isPersonal()
@@ -200,24 +224,24 @@ class Position implements VCardableInterface
     }
 
     /**
-     * description of the position from the contact point of view
+     * description of the position from the individual point of view
      * @return string
      */
     public function getContactDescription()
     {
-        $desc = (string)$this->organism;
+        $desc = (string)$this->organization;
         if ( (string)$this )
             $desc .= " (" . (string)$this . ")";
         return $desc;
     }
 
     /**
-     * description of the position from the organism point of view
+     * description of the position from the organization point of view
      * @return string
      */
     public function getOrganismDescription()
     {
-        $desc = (string)$this->contact;
+        $desc = (string)$this->individual;
         if ( (string)$this )
             $desc .= " (" . (string)$this . ")";
         return $desc;

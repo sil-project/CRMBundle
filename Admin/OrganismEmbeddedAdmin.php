@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ContactEmbeddedAdmin extends CoreAdmin
+class OrganismEmbeddedAdmin extends CoreAdmin
 {
     protected $baseRouteName = 'admin_vendor_bundlename_adminclassname';
     protected $baseRoutePattern = 'unique-route-pattern';
@@ -33,17 +33,17 @@ class ContactEmbeddedAdmin extends CoreAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'blast_custom_choice', [
+            ->add('title', 'Blast\UtilsBundle\Form\Type\CustomChoiceType', [
                 'blast_choices' => ['Mr', 'Mrs'],
                 'choices_field' => 'contact.title',
                 'required' => false,
             ])
             ->add('firstname')
             ->add('name', 'text', ['required' => false])
-            ->add('address', 'textarea', ['required' => false])
-            ->add('zip', 'librinfo_zip_city', ['required' => false])
-            ->add('city', 'librinfo_zip_city', ['required' => false])
-            ->add('country', 'country', ['required' => false])
+//            ->add('address', 'textarea', ['required' => false])
+//            ->add('zip', 'librinfo_zip_city', ['required' => false])
+//            ->add('city', 'librinfo_zip_city', ['required' => false])
+//            ->add('country', 'country', ['required' => false])
         ;
     }
 
