@@ -805,8 +805,11 @@ parameters:
                         form_group_communication:
                             vcard_uid:
                                 type: text
+<<<<<<< HEAD
                                 attr:
                                     readonly: true
+=======
+>>>>>>> b6081130b1129d10ec006b89449e67362876f327
                                 disabled: true
                                 required: false
         ### ContactSearchIndex  ###

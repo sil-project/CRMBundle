@@ -3,6 +3,7 @@
 namespace Librinfo\CRMBundle\Admin;
 
 use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\UtilsBundle\Form\Type\CustomChoiceType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -33,17 +34,13 @@ class OrganismEmbeddedAdmin extends CoreAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'Blast\UtilsBundle\Form\Type\CustomChoiceType', [
+            ->add('title', CustomChoiceType::class, [
                 'blast_choices' => ['Mr', 'Mrs'],
                 'choices_field' => 'contact.title',
                 'required' => false,
             ])
             ->add('firstname')
             ->add('name', 'text', ['required' => false])
-//            ->add('address', 'textarea', ['required' => false])
-//            ->add('zip', 'librinfo_zip_city', ['required' => false])
-//            ->add('city', 'librinfo_zip_city', ['required' => false])
-//            ->add('country', 'country', ['required' => false])
         ;
     }
 
