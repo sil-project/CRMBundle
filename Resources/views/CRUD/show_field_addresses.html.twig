@@ -1,0 +1,54 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% set address_admin = field_description.admin.show.elements.addresses.associationadmin %}
+{% set fields = address_admin.show.elements %}
+
+{% block field %}
+    <div class="blast-show-collection">
+        {% for address in value %}
+            <div class="box box-primary">
+                <table class="table li-crm-address blast-show-collection-element">
+                    <tbody>
+                    {% if address.id == object.defaultAddress.id %}
+                        <div class="blast-table-label">
+                            <span class="label label-info">{{ 'librinfo.label.default_address'|trans() }}</span>
+                        </div>    
+                    {% endif %}
+                    <tr class="sonata-ba-view-container">
+                        <th colspan="2">
+                            {% block address %}
+                                {% if address_admin.isGranted('SHOW') %}
+                                    <a href="{{ address_admin.generateObjectUrl('show', address) }}">{{ address|render_relation_element(fields['firstName']) }}</a>
+                                {% else %}
+                                    {{ address|render_relation_element(elements['addresses']) }}
+                                {% endif %}
+                            {% endblock %}
+                        </th>
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['firstName']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['lastName']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['street']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['city']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['postCode']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['country']|render_view_element(address) }}
+                    </tr>
+                    <tr class="sonata-ba-view-container">
+                        {{ fields['npai']|render_view_element(address) }}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

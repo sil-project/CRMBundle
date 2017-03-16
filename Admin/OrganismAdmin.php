@@ -14,14 +14,12 @@ use Blast\CoreBundle\Admin\CoreAdmin;
 use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Librinfo\CRMBundle\Entity\Organism;
-//use Librinfo\CRMBundle\Entity\Contact;
-//use Librinfo\CRMBundle\Entity\ContactPhone;
-//use Librinfo\CRMBundle\Entity\Position;
 use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 use Librinfo\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\CoreBundle\Validator\ErrorElement;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 class OrganismAdmin extends CoreAdmin
 {
@@ -33,6 +31,8 @@ class OrganismAdmin extends CoreAdmin
 
         // xxxxxxxAction in CRUD controller
         $collection->add('validateVat');
+        $collection->add('set_default_address', 'set-default-address/{organismId}/{addressId}');
+        $collection->add('set_default_phone', 'set-default-phone/{organismId}/{phoneId}');
     }
 
     /**
@@ -42,77 +42,78 @@ class OrganismAdmin extends CoreAdmin
     {
         $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
         $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
+        
+        $subject = $this->getSubject();
+        
+        if( $subject->getId() )
+        {
+            if( $subject->isIndividual() )
+            {
+                $mapper->remove('name');
+                $mapper->remove('individuals');
+                $this->renameFormTab('form_tab_individuals', 'form_tab_organizations');
+            }else
+            {
+                $mapper->remove('title');
+                $mapper->remove('firstname');
+                $mapper->remove('lastname');
+                $mapper->remove('organizations'); 
+            }
+        }
+    }
+    
+    /**
+     * 
+     * @param ShowMapper $mapper
+     */
+    protected function postConfigureShowFields(ShowMapper $mapper)
+    {
+        $subject = $this->getSubject();
+        
+        if( $subject )
+        {
+            if( $subject->isIndividual() )
+            {
+                $mapper->remove('name');
+                $mapper->remove('individuals');
+                $this->renameShowTab('show_tab_individuals', 'show_tab_organizations');
+            }else
+            {
+                $mapper->remove('title');
+                $mapper->remove('firstname');
+                $mapper->remove('lastname');
+                $mapper->remove('organizations'); 
+            }
+        }
     }
 
     public function preUpdate($object)
     {
         parent::preUpdate($object);
-
+        $this->handlePositions($object);
     }
-
+    
     public function prePersist($object)
     {
         parent::prePersist($object);
-
-        if ( $object->isIndividual() )
-        {
-            // TODO: different rules for organism name creation in config (eg. "Firstname NAME" or "Name, Firstname"...)
-            $firstname = mb_convert_case($this->getForm()->get('firstname')->getNormData(), MB_CASE_TITLE);
-            $name = mb_strtoupper($this->getForm()->get('name')->getNormData());
-            $object->setName($firstname . " " . $name);
-        }
+        $this->handlePositions($object);
     }
-
-    /**
-     * @param Organism $organism
-     */
-//    public function postPersist($organism)
-//    {
-//        parent::postPersist($organism);
-//
-//        if ( $organism->isIndividual() )
-//        {
-//            // Create a new Contact & Position associated to the organism
-//            $title = $this->getForm()->get('title')->getNormData();
-//            $firstname = $this->getForm()->get('firstname')->getNormData();
-//            $name = $this->getForm()->get('name')->getNormData();
-//            $contact = new Contact;
-//            $contact->setTitle($title);
-//            $contact->setFirstname($firstname);
-//            $contact->setName($name);
-//            $contact->setEmail($organism->getEmail());
-//            $contact->setAddress($organism->getAddress());
-//            $contact->setZip($organism->getZip());
-//            $contact->setCity($organism->getCity());
-//            $contact->setCountry($organism->getCountry());
-//            $this->getModelManager()->create($contact);
-//
-//            foreach($organism->getPhones() as $oPhone)
-//            {
-//                $cPhone = new ContactPhone;
-//                $cPhone->setPhoneType($oPhone->getPhoneType());
-//                $cPhone->setNumber($oPhone->getNumber());
-//                $cPhone->setContact($contact);
-//                $this->getModelManager()->create($cPhone);
-//            }
-//
-//            $position = new Position;
-//            $position->setOrganism($organism);
-//            $position->setContact($contact);
-//            $position->setEmail($organism->getEmail());
-//            $this->getModelManager()->create($position);
-//        }
-//    }
 
     /**
      * @param Organism $organism
      */
     public function preRemove($organism)
     {
-        foreach($organism->getPositions() as $position)
+        foreach($organism->getIndividuals() as $position)
+            $this->getModelManager()->delete($position);
+        
+        foreach($organism->getOrganizations() as $position)
             $this->getModelManager()->delete($position);
 
         foreach($organism->getPhones() as $phone)
+            $this->getModelManager()->delete($phone);
+        
+        foreach($organism->getAddresses() as $phone)
             $this->getModelManager()->delete($phone);
 
         parent::preRemove($organism);
@@ -264,6 +265,22 @@ class OrganismAdmin extends CoreAdmin
             ->setParameter('firstname', $search)
             ->setParameter('name', $search)
         ;
+        
         return true;
+    }
+    
+    private function handlePositions($object)
+    {
+        if($object->isIndividual())
+        {
+            if( $object->getOrganizations()->count() > 0 )
+                foreach( $object->getOrganizations() as $org )
+                    $org->setIndividual($object);
+        }else
+        {
+            if( $object->getIndividuals()->count() > 0 )
+                foreach($object->getIndividuals() as $ind)
+                    $ind->setOrganization($object);
+        }
     }
 }

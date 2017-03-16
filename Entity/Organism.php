@@ -12,7 +12,7 @@ namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtensionInterface;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
@@ -24,6 +24,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
+use Librinfo\CRMBundle\Entity\Address;
+use Librinfo\CRMBundle\Entity\Phone;
 
 /**
  * Organism
@@ -32,8 +34,8 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
 {
     use BaseEntity,
         OuterExtensible,
+        Nameable,
         Timestampable,
-        Addressable,
         Emailable,
         Positionable,
         Circlable,
@@ -43,6 +45,41 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
         OrganismExtension
     ;
     
+    /**
+     * @var string
+     */
+    private $firstname;
+    
+    /**
+     * @var string
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     */
+    private $shortname;
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $flashOnControl;
+
+    /**
+     * @var boolean
+     */
+    private $familyContact;
+
+    /**
+     * @var string
+     */
+    private $culture;
+
     /**
      * @var string
      */
@@ -134,16 +171,42 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     private $source;
 
     /**
-     * @var Collection
+     * @var Phone
+     */
+    private $defaultPhone;
+    
+    /**
+     * @var Collection|Phone[]
      */
     private $phones;
+    
+    /**
+     * @var Address
+     */
+    protected $defaultAddress;
+    /**
+     * @var Collection|Address[]
+     */
+    protected $addresses;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $individuals;
 
-    public function initContact()
-    {
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $organizations;
+    
+
+    public function initOrganism()
+    {    
         $this->active = true;
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
         $this->initOuterExtendedClasses();
     }
 
@@ -152,14 +215,191 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      */
     public function __construct()
     {
-        $this->initcontact();
+        $this->initOrganism();
     }
     
     // implementation of __clone for duplication
     public function __clone()
     {
         $this->id = null;
-        $this->initContact();
+        $this->initOrganism();
+    }
+    
+    public function __toString()
+    {
+        return sprintf(
+            '%s %s',
+            $this->getFirstname(),
+            $this->getName()
+        );
+    }
+    
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Contact
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+    
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Contact
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set shortname
+     *
+     * @param string $shortname
+     *
+     * @return Contact
+     */
+    public function setShortname($shortname)
+    {
+        $this->shortname = $shortname;
+
+        return $this;
+    }
+
+    /**
+     * Get shortname
+     *
+     * @return string
+     */
+    public function getShortname()
+    {
+        return $this->shortname;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Contact
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set flashOnControl
+     *
+     * @param string $flashOnControl
+     *
+     * @return Contact
+     */
+    public function setFlashOnControl($flashOnControl)
+    {
+        $this->flashOnControl = $flashOnControl;
+
+        return $this;
+    }
+
+    /**
+     * Get flashOnControl
+     *
+     * @return string
+     */
+    public function getFlashOnControl()
+    {
+        return $this->flashOnControl;
+    }
+
+    /**
+     * Set familyContact
+     *
+     * @param boolean $familyContact
+     *
+     * @return Contact
+     */
+    public function setFamilyContact($familyContact)
+    {
+        $this->familyContact = $familyContact;
+
+        return $this;
+    }
+
+    /**
+     * Get familyContact
+     *
+     * @return boolean
+     */
+    public function getFamilyContact()
+    {
+        return $this->familyContact;
+    }
+
+    /**
+     * Set culture
+     *
+     * @param string $culture
+     *
+     * @return Contact
+     */
+    public function setCulture($culture)
+    {
+        $this->culture = $culture;
+
+        return $this;
+    }
+
+    /**
+     * Get culture
+     *
+     * @return string
+     */
+    public function getCulture()
+    {
+        return $this->culture;
     }
 
     /**
@@ -634,39 +874,229 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->source;
     }
-
+    
     /**
-     * @return Collection
+     * {@inheritdoc}
+     */
+    public function getDefaultPhone()
+    {
+        return $this->defaultPhone;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaultPhone(Phone $defaultPhone = null)
+    {
+        $this->defaultPhone = $defaultPhone;
+        if (null !== $defaultPhone) {
+            $this->addPhone($defaultPhone);
+        }
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function addPhone(Phone $phone)
+    {
+        if (!$this->hasPhone($phone)) {
+            $this->phones->add($phone);
+            
+            if(!$this->getDefaultPhone())
+                $this->setDefaultPhone($phone);
+        }
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function removePhone(Phone $phone)
+    {
+        $this->phones->removeElement($phone);
+        
+        if( $phone->getId() == $this->defaultPhone->getId())
+        {
+            if( $this->phones->count() > 0 )
+                $this->defaultPhone = $this->phones[0];
+            else
+                $this->defaultPhone = null;
+        }
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function hasPhone(Phone $phone)
+    {
+        return $this->phones->contains($phone);
+    }
+    
+    /**
+     * {@inheritdoc}
      */
     public function getPhones()
     {
         return $this->phones;
     }
-
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getDefaultAddress()
+    {
+        return $this->defaultAddress;
+    }
 
     /**
-     * @param OrganismPhone $phone
+     * {@inheritdoc}
+     */
+    public function setDefaultAddress(Address $defaultAddress = null)
+    {
+        $this->defaultAddress = $defaultAddress;
+        
+        if (null !== $defaultAddress) 
+            $this->addAddress($defaultAddress);
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function addAddress(Address $address)
+    {
+        if (!$this->hasAddress($address)) 
+        {
+            $this->addresses->add($address);
+            
+            if(!$this->getDefaultAddress())
+                $this->setDefaultAddress($address);
+        }
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function removeAddress(Address $address)
+    {
+        $this->addresses->removeElement($address);
+
+        if( $address->getId() == $this->defaultAddress->getId())
+        {
+            if( $this->addresses->count() > 0 )
+                $this->defaultAddress = $this->addresses[0];
+            else
+                $this->defaultAddress = null;
+        }
+        
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function hasAddress(Address $address)
+    {
+        return $this->addresses->contains($address);
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+    
+    /**
+     * Add individual
+     *
+     * @param \Librinfo\CRMBundle\Entity\Position $individual
+     *
      * @return Organism
      */
-    public function addPhone(OrganismPhone $phone)
+    public function addIndividual(\Librinfo\CRMBundle\Entity\Position $individual)
     {
-        $phone->setOrganism($this);
-        $this->phones->add($phone);
+        $this->individuals[] = $individual;
+
         return $this;
     }
 
     /**
-     * @param OrganismPhone $phone
+     * Remove individual
+     *
+     * @param \Librinfo\CRMBundle\Entity\Position $individual
+     */
+    public function removeIndividual(\Librinfo\CRMBundle\Entity\Position $individual)
+    {
+        $this->individuals->removeElement($individual);
+    }
+
+    /**
+     * Get individuals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIndividuals()
+    {
+        return $this->individuals;
+    }
+
+    /**
+     * Add organization
+     *
+     * @param \Librinfo\CRMBundle\Entity\Position $organization
+     *
      * @return Organism
      */
-    public function removePhone(OrganismPhone $phone)
+    public function addOrganization(\Librinfo\CRMBundle\Entity\Position $organization)
     {
-        $this->phones->removeElement($phone);
+        $this->organizations[] = $organization;
+
         return $this;
+    }
+
+    /**
+     * Remove organization
+     *
+     * @param \Librinfo\CRMBundle\Entity\Position $organization
+     */
+    public function removeOrganization(\Librinfo\CRMBundle\Entity\Position $organization)
+    {
+        $this->organizations->removeElement($organization);
+    }
+
+    /**
+     * Get organizations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrganizations()
+    {
+        return $this->organizations;
     }
 
     public function isPersonal()
     {
         return false;
     }
+    
+    /**
+     * ex. "Mr John DOE"
+     * @return string
+     */
+    public function getFulltextName()
+    {
+        return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoupper($this->getName()));
+    }
+
+//    public function validateName(ExecutionContextInterface $context)
+//    {
+//        // check if name or firstname are filled
+//        if ( empty(trim($this->getName()) . trim($this->getFirstname())) ) {
+//            $context->buildViolation('librinfo.error.provide_name_or_firstname')
+//                ->atPath('name')
+//                ->addViolation();
+//            $context->buildViolation('librinfo.error.provide_name_or_firstname')
+//                ->atPath('firstname')
+//                ->addViolation();
+//        }
+//    }
 }

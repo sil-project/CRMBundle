@@ -1,0 +1,41 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% set phone_admin = field_description.admin.show.elements.phones.associationadmin %}
+{% set fields = phone_admin.show.elements %}
+
+{% block field %}
+    <div class="blast-show-collection">
+        {% for phone in value %}
+            <div class="box box-primary">
+                {% if phone.id == object.defaultPhone.id %}
+                    <div class="blast-table-label">
+                        <span class="label label-info">
+                            {{ 'librinfo.label.default_phone'|trans() }}
+                        </span>
+                    </div>    
+                {% endif %}
+                <table class="table li-crm-phone blast-show-collection-element">
+                    <tbody>
+                        <tr class="sonata-ba-view-container">
+                            <th colspan="2">
+                                {% block phone %}
+                                    {% if phone_admin.isGranted('SHOW') %}
+                                        <a href="{{ phone_admin.generateObjectUrl('show', phone) }}">{{ phone|render_relation_element(fields['number']) }}</a>
+                                    {% else %}
+                                        {{ phone|render_relation_element(elements['phones']) }}
+                                    {% endif %}
+                                {% endblock %}
+                            </th>
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ fields['phoneType']|render_view_element(phone) }}
+                        </tr>
+                        <tr class="sonata-ba-view-container">
+                            {{ fields['number']|render_view_element(phone) }}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

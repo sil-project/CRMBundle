@@ -1,22 +1,34 @@
 
-$(document).ready(function(){
-    
-    var formDataElement = $('.js-data#organism-form');
+$(document).ready(function() {
+    var formDataElement = $('.js-data#organism-form-data');
     var prefix = formDataElement.data('unique-id') + '_';
     
     // ********** Individual / Collective
 
     function toggleIndividual(){
         var individual = $('#' + prefix + 'isIndividual_1');
-        if( individual.prop('checked') ) {
-            individual.closest('ul').next('.help-block').show();
-            $('#sonata-ba-field-container-' + prefix + 'title').show();
-            $('#sonata-ba-field-container-' + prefix + 'firstname').show();
-        }
-        else {
-            individual.closest('ul').next('.help-block').hide();
-            $('#sonata-ba-field-container-' + prefix + 'title').hide();
-            $('#sonata-ba-field-container-' + prefix + 'firstname').hide();
+
+        if(individual.length) {
+            if( individual.prop('checked') ) {
+                $('#' + prefix + 'title').prop('disabled', false);
+                $('#sonata-ba-field-container-' + prefix + 'title').show();
+                $('#' + prefix + 'firstname').prop('disabled', false);
+                $('#sonata-ba-field-container-' + prefix + 'firstname').show();
+                $('#' + prefix + 'lastname').prop('disabled', false);
+                $('#sonata-ba-field-container-' + prefix + 'lastname').show();
+                $('#sonata-ba-field-container-' + prefix + 'name').hide();
+                $('#' + prefix + 'name').prop('disabled', true);
+            }
+            else {
+                $('#sonata-ba-field-container-' + prefix + 'title').hide();
+                $('#' + prefix + 'title').prop('disabled', true);
+                $('#sonata-ba-field-container-' + prefix + 'firstname').hide();
+                $('#' + prefix + 'firstname').prop('disabled', true);
+                $('#sonata-ba-field-container-' + prefix + 'lastname').hide();
+                $('#' + prefix + 'lastname').prop('disabled', true);
+                $('#' + prefix + 'name').prop('disabled', false);
+                $('#sonata-ba-field-container-' + prefix + 'name').show();
+            }
         }
     }
 

@@ -7,11 +7,12 @@ use Librinfo\CRMBundle\Entity\Organism;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sparkling\VATBundle\Exception\InvalidCountryCodeException;
 use Sparkling\VATBundle\Exception\VATException;
 
 class OrganismAdminController extends CRUDController
-{
+{   
     /**
      * generate a customerCode
      */
@@ -74,5 +75,37 @@ class OrganismAdminController extends CRUDController
     {
         if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
             throw new NotFoundHttpException();
+    }
+    
+    public function setDefaultAddressAction($organismId, $addressId)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
+        $address = $manager->getRepository('LibrinfoCRMBundle:Address')->find($addressId);
+        
+        if($organism->hasAddress($address))
+        {
+            $organism->setDefaultAddress($address);
+            $manager->persist($organism);
+            $manager->flush();
+        }
+        
+        return new RedirectResponse($this->get('librinfo_crm.admin.organism')->generateObjectUrl('edit', $organism));
+    }
+    
+    public function setDefaultPhoneAction($organismId, $phoneId)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
+        $phone = $manager->getRepository('LibrinfoCRMBundle:OrganismPhone')->find($phoneId);
+        
+        if($organism->hasPhone($phone))
+        {
+            $organism->setDefaultPhone($phone);
+            $manager->persist($organism);
+            $manager->flush();
+        }
+        
+        return new RedirectResponse($this->get('librinfo_crm.admin.organism')->generateObjectUrl('edit', $organism));
     }
 }

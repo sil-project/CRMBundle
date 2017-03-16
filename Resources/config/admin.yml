@@ -1,27 +1,41 @@
 services:
-    librinfo_crm.admin.contact:
-        class: Librinfo\CRMBundle\Admin\ContactAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Contact, BlastCoreBundle:CRUD]
-        tags:
-            -   name: sonata.admin
-                manager_type: orm
-                group: Customers Relationship Management
-                label: librinfo.crm.contact_admin.label
-                label_translator_strategy: blast_core.label.strategy.librinfo
-        calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:ContactAdmin:edit.html.twig]]
-
-
-    librinfo_crm.admin.contact_embedded:
-        class: Librinfo\CRMBundle\Admin\ContactEmbeddedAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Contact, BlastCoreBundle:CRUD]
+    
+    librinfo_crm.admin.organism_embedded:
+        class: Librinfo\CRMBundle\Admin\OrganismEmbeddedAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: admin
-              label: librinfo.crm.contact_embedded_admin.label
+              label: librinfo.crm.organism_embedded_admin.label
               label_translator_strategy: blast_core.label.strategy.librinfo
 
+    librinfo_crm.admin.individual:
+        class: Librinfo\CRMBundle\Admin\IndividualAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.organism_admin.label
+                label_translator_strategy: blast_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            
+    librinfo_crm.admin.organization:
+        class: Librinfo\CRMBundle\Admin\OrganizationAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.crm.organism_admin.label
+                label_translator_strategy: blast_core.label.strategy.librinfo
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            
     librinfo_crm.admin.organism:
         class: Librinfo\CRMBundle\Admin\OrganismAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
@@ -79,17 +93,17 @@ services:
                 label: librinfo.crm.role_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    librinfo_crm.admin.contactgroup:
-        class: Librinfo\CRMBundle\Admin\ContactGroupAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\ContactGroup, BlastCoreBundle:CRUD]
+    librinfo_crm.admin.organism_group:
+        class: Librinfo\CRMBundle\Admin\OrganismGroupAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\OrganismGroup, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
-                label: librinfo.crm.contact_group_admin.label
+                label: librinfo.crm.organism_group_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
 
-    librinfo_crm.admin.contactphone:
+    librinfo_crm.admin.contact_phone:
         class: Librinfo\CRMBundle\Admin\ContactPhoneAdmin
         arguments: [~, Librinfo\CRMBundle\Entity\ContactPhone, BlastCoreBundle:CRUD]
         tags:
@@ -148,15 +162,6 @@ services:
                 group: Customers Relationship Management
                 label: librinfo.crm.city_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
-
-    librinfo_crm.admin.contact_search_index:
-        class: Librinfo\CRMBundle\Admin\ContactSearchIndexAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\ContactSearchIndex, BlastCoreBundle:CRUD]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: ContactSearchIndex
 
     librinfo_crm.admin.address:
         class: Librinfo\CRMBundle\Admin\AddressAdmin

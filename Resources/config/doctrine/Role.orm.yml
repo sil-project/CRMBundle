@@ -3,6 +3,6 @@ Librinfo\CRMBundle\Entity\Role:
     fields: ~
     manyToMany:
         contactGroups:
-            targetEntity: Librinfo\CRMBundle\Entity\ContactGroup
+            targetEntity: Librinfo\CRMBundle\Entity\OrganismGroup
             mappedBy: roles
 

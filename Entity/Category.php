@@ -30,7 +30,7 @@ class Category
      */
     public function __construct()
     {
-        //init NesteTreeable trreeChildren Collection
+        //init NesteTreeable treeChildren Collection
         $this->initCollections();
         $this->organisms = new ArrayCollection();
     }

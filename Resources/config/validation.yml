@@ -12,5 +12,5 @@ Librinfo\CRMBundle\Entity\Organism:
 
 Librinfo\CRMBundle\Entity\Position:
     properties:
-        contact:
+        individual:
             - Valid: ~
