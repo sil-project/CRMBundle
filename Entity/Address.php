@@ -11,7 +11,6 @@
 namespace Librinfo\CRMBundle\Entity;
 
 use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\AddressExtension;
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\AddressExtensionInterface;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
@@ -20,7 +19,7 @@ use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 /**
  * Address
  */
-class Address implements AddressExtensionInterface, VCardableInterface
+class Address implements AddressInterface, VCardableInterface
 {
     use BaseEntity,
         OuterExtensible,

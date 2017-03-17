@@ -24,8 +24,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
-use Librinfo\CRMBundle\Entity\Address;
-use Librinfo\CRMBundle\Entity\Phone;
 
 /**
  * Organism
@@ -44,12 +42,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
         Loggable,
         OrganismExtension
     ;
-    
+
     /**
      * @var string
      */
     private $firstname;
-    
+
     /**
      * @var string
      */
@@ -139,7 +137,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @var string
      */
     private $alert;
-    
+
     /**
      * @var boolean
      */
@@ -164,7 +162,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @ var string
      */
     private $catalogue_send_mean;
-    
+
     /**
      * @var string
      */
@@ -174,21 +172,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @var Phone
      */
     private $defaultPhone;
-    
+
     /**
      * @var Collection|Phone[]
      */
     private $phones;
-    
-    /**
-     * @var Address
-     */
-    protected $defaultAddress;
-    /**
-     * @var Collection|Address[]
-     */
-    protected $addresses;
-    
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -198,10 +187,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @var \Doctrine\Common\Collections\Collection
      */
     private $organizations;
-    
+
 
     public function initOrganism()
-    {    
+    {
         $this->active = true;
         $this->circles = new ArrayCollection();
         $this->positions = new ArrayCollection();
@@ -217,14 +206,14 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         $this->initOrganism();
     }
-    
+
     // implementation of __clone for duplication
     public function __clone()
     {
         $this->id = null;
         $this->initOrganism();
     }
-    
+
     public function __toString()
     {
         return sprintf(
@@ -233,7 +222,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
             $this->getName()
         );
     }
-    
+
     /**
      * Set firstname
      *
@@ -257,7 +246,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->firstname;
     }
-    
+
     /**
      * Set lastname
      *
@@ -510,7 +499,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get isIndividual
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsIndividual()
     {
@@ -533,7 +522,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get isCustomer
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsCustomer()
     {
@@ -600,7 +589,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get isSupplier
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsSupplier()
     {
@@ -736,7 +725,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->alert;
     }
-    
+
     /**
      * Set active
      *
@@ -753,7 +742,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get active
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActive()
     {
@@ -776,13 +765,13 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get catalogue_sent
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCatalogueSent()
     {
         return $this->catalogue_sent;
     }
-    
+
     /**
      * Set catalogue_send_mean
      *
@@ -799,7 +788,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get catalogue_send_mean
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCatalogueSendMean()
     {
@@ -822,7 +811,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get last_catalogue_sent_date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastCatalogueSentDate()
     {
@@ -845,7 +834,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get first_catalogue_sent_date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFirstCatalogueSentDate()
     {
@@ -868,13 +857,13 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Get source
      *
-     * @return string 
+     * @return string
      */
     public function getSource()
     {
         return $this->source;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -882,7 +871,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->defaultPhone;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -893,7 +882,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
             $this->addPhone($defaultPhone);
         }
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -901,19 +890,19 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         if (!$this->hasPhone($phone)) {
             $this->phones->add($phone);
-            
+
             if(!$this->getDefaultPhone())
                 $this->setDefaultPhone($phone);
         }
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function removePhone(Phone $phone)
     {
         $this->phones->removeElement($phone);
-        
+
         if( $phone->getId() == $this->defaultPhone->getId())
         {
             if( $this->phones->count() > 0 )
@@ -922,7 +911,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
                 $this->defaultPhone = null;
         }
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -930,7 +919,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->phones->contains($phone);
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -938,73 +927,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return $this->phones;
     }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultAddress()
-    {
-        return $this->defaultAddress;
-    }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultAddress(Address $defaultAddress = null)
-    {
-        $this->defaultAddress = $defaultAddress;
-        
-        if (null !== $defaultAddress) 
-            $this->addAddress($defaultAddress);
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function addAddress(Address $address)
-    {
-        if (!$this->hasAddress($address)) 
-        {
-            $this->addresses->add($address);
-            
-            if(!$this->getDefaultAddress())
-                $this->setDefaultAddress($address);
-        }
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function removeAddress(Address $address)
-    {
-        $this->addresses->removeElement($address);
-
-        if( $address->getId() == $this->defaultAddress->getId())
-        {
-            if( $this->addresses->count() > 0 )
-                $this->defaultAddress = $this->addresses[0];
-            else
-                $this->defaultAddress = null;
-        }
-        
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function hasAddress(Address $address)
-    {
-        return $this->addresses->contains($address);
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getAddresses()
-    {
-        return $this->addresses;
-    }
-    
     /**
      * Add individual
      *
@@ -1077,7 +1000,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         return false;
     }
-    
+
     /**
      * ex. "Mr John DOE"
      * @return string
