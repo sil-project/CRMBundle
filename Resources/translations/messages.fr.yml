@@ -56,31 +56,6 @@ show_tab_info: Renseignements divers
 show_group_administrative: Administratif
 
 librinfo:
-    crm:
-        category_admin:
-            label: 'Catégorie de Tiers'
-        circle_admin:
-            label: 'Groupe'
-        contact_admin:
-            label: 'Contact'
-        contact_group_admin:
-            label: 'ContactGroups'
-        contact_phone_admin:
-            label: 'Téléphone de contact'
-        customer_admin:
-            label: 'Client'
-        organism_admin:
-            label: 'Tiers'
-        organism_phone_admin:
-            label: 'Téléphones de tiers'
-        phone_type_admin:
-            label: 'Type de téléphones'
-        position_admin:
-            label: 'Fonction'
-        position_type_admin:
-            label: 'Type de fonctions'
-        role_admin:
-            label: 'Rôle'
     error:
         provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
     help:
@@ -181,8 +156,26 @@ librinfo:
         position_type_list: 'Liste des types de fonction'
         circle_create: 'Nouveau groupe'
         category_create: 'Nouvelle catégorie de tiers'
+        organism_group_list: 'Liste des groupes de tiers'
+        organismgroup_list: 'Liste des groupes de tiers'
     placeholder:
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'
 
-
+librinfo_crm:
+    label:
+        admin:
+            category: 'Catégorie de Tiers'
+            circle: 'Groupes'
+            customer: 'Clients'
+            organism: 'Tiers'
+            organism_phone: 'Téléphones de tiers'
+            phone_type: 'Types de téléphones'
+            position: 'Fonctions'
+            position_type: 'Type de fonctions'
+            organism_group: 'Groupes de tiers' 
+            city: 'Villes'
+            address: 'Addresses'
+            role: 'Rôles'
+            individual: 'Individus'
+            organization: 'Organisations'
