@@ -273,12 +273,12 @@ class OrganismAdmin extends CoreAdmin
     {
         if($object->isIndividual())
         {
-            if( $object->getOrganizations()->count() > 0 )
+            if( $object->getOrganizations() && $object->getOrganizations()->count() > 0 )
                 foreach( $object->getOrganizations() as $org )
                     $org->setIndividual($object);
         }else
         {
-            if( $object->getIndividuals()->count() > 0 )
+            if( $object->getIndividuals() && $object->getIndividuals()->count() > 0 )
                 foreach($object->getIndividuals() as $ind)
                     $ind->setOrganization($object);
         }
