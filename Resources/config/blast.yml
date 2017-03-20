@@ -653,11 +653,13 @@ parameters:
                             individual:
                                 type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 required: true
+                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 _options:
                                     admin_code: librinfo_crm.admin.organism
                             organization:
                                 type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 required: true
+                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
                                     admin_code: librinfo_crm.admin.organism
                             department: ~
