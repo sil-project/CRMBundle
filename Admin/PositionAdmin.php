@@ -33,6 +33,37 @@ class PositionAdmin extends CoreAdmin
             ->setParameter('firstname', $search)
             ->setParameter('name', $search)
         ;
+        
         return true;
+    }
+    
+    public static function individualsCallback($admin, $property, $value)
+    {
+        $searchIndex = $admin->getClass() . 'SearchIndex';
+        $datagrid = $admin->getDatagrid();
+        $queryBuilder = $datagrid->getQuery();
+        $alias = $queryBuilder->getRootalias();
+
+        $queryBuilder
+            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
+            ->where('s.keyword LIKE :value')
+            ->andWhere("$alias.isIndividual = true")
+            ->setParameter('value', "%$value%")
+        ;
+    }
+    
+    public static function organizationsCallback($admin, $property, $value)
+    {
+        $searchIndex = $admin->getClass() . 'SearchIndex';
+        $datagrid = $admin->getDatagrid();
+        $queryBuilder = $datagrid->getQuery();
+        $alias = $queryBuilder->getRootalias();
+
+        $queryBuilder
+            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
+            ->where('s.keyword LIKE :value')
+            ->andWhere("$alias.isIndividual = false")
+            ->setParameter('value', "%$value%")
+        ;
     }
 }
