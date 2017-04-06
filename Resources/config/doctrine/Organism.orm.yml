@@ -128,6 +128,11 @@ Librinfo\CRMBundle\Entity\Organism:
             mappedBy: individual
             cascade: [ persist, remove ]
             orphanRemoval: true
+        addresses:
+            targetEntity: Librinfo\CRMBundle\Entity\Address
+            mappedBy: organism
+            cascade: [ persist, remove ]
+            orphanRemoval: true
 
     manyToMany:
         circles:
