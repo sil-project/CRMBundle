@@ -92,13 +92,13 @@ Librinfo\CRMBundle\Entity\Organism:
             nullable: true
 
     oneToOne:
-#        defaultAddress:
-#            targetEntity: Librinfo\CRMBundle\Entity\Address
-#            joinColumn:
-#                name: default_address_id
-#                onDelete: SET NULL
-#            cascade: [persist, remove]
-#            orphanRemoval: true
+        defaultAddress:
+            targetEntity: Librinfo\CRMBundle\Entity\Address
+            joinColumn:
+                name: default_address_id
+                onDelete: SET NULL
+            cascade: [persist, remove]
+            orphanRemoval: true
         defaultPhone:
             targetEntity: Librinfo\CRMBundle\Entity\OrganismPhone
             joinColumn:
@@ -108,11 +108,6 @@ Librinfo\CRMBundle\Entity\Organism:
             orphanRemoval: true
 
     oneToMany:
-#        addresses:
-#            targetEntity: Librinfo\CRMBundle\Entity\Address
-#            mappedBy: organism
-#            cascade: [persist, remove]
-#            orphanRemoval: true
         phones:
             targetEntity: OrganismPhone
             mappedBy: organism
