@@ -36,7 +36,7 @@ Librinfo\CRMBundle\Entity\Address:
             default: true
 
     manyToOne:
-        organism:
+        customer:
             targetEntity: Librinfo\CRMBundle\Entity\Organism
             inversedBy: addresses
             joinColumn:

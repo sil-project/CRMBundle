@@ -125,7 +125,7 @@ Librinfo\CRMBundle\Entity\Organism:
             orphanRemoval: true
         addresses:
             targetEntity: Librinfo\CRMBundle\Entity\Address
-            mappedBy: organism
+            mappedBy: customer
             cascade: [ persist, remove ]
             orphanRemoval: true
 

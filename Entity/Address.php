@@ -368,6 +368,27 @@ class Address implements AddressInterface, VCardableInterface
         return $this->organism;
     }
 
+    /**
+     * Set customer (setOrganism() alias)
+     *
+     * @param \Librinfo\CRMBundle\Entity\Organism $organism
+     * @return Address
+     */
+    public function setCustomer(\Librinfo\CRMBundle\Entity\Organism $organism = null)
+    {
+        return $this->setOrganism($organism);
+    }
+
+    /**
+     * Get cutomer (getOrganism() alias)
+     *
+     * @return \Librinfo\CRMBundle\Entity\Organism
+     */
+    public function getCustomer()
+    {
+        return $this->getOrganism();
+    }
+
     public function isPersonal()
     {
         return true;
