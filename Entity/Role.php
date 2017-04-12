@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Blast\BaseEntitiesBundle\Entity\Traits\Treeable;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Treeable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Librinfo\CRMBundle\Entity\OrganismGroup;
 
 /**
  * Role
@@ -50,12 +59,12 @@ class Role
     /**
      * addContactGroup
      *
-     * @param ContactGroup $contactGroup
+     * @param OrganismGroup $contactGroup
      *
      * @return self
      *
      */
-    public function addContactGroup(ContactGroup $contactGroup)
+    public function addContactGroup(OrganismGroup $contactGroup)
     {
         if (!$this->getContactGroups()->contains($contactGroup))
         {
@@ -69,12 +78,12 @@ class Role
     /**
      * removeContactGroup
      *
-     * @param ContactGroup $contactGroup
+     * @param OrganismGroup $contactGroup
      *
      * @return self
      *
      */
-    public function removeContactGroup(ContactGroup $contactGroup)
+    public function removeContactGroup(OrganismGroup $contactGroup)
     {
         if ($this->getContactGroups()->contains($contactGroup))
         {
