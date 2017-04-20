@@ -1,0 +1,58 @@
+branches:
+  only:
+    - master
+    
+language: php
+
+php:
+  - '5.6'
+  - '7.0'
+  - '7.1'
+  - nightly
+
+sudo: false
+
+cache:
+  pip: true
+  directories:
+    - $HOME/.composer/cache/files
+
+env:
+  global:
+    - PATH="$HOME/.local/bin:$PATH"
+    - SCRIPTS_FOLDER=bin/ci-scripts
+    - SYMFONY_DEPRECATIONS_HELPER=weak
+    - TARGET=test
+    - UPSTREAM_URL=https://github.com/libre-informatique/CRMBundle.git
+    - XMLLINT_INDENT="    "
+
+matrix:
+  fast_finish: true
+  include:
+    - php: '7.1'
+      env: TARGET=docs
+    - php: '7.1'
+      env: TARGET=lint
+  allow_failures:
+    - php: nightly
+    - env: SYMFONY_DEPRECATIONS_HELPER=0
+    - env: SYMFONY=dev-master@dev
+    - env: SONATA_CORE=dev-master@dev
+    - env: SONATA_BLOCK=dev-master@dev
+
+before_install:
+  - git remote add upstream ${UPSTREAM_URL} && git fetch --all
+  - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
+  - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
+  - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
+
+install:
+  - if [ -x ${SCRIPTS_FOLDER}/install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/install_${TARGET}.sh; fi;
+
+before_script:
+  - if [ -x ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh; fi;
+
+script: make $TARGET
+
+after_success:
+- if [ -x ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh; fi;
