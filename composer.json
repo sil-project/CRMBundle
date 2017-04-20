@@ -13,13 +13,18 @@
         "blast-project/base-entities-bundle": "dev-master",
         "blast-project/utils-bundle": "dev-master"
     },
-    "license":  "GPL-3.0",
-    "keywords": ["e-venement", "libio", "sonata", "symfony"],
+    "license": "GPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "sonata",
+        "symfony"
+    ],
     "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle",
     "authors": [
         {
-           "name": "Baptiste SIMON",
-           "email": "baptiste.simon@libre-informatique.fr"
+            "name": "Baptiste SIMON",
+            "email": "baptiste.simon@libre-informatique.fr"
         },
         {
             "name": "Libre Informatique",
@@ -27,6 +32,9 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Librinfo\\CRMBundle\\": "" }
+        "psr-4": {
+            "Librinfo\\CRMBundle\\": "src/",
+            "Librinfo\\CRMBundle\\Tests\\": "tests/"
+        }
     }
 }

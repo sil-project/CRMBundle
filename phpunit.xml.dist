@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="tests/Resources/bootstrap.php"
+>
+  
+  
+   <testsuites>
+     <testsuite name="Unit">
+       <directory>./tests/Unit</directory>
+     </testsuite>
+     <testsuite name="Functional">
+       <directory>./tests/Functional</directory>
+     </testsuite>
+  </testsuites>
+  
+  
+  <filter>
+    <whitelist>
+      <directory>./src</directory>
+      <exclude>
+        <directory>./Tests/</directory>
+        <directory>./DataFixtures/</directory>
+        <directory>./Resources/</directory>
+        <directory>./vendor/</directory>
+        <directory>./coverage/</directory>
+      </exclude>
+    </whitelist>
+  </filter>
+  
+  <php>
+    <server name="KERNEL_DIR" value="tests/Resources/app/" />
+      <server name="IS_DOCTRINE_ORM_SUPPORTED" value="true" />
+  </php>
+  
+</phpunit>
