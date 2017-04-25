@@ -29,7 +29,7 @@ class CustomerAdmin extends BaseOrganismAdmin
     public function configureFormFields(FormMapper $mapper)
     {
         parent::configureFormFields($mapper);
-        $this->renameFormGroup('form_group_organism', 'form_group_general', 'form_group_customer');
+        $this->renameFormGroup('form_group_organism', 'form_tab_general', 'form_group_customer');
     }
 
     /**

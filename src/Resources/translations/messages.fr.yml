@@ -47,7 +47,7 @@ form_tab_history.form_group_history: Historique
 form_tab_info: Renseignements divers
 form_tab_organisms: Tiers
 form_tab_organisms_description: Liste des Tiers auxquels appartient le Contact
-form_tab_position.form_group_general: 'Fonction'
+form_tab_position.form_group_general: Fonction
 show_tab_phones: Numéros de téléphone
 show_tab_addresses: Carnet d'adresses
 show_tab_individuals: Individus

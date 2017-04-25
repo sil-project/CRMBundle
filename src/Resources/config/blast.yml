@@ -434,7 +434,7 @@ parameters:
                     isCustomer: ~
                     isSupplier: ~
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
                             customerCode: ~
                             _options:
@@ -496,14 +496,14 @@ parameters:
         Librinfo\CRMBundle\Entity\OrganismPhone:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
                             phoneType: ~
                             number:
                                 label: librinfo.label.phone_number_long
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
                             phoneType: ~
                             number:
@@ -557,7 +557,7 @@ parameters:
                 remove:
                     owner: ~
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
                             code: ~
                             color: ~
@@ -577,7 +577,7 @@ parameters:
                                 required: false
                     _options:
                         tabsOrder:
-                            - form_group_general
+                            - form_tab_general
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
@@ -712,7 +712,7 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
                             circles: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -788,7 +788,7 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    form_group_general:
+                    form_tab_general:
                         form_group_main_address:
                             address:
                                 type: textarea
