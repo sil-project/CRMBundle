@@ -49,6 +49,7 @@ class CustomerAdmin extends BaseOrganismAdmin
      */
     protected function postConfigureFormFields(FormMapper $mapper)
     {
+        parent::postConfigureFormFields($mapper);
         $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
     }
 
