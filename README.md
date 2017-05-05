@@ -1,13 +1,15 @@
 # SymfonyLibrinfoCRMBundle
 
-[![Travis](https://img.shields.io/travis/libre-informatique/CRMBundle.svg?style=flat-square)][travis]
-[![Coveralls](https://img.shields.io/coveralls/libre-informatique/CRMBundle.svg?style=flat-square)][coveralls]
-[![License](https://img.shields.io/github/license/libre-informatique/CRMBundle.svg?style=flat-square)][license]
 
+[![Build Status](https://travis-ci.org/libre-informatique/CRMBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/CRMBundle)
+[![Coverage Status](https://coveralls.io/repos/github/libre-informatique/CRMBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/CRMBundle?branch=master)
+[![License](https://img.shields.io/github/license/libre-informatique/CRMBundle.svg?style=flat-square)](./LICENCE.md)
 
 [![Latest Stable Version](https://poser.pugx.org/libre-informatique/crm-bundle/v/stable)](https://packagist.org/packages/libre-informatique/crm-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/libre-informatique/crm-bundle/v/unstable)](https://packagist.org/packages/libre-informatique/crm-bundle)
 [![Total Downloads](https://poser.pugx.org/libre-informatique/crm-bundle/downloads)](https://packagist.org/packages/libre-informatique/crm-bundle)
+
+
 
 
 
