@@ -3,15 +3,18 @@
     "type": "symfony-bundle",
     "description": "CRM Bundle for Symfony",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.6",
         "symfony/symfony": "3.2.*",
         "stof/doctrine-extensions-bundle": "^1.2",
         "jeroendesloovere/vcard-bundle": "^1.2",
         "sparkling/vat-bundle": "~0.1",
-        "blast-project/core-bundle": "dev-master",
-        "blast-project/outer-extension-bundle": "dev-master",
-        "blast-project/base-entities-bundle": "dev-master",
-        "blast-project/utils-bundle": "dev-master"
+        "blast-project/core-bundle": "^0.4",
+        "blast-project/outer-extension-bundle": "^0.4",
+        "blast-project/base-entities-bundle": "^0.4",
+        "blast-project/utils-bundle": "^0.4"
+    },
+    "require-dev": {
+	"symfony/phpunit-bridge": "3.2.*"
     },
     "license": "GPL-3.0",
     "keywords": [
