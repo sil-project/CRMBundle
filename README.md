@@ -1,4 +1,16 @@
 # SymfonyLibrinfoCRMBundle
+
+[![Travis](https://img.shields.io/travis/libre-informatique/CRMBundle.svg?style=flat-square)][travis]
+[![Coveralls](https://img.shields.io/coveralls/libre-informatique/CRMBundle.svg?style=flat-square)][coveralls]
+[![License](https://img.shields.io/github/license/libre-informatique/CRMBundle.svg?style=flat-square)][license]
+
+
+[![Latest Stable Version](https://poser.pugx.org/libre-informatique/crm-bundle/v/stable)](https://packagist.org/packages/libre-informatique/crm-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/libre-informatique/crm-bundle/v/unstable)](https://packagist.org/packages/libre-informatique/crm-bundle)
+[![Total Downloads](https://poser.pugx.org/libre-informatique/crm-bundle/downloads)](https://packagist.org/packages/libre-informatique/crm-bundle)
+
+
+
 CRM Bundle for Symfony
 
 Installation
