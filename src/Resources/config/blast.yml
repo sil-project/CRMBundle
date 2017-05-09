@@ -1,3 +1,8 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
 
 parameters:
     blast:
@@ -90,7 +95,7 @@ parameters:
                             phones:
                                 label: false
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_phones.html.twig'
-                       
+
                     show_tab_individuals:
                         '':
                             individuals:
@@ -123,6 +128,7 @@ parameters:
                         - url: https://framacalc.org/libio_validation_crm
                           title: Framacalc de validation
                           class: framacalc
+
             Sonata\AdminBundle\Form\FormMapper:
                 remove:
                     name: ~
@@ -207,7 +213,7 @@ parameters:
                                     - category
                                     - alert
                                     - description
-                                    - administrativeNumber
+#                                    - administrativeNumber
                                     - email
                                     - emailNpai
                                     - emailNoNewsletter
@@ -522,7 +528,7 @@ parameters:
                 add:
                     number: ~
                     #organism: ~
-                    
+
 ##########
 # CIRCLE
 ##########

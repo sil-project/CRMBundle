@@ -40,15 +40,14 @@ $(document).ready(function() {
     var customerContainer = $('#sonata-ba-field-container-' + prefix + 'isCustomer');
   
     if (customerContainer.length) {
-        customerContainer.wrap('<div class="form-inline">');
-        customerContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
-        customerContainer.find('label').css('margin-left', '0').css('margin-right', '1em');
-
+        customerContainer.addClass('form-inline');
+        customerContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '200px'});
+        customerContainer.find('label').css({'margin-left': '0', 'margin-right': '1em'});
         var customerCodeContainer = $('#sonata-ba-field-container-' + prefix + 'customerCode');
-
-        customerCodeContainer.find('input').appendTo(customerContainer);
+        customerCodeContainer.find('input').css({display: 'inline-block'}).appendTo(customerContainer);
         customerCodeContainer.find('a').appendTo(customerContainer);
-        customerCodeContainer.find('label').remove();    
+        customerCodeContainer.find('div.loader').appendTo(customerContainer);
+        customerCodeContainer.remove();    
         
         toggleCustomerCode();
     }
@@ -93,18 +92,22 @@ $(document).ready(function() {
 
     // ************ Supplier Code
 
-    // Move things around...
     var supplierContainer = $('#sonata-ba-field-container-' + prefix + 'isSupplier');
-    supplierContainer.wrap('<div class="form-inline">');
-    supplierContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '180px'});
-    supplierContainer.find('label').css('margin-left', '0').css('margin-right', '1em');
     
-    var supplierCodeContainer = $('#sonata-ba-field-container-' + prefix + 'supplierCode');
+    // Move things around...
+    if (supplierContainer.length) {
+        supplierContainer.addClass('form-inline');
+        supplierContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '200px'});
+        supplierContainer.find('label').css({'margin-left': '0', 'margin-right': '1em'});
+        var supplierCodeContainer = $('#sonata-ba-field-container-' + prefix + 'supplierCode');
+        supplierCodeContainer.find('input').css({display: 'inline-block'}).appendTo(supplierContainer);
+        supplierCodeContainer.find('a').appendTo(supplierContainer);
+        supplierCodeContainer.find('div.loader').appendTo(supplierContainer);
+        supplierCodeContainer.remove();    
+        
+        toggleCustomerCode();
+    }    
     
-    supplierCodeContainer.find('input').appendTo(supplierContainer);
-    supplierCodeContainer.find('a').appendTo(supplierContainer);
-    supplierCodeContainer.find('label').remove();
-
     function generateSupplierCode(){
         var code = $('input#' + prefix + 'supplierCode');
         var url = $('a#' + prefix + 'supplierCode_generate_code').attr('href');
