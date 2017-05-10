@@ -890,6 +890,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         if (!$this->hasPhone($phone)) {
             $this->phones->add($phone);
+            $phone->setOrganism($this);
 
             if(!$this->getDefaultPhone())
                 $this->setDefaultPhone($phone);

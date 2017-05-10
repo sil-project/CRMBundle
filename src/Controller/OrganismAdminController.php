@@ -102,7 +102,9 @@ class OrganismAdminController extends CRUDController
         if($organism->hasPhone($phone))
         {
             $organism->setDefaultPhone($phone);
+            $phone->setOrganism($organism);
             $manager->persist($organism);
+            $manager->persist($phone);
             $manager->flush();
         }
         
