@@ -87,6 +87,19 @@ class Address implements AddressInterface, VCardableInterface
      * @var \Librinfo\CRMBundle\Entity\Organism
      */
     private $organism;
+    
+        /**
+     * Organism constructor.
+     */
+    public function __construct()
+    {
+        $this->initAddress();
+    }
+    
+    public function initAddress()
+    {
+        $this->initOuterExtendedClasses();
+    }
 
     public function __toString()
     {
