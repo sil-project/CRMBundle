@@ -224,15 +224,37 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
+     * bEvErly CRuSHeR = Beverly Crusher
+     * JEAN-LUC PICARD => Jean-Luc Picard
+     * MILES O'BRIEN => Miles O'Brian
+     *
+     * @param string $string
+     * @return string
+     */
+    protected function ucname($string)
+    {
+        $string =ucwords(MB_strtolower($string));
+
+        foreach (array('-', '\'', '_') as $delimiter) {
+          if (strpos($string, $delimiter)!==false) {
+            $string =implode($delimiter, array_map('ucfirst', explode($delimiter, $string)));
+          }
+        }
+        return $string;
+    }
+
+    /**
      * Set firstname
      *
      * @param string $firstname
      *
      * @return Contact
+     *
+     * @todo ucname should go in an event listener, so we can configure the behaviour
      */
     public function setFirstname($firstname)
     {
-        $this->firstname = $firstname;
+        $this->firstname = $this->ucname($firstname);
 
         return $this;
     }
@@ -253,10 +275,11 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @param string $lastname
      *
      * @return Contact
+     * @todo mb_strtoupper should go in an event listener, so we can configure the behaviour
      */
     public function setLastname($lastname)
     {
-        $this->lastname = $lastname;
+        $this->lastname = mb_strtoupper($lastname);
 
         return $this;
     }
@@ -427,10 +450,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      * @param string $name
      *
      * @return Organism
+     *
+     * @todo mb_strtoupper should go in an event listener, so we can configure the behaviour
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = mb_strtoupper($name);
         return $this;
     }
 
@@ -1008,7 +1033,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      */
     public function getFulltextName()
     {
-        return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoupper($this->getName()));
+        return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoq($this->getName()));
     }
 
 //    public function validateName(ExecutionContextInterface $context)
