@@ -34,6 +34,11 @@
             "homepage": "http://www.libre-informatique.fr/"
         }
     ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.4.x-dev"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Librinfo\\CRMBundle\\": "src/",
