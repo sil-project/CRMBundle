@@ -1033,7 +1033,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      */
     public function getFulltextName()
     {
-        return sprintf('%s %s %s', $this->getTitle(), ucfirst(strtolower($this->getFirstname())), strtoq($this->getName()));
+        if (!$this->isIndividual())
+            return $this->getName();
+        return sprintf('%s %s', $this->getFirstname(), $this->getLastName());
     }
 
 //    public function validateName(ExecutionContextInterface $context)
