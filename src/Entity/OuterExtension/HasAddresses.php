@@ -30,6 +30,7 @@ trait HasAddresses
     {
         $this->addresses->add($address);
         
+        
         return $this;
     }
 

@@ -59,6 +59,7 @@ trait Addressable
         if (!$this->hasAddress($address))
         {
             $this->addresses->add($address);
+            $address->setOrganism($this);
 
             if(!$this->getDefaultAddress())
                 $this->setDefaultAddress($address);

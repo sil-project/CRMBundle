@@ -86,7 +86,9 @@ class OrganismAdminController extends CRUDController
         if($organism->hasAddress($address))
         {
             $organism->setDefaultAddress($address);
+            $address->setOrganism($organism);
             $manager->persist($organism);
+            $manager->persist($address);
             $manager->flush();
         }
         
