@@ -107,6 +107,7 @@ librinfo:
         isSupplier: 'Fournisseur'
         is_customer: 'Client'
         is_supplier: 'Fournisseur'
+        is_individual: Est un individu
         last_catalogue_sent_date: 'Date dernier envoi catalogue'
         last_name: Nom de famille
         list_circle_name: 'Groupe'

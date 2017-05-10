@@ -373,11 +373,13 @@ parameters:
                     circles: ~
                     alert: ~
                     active: ~
+                    isIndividual: ~
                     _options:
                         fieldsOrder:
                             - fulltextName
                             - customerCode
                             - supplierCode
+                            - isIndividual
                             - category.name
                             - circles
                             - alert
