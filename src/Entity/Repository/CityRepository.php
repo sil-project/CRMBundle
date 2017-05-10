@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
@@ -25,13 +33,13 @@ class CityRepository extends EntityRepository
             $items_per_page = 1; // avoid division by zero
 
         $pattern = $field == 'zip' || $field == 'ZIP' ? $term . '%' : '%' . $term . '%';
-        
+
         // Count results (before pagination)
         $query =  $this->createQueryBuilder('c')
             ->andWhere("c.$field LIKE :pattern")
             ->setParameter('pattern', $pattern)
         ;
-        
+
         if ( $country_code )
             $query->andWhere('c.country_code = :country_code')->setParameter('country_code', $country_code);
         $countQuery = clone($query);

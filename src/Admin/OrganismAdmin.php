@@ -42,9 +42,9 @@ class OrganismAdmin extends CoreAdmin
     {
         $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
         $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
-        
+
         $subject = $this->getSubject();
-        
+
         if( $subject->getId() )
         {
             if( $subject->isIndividual() )
@@ -57,19 +57,19 @@ class OrganismAdmin extends CoreAdmin
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
-                $mapper->remove('organizations'); 
+                $mapper->remove('organizations');
             }
         }
     }
-    
+
     /**
-     * 
+     *
      * @param ShowMapper $mapper
      */
     protected function postConfigureShowFields(ShowMapper $mapper)
     {
         $subject = $this->getSubject();
-        
+
         if( $subject )
         {
             if( $subject->isIndividual() )
@@ -82,7 +82,7 @@ class OrganismAdmin extends CoreAdmin
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
-                $mapper->remove('organizations'); 
+                $mapper->remove('organizations');
             }
         }
     }
@@ -92,7 +92,7 @@ class OrganismAdmin extends CoreAdmin
         parent::preUpdate($object);
         $this->handlePositions($object);
     }
-    
+
     public function prePersist($object)
     {
         parent::prePersist($object);
@@ -106,13 +106,13 @@ class OrganismAdmin extends CoreAdmin
     {
         foreach($organism->getIndividuals() as $position)
             $this->getModelManager()->delete($position);
-        
+
         foreach($organism->getOrganizations() as $position)
             $this->getModelManager()->delete($position);
 
         foreach($organism->getPhones() as $phone)
             $this->getModelManager()->delete($phone);
-        
+
         foreach($organism->getAddresses() as $phone)
             $this->getModelManager()->delete($phone);
 
@@ -265,10 +265,10 @@ class OrganismAdmin extends CoreAdmin
             ->setParameter('firstname', $search)
             ->setParameter('name', $search)
         ;
-        
+
         return true;
     }
-    
+
     private function handlePositions($object)
     {
         if($object->isIndividual())

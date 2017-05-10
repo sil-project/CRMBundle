@@ -730,16 +730,16 @@ parameters:
 # POSITIONABLE Trait
 ############
 
-        Librinfo\CRMBundle\Entity\Traits\Positionable:
-            Sonata\AdminBundle\Show\ShowMapper:
-                add:
-                    '':
+#        Librinfo\CRMBundle\Entity\Traits\Positionable:
+#            Sonata\AdminBundle\Show\ShowMapper:
+#                add:
+#                    '':
 #                        form_group_positions:
 #                            positions:
 #                                _options:
 #                                    initializeAssociationAdmin: true
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
+#            Sonata\AdminBundle\Form\FormMapper:
+#                add:
 #                    form_group_positions:
 #                        form_group_positions:
 #                            positions:
@@ -754,8 +754,8 @@ parameters:
 #                                    edit: inline
 #                                    #inline: table
 #                                    allow_delete: true
-                    _options:
-                        tabsOrder: [form_group_positions, form_group_specifics]
+#                    _options:
+#                        tabsOrder: [form_group_positions, form_group_specifics]
 #################
 # POSITION_TYPE
 #################
