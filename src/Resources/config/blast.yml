@@ -168,6 +168,7 @@ parameters:
                             name:
                                 type: Blast\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
+                                label: librinfo.label.organism_name
                                 attr:
                                     maxlength: 35
                             isCustomer: ~

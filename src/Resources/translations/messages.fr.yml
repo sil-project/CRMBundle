@@ -108,7 +108,7 @@ librinfo:
         is_customer: 'Client'
         is_supplier: 'Fournisseur'
         last_catalogue_sent_date: 'Date dernier envoi catalogue'
-        last_name: Nom
+        last_name: Nom de famille
         list_circle_name: 'Groupe'
         list_customer_name: 'Client'
         list_organism_name: 'Tiers'
@@ -116,6 +116,7 @@ librinfo:
         organism: 'Tiers'
         organism_contact_filter: 'Contact'
         organism_description: 'Bloc-notes'
+        organism_name: 'Nom / Raison sociale'
         organism_name_filter: 'Nom du tiers'
         organisms: 'Tiers'
         organisms_count: 'Tiers'
@@ -173,7 +174,7 @@ librinfo_crm:
             phone_type: 'Types de téléphones'
             position: 'Fonctions'
             position_type: 'Type de fonctions'
-            organism_group: 'Groupes de tiers' 
+            organism_group: 'Groupes de tiers'
             city: 'Villes'
             address: 'Addresses'
             role: 'Rôles'
