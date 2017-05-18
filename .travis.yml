@@ -1,7 +1,3 @@
-branches:
-  only:
-    - master
-    
 language: php
 
 php:
@@ -10,6 +6,10 @@ php:
   - '7.1'
   - nightly
 
+services:
+  - mysql
+  - postgresql
+  
 sudo: false
 
 cache:
@@ -45,7 +45,8 @@ before_install:
   - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
   - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
   - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
-
+  - if [ -x ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh; fi;
+  
 install:
   - if [ -x ${SCRIPTS_FOLDER}/install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/install_${TARGET}.sh; fi;
 
