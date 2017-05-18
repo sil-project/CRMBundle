@@ -1,49 +1,15 @@
-<!-- THE PR TEMPLATE IS NOT AN OPTION. DO NOT DELETE IT, MAKE SURE YOU READ AND EDIT IT! -->
+| Q             | A
+| ------------- | ---
+| Branch?       | master
+| Bug fix?      | yes/no
+| New feature?  | yes/no
+| BC breaks?    | yes/no
+| Tests pass?   | yes/no
+| Fixed tickets | fixes #X, partially #Y, mentioned in #Z
+| License       | LGPL
 
-I am targeting this branch, because {reason}.
-
-<!--
-    Specify which issues will be fixed/closed.
-    Remove it if this is not related.
--->
-
-Closes #{put_issue_number_here}
-
-## Changelog
-
-<!-- MANDATORY
-    Fill the changelog part inside the code block.
-    Follow this schema: http://keepachangelog.com/
--->
-
-<!-- REMOVE EMPTY SECTIONS -->
-```markdown
-### Added
-- Added some `Class::newMethod` to do great stuff
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
-```
-
-## To do
 
 <!--
-    If this is a work in progress, COMPLETE and ADD needed tasks.
-    You can add as many tasks as you want.
-    If some are not relevant, just REMOVE them.
+- Please fill in this template according to the PR you're about to submit.
+- Replace this comment by a description of what your PR is solving.
 -->
-
-- [ ] Update the tests
-- [ ] Update the documentation
-- [ ] Add an upgrade note
-
-## Subject
-
-<!-- Describe your Pull Request content here -->
