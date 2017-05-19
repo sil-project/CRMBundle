@@ -23,7 +23,7 @@ if ($files) {
     require_once current($files);
 }
 
-// try to get Blast for PHPunit
-if (file_exists($file = __DIR__.'/App/BlastTests.php')) {
+// try to get outer extension fake file
+if (file_exists($file = __DIR__.'/autoload_outer_extension.php')) {
     require_once $file;
 }
