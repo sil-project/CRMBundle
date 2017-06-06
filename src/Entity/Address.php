@@ -56,7 +56,7 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * @var string
      */
-    private $countryCode;
+    private $countryCode = 'FR';
 
     /**
      * @var string
