@@ -18,9 +18,9 @@ class CircleAdminController extends CRUDController
      */
     protected function preEdit(Request $request, $object)
     {
-        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
-        if (!$object->isEditable())
-            throw $this->createAccessDeniedException('Unauthorized access!');
+//        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+//        if (!$object->isEditable())
+//            throw $this->createAccessDeniedException('Unauthorized access!');
     }
 
     /**
@@ -33,7 +33,7 @@ class CircleAdminController extends CRUDController
      */
     protected function preShow(Request $request, $object)
     {
-        $this->denyAccessUnlessGranted('view', $object, 'Unauthorized access!');
+//        $this->denyAccessUnlessGranted('view', $object, 'Unauthorized access!');
     }
 
     /**
@@ -46,9 +46,9 @@ class CircleAdminController extends CRUDController
      */
     protected function preDelete(Request $request, $object)
     {
-        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
-        if (!$object->isEditable())
-            throw $this->createAccessDeniedException('Unauthorized access!');
+//        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+//        if (!$object->isEditable())
+//            throw $this->createAccessDeniedException('Unauthorized access!');
     }
 
     /**
