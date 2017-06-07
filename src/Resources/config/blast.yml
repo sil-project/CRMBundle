@@ -566,30 +566,31 @@ parameters:
                 remove:
                     owner: ~
                 add:
-                    form_tab_general:
+                    form_group_general:
                         '':
                             code: ~
                             color: ~
-                            owner:
-                                type: sonata_type_model_autocomplete
-                                route: { name: searchable_admin_retrieve_autocomplete_items }
-                                by_reference: false
-                                property: username # not used but required
-                                multiple: false
-                                required: false
-                            users:
-                                type: sonata_type_model_autocomplete
-                                route: { name: searchable_admin_retrieve_autocomplete_items }
-                                by_reference: false
-                                property: username # not used but required
-                                multiple: true
-                                required: false
+#                            owner:
+#                                type: sonata_type_model_autocomplete
+#                                route: { name: searchable_admin_retrieve_autocomplete_items }
+#                                by_reference: false
+#                                property: username # not used but required
+#                                multiple: false
+#                                required: false
+#                            users:
+#                                type: sonata_type_model_autocomplete
+#                                route: { name: searchable_admin_retrieve_autocomplete_items }
+#                                by_reference: false
+#                                property: username # not used but required
+#                                multiple: true
+#                                required: false
                     _options:
                         tabsOrder:
                             - form_tab_general
                             - form_group_specifics
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
+                    owner: ~
                     name: ~
                     createdAt: ~
                 add:
@@ -597,7 +598,7 @@ parameters:
                         identifier: true
                         label: librinfo.label.list_circle_name
                     code: ~
-                    owner: ~
+#                    owner: ~
                     users: ~
                     organismsCount:
                         template: LibrinfoCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
@@ -606,7 +607,9 @@ parameters:
 #                    positionsCount:
 #                        template: LibrinfoCRMBundle:CircleAdmin:list_field_positions_count.html.twig
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add:
+                add: ~
+                remove:
+                    owner: ~
 
 
 ############

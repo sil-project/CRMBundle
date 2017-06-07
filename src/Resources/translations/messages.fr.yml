@@ -85,6 +85,7 @@ librinfo:
         customer_code: 'Code client'
         customer_supplier: 'Client / Fournisseur'
         default_address: Addresse principale
+        default_phone: Téléphone principal
         department: 'Service'
         email: 'Email'
         email_npai: 'Mauvais courriel'
