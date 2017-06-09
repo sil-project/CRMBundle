@@ -32,7 +32,6 @@ form_group_individual: Type de tiers
 form_group_main_address: Adresse principale
 form_group_members: Membres
 form_group_organism: Tiers
-form_group_default_address: Addresse principale
 form_group_other_addresses: Autres adresses
 form_group_default_phone: Numéro principal
 form_group_phones: Autres numéros de téléphone

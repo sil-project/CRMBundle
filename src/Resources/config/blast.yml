@@ -158,7 +158,6 @@ parameters:
                                 type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 blast_choices: ['Mr', 'Mrs']
                                 choices_field: organism.title
-                                required: false
                                 mapped: false
                                 required: false
                             firstname:
@@ -929,4 +928,3 @@ parameters:
                     confirmed: ~
                     createdAt: ~
                     updatedAt: ~
-
