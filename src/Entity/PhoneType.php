@@ -10,5 +10,6 @@ class PhoneType
 {
     use Guidable,
         Labelable,
+        Stringable,
         Sortable;
 }
