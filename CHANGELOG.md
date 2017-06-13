@@ -1,5 +1,15 @@
 # Change Log
 
+## [0.4.3](https://github.com/libre-informatique/CRMBundle/tree/0.4.3) (2017-06-13)
+[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.2...0.4.3)
+
+**Merged pull requests:**
+
+- DevKit updates for CRMBundle [\#13](https://github.com/libre-informatique/CRMBundle/pull/13) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for CRMBundle [\#11](https://github.com/libre-informatique/CRMBundle/pull/11) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for CRMBundle [\#10](https://github.com/libre-informatique/CRMBundle/pull/10) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for CRMBundle [\#8](https://github.com/libre-informatique/CRMBundle/pull/8) ([BlastCI](https://github.com/BlastCI))
+
 ## [0.4.2](https://github.com/libre-informatique/CRMBundle/tree/0.4.2) (2017-05-05)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.3...0.4.2)
 
