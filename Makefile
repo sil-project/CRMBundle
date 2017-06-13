@@ -8,7 +8,7 @@ lint:
 	#find . -name '*.yml' -not -path './vendor/*' -not -path './Resources/public/vendor/*' | xargs yaml-lint
 
 test:
-	phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
+	vendor/phpunit/phpunit/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 
 docs:
 	cd src/Resources/doc && sphinx-build -b html -d _build/doctrees . _build/html
