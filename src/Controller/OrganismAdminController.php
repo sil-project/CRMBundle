@@ -12,7 +12,7 @@ use Sparkling\VATBundle\Exception\InvalidCountryCodeException;
 use Sparkling\VATBundle\Exception\VATException;
 
 class OrganismAdminController extends CRUDController
-{   
+{
     /**
      * generate a customerCode
      */
@@ -31,9 +31,11 @@ class OrganismAdminController extends CRUDController
      */
     public function validateVatAction(Request $request)
     {
-        $vat = $request->query->get('vat');
+        $vat = str_replace(' ','',$request->query->get('vat'));
         $vatService = $this->get('vat.service');
         $translator = $this->get('translator');
+
+        dump($vat);
 
         try {
             $valid = $vatService->validate($vat);
@@ -76,13 +78,13 @@ class OrganismAdminController extends CRUDController
         if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
             throw new NotFoundHttpException();
     }
-    
+
     public function setDefaultAddressAction($organismId, $addressId)
     {
         $manager = $this->getDoctrine()->getManager();
         $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
         $address = $manager->getRepository('LibrinfoCRMBundle:Address')->find($addressId);
-        
+
         if($organism->hasAddress($address))
         {
             $organism->setDefaultAddress($address);
@@ -91,16 +93,16 @@ class OrganismAdminController extends CRUDController
             $manager->persist($address);
             $manager->flush();
         }
-        
+
         return new RedirectResponse($this->get('librinfo_crm.admin.organism')->generateObjectUrl('edit', $organism));
     }
-    
+
     public function setDefaultPhoneAction($organismId, $phoneId)
     {
         $manager = $this->getDoctrine()->getManager();
         $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
         $phone = $manager->getRepository('LibrinfoCRMBundle:OrganismPhone')->find($phoneId);
-        
+
         if($organism->hasPhone($phone))
         {
             $organism->setDefaultPhone($phone);
@@ -109,7 +111,7 @@ class OrganismAdminController extends CRUDController
             $manager->persist($phone);
             $manager->flush();
         }
-        
+
         return new RedirectResponse($this->get('librinfo_crm.admin.organism')->generateObjectUrl('edit', $organism));
     }
 }
