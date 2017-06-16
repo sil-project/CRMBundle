@@ -48,6 +48,8 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('code')->defaultNull()->end()
                                     ->scalarNode('color')->defaultNull()->end()
                                     ->scalarNode('description')->defaultNull()->end()
+                                    ->scalarNode('createdAt')->defaultNull()->end()
+                                    ->scalarNode('updatedAt')->defaultNull()->end()
                                     ->booleanNode('translatable')->defaultFalse()->end()
                                 ->end()
                             ->end()

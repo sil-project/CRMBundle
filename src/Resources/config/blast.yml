@@ -539,7 +539,7 @@ parameters:
             managedManyToMany: [organisms]
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
-                    default:
+                    form_tab_general:
                         '':
                             code: ~
                             color: ~
@@ -564,11 +564,15 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 remove:
                     owner: ~
+                    description: ~
+                    color: ~
+                    name: ~
                 add:
-                    form_group_general:
+                    form_tab_general:
                         '':
+                            name: ~
                             code: ~
-                            color: ~
+                            description: ~
 #                            owner:
 #                                type: sonata_type_model_autocomplete
 #                                route: { name: searchable_admin_retrieve_autocomplete_items }
