@@ -40,6 +40,7 @@ form_tab_individuals: Individus
 form_tab_organizations: Organisations
 form_group_sales: Ventes
 form_group_ticketing: Billetterie
+form_group_info: Catalogue
 form_tab_phones: Numéros de téléphone
 form_tab_address_book: Carnet d'adresses
 form_tab_history.form_group_history: Historique
@@ -53,6 +54,7 @@ show_tab_individuals: Individus
 show_tab_organizations: Organisations
 show_tab_info: Renseignements divers
 show_group_administrative: Administratif
+show_group_phones: Téléphones
 
 librinfo:
     error:
@@ -100,6 +102,8 @@ librinfo:
         generate_customer_code: 'Générer code'
         generate_supplier_code: 'Générer code'
         iban: 'RIB (IBAN)'
+        individuals: Individus
+        organizations: Organisations
         individual_organism: 'Individu privé'
         isCustomer: 'Client'
         isNotCustomer: 'N''est pas un client'

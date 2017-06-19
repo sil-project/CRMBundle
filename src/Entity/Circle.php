@@ -239,5 +239,7 @@ class Circle
         return $this->positions->count();
     }
 
+    public function __toString() {
+        return (string) sprintf('%s %s',$this->code,$this->name);
+    }
 }
-

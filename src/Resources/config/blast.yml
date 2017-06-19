@@ -39,6 +39,7 @@ parameters:
             form_theme:
                 - LibrinfoCRMBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: LibrinfoCRMBundle:OrganismAdmin:show_title.html.twig
                 forceTabs: true
                 remove:
                     name: ~
@@ -130,6 +131,7 @@ parameters:
                           class: framacalc
 
             Sonata\AdminBundle\Form\FormMapper:
+                titleTemplate: LibrinfoCRMBundle:OrganismAdmin:show_title.html.twig
                 remove:
                     name: ~
                     circles: ~
@@ -225,43 +227,29 @@ parameters:
                                 help: librinfo.help.vat
                             iban:
                                 help: librinfo.help.iban
-                        _options:
-                            groupsOrder:
-                                - form_group_individual
-                                - form_group_organism
-                                - form_group_main_address
-                                - form_group_phones
-                                - form_group_administrative
-                    form_tab_individuals:
-                        '':
-                            individuals:
-                                type: sonata_type_collection
-                                by_reference: false
-                                type_options:
-                                    required: true
-                                    btn_add: false
-                                required: true
+                        form_group_main_address:
+                            defaultAddress:
+                                type: text
+                                disabled: true
                                 label: false
-                                only_not_new: true
-                                _options:
-                                    edit: inline
-                                    #inline: table
-                                    allow_delete: true
-                            organizations:
-                                type: sonata_type_collection
-                                by_reference: false
-                                type_options:
-                                    required: true
-                                    btn_add: false
                                 required: false
+                                help: >
+                                    <a href="#" data-gototab="form_tab_address_book" class="btn btn-success btn-sm sonata-ba-action">
+                                        <i class="fa fa-edit"></i>&nbsp;
+                                        Modifier
+                                    </a>
+                        form_group_default_phone:
+                            defaultPhone:
+                                type: text
+                                disabled: true
                                 label: false
-                                only_not_new: true
-                                _options:
-                                    edit: inline
-                                    #inline: table
-                                    allow_delete: true
-                    form_tab_info:
-                        '':
+                                required: false
+                                help: >
+                                    <a href="#" data-gototab="form_tab_phones" class="btn btn-success btn-sm sonata-ba-action">
+                                        <i class="fa fa-edit"></i>&nbsp;
+                                        Modifier
+                                    </a>
+                        form_group_info:
                             source:
                                 type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
@@ -291,36 +279,61 @@ parameters:
                                 required: false
                                 attr:
                                     class: inline-block
+                        _options:
+                            groupsOrder:
+                                - form_group_organism
+                                - form_group_individual
+                                - form_group_main_address
+                                - form_group_default_phone
+                                - form_group_administrative
+                                - form_group_info
+                    form_tab_individuals:
+                        '':
+                            individuals:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: true
+                                    btn_add: false
+                                required: true
+                                label: false
+                                only_not_new: true
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
+                            organizations:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: true
+                                    btn_add: false
+                                required: false
+                                label: false
+                                only_not_new: true
+                                _options:
+                                    edit: inline
+                                    #inline: table
+                                    allow_delete: true
+
                     form_tab_phones:
-                        form_group_default_phone:
-                            defaultPhone:
-                                type: text
-                                disabled: true
-                                label: false
-                                required: false
                         form_group_phones:
-                                phones:
-                                    type: sonata_type_collection
-                                    label: false
-                                    by_reference: false
-                                    type_options:
-                                        btn_add: false
-                                        delete_options:
-                                            type: checkbox
-                                            type_options:
-                                                mapped: false
-                                                required: false
-                                    required: true    # if not true, child form fields cannot be required (why ??)
-                                    _options:
-                                        edit: inline
-                                        inline: table
-                    form_tab_address_book:
-                        form_group_default_address:
-                            defaultAddress:
-                                type: text
-                                disabled: true
+                            phones:
+                                type: sonata_type_collection
                                 label: false
-                                required: false
+                                by_reference: false
+                                type_options:
+                                    btn_add: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true    # if not true, child form fields cannot be required (why ??)
+                                _options:
+                                    edit: inline
+                                    inline: table
+                    form_tab_address_book:
                         form_group_other_addresses:
                             addresses:
                                 type: sonata_type_collection
