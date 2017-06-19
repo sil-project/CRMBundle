@@ -35,8 +35,6 @@ class OrganismAdminController extends CRUDController
         $vatService = $this->get('vat.service');
         $translator = $this->get('translator');
 
-        dump($vat);
-
         try {
             $valid = $vatService->validate($vat);
             $msg = $valid ? '' : $translator->trans('Not a valid VAT number');
