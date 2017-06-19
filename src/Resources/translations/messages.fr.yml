@@ -142,6 +142,7 @@ librinfo:
         supplier_code: 'Code fournisseur'
         title: 'Titre / civilité'
         url: 'Site web'
+        users: Utilisateurs
         validate_vat: 'Vérifier le n° TVA'
         validating_vat: 'Vérification en cours...'
         vat: 'N° TVA'
