@@ -1,12 +1,10 @@
 <p style="color: #EEE">
-    {{ 'Organism'|trans() }}:
-
     {% if object.isIndividual %}
         {{ 'librinfo.label.individual'|trans() }}:
         <b>{{ object.firstName }} {{ object.lastName }}</b>
     {% else %}
         {{ 'librinfo.label.organization'|trans() }}
-        <b>{{ object.title }}</b>
+        <b>{{ object.name }}</b>
     {% endif %}
 
     {% if object.customerCode is not null and object.customerCode != '' %}

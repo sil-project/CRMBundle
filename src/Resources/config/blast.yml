@@ -318,21 +318,21 @@ parameters:
 
                     form_tab_phones:
                         form_group_phones:
-                                phones:
-                                    type: sonata_type_collection
-                                    label: false
-                                    by_reference: false
-                                    type_options:
-                                        btn_add: false
-                                        delete_options:
-                                            type: checkbox
-                                            type_options:
-                                                mapped: false
-                                                required: false
-                                    required: true    # if not true, child form fields cannot be required (why ??)
-                                    _options:
-                                        edit: inline
-                                        inline: table
+                            phones:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: false
+                                type_options:
+                                    btn_add: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true    # if not true, child form fields cannot be required (why ??)
+                                _options:
+                                    edit: inline
+                                    inline: table
                     form_tab_address_book:
                         form_group_other_addresses:
                             addresses:
