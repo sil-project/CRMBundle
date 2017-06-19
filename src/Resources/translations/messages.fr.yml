@@ -168,6 +168,8 @@ librinfo:
     placeholder:
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'
+    msg:
+        validating_vat: Validation du numéro de TVA
 
 librinfo_crm:
     label:
