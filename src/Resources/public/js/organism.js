@@ -2,7 +2,7 @@
 $(document).ready(function() {
     var formDataElement = $('.js-data#organism-form-data');
     var prefix = formDataElement.data('unique-id') + '_';
-    
+
     // ********** Individual / Collective
 
     function toggleIndividual(){
@@ -18,6 +18,9 @@ $(document).ready(function() {
                 $('#sonata-ba-field-container-' + prefix + 'lastname').show();
                 $('#sonata-ba-field-container-' + prefix + 'name').hide();
                 $('#' + prefix + 'name').prop('disabled', true);
+
+                $('.sonata-ba-field-' + prefix + 'addresses-firstName').show().find('input').prop('disabled', false);
+                $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('librinfo.label.last_name', {}, 'messages'));
             }
             else {
                 $('#sonata-ba-field-container-' + prefix + 'title').hide();
@@ -28,6 +31,9 @@ $(document).ready(function() {
                 $('#' + prefix + 'lastname').prop('disabled', true);
                 $('#' + prefix + 'name').prop('disabled', false);
                 $('#sonata-ba-field-container-' + prefix + 'name').show();
+
+                $('.sonata-ba-field-' + prefix + 'addresses-firstName').hide().find('input').prop('disabled', true);
+                $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('librinfo.label.organism_name', {}, 'messages'));
             }
         }
     }
@@ -35,10 +41,14 @@ $(document).ready(function() {
     toggleIndividual();
     $('#' + prefix + 'isIndividual').on('ifChanged', toggleIndividual);
 
+    $(document).on('sonata.add_element', function(e) {
+        toggleIndividual();
+    });
+
     // ************ Customer Code
 
     var customerContainer = $('#sonata-ba-field-container-' + prefix + 'isCustomer');
-  
+
     if (customerContainer.length) {
         customerContainer.addClass('form-inline');
         customerContainer.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '200px'});
@@ -47,8 +57,8 @@ $(document).ready(function() {
         customerCodeContainer.find('input').css({display: 'inline-block'}).appendTo(customerContainer);
         customerCodeContainer.find('a').appendTo(customerContainer);
         customerCodeContainer.find('div.loader').appendTo(customerContainer);
-        customerCodeContainer.remove();    
-        
+        customerCodeContainer.remove();
+
         toggleCustomerCode();
     }
 
@@ -56,7 +66,7 @@ $(document).ready(function() {
         var code = $('input#' + prefix + 'customerCode');
         var url = $('a#' + prefix + 'customerCode_generate_code').attr('href');
         var data = code.closest('form').serializeArray();
-        
+
         $.post(url, data, function(res){
             if (res['error'] !== undefined)
                 alert(res['error']);
@@ -68,16 +78,16 @@ $(document).ready(function() {
     function toggleCustomerCode(){
         var code = $('#' + prefix + 'customerCode');
         var link = $('#' + prefix + 'customerCode_generate_code');
-        
+
         if( $('#' + prefix + 'isCustomer').prop('checked') ) {
-            
+
             $('label[for=' + prefix + 'customerCode').addClass('required');
             if (code.data('old') !== undefined)
                 code.val(code.data('old'));
-            
+
             code.show().prop('required', true);
             link.show();
-            
+
             if ( code.val().trim() === "" && formDataElement.data('customer-error') )
                 generateCustomerCode();
         }
@@ -93,7 +103,7 @@ $(document).ready(function() {
     // ************ Supplier Code
 
     var supplierContainer = $('#sonata-ba-field-container-' + prefix + 'isSupplier');
-    
+
     // Move things around...
     if (supplierContainer.length) {
         supplierContainer.addClass('form-inline');
@@ -103,11 +113,11 @@ $(document).ready(function() {
         supplierCodeContainer.find('input').css({display: 'inline-block'}).appendTo(supplierContainer);
         supplierCodeContainer.find('a').appendTo(supplierContainer);
         supplierCodeContainer.find('div.loader').appendTo(supplierContainer);
-        supplierCodeContainer.remove();    
-        
+        supplierCodeContainer.remove();
+
         toggleCustomerCode();
-    }    
-    
+    }
+
     function generateSupplierCode(){
         var code = $('input#' + prefix + 'supplierCode');
         var url = $('a#' + prefix + 'supplierCode_generate_code').attr('href');
@@ -123,13 +133,13 @@ $(document).ready(function() {
     function toggleSupplierCode(){
         var code = $('#' + prefix + 'supplierCode');
         var link = $('#' + prefix + 'supplierCode_generate_code');
-        
+
         if( $('#' + prefix + 'isSupplier').prop('checked') ) {
             $('label[for=' + prefix + 'supplierCode').addClass('required');
-            
+
             if (code.data('old') !== undefined)
                 code.val(code.data('old'));
-            
+
             code.show().prop('required', true);
             link.show();
             if ( code.val().trim() === "" && formDataElement.data('supplier-error') )
@@ -144,5 +154,4 @@ $(document).ready(function() {
 
     toggleSupplierCode();
     $('#' + prefix + 'isSupplier').on('ifChanged', toggleSupplierCode);
-
 });
