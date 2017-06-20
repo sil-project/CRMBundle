@@ -43,7 +43,7 @@
         {% set value = value|e('html') %}
         {% set ajaxOptionalData = ajaxOptionalData|merge({
             key: value
-        }) %}    
+        }) %}
     {%- endfor -%}
 {% endif %}
 
@@ -53,17 +53,17 @@
 
 {% spaceless %}
     <div id="{{ id }}_hidden_inputs_wrap">
-        <input type="hidden" name="{{ full_name }}" {%- if disabled %} disabled="disabled"{% endif %} value="{{ value }}">
+        <input type="hidden" name="{{ full_name }}" {%- if disabled %} disabled="disabled"{% endif -%} value="{{ value }}">
     </div>
 
-    <input 
-        type="text" 
-        id="{{ id }}_autocomplete_input" 
+    <input
+        type="text"
+        id="{{ id }}_autocomplete_input"
         class="zipcity-autocomplete"
         value="{{ value }}"
         {%- if read_only is defined and read_only %} readonly="readonly"{% endif -%}
         {%- if disabled %} disabled="disabled"{% endif -%}
-        {%- if required %} required="required"{% endif %}
+        {%- if required %} required="required"{% endif -%}
         data-config='{{ {
             'id': id,
             'name': name != 'zip' and name != 'city'? 'zip': name,
