@@ -234,7 +234,7 @@ parameters:
                                 label: false
                                 required: false
                                 help: >
-                                    <a href="#" data-gototab="form_tab_address_book" class="btn btn-success btn-sm sonata-ba-action">
+                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
                                         <i class="fa fa-edit"></i>&nbsp;
                                         Modifier
                                     </a>
@@ -245,7 +245,7 @@ parameters:
                                 label: false
                                 required: false
                                 help: >
-                                    <a href="#" data-gototab="form_tab_phones" class="btn btn-success btn-sm sonata-ba-action">
+                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
                                         <i class="fa fa-edit"></i>&nbsp;
                                         Modifier
                                     </a>
