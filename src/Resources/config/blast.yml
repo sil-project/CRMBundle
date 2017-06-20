@@ -250,25 +250,25 @@ parameters:
                                         Modifier
                                     </a>
                         form_group_info:
+                            catalogue_sent:
+                                type: checkbox
+                                required: false
                             source:
                                 type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
                                 blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
                                 required: false
                                 attr:
-                                    class: new-line
-                                    width: 30
-                            catalogue_sent:
-                                type: checkbox
-                                required: false
+                                    class: inline-block
+                                    width: 45
                             catalogue_send_mean:
                                 type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.catalogue_send_mean
                                 blast_choices: [Courrier, Email]
                                 required: false
                                 attr:
-                                    class: new-line
-                                    width: 30
+                                    class: inline-block
+                                    width: 45
                             first_catalogue_sent_date:
                                 type: sonata_type_date_picker
                                 required: false
