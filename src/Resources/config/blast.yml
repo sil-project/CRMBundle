@@ -822,13 +822,13 @@ parameters:
                                 required: false
                             zip:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
-                                required: false
+                                required: true
                             city:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
-                                required: false
+                                required: true
                             country:
                                 type: country
-                                required: false
+                                required: true
                             npai: ~
                     form_group_specifics:
                         form_group_communication:
@@ -908,15 +908,19 @@ parameters:
                             firstName: ~
                             lastName:
                                 type: text
+                                required: true
                             street: ~
                             city:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
                                 zip_field: postCode
+                                required: true
                             postCode:
                                 type: Librinfo\CRMBundle\Form\Type\ZipCityType
                                 zip_field: postCode
+                                required: true
                             countryCode:
                                 type: country
+                                required: true
                             npai: ~
 
             # LIST
