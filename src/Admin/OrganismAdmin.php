@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -45,15 +47,12 @@ class OrganismAdmin extends CoreAdmin
 
         $subject = $this->getSubject();
 
-        if( $subject->getId() )
-        {
-            if( $subject->isIndividual() )
-            {
+        if ($subject->getId()) {
+            if ($subject->isIndividual()) {
                 $mapper->remove('name');
                 $mapper->remove('individuals');
                 $this->renameFormTab('form_tab_individuals', 'form_tab_organizations');
-            }else
-            {
+            } else {
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
@@ -63,22 +62,18 @@ class OrganismAdmin extends CoreAdmin
     }
 
     /**
-     *
      * @param ShowMapper $mapper
      */
     protected function postConfigureShowFields(ShowMapper $mapper)
     {
         $subject = $this->getSubject();
 
-        if( $subject )
-        {
-            if( $subject->isIndividual() )
-            {
+        if ($subject) {
+            if ($subject->isIndividual()) {
                 $mapper->remove('name');
                 $mapper->remove('individuals');
                 $this->renameShowTab('show_tab_individuals', 'show_tab_organizations');
-            }else
-            {
+            } else {
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
@@ -104,17 +99,21 @@ class OrganismAdmin extends CoreAdmin
      */
     public function preRemove($organism)
     {
-        foreach($organism->getIndividuals() as $position)
+        foreach ($organism->getIndividuals() as $position) {
             $this->getModelManager()->delete($position);
+        }
 
-        foreach($organism->getOrganizations() as $position)
+        foreach ($organism->getOrganizations() as $position) {
             $this->getModelManager()->delete($position);
+        }
 
-        foreach($organism->getPhones() as $phone)
+        foreach ($organism->getPhones() as $phone) {
             $this->getModelManager()->delete($phone);
+        }
 
-        foreach($organism->getAddresses() as $phone)
+        foreach ($organism->getAddresses() as $phone) {
             $this->getModelManager()->delete($phone);
+        }
 
         parent::preRemove($organism);
     }
@@ -135,20 +134,21 @@ class OrganismAdmin extends CoreAdmin
     {
         $this->validateCustomerCode($errorElement, $object);
         $this->validateSupplierCode($errorElement, $object);
+        $this->validateMandatoryFields($errorElement, $object);
     }
 
     /**
-     * Customer code validator
+     * Customer code validator.
      *
      * @param ErrorElement $errorElement
-     * @param Organism $object
+     * @param Organism     $object
      */
     public function validateCustomerCode(ErrorElement $errorElement, $object)
     {
         $is_new = empty($object->getId());
         $code = $object->getCustomerCode();
 
-        if ( empty($code) && $object->isCustomer() ) {
+        if (empty($code) && $object->isCustomer()) {
             $errorElement
                 ->with('customerCode')
                     ->addViolation('A customer code is required for customers')
@@ -158,8 +158,8 @@ class OrganismAdmin extends CoreAdmin
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
-        if ( !empty($code) && !$codeGenerator->validate($code) ) {
-            $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
+        if (!empty($code) && !$codeGenerator->validate($code)) {
+            $msg = 'Wrong format for customer code. It shoud be: '.$codeGenerator::getHelp();
             $errorElement
                 ->with('customerCode')
                     ->addViolation($msg)
@@ -167,43 +167,46 @@ class OrganismAdmin extends CoreAdmin
             ;
         }
 
-        if ( !empty($code) ) {
+        if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
                  'Librinfo\CRMBundle\Entity\Organism',
                  ['customerCode' => $code]
              );
-            if ( $organisms ) {
-                if ( $is_new )
+            if ($organisms) {
+                if ($is_new) {
                     $valid = false;
-                else foreach ( $organisms as $organism ) if ( $organism->getId() != $object->getId() ) {
-                    $valid = false;
-                    break;
+                } else {
+                    foreach ($organisms as $organism) {
+                        if ($organism->getId() != $object->getId()) {
+                            $valid = false;
+                            break;
+                        }
+                    }
                 }
             }
-            if ( !$valid )
+            if (!$valid) {
                 $errorElement
                     ->with('customerCode')
                         ->addViolation('This customer code is already in use')
                     ->end()
                 ;
+            }
         }
-
     }
 
-
     /**
-     * Supplier code validator
+     * Supplier code validator.
      *
      * @param ErrorElement $errorElement
-     * @param Organism $object
+     * @param Organism     $object
      */
     public function validateSupplierCode(ErrorElement $errorElement, $object)
     {
         $is_new = empty($object->getId());
         $code = $object->getSupplierCode();
 
-        if ( empty($code) && $object->isSupplier() ) {
+        if (empty($code) && $object->isSupplier()) {
             $errorElement
                 ->with('supplierCode')
                     ->addViolation('A supplier code is required for suppliers')
@@ -213,8 +216,8 @@ class OrganismAdmin extends CoreAdmin
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
-        if ( !empty($code) && !$codeGenerator->validate($code) ) {
-            $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
+        if (!empty($code) && !$codeGenerator->validate($code)) {
+            $msg = 'Wrong format for supplier code. It shoud be: '.$codeGenerator::getHelp();
             $errorElement
                 ->with('supplierCode')
                     ->addViolation($msg)
@@ -222,41 +225,72 @@ class OrganismAdmin extends CoreAdmin
             ;
         }
 
-        if ( !empty($code) ) {
+        if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
                  'Librinfo\CRMBundle\Entity\Organism',
                  ['supplierCode' => $code]
              );
-            if ( $organisms ) {
-                if ( $is_new )
+            if ($organisms) {
+                if ($is_new) {
                     $valid = false;
-                else foreach ( $organisms as $organism ) if ( $organism->getId() != $object->getId() ) {
-                    $valid = false;
-                    break;
+                } else {
+                    foreach ($organisms as $organism) {
+                        if ($organism->getId() != $object->getId()) {
+                            $valid = false;
+                            break;
+                        }
+                    }
                 }
             }
-            if ( !$valid )
+            if (!$valid) {
                 $errorElement
                     ->with('supplierCode')
                         ->addViolation('This supplier code is already in use')
                     ->end()
                 ;
+            }
+        }
+    }
+
+    public function validateMandatoryFields(ErrorElement $errorElement, $object)
+    {
+        if ($object) {
+            if ($object->isIndividual()) {
+                $errorElement
+                    ->with('title')
+                        ->assertNotBlank()
+                    ->end()
+                    ->with('firstname')
+                        ->assertNotBlank()
+                    ->end()
+                    ->with('lastname')
+                        ->assertNotBlank()
+                    ->end()
+                ;
+            } else {
+                $errorElement
+                    ->with('name')
+                        ->assertNotBlank()
+                    ->end()
+                ;
+            }
         }
     }
 
     /**
      * @param QueryBuilder $queryBuilder
-     * @param string $alias
-     * @param string $field
-     * @param array $value
+     * @param string       $alias
+     * @param string       $field
+     * @param array        $value
      */
     public static function contactFilterQueryBuilder(ProxyQueryInterface $queryBuilder, $alias, $field, $value)
     {
-        if (!$value['value'])
+        if (!$value['value']) {
             return;
+        }
 
-        $search = '%' . $value['value'] . '%';
+        $search = '%'.$value['value'].'%';
         $queryBuilder
             ->andWhere($queryBuilder->expr()->orX(
                 $queryBuilder->expr()->like("$alias.firstname", ':firstname'),
@@ -271,16 +305,18 @@ class OrganismAdmin extends CoreAdmin
 
     private function handlePositions($object)
     {
-        if($object->isIndividual())
-        {
-            if( $object->getOrganizations() && $object->getOrganizations()->count() > 0 )
-                foreach( $object->getOrganizations() as $org )
+        if ($object->isIndividual()) {
+            if ($object->getOrganizations() && $object->getOrganizations()->count() > 0) {
+                foreach ($object->getOrganizations() as $org) {
                     $org->setIndividual($object);
-        }else
-        {
-            if( $object->getIndividuals() && $object->getIndividuals()->count() > 0 )
-                foreach($object->getIndividuals() as $ind)
+                }
+            }
+        } else {
+            if ($object->getIndividuals() && $object->getIndividuals()->count() > 0) {
+                foreach ($object->getIndividuals() as $ind) {
                     $ind->setOrganization($object);
+                }
+            }
         }
     }
 }

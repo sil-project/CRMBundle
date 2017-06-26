@@ -9,6 +9,8 @@ Librinfo\CRMBundle\Entity\Organism:
                 message: This is not a valid International Bank Account Number (IBAN).
         positions:
             - Valid: ~
+        email:
+            - NotNull: ~
 
 Librinfo\CRMBundle\Entity\Position:
     properties:
