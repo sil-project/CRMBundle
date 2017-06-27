@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.4.4](https://github.com/libre-informatique/CRMBundle/tree/0.4.4) (2017-06-27)
+[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.3...0.4.4)
+
 ## [0.4.3](https://github.com/libre-informatique/CRMBundle/tree/0.4.3) (2017-06-13)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.2...0.4.3)
 
