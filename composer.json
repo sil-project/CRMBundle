@@ -8,10 +8,10 @@
         "stof/doctrine-extensions-bundle": ">=1.2",
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "sparkling/vat-bundle": ">=0.1",
-        "blast-project/core-bundle": "dev-wip-lisem",
-        "blast-project/outer-extension-bundle": "dev-wip-lisem",
-        "blast-project/base-entities-bundle": "dev-wip-lisem",
-        "blast-project/utils-bundle": "dev-wip-lisem"
+        "blast-project/core-bundle": ">=0.4",
+        "blast-project/outer-extension-bundle": ">=0.4",
+        "blast-project/base-entities-bundle": ">=0.4",
+        "blast-project/utils-bundle": ">=0.4"
     },
     "require-dev": {
 	"symfony/phpunit-bridge": ">=3.2"
