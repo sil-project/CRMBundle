@@ -20,7 +20,8 @@ parameters:
                 add:
                     form_tab_general:
                         '':
-                            name: ~
+                            name:
+                                required: true
                             treeParent:
                                 type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
                                 class: Librinfo\CRMBundle\Entity\Category
@@ -582,7 +583,8 @@ parameters:
                 add:
                     form_tab_general:
                         '':
-                            name: ~
+                            name:
+                                required: true
                             code: ~
                             description: ~
 #                            owner:
@@ -783,6 +785,14 @@ parameters:
         Librinfo\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    name: ~
+                add:
+                    form_tab_general:
+                        '':
+                            name:
+                                required: true
 
 #################
 # PHONE_TYPE
