@@ -165,6 +165,7 @@ librinfo:
         category_create: 'Nouvelle catégorie de tiers'
         organism_group_list: 'Liste des groupes de tiers'
         organismgroup_list: 'Liste des groupes de tiers'
+        phone_type_create: 'Créer un type de téléphone'
     placeholder:
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'

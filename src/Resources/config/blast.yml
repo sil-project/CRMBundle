@@ -801,6 +801,14 @@ parameters:
         Librinfo\CRMBundle\Entity\PhoneType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    label: ~
+                add:
+                    form_tab_general:
+                        '':
+                            label:
+                                required: true
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     label:
