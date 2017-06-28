@@ -42,8 +42,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Librinfo\\CRMBundle\\": "src/",
-            "Librinfo\\CRMBundle\\Tests\\": "tests/"
+            "Librinfo\\CRMBundle\\": "src/"
         }
     }
 }
