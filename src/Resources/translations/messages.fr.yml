@@ -171,6 +171,12 @@ librinfo:
         supplier_code: 'Code fournisseur'
     msg:
         validating_vat: Validation du numéro de TVA
+    btn:
+        edit_address_or_phone: >
+            <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
+                <i class="fa fa-edit"></i>&nbsp;
+                Modifier
+            </a>
 
 librinfo_crm:
     label:

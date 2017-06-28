@@ -233,22 +233,14 @@ parameters:
                                 disabled: true
                                 label: false
                                 required: false
-                                help: >
-                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
-                                        <i class="fa fa-edit"></i>&nbsp;
-                                        Modifier
-                                    </a>
+                                help: librinfo.btn.edit_address_or_phone
                         form_group_default_phone:
                             defaultPhone:
                                 type: text
                                 disabled: true
                                 label: false
                                 required: false
-                                help: >
-                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
-                                        <i class="fa fa-edit"></i>&nbsp;
-                                        Modifier
-                                    </a>
+                                help: librinfo.btn.edit_address_or_phone
                         form_group_info:
                             catalogue_sent:
                                 type: checkbox
