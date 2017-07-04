@@ -20,7 +20,8 @@ parameters:
                 add:
                     form_tab_general:
                         '':
-                            name: ~
+                            name:
+                                required: true
                             treeParent:
                                 type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
                                 class: Librinfo\CRMBundle\Entity\Category
@@ -232,22 +233,14 @@ parameters:
                                 disabled: true
                                 label: false
                                 required: false
-                                help: >
-                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
-                                        <i class="fa fa-edit"></i>&nbsp;
-                                        Modifier
-                                    </a>
+                                help: librinfo.btn.edit_address_or_phone
                         form_group_default_phone:
                             defaultPhone:
                                 type: text
                                 disabled: true
                                 label: false
                                 required: false
-                                help: >
-                                    <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
-                                        <i class="fa fa-edit"></i>&nbsp;
-                                        Modifier
-                                    </a>
+                                help: librinfo.btn.edit_address_or_phone
                         form_group_info:
                             catalogue_sent:
                                 type: checkbox
@@ -582,7 +575,8 @@ parameters:
                 add:
                     form_tab_general:
                         '':
-                            name: ~
+                            name:
+                                required: true
                             code: ~
                             description: ~
 #                            owner:
@@ -783,6 +777,14 @@ parameters:
         Librinfo\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    name: ~
+                add:
+                    form_tab_general:
+                        '':
+                            name:
+                                required: true
 
 #################
 # PHONE_TYPE
@@ -791,6 +793,14 @@ parameters:
         Librinfo\CRMBundle\Entity\PhoneType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    label: ~
+                add:
+                    form_tab_general:
+                        '':
+                            label:
+                                required: true
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     label:
