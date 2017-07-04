@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -8,7 +18,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 /**
- * OrganismGroup
+ * OrganismGroup.
  */
 class OrganismGroup
 {
@@ -52,6 +62,7 @@ class OrganismGroup
     public function setContact($contact)
     {
         $this->contact = $contact;
+
         return $this;
     }
 
@@ -71,6 +82,7 @@ class OrganismGroup
     public function setOrganism($organism)
     {
         $this->organism = $organism;
+
         return $this;
     }
 
@@ -90,21 +102,20 @@ class OrganismGroup
     public function setRoles($roles)
     {
         $this->roles = $roles;
+
         return $this;
     }
 
     /**
-     * addRole
+     * addRole.
      *
      * @param Role $role
      *
      * @return self
-     *
      */
     public function addRole(Role $role)
     {
-        if (!$this->getRoles()->contains($role))
-        {
+        if (!$this->getRoles()->contains($role)) {
             $this->getRoles()->add($role);
             $role->addContactGroup($this);
         }
@@ -113,33 +124,30 @@ class OrganismGroup
     }
 
     /**
-     * removeRole
+     * removeRole.
      *
      * @param Role $role
      *
      * @return self
-     *
      */
     public function removeRole(Role $role)
     {
-        if ($this->getRoles()->contains($role))
-        {
+        if ($this->getRoles()->contains($role)) {
             $this->getRoles()->removeElement($role);
             $role->removeContactGroup($this);
         }
+
         return $this;
     }
 
     /**
-     * __toString
+     * __toString.
      *
      *
      * @return string
-     *
      */
     public function __toString()
     {
         return $this->getId();
     }
-
 }

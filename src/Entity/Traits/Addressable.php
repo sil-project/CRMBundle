@@ -1,10 +1,12 @@
 <?php
 
 /*
+ * This file is part of the Blast Project package.
+ *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -38,59 +40,63 @@ trait Addressable
 
     /**
      * @param Address $defaultAddress
+     *
      * @return self
      */
     public function setDefaultAddress(Address $defaultAddress = null)
     {
         $this->defaultAddress = $defaultAddress;
 
-        if (null !== $defaultAddress)
+        if (null !== $defaultAddress) {
             $this->addAddress($defaultAddress);
+        }
 
         return $this;
     }
 
     /**
      * @param Address $address
+     *
      * @return self
      */
     public function addAddress(Address $address)
     {
-        if (!$this->hasAddress($address))
-        {
+        if (!$this->hasAddress($address)) {
             $this->addresses->add($address);
             $address->setOrganism($this);
 
-            if(!$this->getDefaultAddress())
+            if (!$this->getDefaultAddress()) {
                 $this->setDefaultAddress($address);
+            }
         }
+
         return $this;
     }
 
     /**
      * @param Address $address
+     *
      * @return self
      */
     public function removeAddress(Address $address)
     {
         $this->addresses->removeElement($address);
 
-        if( $address->getId() == $this->defaultAddress->getId())
-        {
-            if( $this->addresses->count() > 0 )
+        if ($address->getId() == $this->defaultAddress->getId()) {
+            if ($this->addresses->count() > 0) {
                 $this->defaultAddress = $this->addresses[0];
-            else
+            } else {
                 $this->defaultAddress = null;
+            }
         }
 
         return $this;
-
     }
 
     /**
-     *
      * @param Address $address
-     * @return boolean
+     *
+     * @return bool
      */
     public function hasAddress(Address $address)
     {

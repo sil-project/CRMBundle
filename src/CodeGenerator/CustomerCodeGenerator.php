@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
@@ -18,8 +28,7 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
 
     // TODO: this should be in app configuration:
     public static $codePrefix = '';
-    public static $codeLength= 6;
-
+    public static $codeLength = 6;
 
     public static function setEntityManager(EntityManager $em)
     {
@@ -27,7 +36,8 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param  Organism $organism
+     * @param Organism $organism
+     *
      * @return string
      */
     public static function generate($organism)
@@ -42,19 +52,21 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
             ->getQuery()
             ->getScalarResult()
         ;
-        $max = $res ? (int)$res[0]['code'] : 0;
+        $max = $res ? (int) $res[0]['code'] : 0;
 
-        return sprintf("%s%0".self::$codeLength."d", self::$codePrefix, $max + 1);
+        return sprintf('%s%0'.self::$codeLength.'d', self::$codePrefix, $max + 1);
     }
 
     /**
-     * @param string    $code
-     * @param Organism  $organism
-     * @return          boolean
+     * @param string   $code
+     * @param Organism $organism
+     *
+     * @return bool
      */
     public static function validate($code, $organism = null)
     {
         $regexp = sprintf('/^%s(\d{%d})$/', self::$codePrefix, self::$codeLength);
+
         return preg_match($regexp, $code);
     }
 
@@ -66,5 +78,4 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
         return self::$codePrefix ? sprintf('%s + %d digits', self::$codePrefix, self::$codeLength)
             : sprintf('%d digits', self::$codeLength);
     }
-
 }

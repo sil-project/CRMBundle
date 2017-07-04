@@ -1,10 +1,12 @@
 <?php
 
 /*
+ * This file is part of the Blast Project package.
+ *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -15,10 +17,9 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Treeable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\CRMBundle\Entity\OrganismGroup;
 
 /**
- * Role
+ * Role.
  */
 class Role
 {
@@ -53,21 +54,20 @@ class Role
     public function setContactGroups($contactGroups)
     {
         $this->contactGroups = $contactGroups;
+
         return $this;
     }
 
     /**
-     * addContactGroup
+     * addContactGroup.
      *
      * @param OrganismGroup $contactGroup
      *
      * @return self
-     *
      */
     public function addContactGroup(OrganismGroup $contactGroup)
     {
-        if (!$this->getContactGroups()->contains($contactGroup))
-        {
+        if (!$this->getContactGroups()->contains($contactGroup)) {
             $this->getContactGroups()->add($contactGroup);
             $contactGroup->addRole($this);
         }
@@ -76,20 +76,19 @@ class Role
     }
 
     /**
-     * removeContactGroup
+     * removeContactGroup.
      *
      * @param OrganismGroup $contactGroup
      *
      * @return self
-     *
      */
     public function removeContactGroup(OrganismGroup $contactGroup)
     {
-        if ($this->getContactGroups()->contains($contactGroup))
-        {
+        if ($this->getContactGroups()->contains($contactGroup)) {
             $this->getContactGroups()->removeElement($contactGroup);
             $contactGroup->removeRole($this);
         }
+
         return $this;
     }
 

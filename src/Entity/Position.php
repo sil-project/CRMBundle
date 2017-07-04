@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -21,7 +23,7 @@ use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
 
 /**
- * Position
+ * Position.
  */
 class Position implements VCardableInterface
 {
@@ -67,7 +69,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set phone
+     * Set phone.
      *
      * @param string $phone
      *
@@ -81,7 +83,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get phone
+     * Get phone.
      *
      * @return string
      */
@@ -91,7 +93,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set department
+     * Set department.
      *
      * @param string $department
      *
@@ -105,7 +107,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get department
+     * Get department.
      *
      * @return string
      */
@@ -115,7 +117,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set organism
+     * Set organism.
      *
      * @param string $organism
      *
@@ -129,7 +131,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get organism
+     * Get organism.
      *
      * @return string
      */
@@ -139,7 +141,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set positionType
+     * Set positionType.
      *
      * @param string $positionType
      *
@@ -153,7 +155,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get positionType
+     * Get positionType.
      *
      * @return string
      */
@@ -161,9 +163,9 @@ class Position implements VCardableInterface
     {
         return $this->positionType;
     }
-    
+
     /**
-     * Set individual
+     * Set individual.
      *
      * @param \Librinfo\CRMBundle\Entity\Organism $individual
      *
@@ -177,7 +179,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get individual
+     * Get individual.
      *
      * @return \Librinfo\CRMBundle\Entity\Organism
      */
@@ -187,7 +189,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Set organization
+     * Set organization.
      *
      * @param \Librinfo\CRMBundle\Entity\Organism $organization
      *
@@ -201,7 +203,7 @@ class Position implements VCardableInterface
     }
 
     /**
-     * Get organization
+     * Get organization.
      *
      * @return \Librinfo\CRMBundle\Entity\Organism
      */
@@ -215,7 +217,7 @@ class Position implements VCardableInterface
      **/
     public function __toString()
     {
-       (string) $this->getPositionType();
+        (string) $this->getPositionType();
     }
 
     public function isPersonal()
@@ -224,26 +226,32 @@ class Position implements VCardableInterface
     }
 
     /**
-     * description of the position from the individual point of view
+     * description of the position from the individual point of view.
+     *
      * @return string
      */
     public function getContactDescription()
     {
-        $desc = (string)$this->organization;
-        if ( (string)$this )
-            $desc .= " (" . (string)$this . ")";
+        $desc = (string) $this->organization;
+        if ((string) $this) {
+            $desc .= ' ('.(string) $this.')';
+        }
+
         return $desc;
     }
 
     /**
-     * description of the position from the organization point of view
+     * description of the position from the organization point of view.
+     *
      * @return string
      */
     public function getOrganismDescription()
     {
-        $desc = (string)$this->individual;
-        if ( (string)$this )
-            $desc .= " (" . (string)$this . ")";
+        $desc = (string) $this->individual;
+        if ((string) $this) {
+            $desc .= ' ('.(string) $this.')';
+        }
+
         return $desc;
     }
 }

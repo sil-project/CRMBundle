@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Controller;
 
 use Blast\CoreBundle\Controller\CRUDController;
@@ -18,7 +28,7 @@ class CircleAdminController extends CRUDController
      */
     protected function preEdit(Request $request, $object)
     {
-//        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+        //        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
 //        if (!$object->isEditable())
 //            throw $this->createAccessDeniedException('Unauthorized access!');
     }
@@ -33,7 +43,7 @@ class CircleAdminController extends CRUDController
      */
     protected function preShow(Request $request, $object)
     {
-//        $this->denyAccessUnlessGranted('view', $object, 'Unauthorized access!');
+        //        $this->denyAccessUnlessGranted('view', $object, 'Unauthorized access!');
     }
 
     /**
@@ -46,7 +56,7 @@ class CircleAdminController extends CRUDController
      */
     protected function preDelete(Request $request, $object)
     {
-//        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
+        //        $this->denyAccessUnlessGranted('edit', $object, 'Unauthorized access!');
 //        if (!$object->isEditable())
 //            throw $this->createAccessDeniedException('Unauthorized access!');
     }

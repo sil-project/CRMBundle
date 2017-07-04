@@ -1,11 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
- * City
+ * City.
  */
 class City
 {
@@ -26,9 +36,8 @@ class City
      */
     private $city;
 
-
     /**
-     * Set countryCode
+     * Set countryCode.
      *
      * @param string $countryCode
      *
@@ -42,7 +51,7 @@ class City
     }
 
     /**
-     * Get countryCode
+     * Get countryCode.
      *
      * @return string
      */
@@ -52,7 +61,7 @@ class City
     }
 
     /**
-     * Set zip
+     * Set zip.
      *
      * @param string $zip
      *
@@ -66,7 +75,7 @@ class City
     }
 
     /**
-     * Get zip
+     * Get zip.
      *
      * @return string
      */
@@ -76,7 +85,7 @@ class City
     }
 
     /**
-     * Set city
+     * Set city.
      *
      * @param string $city
      *
@@ -90,7 +99,7 @@ class City
     }
 
     /**
-     * Get city
+     * Get city.
      *
      * @return string
      */
@@ -99,4 +108,3 @@ class City
         return $this->city;
     }
 }
-

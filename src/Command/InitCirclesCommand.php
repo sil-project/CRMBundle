@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -16,7 +18,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Creates the application circles in database
+ * Creates the application circles in database.
  */
 class InitCirclesCommand extends ContainerAwareCommand
 {
@@ -31,9 +33,9 @@ class InitCirclesCommand extends ContainerAwareCommand
 
             // the full command description shown when running the command with
             // the "--help" option
-            ->setHelp("Creates the application circles in database."
-                . "\nApplication circles are defined in librinfo_crm.Circle.app_circles configuration parameter."
-                . "\nCircles that already exist in database are updated.")
+            ->setHelp('Creates the application circles in database.'
+                ."\nApplication circles are defined in librinfo_crm.Circle.app_circles configuration parameter."
+                ."\nCircles that already exist in database are updated.")
         ;
     }
 
@@ -54,8 +56,7 @@ class InitCirclesCommand extends ContainerAwareCommand
             if (!$circle) {
                 $output->write(sprintf('Creating circle "%s" (id: %s)', $app_circle['name'], $app_circle['id']));
                 $circle = $this->createCircle($em, $app_circle['id']);
-            }
-            else {
+            } else {
                 $exists = true;
                 $output->write(sprintf('Updating circle "%s" (id: %s)', $app_circle['name'], $app_circle['id']));
             }
@@ -72,14 +73,13 @@ class InitCirclesCommand extends ContainerAwareCommand
         }
 
         $em->flush();
-
     }
 
     protected function createCircle(\Doctrine\ORM\EntityManager $em, $id)
     {
-        $entity = new Circle;
+        $entity = new Circle();
         $className = Circle::class;
-        $idRef = new \ReflectionProperty($className, "id");
+        $idRef = new \ReflectionProperty($className, 'id');
         $idRef->setAccessible(true);
         $idRef->setValue($entity, $id);
 
@@ -92,7 +92,7 @@ class InitCirclesCommand extends ContainerAwareCommand
         $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
 
         $unitOfWork = $em->getUnitOfWork();
-        $persistersRef = new \ReflectionProperty($unitOfWork, "persisters");
+        $persistersRef = new \ReflectionProperty($unitOfWork, 'persisters');
         $persistersRef->setAccessible(true);
         $persisters = $persistersRef->getValue($unitOfWork);
         unset($persisters[$className]);

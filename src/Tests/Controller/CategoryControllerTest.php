@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Tests\Controller;
 
 use Librinfo\CRMBundle\Entity\Category;
@@ -11,16 +21,15 @@ class CategoryControllerTest extends WebTestCase
     private $datafixtures;
     private $client;
 
-    public function init(){
+    public function init()
+    {
         $this->client = static::createClient();
 
         $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
     }
 
-
     /**
-     * testsAdd
-     *
+     * testsAdd.
      */
     public function testsAdd()
     {
@@ -34,8 +43,7 @@ class CategoryControllerTest extends WebTestCase
     }
 
     /**
-     * testsOrganism
-     *
+     * testsOrganism.
      */
     public function testsOrganism()
     {
@@ -52,5 +60,4 @@ class CategoryControllerTest extends WebTestCase
         $category->removeOrganism($organism);
         $this->assertNotContains($organism, $category->getOrganisms());
     }
-
 }

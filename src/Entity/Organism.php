@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -26,7 +28,7 @@ use Librinfo\CRMBundle\Entity\Traits\Circlable;
 use Librinfo\CRMBundle\Entity\Traits\Positionable;
 
 /**
- * Organism
+ * Organism.
  */
 class Organism implements VCardableInterface, OrganismExtensionInterface
 {
@@ -69,7 +71,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     private $flashOnControl;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $familyContact;
 
@@ -139,12 +141,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     private $alert;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $active;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $catalogue_sent;
 
@@ -188,7 +190,6 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      */
     private $organizations;
 
-
     public function initOrganism()
     {
         $this->active = true;
@@ -226,25 +227,27 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * bEvErly CRuSHeR = Beverly Crusher
      * JEAN-LUC PICARD => Jean-Luc Picard
-     * MILES O'BRIEN => Miles O'Brian
+     * MILES O'BRIEN => Miles O'Brian.
      *
      * @param string $string
+     *
      * @return string
      */
     protected function ucname($string)
     {
-        $string =ucwords(MB_strtolower($string));
+        $string = ucwords(mb_strtolower($string));
 
         foreach (array('-', '\'', '_') as $delimiter) {
-          if (strpos($string, $delimiter)!==false) {
-            $string =implode($delimiter, array_map('ucfirst', explode($delimiter, $string)));
-          }
+            if (strpos($string, $delimiter) !== false) {
+                $string = implode($delimiter, array_map('ucfirst', explode($delimiter, $string)));
+            }
         }
+
         return $string;
     }
 
     /**
-     * Set firstname
+     * Set firstname.
      *
      * @param string $firstname
      *
@@ -260,7 +263,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get firstname
+     * Get firstname.
      *
      * @return string
      */
@@ -270,11 +273,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set lastname
+     * Set lastname.
      *
      * @param string $lastname
      *
      * @return Contact
+     *
      * @todo mb_strtoupper should go in an event listener, so we can configure the behaviour
      */
     public function setLastname($lastname)
@@ -285,7 +289,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get lastname
+     * Get lastname.
      *
      * @return string
      */
@@ -295,7 +299,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set shortname
+     * Set shortname.
      *
      * @param string $shortname
      *
@@ -309,7 +313,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get shortname
+     * Get shortname.
      *
      * @return string
      */
@@ -319,7 +323,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -333,7 +337,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -343,7 +347,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set flashOnControl
+     * Set flashOnControl.
      *
      * @param string $flashOnControl
      *
@@ -357,7 +361,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get flashOnControl
+     * Get flashOnControl.
      *
      * @return string
      */
@@ -367,9 +371,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set familyContact
+     * Set familyContact.
      *
-     * @param boolean $familyContact
+     * @param bool $familyContact
      *
      * @return Contact
      */
@@ -381,9 +385,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get familyContact
+     * Get familyContact.
      *
-     * @return boolean
+     * @return bool
      */
     public function getFamilyContact()
     {
@@ -391,7 +395,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set culture
+     * Set culture.
      *
      * @param string $culture
      *
@@ -405,7 +409,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get culture
+     * Get culture.
      *
      * @return string
      */
@@ -415,7 +419,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set url
+     * Set url.
      *
      * @param string $url
      *
@@ -429,7 +433,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string
      */
@@ -456,11 +460,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     public function setName($name)
     {
         $this->name = mb_strtoupper($name);
+
         return $this;
     }
 
     /**
-     * Set administrativeNumber
+     * Set administrativeNumber.
      *
      * @param string $administrativeNumber
      *
@@ -474,7 +479,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get administrativeNumber
+     * Get administrativeNumber.
      *
      * @return string
      */
@@ -484,7 +489,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param Category $category
      *
@@ -498,7 +503,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return Category
      */
@@ -507,11 +512,11 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
         return $this->category;
     }
 
-
     /**
-     * Set isIndividual
+     * Set isIndividual.
      *
-     * @param boolean $isIndividual
+     * @param bool $isIndividual
+     *
      * @return Organism
      */
     public function setIsIndividual($isIndividual)
@@ -522,9 +527,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get isIndividual
+     * Get isIndividual.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsIndividual()
     {
@@ -532,9 +537,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set isCustomer
+     * Set isCustomer.
      *
-     * @param boolean $isCustomer
+     * @param bool $isCustomer
+     *
      * @return Organism
      */
     public function setIsCustomer($isCustomer)
@@ -545,9 +551,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get isCustomer
+     * Get isCustomer.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsCustomer()
     {
@@ -555,7 +561,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Alias for  getIsIndividual
+     * Alias for  getIsIndividual.
      *
      * @return bool
      */
@@ -565,7 +571,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Alias for getIsCustomer
+     * Alias for getIsCustomer.
      *
      * @return bool
      */
@@ -575,7 +581,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set customerCode
+     * Set customerCode.
      *
      * @param string $customerCode
      *
@@ -589,7 +595,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get customerCode
+     * Get customerCode.
      *
      * @return string
      */
@@ -599,9 +605,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set isSupplier
+     * Set isSupplier.
      *
-     * @param boolean $isSupplier
+     * @param bool $isSupplier
+     *
      * @return Organism
      */
     public function setIsSupplier($isSupplier)
@@ -612,9 +619,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get isSupplier
+     * Get isSupplier.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsSupplier()
     {
@@ -622,7 +629,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Alias for getIsSupplier
+     * Alias for getIsSupplier.
      *
      * @return bool
      */
@@ -632,7 +639,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set supplierCode
+     * Set supplierCode.
      *
      * @param string $supplierCode
      *
@@ -646,7 +653,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get supplierCode
+     * Get supplierCode.
      *
      * @return string
      */
@@ -656,7 +663,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set iban
+     * Set iban.
      *
      * @param string $iban
      *
@@ -670,7 +677,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get iban
+     * Get iban.
      *
      * @return string
      */
@@ -680,7 +687,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set vat
+     * Set vat.
      *
      * @param string $vat
      *
@@ -694,7 +701,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get vat
+     * Get vat.
      *
      * @return string
      */
@@ -704,7 +711,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set vatVerified
+     * Set vatVerified.
      *
      * @param int $vatVerified
      *
@@ -718,7 +725,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get vatVerified
+     * Get vatVerified.
      *
      * @return int
      */
@@ -728,7 +735,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set alert
+     * Set alert.
      *
      * @param string $alert
      *
@@ -742,7 +749,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get alert
+     * Get alert.
      *
      * @return string
      */
@@ -752,9 +759,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set active
+     * Set active.
      *
-     * @param boolean $active
+     * @param bool $active
+     *
      * @return Organism
      */
     public function setActive($active)
@@ -765,9 +773,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get active
+     * Get active.
      *
-     * @return boolean
+     * @return bool
      */
     public function getActive()
     {
@@ -775,9 +783,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set catalogue_sent
+     * Set catalogue_sent.
      *
-     * @param boolean $catalogueSent
+     * @param bool $catalogueSent
+     *
      * @return Organism
      */
     public function setCatalogueSent($catalogueSent)
@@ -788,9 +797,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get catalogue_sent
+     * Get catalogue_sent.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCatalogueSent()
     {
@@ -798,9 +807,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set catalogue_send_mean
+     * Set catalogue_send_mean.
      *
-     * @param boolean $catalogueSendMean
+     * @param bool $catalogueSendMean
+     *
      * @return Organism
      */
     public function setCatalogueSendMean($catalogueSendMean)
@@ -811,9 +821,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get catalogue_send_mean
+     * Get catalogue_send_mean.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCatalogueSendMean()
     {
@@ -821,9 +831,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set last_catalogue_sent_date
+     * Set last_catalogue_sent_date.
      *
      * @param \DateTime $lastCatalogueSentDate
+     *
      * @return Organism
      */
     public function setLastCatalogueSentDate($lastCatalogueSentDate)
@@ -834,7 +845,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get last_catalogue_sent_date
+     * Get last_catalogue_sent_date.
      *
      * @return \DateTime
      */
@@ -844,9 +855,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set first_catalogue_sent_date
+     * Set first_catalogue_sent_date.
      *
      * @param \DateTime $firstCatalogueSentDate
+     *
      * @return Organism
      */
     public function setFirstCatalogueSentDate($firstCatalogueSentDate)
@@ -857,7 +869,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get first_catalogue_sent_date
+     * Get first_catalogue_sent_date.
      *
      * @return \DateTime
      */
@@ -867,9 +879,10 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Set source
+     * Set source.
      *
      * @param string $source
+     *
      * @return Organism
      */
     public function setSource($source)
@@ -880,7 +893,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get source
+     * Get source.
      *
      * @return string
      */
@@ -917,8 +930,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
             $this->phones->add($phone);
             $phone->setOrganism($this);
 
-            if(!$this->getDefaultPhone())
+            if (!$this->getDefaultPhone()) {
                 $this->setDefaultPhone($phone);
+            }
         }
     }
 
@@ -929,12 +943,12 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     {
         $this->phones->removeElement($phone);
 
-        if( $phone->getId() == $this->defaultPhone->getId())
-        {
-            if( $this->phones->count() > 0 )
+        if ($phone->getId() == $this->defaultPhone->getId()) {
+            if ($this->phones->count() > 0) {
                 $this->defaultPhone = $this->phones[0];
-            else
+            } else {
                 $this->defaultPhone = null;
+            }
         }
     }
 
@@ -955,7 +969,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Add individual
+     * Add individual.
      *
      * @param \Librinfo\CRMBundle\Entity\Position $individual
      *
@@ -969,7 +983,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Remove individual
+     * Remove individual.
      *
      * @param \Librinfo\CRMBundle\Entity\Position $individual
      */
@@ -979,7 +993,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get individuals
+     * Get individuals.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -989,7 +1003,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Add organization
+     * Add organization.
      *
      * @param \Librinfo\CRMBundle\Entity\Position $organization
      *
@@ -1003,7 +1017,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Remove organization
+     * Remove organization.
      *
      * @param \Librinfo\CRMBundle\Entity\Position $organization
      */
@@ -1013,7 +1027,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * Get organizations
+     * Get organizations.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -1028,13 +1042,16 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     }
 
     /**
-     * ex. "Mr John DOE"
+     * ex. "Mr John DOE".
+     *
      * @return string
      */
     public function getFulltextName()
     {
-        if (!$this->isIndividual())
+        if (!$this->isIndividual()) {
             return $this->getName();
+        }
+
         return sprintf('%s %s', $this->getFirstname(), $this->getLastName());
     }
 

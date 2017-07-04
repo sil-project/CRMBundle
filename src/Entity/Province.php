@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -13,7 +15,7 @@ namespace Librinfo\CRMBundle\Entity;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
- * Province entity
+ * Province entity.
  */
 class Province
 {
@@ -39,11 +41,11 @@ class Province
      */
     private $country;
 
-
     /**
-     * Set code
+     * Set code.
      *
      * @param string $code
+     *
      * @return Province
      */
     public function setCode($code)
@@ -54,7 +56,7 @@ class Province
     }
 
     /**
-     * Get code
+     * Get code.
      *
      * @return string
      */
@@ -64,9 +66,10 @@ class Province
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Province
      */
     public function setName($name)
@@ -77,7 +80,7 @@ class Province
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -87,9 +90,10 @@ class Province
     }
 
     /**
-     * Set abbreviation
+     * Set abbreviation.
      *
      * @param string $abbreviation
+     *
      * @return Province
      */
     public function setAbbreviation($abbreviation)
@@ -100,7 +104,7 @@ class Province
     }
 
     /**
-     * Get abbreviation
+     * Get abbreviation.
      *
      * @return string
      */
@@ -110,9 +114,10 @@ class Province
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param Country $country
+     *
      * @return Province
      */
     public function setCountry(Country $country = null)
@@ -123,7 +128,7 @@ class Province
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return Country
      */

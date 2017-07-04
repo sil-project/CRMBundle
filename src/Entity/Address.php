@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -17,7 +19,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
- * Address
+ * Address.
  */
 class Address implements AddressInterface, VCardableInterface
 {
@@ -69,7 +71,7 @@ class Address implements AddressInterface, VCardableInterface
     private $provinceName;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $npai = false;
 
@@ -79,7 +81,7 @@ class Address implements AddressInterface, VCardableInterface
     private $vcardUid;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $confirmed = true;
 
@@ -87,15 +89,15 @@ class Address implements AddressInterface, VCardableInterface
      * @var \Librinfo\CRMBundle\Entity\Organism
      */
     private $organism;
-    
-        /**
+
+    /**
      * Organism constructor.
      */
     public function __construct()
     {
         $this->initAddress();
     }
-    
+
     public function initAddress()
     {
         $this->initOuterExtendedClasses();
@@ -113,9 +115,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set firstName
+     * Set firstName.
      *
      * @param string $firstName
+     *
      * @return Address
      */
     public function setFirstName($firstName)
@@ -126,7 +129,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get firstName
+     * Get firstName.
      *
      * @return string
      */
@@ -152,9 +155,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set postCode
+     * Set postCode.
      *
      * @param string $postCode
+     *
      * @return Address
      */
     public function setPostCode($postCode)
@@ -165,7 +169,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get postCode
+     * Get postCode.
      *
      * @return string
      */
@@ -175,9 +179,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set street
+     * Set street.
      *
      * @param string $street
+     *
      * @return Address
      */
     public function setStreet($street)
@@ -188,7 +193,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get street
+     * Get street.
      *
      * @return string
      */
@@ -198,9 +203,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set city
+     * Set city.
      *
      * @param string $city
+     *
      * @return Address
      */
     public function setCity($city)
@@ -211,7 +217,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get city
+     * Get city.
      *
      * @return string
      */
@@ -221,9 +227,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set countryCode
+     * Set countryCode.
      *
      * @param string $countryCode
+     *
      * @return Address
      */
     public function setCountryCode($countryCode = null)
@@ -234,7 +241,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get countryCode
+     * Get countryCode.
      *
      * @return string
      */
@@ -244,9 +251,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set provinceCode
+     * Set provinceCode.
      *
      * @param string $provinceCode
+     *
      * @return Address
      */
     public function setProvinceCode($provinceCode = null)
@@ -257,7 +265,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get provinceCode
+     * Get provinceCode.
      *
      * @return string
      */
@@ -267,9 +275,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set provinceName
+     * Set provinceName.
      *
      * @param string $provinceName
+     *
      * @return Address
      */
     public function setProvinceName($provinceName = null)
@@ -280,7 +289,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get provinceName
+     * Get provinceName.
      *
      * @return string
      */
@@ -290,9 +299,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set npai
+     * Set npai.
      *
-     * @param boolean $npai
+     * @param bool $npai
+     *
      * @return Address
      */
     public function setNpai($npai)
@@ -303,9 +313,9 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get npai
+     * Get npai.
      *
-     * @return boolean
+     * @return bool
      */
     public function getNpai()
     {
@@ -313,9 +323,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set vcardUid
+     * Set vcardUid.
      *
      * @param string $vcardUid
+     *
      * @return Address
      */
     public function setVcardUid($vcardUid)
@@ -326,7 +337,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get vcardUid
+     * Get vcardUid.
      *
      * @return string
      */
@@ -336,9 +347,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set confirmed
+     * Set confirmed.
      *
-     * @param boolean $confirmed
+     * @param bool $confirmed
+     *
      * @return Address
      */
     public function setConfirmed($confirmed)
@@ -349,9 +361,9 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get confirmed
+     * Get confirmed.
      *
-     * @return boolean
+     * @return bool
      */
     public function getConfirmed()
     {
@@ -359,9 +371,10 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Set organism
+     * Set organism.
      *
      * @param \Librinfo\CRMBundle\Entity\Organism $organism
+     *
      * @return Address
      */
     public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $organism = null)
@@ -372,7 +385,7 @@ class Address implements AddressInterface, VCardableInterface
     }
 
     /**
-     * Get organism
+     * Get organism.
      *
      * @return \Librinfo\CRMBundle\Entity\Organism
      */

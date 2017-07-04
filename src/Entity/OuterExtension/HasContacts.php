@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -7,7 +17,7 @@ use Doctrine\Common\Collections\Collection;
 use Librinfo\CRMBundle\Entity\Contact;
 
 /**
- * HasContacts trait
+ * HasContacts trait.
  */
 trait HasContacts
 {
@@ -22,23 +32,28 @@ trait HasContacts
     }
 
     /**
-     * This function is called by the owning side of the N-N relationship
+     * This function is called by the owning side of the N-N relationship.
+     *
      * @param Contact $contact
+     *
      * @return self
      */
     public function addContact(Contact $contact)
     {
         $this->contacts->add($contact);
+
         return $this;
     }
 
     /**
      * @param Contact $contact
+     *
      * @return self
      */
     public function removeContact(Contact $contact)
     {
         $this->contacts->removeElement($contact);
+
         return $this;
     }
 
@@ -49,5 +64,4 @@ trait HasContacts
     {
         return $this->contacts;
     }
-
 }

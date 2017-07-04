@@ -1,11 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity\Traits;
 
 use Librinfo\CRMBundle\Entity\Circle;
 
 /**
- * Circlable trait
+ * Circlable trait.
  */
 trait Circlable
 {
@@ -15,23 +25,28 @@ trait Circlable
     private $circles;
 
     /**
-     * This function is called by the owning side (Circle::addContact) of the N-N relationship
+     * This function is called by the owning side (Circle::addContact) of the N-N relationship.
+     *
      * @param \Librinfo\CRMBundle\Entity\Circle $circle
+     *
      * @return Contact
      */
     public function addCircle(Circle $circle)
     {
         $this->circles->add($circle);
+
         return $this;
     }
 
     /**
      * @param Circle $circle
+     *
      * @return Contact
      */
     public function removeCircle(Circle $circle)
     {
         $this->circles->removeElement($circle);
+
         return $this;
     }
 
@@ -42,5 +57,4 @@ trait Circlable
     {
         return $this->circles;
     }
-
 }

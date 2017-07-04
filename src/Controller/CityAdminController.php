@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Controller;
 
 use Blast\CoreBundle\Controller\CRUDController;
 use Librinfo\CRMBundle\Entity\City;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 
 class CityAdminController extends CRUDController
 {
@@ -24,9 +33,9 @@ class CityAdminController extends CRUDController
     public function getAddressAutocompleteItemsAction(Request $request)
     {
         // check user permission
-        if ( false === $this->admin->isGranted('LIST') ) 
+        if (false === $this->admin->isGranted('LIST')) {
             throw new AccessDeniedException();
-
+        }
         $em = $this->admin->getModelManager()->getEntityManager(City::class);
         $repo = $em->getRepository(City::class);
 
@@ -39,9 +48,8 @@ class CityAdminController extends CRUDController
         $results = $repo->getAddressAutocompleteItems($field, $searchTerm, $page, $items_per_page, $country_code);
 
         $items = $results['items'];
-        
-        foreach ( $items as $k => $item ) 
-        {
+
+        foreach ($items as $k => $item) {
             $format = $field == 'zip' ? '<strong>%s</strong> %s, %s' : '%s <strong>%s</strong>, %s';
             $label = sprintf($format, $item['zip'], $item['city'], $item['country_code']);
             $items[$k]['label'] = $label;
@@ -53,6 +61,4 @@ class CityAdminController extends CRUDController
             'items' => $items,
         ));
     }
-
 }
-

@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -18,11 +20,10 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Circle
- * groups of contacts, positions and organisms
+ * groups of contacts, positions and organisms.
  */
 class Circle
 {
@@ -71,7 +72,7 @@ class Circle
     }
 
     /**
-     * Set code
+     * Set code.
      *
      * @param string $code
      *
@@ -85,7 +86,7 @@ class Circle
     }
 
     /**
-     * Get code
+     * Get code.
      *
      * @return string
      */
@@ -95,7 +96,7 @@ class Circle
     }
 
     /**
-     * Set color
+     * Set color.
      *
      * @param string $color
      *
@@ -109,7 +110,7 @@ class Circle
     }
 
     /**
-     * Get color
+     * Get color.
      *
      * @return string
      */
@@ -119,7 +120,7 @@ class Circle
     }
 
     /**
-     * Set translatable
+     * Set translatable.
      *
      * @param bool $translatable
      *
@@ -133,7 +134,7 @@ class Circle
     }
 
     /**
-     * Get translatable
+     * Get translatable.
      *
      * @return bool
      */
@@ -143,7 +144,7 @@ class Circle
     }
 
     /**
-     * Set editable
+     * Set editable.
      *
      * @param bool $editable
      *
@@ -157,7 +158,7 @@ class Circle
     }
 
     /**
-     * Get editable
+     * Get editable.
      *
      * @return bool
      */
@@ -168,22 +169,26 @@ class Circle
 
     /**
      * @param Position $position
+     *
      * @return Circle
      */
     public function addPosition(Position $position)
     {
         $position->addCircle($this); // synchronously updating inverse side
         $this->positions->add($position);
+
         return $this;
     }
 
     /**
      * @param Position $position
+     *
      * @return Circle
      */
     public function removePosition(Position $position)
     {
         $this->positions->removeElement($position);
+
         return $this;
     }
 
@@ -197,22 +202,26 @@ class Circle
 
     /**
      * @param Organism $organism
+     *
      * @return Circle
      */
     public function addOrganism(Organism $organism)
     {
         $organism->addCircle($this); // synchronously updating inverse side
         $this->organisms->add($organism);
+
         return $this;
     }
 
     /**
      * @param Organism $organism
+     *
      * @return Circle
      */
     public function removeOrganism(Organism $organism)
     {
         $this->organisms->removeElement($organism);
+
         return $this;
     }
 
@@ -239,7 +248,8 @@ class Circle
         return $this->positions->count();
     }
 
-    public function __toString() {
-        return (string) sprintf('%s %s',$this->code,$this->name);
+    public function __toString()
+    {
+        return (string) sprintf('%s %s', $this->code, $this->name);
     }
 }

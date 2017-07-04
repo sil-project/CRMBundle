@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Copyright (C) 2015-2016 Libre Informatique
+ * This file is part of the Blast Project package.
  *
- * This file is licenced under the GNU GPL v3.
- * For the full copyright and license information, please view the LICENSE
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -15,7 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * Country entity
+ * Country entity.
  */
 class Country
 {
@@ -27,7 +29,7 @@ class Country
     private $code;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $enabled;
 
@@ -37,7 +39,7 @@ class Country
     private $provinces;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -45,9 +47,10 @@ class Country
     }
 
     /**
-     * Set code
+     * Set code.
      *
      * @param string $code
+     *
      * @return Country
      */
     public function setCode($code)
@@ -58,7 +61,7 @@ class Country
     }
 
     /**
-     * Get code
+     * Get code.
      *
      * @return string
      */
@@ -68,9 +71,10 @@ class Country
     }
 
     /**
-     * Set enabled
+     * Set enabled.
      *
-     * @param boolean $enabled
+     * @param bool $enabled
+     *
      * @return Country
      */
     public function setEnabled($enabled)
@@ -81,9 +85,9 @@ class Country
     }
 
     /**
-     * Get enabled
+     * Get enabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -96,6 +100,7 @@ class Country
     public function enable()
     {
         $this->enabled = true;
+
         return $this;
     }
 
@@ -105,13 +110,15 @@ class Country
     public function disable()
     {
         $this->enabled = false;
+
         return $this;
     }
 
     /**
-     * Add provinces
+     * Add provinces.
      *
      * @param Province $province
+     *
      * @return Country
      */
     public function addProvince(Province $province)
@@ -122,19 +129,21 @@ class Country
     }
 
     /**
-     * Remove provinces
+     * Remove provinces.
      *
      * @param Province $province
+     *
      * @return Country
      */
     public function removeProvince(Province $province)
     {
         $this->provinces->removeElement($province);
+
         return $this;
     }
 
     /**
-     * Get provinces
+     * Get provinces.
      *
      * @return Collection
      */
@@ -151,7 +160,7 @@ class Country
         return !$this->provinces->isEmpty();
     }
 
-     /**
+    /**
      * @param Province $province
      *
      * @return bool

@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
 class OrganismPhone extends Phone
@@ -10,7 +20,7 @@ class OrganismPhone extends Phone
     private $organism;
 
     /**
-     * Get organism
+     * Get organism.
      *
      * @return Organism
      */
@@ -20,15 +30,16 @@ class OrganismPhone extends Phone
     }
 
     /**
-     * Set organism
+     * Set organism.
      *
      * @param Organism $organism
+     *
      * @return OrganismPhone
      */
     public function setOrganism($organism)
     {
         $this->organism = $organism;
+
         return $this;
     }
-
 }

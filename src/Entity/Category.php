@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -9,11 +19,10 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
 
 /**
- * Category
+ * Category.
  */
 class Category
 {
-
     use BaseEntity,
         Nameable,
         NestedTreeable
@@ -24,9 +33,8 @@ class Category
      */
     private $organisms;
 
-
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -36,7 +44,7 @@ class Category
     }
 
     /**
-     * Add organism
+     * Add organism.
      *
      * @param Organism $organism
      *
@@ -50,7 +58,7 @@ class Category
     }
 
     /**
-     * Remove organism
+     * Remove organism.
      *
      * @param Organism $organism
      */
@@ -60,7 +68,7 @@ class Category
     }
 
     /**
-     * Get organisms
+     * Get organisms.
      *
      * @return Collection
      */

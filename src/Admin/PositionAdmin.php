@@ -1,7 +1,16 @@
 <?php
 
-namespace Librinfo\CRMBundle\Admin;
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
 
+namespace Librinfo\CRMBundle\Admin;
 
 use Blast\CoreBundle\Admin\CoreAdmin;
 use Blast\CoreBundle\Admin\Traits\EmbeddedAdmin;
@@ -13,18 +22,19 @@ class PositionAdmin extends CoreAdmin
 
     /**
      * @param QueryBuilder $queryBuilder
-     * @param string $alias
-     * @param string $field
-     * @param array $value
+     * @param string       $alias
+     * @param string       $field
+     * @param array        $value
      *
      * @todo this is the same as OrganismAdmin#contactFilterQueryBuilder. Unify ?
      */
     public static function contactFilterQueryBuilder(ProxyQuery $queryBuilder, $alias, $field, $value)
     {
-        if ( !$value['value'] ) 
+        if (!$value['value']) {
             return;
+        }
 
-        $search = '%' . $value['value'] . '%';
+        $search = '%'.$value['value'].'%';
         $queryBuilder
             ->andWhere($queryBuilder->expr()->orX(
                 $queryBuilder->expr()->like("$alias.firstname", ':firstname'),
@@ -33,34 +43,34 @@ class PositionAdmin extends CoreAdmin
             ->setParameter('firstname', $search)
             ->setParameter('name', $search)
         ;
-        
+
         return true;
     }
-    
+
     public static function individualsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass() . 'SearchIndex';
+        $searchIndex = $admin->getClass().'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
         $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
+            ->leftJoin($searchIndex, 's', 'WITH', $alias.'.id = s.object')
             ->where('s.keyword LIKE :value')
             ->andWhere("$alias.isIndividual = true")
             ->setParameter('value', "%$value%")
         ;
     }
-    
+
     public static function organizationsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass() . 'SearchIndex';
+        $searchIndex = $admin->getClass().'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
         $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
+            ->leftJoin($searchIndex, 's', 'WITH', $alias.'.id = s.object')
             ->where('s.keyword LIKE :value')
             ->andWhere("$alias.isIndividual = false")
             ->setParameter('value', "%$value%")

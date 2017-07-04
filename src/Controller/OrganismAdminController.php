@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\CRMBundle\Controller;
 
 use Blast\CoreBundle\Controller\CRUDController;
@@ -14,7 +24,7 @@ use Sparkling\VATBundle\Exception\VATException;
 class OrganismAdminController extends CRUDController
 {
     /**
-     * generate a customerCode
+     * generate a customerCode.
      */
     public function generateCustomerCodeAction()
     {
@@ -27,11 +37,11 @@ class OrganismAdminController extends CRUDController
     }
 
     /**
-     * validate a VAT number
+     * validate a VAT number.
      */
     public function validateVatAction(Request $request)
     {
-        $vat = str_replace(' ','',$request->query->get('vat'));
+        $vat = str_replace(' ', '', $request->query->get('vat'));
         $vatService = $this->get('vat.service');
         $translator = $this->get('translator');
 
@@ -40,7 +50,7 @@ class OrganismAdminController extends CRUDController
             $msg = $valid ? '' : $translator->trans('Not a valid VAT number');
         } catch (InvalidCountryCodeException $exc) {
             $valid = false;
-            $msg = $translator->trans('The countrycode is not valid. It must be one of %country_codes%', ['%country_codes%'=>implode(', ', $vatService::$validCountries)]);
+            $msg = $translator->trans('The countrycode is not valid. It must be one of %country_codes%', ['%country_codes%' => implode(', ', $vatService::$validCountries)]);
         } catch (VATException $exc) {
             $valid = false;
             $msg = $translator->trans('The VAT number is not valid. It must be in format [0-9A-Za-z\+\*\.]{4,14}');
@@ -49,7 +59,7 @@ class OrganismAdminController extends CRUDController
             $msg = $translator->trans($exc->getMessage());
         }
 
-        return new JsonResponse(['valid'=>$valid, 'vat'=>$vat, 'msg'=>$msg]);
+        return new JsonResponse(['valid' => $valid, 'vat' => $vat, 'msg' => $msg]);
     }
 
     /**
@@ -60,10 +70,10 @@ class OrganismAdminController extends CRUDController
      */
     protected function preEdit(Request $request, $object)
     {
-        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
+        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
             throw new NotFoundHttpException();
+        }
     }
-
 
     /**
      * @param Request $request
@@ -73,8 +83,9 @@ class OrganismAdminController extends CRUDController
      */
     protected function preShow(Request $request, $object)
     {
-        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer())
+        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
             throw new NotFoundHttpException();
+        }
     }
 
     public function setDefaultAddressAction($organismId, $addressId)
@@ -83,8 +94,7 @@ class OrganismAdminController extends CRUDController
         $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
         $address = $manager->getRepository('LibrinfoCRMBundle:Address')->find($addressId);
 
-        if($organism->hasAddress($address))
-        {
+        if ($organism->hasAddress($address)) {
             $organism->setDefaultAddress($address);
             $address->setOrganism($organism);
             $manager->persist($organism);
@@ -101,8 +111,7 @@ class OrganismAdminController extends CRUDController
         $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
         $phone = $manager->getRepository('LibrinfoCRMBundle:OrganismPhone')->find($phoneId);
 
-        if($organism->hasPhone($phone))
-        {
+        if ($organism->hasPhone($phone)) {
             $organism->setDefaultPhone($phone);
             $phone->setOrganism($organism);
             $manager->persist($organism);
