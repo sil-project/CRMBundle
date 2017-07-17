@@ -234,7 +234,7 @@ class Position implements VCardableInterface
     {
         $desc = (string) $this->organization;
         if ((string) $this) {
-            $desc .= ' ('.(string) $this.')';
+            $desc .= ' (' . (string) $this . ')';
         }
 
         return $desc;
@@ -249,7 +249,7 @@ class Position implements VCardableInterface
     {
         $desc = (string) $this->individual;
         if ((string) $this) {
-            $desc .= ' ('.(string) $this.')';
+            $desc .= ' (' . (string) $this . ')';
         }
 
         return $desc;

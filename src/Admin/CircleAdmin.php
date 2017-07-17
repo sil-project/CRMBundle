@@ -38,25 +38,25 @@ class CircleAdmin extends CoreAdmin
 
         $query
             ->addSelect('users')
-            ->leftJoin($ra.'.users', 'users')
+            ->leftJoin($ra . '.users', 'users')
         ;
 
         if ($config['Circle']['allow_organizations']) {
             $query
                 ->addSelect('organisms')
-                ->leftJoin($ra.'.organisms', 'organisms')
+                ->leftJoin($ra . '.organisms', 'organisms')
             ;
         }
         if ($config['Circle']['allow_individuals']) {
             $query
                 ->addSelect('contacts')
-                ->leftJoin($ra.'.contacts', 'contacts')
+                ->leftJoin($ra . '.contacts', 'contacts')
             ;
         }
         if ($config['Circle']['allow_positions']) {
             $query
                 ->addSelect('positions')
-                ->leftJoin($ra.'.positions', 'positions')
+                ->leftJoin($ra . '.positions', 'positions')
             ;
         }
 
@@ -79,11 +79,11 @@ class CircleAdmin extends CoreAdmin
             ->join('c1.users', 'u1')
             ->where($expr->eq('c1', $ra));
         $dql1 = $expr->andX(
-                $expr->isNull($ra.'.owner'), $expr->not($expr->exists($subquery1->getDql()))
+                $expr->isNull($ra . '.owner'), $expr->not($expr->exists($subquery1->getDql()))
         );
 
         // 2. the current user is the Circle owner
-        $dql2 = $expr->eq($ra.'.owner', ':user2');
+        $dql2 = $expr->eq($ra . '.owner', ':user2');
 
         // 3. the current user belongs to the circle users
         $subquery3 = $query->getEntityManager()->createQueryBuilder()

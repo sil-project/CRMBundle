@@ -32,7 +32,7 @@ trait Positionable
     public function addPosition(Position $position)
     {
         $rc = new \ReflectionClass($this);
-        $position->{'set'.$rc->getShortName()}($this);
+        $position->{'set' . $rc->getShortName()}($this);
         $this->positions->add($position);
 
         return $this;

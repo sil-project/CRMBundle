@@ -34,7 +34,7 @@ class PositionAdmin extends CoreAdmin
             return;
         }
 
-        $search = '%'.$value['value'].'%';
+        $search = '%' . $value['value'] . '%';
         $queryBuilder
             ->andWhere($queryBuilder->expr()->orX(
                 $queryBuilder->expr()->like("$alias.firstname", ':firstname'),
@@ -49,13 +49,13 @@ class PositionAdmin extends CoreAdmin
 
     public static function individualsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass().'SearchIndex';
+        $searchIndex = $admin->getClass() . 'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
         $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias.'.id = s.object')
+            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
             ->where('s.keyword LIKE :value')
             ->andWhere("$alias.isIndividual = true")
             ->setParameter('value', "%$value%")
@@ -64,13 +64,13 @@ class PositionAdmin extends CoreAdmin
 
     public static function organizationsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass().'SearchIndex';
+        $searchIndex = $admin->getClass() . 'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
         $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias.'.id = s.object')
+            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
             ->where('s.keyword LIKE :value')
             ->andWhere("$alias.isIndividual = false")
             ->setParameter('value', "%$value%")

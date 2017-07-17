@@ -33,7 +33,7 @@ class Exporter extends CoreExporter
             $circle = new Circle();
             $circle->setName(
                 $this->translator->trans('librinfo_crm_export_new_group')
-                .' | '.
+                . ' | ' .
                 twig_date_format_filter($this->twig, time())
             );
             $circle->setOwner($this->tokenStorage->getToken()->getUser());
@@ -42,7 +42,7 @@ class Exporter extends CoreExporter
             foreach ($source->getQuery()->iterate() as $elements) {
                 foreach ($elements as $element) {
                     $rc = new \ReflectionClass($element);
-                    $circle->{'add'.$rc->getShortName()}($element);
+                    $circle->{'add' . $rc->getShortName()}($element);
                 }
             }
 

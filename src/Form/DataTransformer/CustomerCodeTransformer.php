@@ -37,7 +37,7 @@ class CustomerCodeTransformer implements DataTransformerInterface
     public function reverseTransform($code)
     {
         if (preg_match('/^[0-9]+$/', $code)) {
-            return sprintf('%s%0'.CustomerCodeGenerator::$codeLength.'d', CustomerCodeGenerator::$codePrefix, (int) $code);
+            return sprintf('%s%0' . CustomerCodeGenerator::$codeLength . 'd', CustomerCodeGenerator::$codePrefix, (int) $code);
         }
 
         return trim($code);

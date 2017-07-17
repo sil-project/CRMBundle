@@ -159,7 +159,7 @@ class OrganismAdmin extends CoreAdmin
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
-            $msg = 'Wrong format for customer code. It shoud be: '.$codeGenerator::getHelp();
+            $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
                 ->with('customerCode')
                     ->addViolation($msg)
@@ -217,7 +217,7 @@ class OrganismAdmin extends CoreAdmin
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
         $codeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
-            $msg = 'Wrong format for supplier code. It shoud be: '.$codeGenerator::getHelp();
+            $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
                 ->with('supplierCode')
                     ->addViolation($msg)
@@ -290,7 +290,7 @@ class OrganismAdmin extends CoreAdmin
             return;
         }
 
-        $search = '%'.$value['value'].'%';
+        $search = '%' . $value['value'] . '%';
         $queryBuilder
             ->andWhere($queryBuilder->expr()->orX(
                 $queryBuilder->expr()->like("$alias.firstname", ':firstname'),

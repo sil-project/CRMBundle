@@ -38,7 +38,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
             $rc = new \ReflectionClass($bundleClassName);
 
             $bundleDir = dirname($rc->getFileName());
-            $circlesYml = $bundleDir.'/Resources/config/circles.yml';
+            $circlesYml = $bundleDir . '/Resources/config/circles.yml';
             if (file_exists($circlesYml)) {
                 $circles = array_merge($circles, Yaml::parse(file_get_contents($circlesYml)));
             }
@@ -56,7 +56,7 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
     public function loadSecurity(ContainerBuilder $container)
     {
         if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator')) {
-            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__.'/../Resources/config/security.yml');
+            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
         }
 
         return $this;

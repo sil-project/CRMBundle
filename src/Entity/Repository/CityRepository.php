@@ -38,7 +38,7 @@ class CityRepository extends EntityRepository
             $items_per_page = 1;
         } // avoid division by zero
 
-        $pattern = $field == 'zip' || $field == 'ZIP' ? $term.'%' : '%'.$term.'%';
+        $pattern = $field == 'zip' || $field == 'ZIP' ? $term . '%' : '%' . $term . '%';
 
         // Count results (before pagination)
         $query = $this->createQueryBuilder('c')

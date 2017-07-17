@@ -37,7 +37,7 @@ abstract class Phone
     {
         $str = $this->number;
         if ($this->phoneType) {
-            $str .= ' ('.$this->phoneType.')';
+            $str .= ' (' . $this->phoneType . ')';
         }
 
         return $str;

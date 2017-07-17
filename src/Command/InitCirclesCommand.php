@@ -34,8 +34,8 @@ class InitCirclesCommand extends ContainerAwareCommand
             // the full command description shown when running the command with
             // the "--help" option
             ->setHelp('Creates the application circles in database.'
-                ."\nApplication circles are defined in librinfo_crm.Circle.app_circles configuration parameter."
-                ."\nCircles that already exist in database are updated.")
+                . "\nApplication circles are defined in librinfo_crm.Circle.app_circles configuration parameter."
+                . "\nCircles that already exist in database are updated.")
         ;
     }
 
