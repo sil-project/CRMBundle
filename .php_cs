@@ -23,7 +23,8 @@ $finder = PhpCsFixer\Finder::create()
 
 $config = PhpCsFixer\Config::create()
     ->setRules(array(
-        '@Symfony' => true
+        '@Symfony' => true,
+        'concat_space' => ['spacing'=>'one']
     ))
     ->setFinder($finder);
 
