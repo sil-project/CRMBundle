@@ -21,6 +21,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Position.
@@ -65,6 +66,7 @@ class Position implements VCardableInterface
 
     public function __construct()
     {
+        $this->circles = new ArrayCollection();
         $this->initOuterExtendedClasses();
     }
 
