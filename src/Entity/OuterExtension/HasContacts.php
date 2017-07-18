@@ -14,7 +14,6 @@ namespace Librinfo\CRMBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\CRMBundle\Entity\Contact;
 
 /**
  * HasContacts trait.
@@ -38,7 +37,7 @@ trait HasContacts
      *
      * @return self
      */
-    public function addContact(Contact $contact)
+    public function addContact($contact)
     {
         $this->contacts->add($contact);
 
@@ -50,7 +49,7 @@ trait HasContacts
      *
      * @return self
      */
-    public function removeContact(Contact $contact)
+    public function removeContact($contact)
     {
         $this->contacts->removeElement($contact);
 

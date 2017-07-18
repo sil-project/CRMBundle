@@ -36,6 +36,7 @@ form_group_other_addresses: Autres adresses
 form_group_default_phone: Numéro principal
 form_group_phones: Autres numéros de téléphone
 form_group_position: Fonction
+form_group_notes: Notes
 form_tab_individuals: Individus
 form_tab_organizations: Organisations
 form_group_sales: Ventes
@@ -151,6 +152,7 @@ librinfo:
         set_default_phone: 'Principal'
         individual: 'Individu'
         organization: 'Organisation'
+        siret: 'N° Siret'
     link:
         category_list: 'Liste des catégories de tiers'
         circle_list: 'Liste des groupes'
@@ -166,17 +168,17 @@ librinfo:
         organism_group_list: 'Liste des groupes de tiers'
         organismgroup_list: 'Liste des groupes de tiers'
         phone_type_create: 'Créer un type de téléphone'
+        phonetype_list: 'Types de téléphone'
+        positiontype_list: 'Types de fonction'
     placeholder:
         customer_code: 'Code client'
         supplier_code: 'Code fournisseur'
     msg:
         validating_vat: Validation du numéro de TVA
     btn:
-        edit_address_or_phone: >
-            <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
-                <i class="fa fa-edit"></i>&nbsp;
-                Modifier
-            </a>
+        generateFakeEmail: Générer un email
+        manage: Gérer
+        add: Ajouter
 
 librinfo_crm:
     label:

@@ -9,8 +9,6 @@ var setupAutocompleteInputs = function() {
 
 var setupAutocomplete = function(key, autocompleteInput) {
 
-    console.info(autocompleteInput);
-
     autocompleteInput = $(autocompleteInput);
 
     if (!autocompleteInput.data('select2')) {

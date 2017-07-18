@@ -1,0 +1,37 @@
+{% spaceless %}
+    <div class="mainPhoneContainer">
+        <blockquote>
+            {% if data %}
+                {{ data.phoneType }}: {{ data.number }}
+            {% endif %}
+        </blockquote>
+
+        {% if data %}
+
+            <a href="#" data-gototab="form_tab_contactInformations" class="btn btn-success btn-sm sonata-ba-action">
+                <i class="fa fa-edit"></i>&nbsp;
+                {{ 'librinfo.btn.manage'|trans }}
+            </a>
+
+        {% else %}
+
+            <div class="mainPhoneFormHolder">
+
+                <a
+                    href="{{ sonata_admin.field_description.associationadmin.generateUrl(
+                    'create',
+                    sonata_admin.field_description.getOption('link_parameters', {})
+                ) }}"
+                    class="btn btn-success btn-sm sonata-ba-action"
+                    title="{{ 'librinfo.btn.add'|trans }}">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    {{ 'librinfo.btn.add'|trans }}
+                </a>
+
+            </div>
+
+            {% include 'LibrinfoCRMBundle:Form/Script:main_address_or_phone_script.html.twig' with {'type':'phone'} %}
+
+        {% endif %}
+    </div>
+{% endspaceless %}

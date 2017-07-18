@@ -1,0 +1,40 @@
+<script>
+
+    {% set cleanId = id|replace({'_defaultAddress':'_addresses','_defaultPhone':'_phones'}) %}
+
+    $(document).on('click', '.main{{ type|capitalize }}Container .btn.sonata-ba-action', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        $.ajax({
+            url: '{{ path('sonata_admin_append_form_element', {
+                'elementId': cleanId,
+                'subclass':  sonata_admin.admin.getActiveSubclassCode(),
+                'objectId':  sonata_admin.admin.root.id(sonata_admin.admin.root.subject),
+                'uniqid':    sonata_admin.admin.root.uniqid,
+                'code':      sonata_admin.admin.root.code
+            })|raw }}',
+            data: {_xml_http_request: true },
+            dataType: 'html',
+            type: 'POST',
+            success: function(html) {
+                var formHolder = $('.main{{ type|capitalize }}FormHolder');
+                var responseHtml = $(html);
+
+                responseHtml.find('span[id^="field_actions_"]').remove();
+                responseHtml.find('div[id="{{ id }}_0__delete"]').remove();
+                responseHtml.find('ul.nav.nav-tabs').remove();
+
+                $('.main{{ type|capitalize }}Container blockquote').remove();
+
+                formHolder.replaceWith(responseHtml);
+
+                Admin.shared_setup(formHolder);
+
+                $('#field_container_{{ cleanId }}').trigger('sonata-admin-append-form-element');
+                $(document).trigger('sonata.add_element');
+            }
+        });
+    });
+</script>

@@ -1054,17 +1054,4 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
 
         return sprintf('%s %s', $this->getFirstname(), $this->getLastName());
     }
-
-//    public function validateName(ExecutionContextInterface $context)
-//    {
-//        // check if name or firstname are filled
-//        if ( empty(trim($this->getName()) . trim($this->getFirstname())) ) {
-//            $context->buildViolation('librinfo.error.provide_name_or_firstname')
-//                ->atPath('name')
-//                ->addViolation();
-//            $context->buildViolation('librinfo.error.provide_name_or_firstname')
-//                ->atPath('firstname')
-//                ->addViolation();
-//        }
-//    }
 }

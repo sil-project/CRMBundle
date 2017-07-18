@@ -19,7 +19,7 @@ services:
         class: Doctrine\ORM\EntityRepository
         factory: ['@doctrine', getRepository]
         arguments:
-            - Librinfo\CRMBundle\Entity\Circle  
+            - Librinfo\CRMBundle\Entity\Circle
 
     librinfo_crm.app_circles:
         class: Librinfo\CRMBundle\Services\AppCirclesService
@@ -48,4 +48,17 @@ services:
         tags:
             - { name: form.type, alias: librinfo_zip_city }
 
+    librinfo_crm.form.type.main_address:
+        class: Librinfo\CRMBundle\Form\Type\MainAddressType
+        tags:
+            - { name: form.type, alias: librinfo_main_address }
 
+    librinfo_crm.form.type.main_phone:
+        class: Librinfo\CRMBundle\Form\Type\MainPhoneType
+        tags:
+            - { name: form.type, alias: librinfo_main_phone }
+
+    librinfo_crm.form.type.fake_email:
+        class: Librinfo\CRMBundle\Form\Type\FakeEmailType
+        tags:
+            - { name: form.type, alias: librinfo_fake_email }

@@ -56,6 +56,11 @@ class Circle
     private $editable = true;
 
     /**
+     * @var string
+     */
+    private $type;
+
+    /**
      * @var Collection
      */
     private $organisms;
@@ -165,6 +170,26 @@ class Circle
     public function isEditable()
     {
         return $this->editable;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
     }
 
     /**

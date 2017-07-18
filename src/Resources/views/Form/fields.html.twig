@@ -16,3 +16,15 @@
 {% block sonata_admin_orm_one_to_many_widget %}
     {% include 'LibrinfoCRMBundle:Form/Type:default_contact_details.html.twig' %}
 {% endblock %}
+
+{% block librinfo_main_address_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:main_address.html.twig' %}
+{% endblock librinfo_main_address_widget %}
+
+{% block librinfo_main_phone_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:main_phone.html.twig' %}
+{% endblock librinfo_main_phone_widget %}
+
+{% block librinfo_fake_email_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:fake_email.html.twig' %}
+{% endblock librinfo_fake_email_widget %}

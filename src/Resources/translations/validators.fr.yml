@@ -8,3 +8,4 @@ librinfo:
 'This supplier code is already in use': 'Ce code fournisseur est déjà utilisé ailleurs'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
 'Wrong format for supplier code. It shoud be: %prefix% + %length% digits': 'Syntaxe erronée pour le code fournisseur. Utiliser le format: %prefix% + %length% chiffres'
+'The email must be unique!': 'L''email doit être unique'

@@ -35,6 +35,7 @@ class OrganismAdmin extends CoreAdmin
         $collection->add('validateVat');
         $collection->add('set_default_address', 'set-default-address/{organismId}/{addressId}');
         $collection->add('set_default_phone', 'set-default-phone/{organismId}/{phoneId}');
+        $collection->add('generateFakeEmail');
     }
 
     /**
@@ -42,22 +43,37 @@ class OrganismAdmin extends CoreAdmin
      */
     protected function postConfigureFormFields(FormMapper $mapper)
     {
-        $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
-        $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
-
         $subject = $this->getSubject();
 
         if ($subject->getId()) {
+            $mapper->get('customerCode')->addViewTransformer(new CustomerCodeTransformer());
+            $mapper->get('supplierCode')->addViewTransformer(new SupplierCodeTransformer());
+
+            $mapper->remove('isIndividual');
             if ($subject->isIndividual()) {
                 $mapper->remove('name');
                 $mapper->remove('individuals');
                 $this->renameFormTab('form_tab_individuals', 'form_tab_organizations');
+                $formTabs = $this->getFormTabs();
+                $formTabs['form_tab_organizations']['class'] = $formTabs['form_tab_organizations']['class'] . ' countable-tab count-organizations';
+                $mapper->add('isIndividual_1', 'hidden', [
+                    'mapped' => false,
+                ]);
+                $mapper->get('isIndividual_1')->setData('1');
             } else {
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
                 $mapper->remove('organizations');
+                $formTabs = $this->getFormTabs();
+                $formTabs['form_tab_individuals']['class'] = $formTabs['form_tab_individuals']['class'] . ' countable-tab count-individuals';
+                $mapper->add('isIndividual_0', 'hidden', [
+                    'mapped' => false,
+                ]);
+                $mapper->get('isIndividual_0')->setData('0');
             }
+
+            $this->setFormTabs($formTabs);
         }
     }
 
@@ -148,7 +164,7 @@ class OrganismAdmin extends CoreAdmin
         $is_new = empty($object->getId());
         $code = $object->getCustomerCode();
 
-        if (empty($code) && $object->isCustomer()) {
+        if (empty($code) && $object->isCustomer() && !$is_new) {
             $errorElement
                 ->with('customerCode')
                     ->addViolation('A customer code is required for customers')
@@ -206,7 +222,7 @@ class OrganismAdmin extends CoreAdmin
         $is_new = empty($object->getId());
         $code = $object->getSupplierCode();
 
-        if (empty($code) && $object->isSupplier()) {
+        if (empty($code) && $object->isSupplier() && !$is_new) {
             $errorElement
                 ->with('supplierCode')
                     ->addViolation('A supplier code is required for suppliers')
@@ -274,6 +290,15 @@ class OrganismAdmin extends CoreAdmin
                         ->assertNotBlank()
                     ->end()
                 ;
+            }
+            $other = $this->modelManager->findOneBy($this->getClass(), array('email' => $object->getEmail()));
+
+            if (null !== $other && !$other->getId() == $object->getId()) {
+                $errorElement
+                   ->with('email')
+                        ->addViolation('The email must be unique!')
+                   ->end()
+               ;
             }
         }
     }

@@ -8,6 +8,9 @@ Librinfo\CRMBundle\Entity\Circle:
         color:
             type:       string(255)
             nullable:   true
+        type:
+            type:       string(255)
+            nullable:   true
         translatable:
             type:       boolean
             options:

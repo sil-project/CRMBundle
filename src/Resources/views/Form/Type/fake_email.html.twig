@@ -1,0 +1,32 @@
+{% spaceless %}
+    <div class="fakeEmailContainer" id="fakeEmailContainer_{{id}}">
+
+        <a href="#" class="btn btn-primary fakeEmailBtn" title="{{'librinfo.btn.generateFakeEmail'|trans}}" data-toggle="tooltip" data-placement="top">
+            <i class="fa fa-refresh"></i>
+        </a>
+
+        {{ form_widget(form) }}
+
+    </div>
+
+    <script>
+        (function($) {
+            var fieldContainer = $('#fakeEmailContainer_{{id}}');
+
+            $(document).ready(function() {
+
+                var emailInput = fieldContainer.find('#{{id}}').detach();
+                var generateBtn = fieldContainer.find('.fakeEmailBtn').detach();
+                var inpuGroup = $('<div/>').attr({'class': 'input-group col-xs-12'});
+
+                generateBtn.addClass('input-group-addon');
+
+                fieldContainer.prepend(inpuGroup.append(emailInput).append(generateBtn));
+            }).on('click', '#fakeEmailContainer_{{id}} .fakeEmailBtn', function() {
+                $.get(Routing.generate('admin_librinfo_crm_organism_generateFakeEmail'), function(json) {
+                    fieldContainer.find('#{{id}}').val(json.email);
+                });
+            });
+        })(jQuery);
+    </script>
+{% endspaceless %}

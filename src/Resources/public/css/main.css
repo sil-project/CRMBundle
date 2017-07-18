@@ -1,7 +1,7 @@
-/* Organism form */ 
+/* Organism form */
 
-div.form-group[id$=_individual] ul li { 
-    display: inline-block; 
+div.form-group[id$=_individual] ul li {
+    display: inline-block;
     margin-right: 2em;
 }
 div.form-group[id$=_individual] ul li .radio { display: inline-block; }
@@ -18,7 +18,7 @@ input.form-control[id$=_vat] {
 #validate-vat-ok { color: #00a65a; }
 #validate-vat-error { color: #dd4b39; }
 
-/* Organism list */ 
+/* Organism list */
 
 .glyphicon.is-customer, .glyphicon.is-supplier { color: #00a65a; }
 .glyphicon.is-not-customer, .glyphicon.is-not-supplier { color: #dd4b39; }
@@ -27,9 +27,9 @@ input.form-control[id$=_vat] {
 
 .show-alert { padding: 0; }
 
-.show-alert .box.box-primary { 
-    border-top-color: #dd4b39; 
-    color: #dd4b39; 
+.show-alert .box.box-primary {
+    border-top-color: #dd4b39;
+    color: #dd4b39;
     background-color: #f2dede;
 }
 

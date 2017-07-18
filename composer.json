@@ -11,7 +11,8 @@
         "blast-project/core-bundle": ">=0.4",
         "blast-project/outer-extension-bundle": ">=0.4",
         "blast-project/base-entities-bundle": ">=0.4",
-        "blast-project/utils-bundle": ">=0.4"
+        "blast-project/utils-bundle": ">=0.4",
+        "friendsofsymfony/jsrouting-bundle": ">=1.6"
     },
     "require-dev": {
 	"symfony/phpunit-bridge": ">=3.2"

@@ -140,4 +140,15 @@ class CircleAdmin extends CoreAdmin
             $mapper->remove('positionsCount');
         }
     }
+
+    public static function orderedCirclesQuery($em, $entityClass)
+    {
+        $q = $em->createQuery($entityClass, 'c');
+
+        $q
+            ->select('c')
+            ->orderBy('c.code', 'ASC');
+
+        return $q->getQueryBuilder();
+    }
 }

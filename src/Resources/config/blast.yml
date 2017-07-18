@@ -142,18 +142,18 @@ parameters:
                     emailNpai: ~
                     emailNoNewsletter: ~
                     vcard_uid: ~
+                    isIndividual: ~
                 add:
                     form_tab_general:
-                        form_group_individual:
+                        form_group_organism:
                             isIndividual:
-                                only_new: true
+                                # only_new: true
                                 type: choice
                                 choices:
                                     librinfo.label.collective_organism: 0
                                     librinfo.label.individual_organism: 1
                                 expanded: true
                                 label: false
-                        form_group_organism:
                             active:
                                 type: checkbox
                                 required: false
@@ -177,12 +177,21 @@ parameters:
                                 type: Blast\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     placeholder: librinfo.placeholder.customer_code
+                                only_not_new: true
                             isSupplier: ~
                             supplierCode:
                                 type: Blast\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     placeholder: librinfo.placeholder.supplier_code
-                            circles: ~
+                                only_not_new: true
+                            circles:
+                                type: sonata_type_model
+                                multiple: true
+                                expanded: false
+                                btn_add: false
+                                required: false
+                                class: Librinfo\CRMBundle\Entity\Circle
+                                query: [Librinfo\CRMBundle\Admin\CircleAdmin, orderedCirclesQuery]
                             category:
                                 type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
                                 class: Librinfo\CRMBundle\Entity\Category
@@ -202,6 +211,7 @@ parameters:
                                 label: librinfo.label.organism_description
                             _options:
                                 fieldsOrder:
+                                    - isIndividual
                                     - active
                                     - title
                                     - firstname
@@ -215,7 +225,6 @@ parameters:
                                     - category
                                     - alert
                                     - description
-#                                    - administrativeNumber
                                     - email
                                     - emailNpai
                                     - emailNoNewsletter
@@ -229,18 +238,16 @@ parameters:
                                 help: librinfo.help.iban
                         form_group_main_address:
                             defaultAddress:
-                                type: text
+                                type: Librinfo\CRMBundle\Form\Type\MainAddressType
                                 disabled: true
                                 label: false
                                 required: false
-                                help: librinfo.btn.edit_address_or_phone
                         form_group_default_phone:
                             defaultPhone:
-                                type: text
+                                type: Librinfo\CRMBundle\Form\Type\MainPhoneType
                                 disabled: true
                                 label: false
                                 required: false
-                                help: librinfo.btn.edit_address_or_phone
                         form_group_info:
                             catalogue_sent:
                                 type: checkbox
@@ -274,7 +281,6 @@ parameters:
                         _options:
                             groupsOrder:
                                 - form_group_organism
-                                - form_group_individual
                                 - form_group_main_address
                                 - form_group_default_phone
                                 - form_group_administrative
@@ -364,9 +370,6 @@ parameters:
                         identifier: true
                         label: librinfo.label.contact
                         sortable: name
-#                    positions:
-#                        associated_property: contactDescription
-#                        label: librinfo.label.organisms
                     email:
                         identifier: true
                     customerCode:
@@ -518,7 +521,14 @@ parameters:
                 add:
                     form_tab_general:
                         '':
-                            phoneType: ~
+                            phoneType:
+                                required: true
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                choices_field: phoneType
+                                blast_choices:
+                                    - Standard
+                                    - Fixe
+                                    - Mobile
                             number:
                                 label: librinfo.label.phone_number_long
                                 required: true
@@ -572,6 +582,7 @@ parameters:
                     description: ~
                     color: ~
                     name: ~
+                    type: ~
                 add:
                     form_tab_general:
                         '':
@@ -579,6 +590,7 @@ parameters:
                                 required: true
                             code: ~
                             description: ~
+                            type: ~
 #                            owner:
 #                                type: sonata_type_model_autocomplete
 #                                route: { name: searchable_admin_retrieve_autocomplete_items }
@@ -694,6 +706,17 @@ parameters:
                             emailNpai: ~
                             emailNoNewsletter: ~
                             phone: ~
+                            _options:
+                                fieldsOrder:
+                                    - positionType
+                                    - individual
+                                    - organization
+                                    - department
+                                    - label
+                                    - email
+                                    - emailNpai
+                                    - emailNoNewsletter
+                                    - phone
                         _options:
                             groupsOrder: [form_group_individual, form_group_organization, form_group_specifics]
                     _options:

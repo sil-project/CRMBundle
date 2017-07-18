@@ -12,13 +12,14 @@
                     {% if address.id == object.defaultAddress.id %}
                         <div class="blast-table-label">
                             <span class="label label-info">{{ 'librinfo.label.default_address'|trans() }}</span>
-                        </div>    
+                        </div>
                     {% endif %}
                     <tr class="sonata-ba-view-container">
                         <th colspan="2">
                             {% block address %}
                                 {% if address_admin.isGranted('SHOW') %}
-                                    <a href="{{ address_admin.generateObjectUrl('show', address) }}">{{ address|render_relation_element(fields['firstName']) }}</a>
+                                    <a href="{{ address_admin.generateObjectUrl('show', address) }}">
+                                    </a>
                                 {% else %}
                                     {{ address|render_relation_element(elements['addresses']) }}
                                 {% endif %}
@@ -26,25 +27,19 @@
                         </th>
                     </tr>
                     <tr class="sonata-ba-view-container">
-                        {{ fields['firstName']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['lastName']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['street']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['city']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['postCode']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['country']|render_view_element(address) }}
-                    </tr>
-                    <tr class="sonata-ba-view-container">
-                        {{ fields['npai']|render_view_element(address) }}
+                        {% if address.customer and address.customer.isIndividual %}
+                            {{ address.firstName }} {{ address.lastName }}
+                        {% else %}
+                            {{ address.lastName }}
+                        {% endif %}
+                        <br />
+                        {{ address.street }}
+                        <br />
+                        {{ address.city }} {{ address.postCode }} ({{ address.countryCode }})
+                        {% if address.npai %}
+                            <br />
+                            <span class="label label-danger">{%- trans from 'messages' %}NPAI{% endtrans -%}</span>
+                        {% endif %}
                     </tr>
                     </tbody>
                 </table>

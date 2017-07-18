@@ -42,19 +42,27 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
      */
     public static function generate($organism)
     {
-        $repo = self::$em->getRepository(Organism::class);
-        $regexp = sprintf('^%s(\d{%d})$', self::$codePrefix, self::$codeLength);
-        $res = $repo->createQueryBuilder('c')
-            ->select("SUBSTRING(c.customerCode, '$regexp') AS code")
-            ->andWhere("SUBSTRING(c.customerCode, '$regexp') != ''")
-            ->setMaxResults(1)
-            ->addOrderBy('code', 'desc')
-            ->getQuery()
-            ->getScalarResult()
-        ;
-        $max = $res ? (int) $res[0]['code'] : 0;
+        if ($organism->isCustomer()) {
+            $repo = self::$em->getRepository(Organism::class);
+            $regexp = sprintf('^%s(\d{%d})$', self::$codePrefix, self::$codeLength);
+            $res = $repo->createQueryBuilder('c')
+                ->select("SUBSTRING(c.customerCode, '$regexp') AS code")
+                ->andWhere("SUBSTRING(c.customerCode, '$regexp') != ''")
+                ->setMaxResults(1)
+                ->addOrderBy('code', 'desc')
+                ->getQuery()
+                ->getScalarResult()
+            ;
+            $max = $res ? (int) $res[0]['code'] : 0;
 
-        return sprintf('%s%0' . self::$codeLength . 'd', self::$codePrefix, $max + 1);
+            if ($organism->getCustomerCode() === null) {
+                return sprintf('%s%0' . self::$codeLength . 'd', self::$codePrefix, $max + 1);
+            } else {
+                return $organism->getCustomerCode();
+            }
+        } else {
+            return null;
+        }
     }
 
     /**

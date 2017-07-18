@@ -131,6 +131,7 @@ Librinfo\CRMBundle\Entity\Organism:
 
     manyToMany:
         circles:
+            orderBy: { 'code': 'ASC' }
             targetEntity: Librinfo\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
