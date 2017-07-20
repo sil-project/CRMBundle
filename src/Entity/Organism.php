@@ -197,6 +197,8 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
         $this->positions = new ArrayCollection();
         $this->phones = new ArrayCollection();
         $this->addresses = new ArrayCollection();
+        $this->individuals = new ArrayCollection();
+        $this->organizations = new ArrayCollection();
         $this->initOuterExtendedClasses();
     }
 
@@ -913,7 +915,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function setDefaultPhone(Phone $defaultPhone = null)
+    public function setDefaultPhone(OrganismPhone $defaultPhone = null)
     {
         $this->defaultPhone = $defaultPhone;
         if (null !== $defaultPhone) {
@@ -924,7 +926,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function addPhone(Phone $phone)
+    public function addPhone(OrganismPhone $phone)
     {
         if (!$this->hasPhone($phone)) {
             $this->phones->add($phone);

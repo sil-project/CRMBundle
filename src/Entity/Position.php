@@ -219,7 +219,7 @@ class Position implements VCardableInterface
      **/
     public function __toString()
     {
-        (string) $this->getPositionType();
+        return (string) $this->getPositionType();
     }
 
     public function isPersonal()
