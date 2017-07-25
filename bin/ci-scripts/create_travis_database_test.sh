@@ -9,7 +9,7 @@ set -ev
 
 # (mysql service is started by default by travis for each build instance
 # (mysql travis user is created by travis for each build instance
-mysql -u travis -e 'CREATE DATABASE travis;' -v
+# mysql -u travis -e 'CREATE DATABASE travis;' -v
 
 ###
 ### postgresql
