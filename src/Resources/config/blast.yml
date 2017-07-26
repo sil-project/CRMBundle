@@ -252,6 +252,18 @@ parameters:
                             catalogue_sent:
                                 type: checkbox
                                 required: false
+                            catalogue_type:
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                attr:
+                                    class: columns-2 multiple-checkbox
+                                expanded: true
+                                multiple: true
+                                required: false
+                                blast_choices:
+                                    - Particulier
+                                    - Revendeurs
+                                    - Maraichers
+                                choices_field: catalogue_type
                             source:
                                 type: Blast\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
@@ -403,12 +415,16 @@ parameters:
                           class: framacalc
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
+                    fulltextName:
+                        type: doctrine_orm_callback
+                        callback: [Librinfo\CRMBundle\Admin\OrganismAdmin, filterNameCallback]
                     active: ~
-                    firstname: ~
-                    shortname: ~
-                    name:
-                        label: librinfo.label.organism_name_filter
-                    familyContact: ~
+                    isIndividual: ~
+                    # firstname: ~
+                    # shortname: ~
+                    # name:
+                    #     label: librinfo.label.organism_name_filter
+                    # familyContact: ~
                     culture: ~
                     email: ~
                     emailNpai: ~

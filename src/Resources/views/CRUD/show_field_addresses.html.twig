@@ -4,7 +4,7 @@
 {% set fields = address_admin.show.elements %}
 
 {% block field %}
-    <div class="blast-show-collection">
+    <div class="blast-show-collection" data-field-name="{{field_description.name}}">
         {% for address in value %}
             <div class="box box-primary">
                 <table class="table li-crm-address blast-show-collection-element">
@@ -18,8 +18,11 @@
                         <th colspan="2">
                             {% block address %}
                                 {% if address_admin.isGranted('SHOW') %}
-                                    <a href="{{ address_admin.generateObjectUrl('show', address) }}">
-                                    </a>
+
+                                    {#
+                                        <a href="{{ address_admin.generateObjectUrl('show', address) }}">
+                                        </a>
+                                    #}
                                 {% else %}
                                     {{ address|render_relation_element(elements['addresses']) }}
                                 {% endif %}

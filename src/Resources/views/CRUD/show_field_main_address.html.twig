@@ -1,0 +1,28 @@
+
+<td>
+    {% set address = value %}
+    <table class="table li-crm-address blast-show-collection-element"  data-field-name="{{field_description.name}}">
+        <tbody>
+            <tr>
+                <td style="width:1em;border-top:none;">
+                    &nbsp;
+                </td>
+                <td style="border-top:none;">
+                    {% if address.customer and address.customer.isIndividual %}
+                        {{ address.firstName }} {{ address.lastName }}
+                    {% else %}
+                        {{ address.lastName }}
+                    {% endif %}
+                    <br />
+                    {{ address.street }}
+                    <br />
+                    {{ address.city }} {{ address.postCode }} ({{ address.countryCode }})
+                    {% if address.npai %}
+                        <br />
+                        <span class="label label-danger">{%- trans from 'messages' %}NPAI{% endtrans -%}</span>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</td>

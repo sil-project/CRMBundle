@@ -72,6 +72,7 @@ librinfo:
         alert: 'Alerte'
         catalogue_send_mean: 'Méthode d''envoi'
         catalogue_sent: 'Catalogue envoyé'
+        catalogue_type: 'Type de catalogue'
         category: 'Categorie'
         category_name: 'Catégorie de tiers'
         circles: 'Groupes'

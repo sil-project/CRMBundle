@@ -13,7 +13,7 @@ TODO: put each individual in its own box (pseudo groups)
     {% set organism_admin = elems['individual'].associationadmin %}
     {% set individual_elems = organism_admin.show.elements %}
 
-    <div class="blast-show-collection">
+    <div class="blast-show-collection" data-field-name="{{field_description.name}}">
         {% for position in value %}
             <div class="box box-primary">
                 <table class="table li-crm-position blast-show-collection-element">

@@ -4,15 +4,16 @@
 {% set fields = phone_admin.show.elements %}
 
 {% block field %}
-    <div class="blast-show-collection">
+    <div class="blast-show-collection" data-field-name="{{field_description.name}}">
+
         {% for phone in value %}
             <div class="box box-primary">
-                {% if phone.id == object.defaultPhone.id %}
+                {% if object.defaultPhone is not null and phone.id == object.defaultPhone.id %}
                     <div class="blast-table-label">
                         <span class="label label-info">
                             {{ 'librinfo.label.default_phone'|trans() }}
                         </span>
-                    </div>    
+                    </div>
                 {% endif %}
                 <table class="table li-crm-phone blast-show-collection-element">
                     <tbody>

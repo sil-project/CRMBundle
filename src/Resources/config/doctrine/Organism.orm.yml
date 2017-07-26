@@ -87,6 +87,9 @@ Librinfo\CRMBundle\Entity\Organism:
         catalogue_send_mean:
             type: text
             nullable: true
+        catalogue_type:
+            type: text
+            nullable: true
         source:
             type: text
             nullable: true

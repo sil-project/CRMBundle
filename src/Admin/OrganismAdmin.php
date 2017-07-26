@@ -27,6 +27,27 @@ class OrganismAdmin extends CoreAdmin
 {
     use HandlesRelationsAdmin;
 
+    public function createQuery($context = 'list')
+    {
+        $proxyQuery = parent::createQuery('list');
+
+        $qb = $proxyQuery->getQueryBuilder();
+
+        $request = $this->getRequest();
+
+        $filters = $request->query->get('filter', null);
+        $currentsort = $filters['_sort_by'];
+        $currentsortOrder = $filters['_sort_order'];
+
+        if ($currentsort === null || $currentsort === 'name') {
+            $currentsortOrder = ($currentsortOrder === null ? 'ASC' : $currentsortOrder);
+
+            $qb->orderBy('CONCAT_WS(\'_\', o.firstname,o.lastname,o.name)', $currentsortOrder);
+        }
+
+        return $proxyQuery;
+    }
+
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);
@@ -89,12 +110,20 @@ class OrganismAdmin extends CoreAdmin
                 $mapper->remove('name');
                 $mapper->remove('individuals');
                 $this->renameShowTab('show_tab_individuals', 'show_tab_organizations');
+                $showTabs = $this->getShowTabs();
+                $showTabs['show_tab_organizations']['label'] = 'show_tab_organizations';
+                $showTabs['show_tab_organizations']['name'] = 'show_tab_organizations';
+                $showTabs['show_tab_organizations']['class'] = $showTabs['show_tab_organizations']['class'] . ' countable-tab count-organizations';
             } else {
                 $mapper->remove('title');
                 $mapper->remove('firstname');
                 $mapper->remove('lastname');
                 $mapper->remove('organizations');
+                $showTabs = $this->getShowTabs();
+                $showTabs['show_tab_individuals']['class'] = $showTabs['show_tab_individuals']['class'] . ' countable-tab count-individuals';
             }
+
+            $this->setShowTabs($showTabs);
         }
     }
 
@@ -343,5 +372,18 @@ class OrganismAdmin extends CoreAdmin
                 }
             }
         }
+    }
+
+    public static function filterNameCallback($queryBuilder, $alias, $field, $value)
+    {
+        if (!$value['value']) {
+            return;
+        }
+        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.name', ':value'));
+        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.firstname', ':value'));
+        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.lastname', ':value'));
+        $queryBuilder->setParameter('value', $value['value']);
+
+        return true;
     }
 }

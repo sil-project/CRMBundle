@@ -1,0 +1,19 @@
+
+<td>
+
+    {% set phone = value %}
+    {% if phone is not null %}
+        <table class="">
+            <tbody>
+                <tr>
+                    <th style="padding-left:2em;border-top:none;">
+                        {{ phone.phoneType }}
+                    </th>
+                    <td style="border-top:none;">
+                        {{ phone.number }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+</td>
