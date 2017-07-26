@@ -1,5 +1,22 @@
 # Change Log
 
+## [0.4.5](https://github.com/libre-informatique/CRMBundle/tree/0.4.5) (2017-07-26)
+[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.4...0.4.5)
+
+**Merged pull requests:**
+
+- DevKit updates for CRMBundle [\#32](https://github.com/libre-informatique/CRMBundle/pull/32) ([BlastCI](https://github.com/BlastCI))
+- Lisem fix & features [\#29](https://github.com/libre-informatique/CRMBundle/pull/29) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- DevKit updates for CRMBundle [\#28](https://github.com/libre-informatique/CRMBundle/pull/28) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for CRMBundle [\#27](https://github.com/libre-informatique/CRMBundle/pull/27) ([BlastCI](https://github.com/BlastCI))
+-  add new tests [\#26](https://github.com/libre-informatique/CRMBundle/pull/26) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+- Init and corrections  [\#24](https://github.com/libre-informatique/CRMBundle/pull/24) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+- \(entity Position\) init $circles [\#22](https://github.com/libre-informatique/CRMBundle/pull/22) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+- Wip lisem [\#21](https://github.com/libre-informatique/CRMBundle/pull/21) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- DevKit updates for CRMBundle [\#19](https://github.com/libre-informatique/CRMBundle/pull/19) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for CRMBundle [\#18](https://github.com/libre-informatique/CRMBundle/pull/18) ([BlastCI](https://github.com/BlastCI))
+- Wip test clean [\#17](https://github.com/libre-informatique/CRMBundle/pull/17) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+
 ## [0.4.4](https://github.com/libre-informatique/CRMBundle/tree/0.4.4) (2017-06-27)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.3...0.4.4)
 
