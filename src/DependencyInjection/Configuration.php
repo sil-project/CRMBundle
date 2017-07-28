@@ -60,6 +60,7 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('description')->defaultNull()->end()
                                     ->scalarNode('createdAt')->defaultNull()->end()
                                     ->scalarNode('updatedAt')->defaultNull()->end()
+                                    ->scalarNode('type')->defaultNull()->end()
                                     ->booleanNode('translatable')->defaultFalse()->end()
                                 ->end()
                             ->end()
