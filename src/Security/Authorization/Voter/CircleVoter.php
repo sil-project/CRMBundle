@@ -41,7 +41,7 @@ class CircleVoter extends Voter
 
         // double-check that the User object is the expected entity (this
         // only happens when you did not configure the security system properly)
-// TODO: there should be no dependency to the SonataSyliusUserBundle
+        // TODO: there should be no dependency to the SonataSyliusUserBundle
 //        if ( !$user instanceof SonataUser )
 //        {
 //            throw new \LogicException('The user is somehow not our SonataUser class!');

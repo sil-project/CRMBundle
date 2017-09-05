@@ -1,7 +1,7 @@
 {% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
 
 {% block field %}
-    {% if object.customer %}
+    {% if object.customer is defined and object.isCustomer() == true %}
         <span aria-hidden="true" class="glyphicon glyphicon-ok is-customer" title="{{ 'librinfo.label.isCustomer'|trans() }}"></span>
     {% else %}
         <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-customer" title="{{ 'librinfo.label.isNotCustomer'|trans() }}"></span>

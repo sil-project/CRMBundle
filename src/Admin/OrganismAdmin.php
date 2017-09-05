@@ -373,17 +373,4 @@ class OrganismAdmin extends CoreAdmin
             }
         }
     }
-
-    public static function filterNameCallback($queryBuilder, $alias, $field, $value)
-    {
-        if (!$value['value']) {
-            return;
-        }
-        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.name', ':value'));
-        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.firstname', ':value'));
-        $queryBuilder->orWhere($queryBuilder->expr()->like($alias . '.lastname', ':value'));
-        $queryBuilder->setParameter('value', $value['value']);
-
-        return true;
-    }
 }

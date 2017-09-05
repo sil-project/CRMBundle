@@ -1,7 +1,7 @@
 {% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
 
 {% block field %}
-    {% if object.supplier %}
+    {% if object.supplier is defined and object.isSupplier() == true %}
         <span aria-hidden="true" class="glyphicon glyphicon-ok is-supplier" title="{{ 'librinfo.label.isSupplier'|trans() }}"></span>
     {% else %}
         <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-supplier" title="{{ 'librinfo.label.isNotSupplier'|trans() }}"></span>

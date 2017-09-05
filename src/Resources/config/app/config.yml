@@ -1,0 +1,27 @@
+blast_base_entities:
+    entity_search_indexes:
+        Librinfo\CRMBundle\Entity\Organism:
+            fields:
+                - name
+                - fulltextName
+                - firstname
+                - lastname
+                - description
+                - email
+                - url
+        Librinfo\CRMBundle\Entity\Address:
+            fields:
+                - lastName
+                - firstName
+                - postCode
+                - street
+                - city
+                - countryCode
+                - provinceCode
+                - provinceName
+        Librinfo\CRMBundle\Entity\Position:
+            fields:
+                - label
+                - description
+                - email
+                - department

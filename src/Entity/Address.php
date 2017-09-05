@@ -20,6 +20,7 @@ use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Address.
+ * https://github.com/Sylius/Sylius/issues/8345 & https://ocramius.github.io/blog/fluent-interfaces-are-evil/
  */
 class Address implements AddressInterface, VCardableInterface
 {
@@ -106,11 +107,11 @@ class Address implements AddressInterface, VCardableInterface
     public function __toString()
     {
         return sprintf(
-           '%s %s, %s %s',
-           $this->getFirstName(),
-           $this->getLastName(),
-           $this->getStreet(),
-           $this->getCountryCode()
+            '%s %s, %s %s',
+            $this->getFirstName(),
+            $this->getLastName(),
+            $this->getStreet(),
+            $this->getCountryCode()
         );
     }
 
@@ -119,13 +120,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $firstName
      *
-     * @return Address
      */
-    public function setFirstName($firstName)
+    public function setFirstName(?string $firstName): void
     {
         $this->firstName = $firstName;
-
-        return $this;
     }
 
     /**
@@ -133,7 +131,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -141,7 +139,7 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * {@inheritdoc}
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -149,7 +147,7 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * {@inheritdoc}
      */
-    public function setLastName($lastName)
+    public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;
     }
@@ -159,13 +157,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $postCode
      *
-     * @return Address
      */
-    public function setPostCode($postCode)
+    public function setPostCode(?string $postCode): void
     {
         $this->postCode = $postCode;
-
-        return $this;
     }
 
     /**
@@ -173,7 +168,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getPostCode()
+    public function getPostCode(): ?string
     {
         return $this->postCode;
     }
@@ -183,13 +178,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $street
      *
-     * @return Address
      */
-    public function setStreet($street)
+    public function setStreet(?string $street): void
     {
         $this->street = $street;
-
-        return $this;
     }
 
     /**
@@ -197,7 +189,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->street;
     }
@@ -207,13 +199,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $city
      *
-     * @return Address
      */
-    public function setCity($city)
+    public function setCity(?string $city): void
     {
         $this->city = $city;
-
-        return $this;
     }
 
     /**
@@ -221,7 +210,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -231,13 +220,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $countryCode
      *
-     * @return Address
      */
-    public function setCountryCode($countryCode = null)
+    public function setCountryCode(?string $countryCode = null): void
     {
         $this->countryCode = $countryCode;
-
-        return $this;
     }
 
     /**
@@ -245,7 +231,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -255,13 +241,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $provinceCode
      *
-     * @return Address
      */
-    public function setProvinceCode($provinceCode = null)
+    public function setProvinceCode(?string $provinceCode = null): void
     {
         $this->provinceCode = $provinceCode;
-
-        return $this;
     }
 
     /**
@@ -269,7 +252,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getProvinceCode()
+    public function getProvinceCode(): ?string
     {
         return $this->provinceCode;
     }
@@ -279,13 +262,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $provinceName
      *
-     * @return Address
      */
-    public function setProvinceName($provinceName = null)
+    public function setProvinceName(?string $provinceName = null): void
     {
         $this->provinceName = $provinceName;
-
-        return $this;
     }
 
     /**
@@ -293,7 +273,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return string
      */
-    public function getProvinceName()
+    public function getProvinceName(): ?string
     {
         return $this->provinceName;
     }
@@ -303,15 +283,22 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param bool $npai
      *
-     * @return Address
      */
     public function setNpai($npai)
     {
         $this->npai = $npai;
-
-        return $this;
     }
 
+    /**
+     * Is npai.
+     *
+     * @return bool
+     */
+    public function isNpai()
+    {
+        return $this->npai;
+    }
+    
     /**
      * Get npai.
      *
@@ -319,7 +306,8 @@ class Address implements AddressInterface, VCardableInterface
      */
     public function getNpai()
     {
-        return $this->npai;
+        /* for retrocomp only */
+        return $this->isNpai();
     }
 
     /**
@@ -327,13 +315,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param string $vcardUid
      *
-     * @return Address
      */
     public function setVcardUid($vcardUid)
     {
         $this->vcardUid = $vcardUid;
-
-        return $this;
     }
 
     /**
@@ -351,13 +336,20 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param bool $confirmed
      *
-     * @return Address
      */
     public function setConfirmed($confirmed)
     {
         $this->confirmed = $confirmed;
+    }
 
-        return $this;
+    /**
+     * Is confirmed.
+     *
+     * @return bool
+     */
+    public function isConfirmed()
+    {
+        return $this->confirmed;
     }
 
     /**
@@ -367,7 +359,8 @@ class Address implements AddressInterface, VCardableInterface
      */
     public function getConfirmed()
     {
-        return $this->confirmed;
+        /* for retrocomp only */
+        return $this->isConfirmed();
     }
 
     /**
@@ -375,13 +368,10 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @param \Librinfo\CRMBundle\Entity\Organism $organism
      *
-     * @return Address
      */
-    public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $organism = null)
+    public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $organism = null): void
     {
         $this->organism = $organism;
-
-        return $this;
     }
 
     /**
@@ -389,7 +379,7 @@ class Address implements AddressInterface, VCardableInterface
      *
      * @return \Librinfo\CRMBundle\Entity\Organism
      */
-    public function getOrganism()
+    public function getOrganism(): ?\Librinfo\CRMBundle\Entity\Organism
     {
         return $this->organism;
     }

@@ -417,22 +417,13 @@ parameters:
                 add:
                     fulltextName:
                         type: doctrine_orm_callback
-                        callback: [Librinfo\CRMBundle\Admin\OrganismAdmin, filterNameCallback]
+                        serviceCallback: [librinfo.crm.filters.customer, filterOnFullname, callback]
                     active: ~
                     isIndividual: ~
-                    # firstname: ~
-                    # shortname: ~
-                    # name:
-                    #     label: librinfo.label.organism_name_filter
-                    # familyContact: ~
                     culture: ~
                     email: ~
                     emailNpai: ~
                     emailNoNewsletter: ~
-#                    positions.contact.name:
-#                        type: doctrine_orm_callback
-#                        callback: [Librinfo\CRMBundle\Admin\OrganismAdmin, contactFilterQueryBuilder]
-#                        label: librinfo.label.organism_contact_filter
                     category: ~
                     isCustomer: ~
                     customerCode: ~
@@ -443,7 +434,6 @@ parameters:
                     _options:
                         fieldsOrder:
                             - name
-#                            - positions.contact.name
                             - category
                             - isCustomer
                             - customerCode
