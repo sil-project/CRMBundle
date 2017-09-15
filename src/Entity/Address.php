@@ -298,16 +298,6 @@ class Address implements AddressInterface, VCardableInterface
     {
         return $this->npai;
     }
-
-    /**
-     * Is npai.
-     *
-     * @return bool
-     */
-    public function isNpai()
-    {
-        return $this->npai;
-    }
     
     /**
      * Get npai.
