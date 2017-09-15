@@ -1,28 +1,30 @@
 # Change Log
 
-## [Unreleased](https://github.com/libre-informatique/CRMBundle/tree/HEAD)
+## [0.5.1](https://github.com/libre-informatique/CRMBundle/tree/0.5.1) (2017-09-15)
+[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.5...0.5.1)
 
-[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.5...HEAD)
+**Closed issues:**
+
+- You have requested a non-existent service "blast\_base\_entities.listener.normalize".                                                                                    [\#12](https://github.com/libre-informatique/CRMBundle/issues/12)
 
 **Merged pull requests:**
 
-- Lisem fix & features [\#33](https://github.com/libre-informatique/CRMBundle/pull/33) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#39](https://github.com/libre-informatique/CRMBundle/pull/39) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#38](https://github.com/libre-informatique/CRMBundle/pull/38) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#37](https://github.com/libre-informatique/CRMBundle/pull/37) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Wip test [\#34](https://github.com/libre-informatique/CRMBundle/pull/34) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
 
-## [0.4.5](https://github.com/libre-informatique/CRMBundle/tree/0.4.5) (2017-07-26)
+## [0.4.5](https://github.com/libre-informatique/CRMBundle/tree/0.4.5) (2017-07-28)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.4...0.4.5)
 
 **Merged pull requests:**
 
-- DevKit updates for CRMBundle [\#32](https://github.com/libre-informatique/CRMBundle/pull/32) ([BlastCI](https://github.com/BlastCI))
+- Lisem fix & features [\#33](https://github.com/libre-informatique/CRMBundle/pull/33) ([FanchTheSystem](https://github.com/FanchTheSystem))
 - Lisem fix & features [\#29](https://github.com/libre-informatique/CRMBundle/pull/29) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- DevKit updates for CRMBundle [\#28](https://github.com/libre-informatique/CRMBundle/pull/28) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#27](https://github.com/libre-informatique/CRMBundle/pull/27) ([BlastCI](https://github.com/BlastCI))
 -  add new tests [\#26](https://github.com/libre-informatique/CRMBundle/pull/26) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
 - Init and corrections  [\#24](https://github.com/libre-informatique/CRMBundle/pull/24) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
 - \(entity Position\) init $circles [\#22](https://github.com/libre-informatique/CRMBundle/pull/22) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
 - Wip lisem [\#21](https://github.com/libre-informatique/CRMBundle/pull/21) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- DevKit updates for CRMBundle [\#19](https://github.com/libre-informatique/CRMBundle/pull/19) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#18](https://github.com/libre-informatique/CRMBundle/pull/18) ([BlastCI](https://github.com/BlastCI))
 - Wip test clean [\#17](https://github.com/libre-informatique/CRMBundle/pull/17) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
 
 ## [0.4.4](https://github.com/libre-informatique/CRMBundle/tree/0.4.4) (2017-06-27)
@@ -31,23 +33,12 @@
 ## [0.4.3](https://github.com/libre-informatique/CRMBundle/tree/0.4.3) (2017-06-13)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.2...0.4.3)
 
-**Merged pull requests:**
-
-- DevKit updates for CRMBundle [\#13](https://github.com/libre-informatique/CRMBundle/pull/13) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#11](https://github.com/libre-informatique/CRMBundle/pull/11) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#10](https://github.com/libre-informatique/CRMBundle/pull/10) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#8](https://github.com/libre-informatique/CRMBundle/pull/8) ([BlastCI](https://github.com/BlastCI))
-
 ## [0.4.2](https://github.com/libre-informatique/CRMBundle/tree/0.4.2) (2017-05-05)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.3...0.4.2)
 
 **Closed issues:**
 
 - Installing on Symfony3 [\#7](https://github.com/libre-informatique/CRMBundle/issues/7)
-
-**Merged pull requests:**
-
-- DevKit updates for CRMBundle [\#6](https://github.com/libre-informatique/CRMBundle/pull/6) ([BlastCI](https://github.com/BlastCI))
 
 ## [0.3](https://github.com/libre-informatique/CRMBundle/tree/0.3) (2017-03-29)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.2...0.3)
