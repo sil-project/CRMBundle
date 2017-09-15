@@ -57,8 +57,8 @@ class CityAdminController extends CRUDController
 
         return new JsonResponse(array(
             'status' => 'OK',
-            'more' => $page < $results['last_page'],
-            'items' => $items,
+            'more'   => $page < $results['last_page'],
+            'items'  => $items,
         ));
     }
 }

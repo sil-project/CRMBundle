@@ -266,11 +266,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      *
      * @todo ucname should go in an event listener, so we can configure the behaviour
      */
-    public function setFirstname($firstname)
+    public function setFirstname(?string $firstname): void
     {
         $this->firstname = $this->ucname($firstname);
-
-        return $this;
     }
 
     /**
@@ -278,7 +276,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      *
      * @return string
      */
-    public function getFirstname()
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -292,11 +290,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      *
      * @todo mb_strtoupper should go in an event listener, so we can configure the behaviour
      */
-    public function setLastname($lastname)
+    public function setLastname(?string $lastname): void
     {
         $this->lastname = mb_strtoupper($lastname);
-
-        return $this;
     }
 
     /**
@@ -304,7 +300,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      *
      * @return string
      */
-    public function getLastname()
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
@@ -316,11 +312,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
      *
      * @return Contact
      */
-    public function setShortname($shortname)
+    public function setShortname(?string $shortname): void
     {
         $this->shortname = $shortname;
-
-        return $this;
     }
 
     /**

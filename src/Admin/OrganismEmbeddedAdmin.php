@@ -47,7 +47,7 @@ class OrganismEmbeddedAdmin extends CoreAdmin
             ->add('title', CustomChoiceType::class, [
                 'blast_choices' => ['Mr', 'Mrs'],
                 'choices_field' => 'contact.title',
-                'required' => false,
+                'required'      => false,
             ])
             ->add('firstname')
             ->add('name', 'text', ['required' => false])

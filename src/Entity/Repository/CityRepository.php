@@ -67,7 +67,7 @@ class CityRepository extends EntityRepository
                 ->setFirstResult(($page - 1) * $items_per_page)
             ;
             $orderBy = [
-                'zip' => ['zip', 'city'],
+                'zip'  => ['zip', 'city'],
                 'city' => ['city'],
             ];
             foreach ($orderBy[$field] as $ord) {
@@ -86,8 +86,8 @@ class CityRepository extends EntityRepository
         }
 
         return [
-            'items' => $items,
-            'count' => $count,
+            'items'     => $items,
+            'count'     => $count,
             'last_page' => $lastPage,
         ];
     }

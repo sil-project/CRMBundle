@@ -20,7 +20,7 @@ use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Address.
- * https://github.com/Sylius/Sylius/issues/8345 & https://ocramius.github.io/blog/fluent-interfaces-are-evil/
+ * https://github.com/Sylius/Sylius/issues/8345 & https://ocramius.github.io/blog/fluent-interfaces-are-evil/.
  */
 class Address implements AddressInterface, VCardableInterface
 {
@@ -287,6 +287,16 @@ class Address implements AddressInterface, VCardableInterface
     public function setNpai($npai)
     {
         $this->npai = $npai;
+    }
+
+    /**
+     * Is npai.
+     *
+     * @return bool
+     */
+    public function isNpai()
+    {
+        return $this->npai;
     }
 
     /**

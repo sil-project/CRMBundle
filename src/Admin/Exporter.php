@@ -69,7 +69,7 @@ class Exporter extends CoreExporter
             die();
 
             return new StreamedResponse($callback, 200, array(
-                'Content-Type' => $contentType,
+                'Content-Type'        => $contentType,
                 'Content-Disposition' => sprintf('attachment; filename="%s"', $writer->getFilename($filename)),
             ));
         break;

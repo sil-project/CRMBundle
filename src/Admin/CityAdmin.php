@@ -22,9 +22,9 @@ use Sonata\AdminBundle\Route\RouteCollection;
 class CityAdmin extends CoreAdmin
 {
     protected $datagridValues = array(
-        '_page' => 1,
+        '_page'       => 1,
         '_sort_order' => 'ASC',
-        '_sort_by' => 'zip',
+        '_sort_by'    => 'zip',
     );
 
     protected function configureRoutes(RouteCollection $collection)

@@ -64,6 +64,5 @@ services:
             - { name: form.type, alias: librinfo_fake_email }
 
 ### BLAST CALLBACKS ###
-
     librinfo.crm.filters.customer:
         class: Librinfo\CRMBundle\Services\Filters\OrganismFilter
