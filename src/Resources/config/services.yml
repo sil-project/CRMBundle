@@ -1,5 +1,9 @@
 services:
 
+    blast_core.label.strategy.librinfo_crm:
+        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Librinfo\CRMBundle']
+        
     security.access.circle_voter:
         class:      Librinfo\CRMBundle\Security\Authorization\Voter\CircleVoter
         public:     false

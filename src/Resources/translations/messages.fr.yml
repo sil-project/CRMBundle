@@ -1,200 +1,204 @@
-'A customer code is required for customers': 'Un code client est requis pour les clients.'
-'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
-'Alert': 'Alerte'
-'Category': 'Catégorie de Tiers'
-'Circle': 'Groupe'
-'Contact': 'Contact'
-'Not a valid VAT number': 'N° TVA non valide'
-'Organism': 'Tiers'
-'PhoneType': 'Type de téléphone'
-'PositionType': 'Type de fonction'
-'The VAT number is not valid. It must be in format [0-9A-Za-z\+\*\.]{4,14}': 'N° TVA mal formatté. Il doit contenir entre 4 et 14 caractères (chiffres et lettres non accentuées uniquement).'
-'The countrycode is not valid. It must be one of %country_codes%': 'Le code pays n''est pas valide. Codes pays acceptés: %country_codes%'
-'This customer code is already in use': 'Ce code client est déjà utilisé ailleurs'
-'This supplier code is already in use': 'Ce code fournisseur est déjà utilisé ailleurs'
-'Verified VAT number': 'N° TVA vérifié'
-'View list': 'Voir la liste'
-'Wrong format for customer code. It shoud be: %prefix% + %length% digits': 'Syntaxe erronée pour le code client. Utiliser le format: %prefix% + %length% chiffres'
-'Wrong format for supplier code. It shoud be: %prefix% + %length% digits': 'Syntaxe erronée pour le code fournisseur. Utiliser le format: %prefix% + %length% chiffres'
-'export_format_group': 'Groupe'
-'export_format_vcard': 'vCard'
-'{0} No contact|{1} 1 contact|[2, Inf[ %count% contacts': '{0} Aucun Contact|{1} 1 Contact|[2, Inf[ %count% Contacts'
-'{0} No organism|{1} 1 organism|[2, Inf[ %count% organisms': '{0} Aucun Tiers|{1} 1 Tiers|[2, Inf[ %count% Tiers'
-'{0} No position|{1} 1 position|[2, Inf[ %count% positions': '{0} Aucune Fonction|{1} 1 Fonction|[2, Inf[ %count% Fonctions'
-
-form_group_addresses: Adresses
-form_group_administrative: Administratif
-form_group_alert: Alerte
-form_group_contact: Contact
-form_group_contacts: Contacts
-form_group_default_address: Adresse principale
-form_group_individual: Type de tiers
-form_group_main_address: Adresse principale
-form_group_members: Membres
-form_group_organism: Tiers
-form_group_other_addresses: Autres adresses
-form_group_default_phone: Numéro principal
-form_group_phones: Autres numéros de téléphone
-form_group_position: Fonction
-form_group_notes: Notes
-form_tab_individuals: Individus
-form_tab_organizations: Organisations
-form_group_sales: Ventes
-form_group_ticketing: Billetterie
-form_group_info: Catalogue
-form_tab_phones: Numéros de téléphone
-form_tab_address_book: Carnet d'adresses
-form_tab_history.form_group_history: Historique
-form_tab_info: Renseignements divers
-form_tab_organisms: Tiers
-form_tab_organisms_description: Liste des Tiers auxquels appartient le Contact
-form_tab_position.form_group_general: Fonction
-show_tab_phones: Numéros de téléphone
-show_tab_addresses: Carnet d'adresses
-show_tab_individuals: Individus
-show_tab_organizations: Organisations
-show_tab_info: Renseignements divers
-show_group_administrative: Administratif
-show_group_phones: Téléphones
-
 librinfo:
-    error:
-        provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
-    help:
-        vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
-        vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
-        iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
-        individual: 'Créera automatiquement un contact physique avec les mêmes informations'
-    label:
-        active: 'Actif'
-        administrative_number: 'Numéro administratif'
-        addresses: 'Adresses'
-        alert: 'Alerte'
-        catalogue_send_mean: 'Méthode d''envoi'
-        catalogue_sent: 'Catalogue envoyé'
-        catalogue_type: 'Type de catalogue'
-        category: 'Categorie'
-        category_name: 'Catégorie de tiers'
-        circles: 'Groupes'
-        city: Ville
-        collective_organism: 'Collectif (entreprise, association...)'
-        color: 'Couleur'
-        contact: 'Contact'
-        contacts: 'Contacts'
-        contacts_count: 'Contacts'
-        country: Pays
-        country_code: Pays
-        culture: 'Langue'
-        customer_code: 'Code client'
-        customer_supplier: 'Client / Fournisseur'
-        default_address: Addresse principale
-        default_phone: Téléphone principal
-        department: 'Service'
-        email: 'Email'
-        email_npai: 'Mauvais courriel'
-        email_no_newsletter: 'Pas de Newsletter'
-        family_contact: 'Contact de famille'
-        first_catalogue_sent_date: 'Date premier envoi catalogue'
-        first_name: Prénom
-        firstname: 'Prénom'
-        lastname: 'Nom de famille'
-        flash_on_control: 'S''affiche au contrôle'
-        fulltext_address: 'Adresse du contact'
-        fulltext_name: 'Nom'
-        generate_customer_code: 'Générer code'
-        generate_supplier_code: 'Générer code'
-        iban: 'RIB (IBAN)'
-        individuals: Individus
-        organizations: Organisations
-        individual_organism: 'Individu privé'
-        isCustomer: 'Client'
-        isNotCustomer: 'N''est pas un client'
-        isNotSupplier: 'N''est pas un fournisseur'
-        isSupplier: 'Fournisseur'
-        is_customer: 'Client'
-        is_supplier: 'Fournisseur'
-        is_individual: Est un individu
-        last_catalogue_sent_date: 'Date dernier envoi catalogue'
-        last_name: Nom de famille
-        list_circle_name: 'Groupe'
-        list_customer_name: 'Client'
-        list_organism_name: 'Tiers'
-        main_address: 'Adresse du tiers'
-        organism: 'Tiers'
-        organism_contact_filter: 'Contact'
-        organism_description: 'Bloc-notes'
-        organism_name: 'Nom / Raison sociale'
-        organism_name_filter: 'Nom du tiers'
-        organisms: 'Tiers'
-        organisms_count: 'Tiers'
-        parent_node: 'Noeud parent'
-        phone: 'Téléphone'
-        phone_number_long: 'Numéro de téléphone'
-        phone_type: 'Type'
-        phones: 'Numéros de téléphone'
-        position_label: 'Libellé de la fonction'
-        position_type: 'Type de fonction'
-        position_type_name: 'Type de fonction'
-        positions: 'Fonctions'
-        positions_count: 'Fonctions'
-        post_code: Code postal
-        shortname: 'Nom court'
-        source: 'Source'
-        street: Rue
-        supplier_code: 'Code fournisseur'
-        title: 'Titre / civilité'
-        url: 'Site web'
-        users: Utilisateurs
-        validate_vat: 'Vérifier le n° TVA'
-        validating_vat: 'Vérification en cours...'
-        vat: 'N° TVA'
-        tree_parent: 'Catégorie parente'
-        set_default_address: 'Adresse principale'
-        set_default_phone: 'Principal'
-        individual: 'Individu'
-        organization: 'Organisation'
-        siret: 'N° Siret'
-    link:
-        category_list: 'Liste des catégories de tiers'
-        circle_list: 'Liste des groupes'
-        contact_list: 'Liste des contacts'
-        customer_list: 'Liste des clients'
-        organism_create: 'Nouveau Tiers'
-        organism_list: 'Liste des tiers'
-        phone_type_list: 'Liste des types de téléphone'
-        position_type_create: 'Nouveau type de fonction'
-        position_type_list: 'Liste des types de fonction'
-        circle_create: 'Nouveau groupe'
-        category_create: 'Nouvelle catégorie de tiers'
-        organism_group_list: 'Liste des groupes de tiers'
-        organismgroup_list: 'Liste des groupes de tiers'
-        phone_type_create: 'Créer un type de téléphone'
-        phonetype_list: 'Types de téléphone'
-        positiontype_list: 'Types de fonction'
-    placeholder:
-        customer_code: 'Code client'
-        supplier_code: 'Code fournisseur'
-    msg:
-        validating_vat: Validation du numéro de TVA
-    btn:
-        generateFakeEmail: Générer un email
-        manage: Gérer
-        add: Ajouter
+    crmbundle: ~
 
-librinfo_crm:
-    label:
-        admin:
-            category: 'Catégorie de Tiers'
-            circle: 'Groupes'
-            customer: 'Clients'
-            organism: 'Tiers'
-            organism_phone: 'Téléphones de tiers'
-            phone_type: 'Types de téléphones'
-            position: 'Fonctions'
-            position_type: 'Type de fonctions'
-            organism_group: 'Groupes de tiers'
-            city: 'Villes'
-            address: 'Addresses'
-            role: 'Rôles'
-            individual: 'Individus'
-            organization: 'Organisations'
+
+'A customer code is required for customers.old': 'Un code client est requis pour les clients.'
+'A supplier code is required for suppliers.old': 'Un code fournisseur est requis pour les fournisseurs.'
+'Alert.old': 'Alerte'
+'Category.old': 'Catégorie de Tiers'
+'Circle.old': 'Groupe'
+'Contact.old': 'Contact'
+'Not a valid VAT number.old': 'N° TVA non valide'
+'Organism.old': 'Tiers'
+'PhoneType.old': 'Type de téléphone'
+'PositionType.old': 'Type de fonction'
+'The VAT number is not valid. It must be in format [0-9A-Za-z\+\*\.]{4,14}.old': 'N° TVA mal formatté. Il doit contenir entre 4 et 14 caractères (chiffres et lettres non accentuées uniquement).'
+'The countrycode is not valid. It must be one of %country_codes%.old': 'Le code pays n''est pas valide. Codes pays acceptés.old: %country_codes%'
+'This customer code is already in use.old': 'Ce code client est déjà utilisé ailleurs'
+'This supplier code is already in use.old': 'Ce code fournisseur est déjà utilisé ailleurs'
+'Verified VAT number.old': 'N° TVA vérifié'
+'View list.old': 'Voir la liste'
+'Wrong format for customer code. It shoud be.old: %prefix% + %length% digits.old': 'Syntaxe erronée pour le code client. Utiliser le format.old: %prefix% + %length% chiffres'
+'Wrong format for supplier code. It shoud be.old: %prefix% + %length% digits.old': 'Syntaxe erronée pour le code fournisseur. Utiliser le format.old: %prefix% + %length% chiffres'
+'export_format_group.old': 'Groupe'
+'export_format_vcard.old': 'vCard'
+'{0} No contact|{1} 1 contact|[2, Inf[ %count% contacts.old': '{0} Aucun Contact|{1} 1 Contact|[2, Inf[ %count% Contacts'
+'{0} No organism|{1} 1 organism|[2, Inf[ %count% organisms.old': '{0} Aucun Tiers|{1} 1 Tiers|[2, Inf[ %count% Tiers'
+'{0} No position|{1} 1 position|[2, Inf[ %count% positions.old': '{0} Aucune Fonction|{1} 1 Fonction|[2, Inf[ %count% Fonctions'
+
+form_group_addresses.old: Adresses
+form_group_administrative.old: Administratif
+form_group_alert.old: Alerte
+form_group_contact.old: Contact
+form_group_contacts.old: Contacts
+form_group_default_address.old: Adresse principale
+form_group_individual.old: Type de tiers
+form_group_main_address.old: Adresse principale
+form_group_members.old: Membres
+form_group_organism.old: Tiers
+form_group_other_addresses.old: Autres adresses
+form_group_default_phone.old: Numéro principal
+form_group_phones.old: Autres numéros de téléphone
+form_group_position.old: Fonction
+form_group_notes.old: Notes
+form_tab_individuals.old: Individus
+form_tab_organizations.old: Organisations
+form_group_sales.old: Ventes
+form_group_ticketing.old: Billetterie
+form_group_info.old: Catalogue
+form_tab_phones.old: Numéros de téléphone
+form_tab_address_book.old: Carnet d'adresses
+form_tab_history.form_group_history.old: Historique
+form_tab_info.old: Renseignements divers
+form_tab_organisms.old: Tiers
+form_tab_organisms_description.old: Liste des Tiers auxquels appartient le Contact
+form_tab_position.form_group_general.old: Fonction
+show_tab_phones.old: Numéros de téléphone
+show_tab_addresses.old: Carnet d'adresses
+show_tab_individuals.old: Individus
+show_tab_organizations.old: Organisations
+show_tab_info.old: Renseignements divers
+show_group_administrative.old: Administratif
+show_group_phones.old: Téléphones
+
+librinfo.old:
+    error.old:
+        provide_name_or_firstname.old: 'Vous devez remplir au moins le nom ou le prénom'
+    help.old:
+        vat.old: 'ex. FR 11 123456789 (avec ou sans espaces)'
+        vat_validation.old: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
+        iban.old: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
+        individual.old: 'Créera automatiquement un contact physique avec les mêmes informations'
+    label.old:
+        active.old: 'Actif'
+        administrative_number.old: 'Numéro administratif'
+        addresses.old: 'Adresses'
+        alert.old: 'Alerte'
+        catalogue_send_mean.old: 'Méthode d''envoi'
+        catalogue_sent.old: 'Catalogue envoyé'
+        catalogue_type.old: 'Type de catalogue'
+        category.old: 'Categorie'
+        category_name.old: 'Catégorie de tiers'
+        circles.old: 'Groupes'
+        city.old: Ville
+        collective_organism.old: 'Collectif (entreprise, association...)'
+        color.old: 'Couleur'
+        contact.old: 'Contact'
+        contacts.old: 'Contacts'
+        contacts_count.old: 'Contacts'
+        country.old: Pays
+        country_code.old: Pays
+        culture.old: 'Langue'
+        customer_code.old: 'Code client'
+        customer_supplier.old: 'Client / Fournisseur'
+        default_address.old: Addresse principale
+        default_phone.old: Téléphone principal
+        department.old: 'Service'
+        email.old: 'Email'
+        email_npai.old: 'Mauvais courriel'
+        email_no_newsletter.old: 'Pas de Newsletter'
+        family_contact.old: 'Contact de famille'
+        first_catalogue_sent_date.old: 'Date premier envoi catalogue'
+        first_name.old: Prénom
+        firstname.old: 'Prénom'
+        lastname.old: 'Nom de famille'
+        flash_on_control.old: 'S''affiche au contrôle'
+        fulltext_address.old: 'Adresse du contact'
+        fulltext_name.old: 'Nom'
+        generate_customer_code.old: 'Générer code'
+        generate_supplier_code.old: 'Générer code'
+        iban.old: 'RIB (IBAN)'
+        individuals.old: Individus
+        organizations.old: Organisations
+        individual_organism.old: 'Individu privé'
+        isCustomer.old: 'Client'
+        isNotCustomer.old: 'N''est pas un client'
+        isNotSupplier.old: 'N''est pas un fournisseur'
+        isSupplier.old: 'Fournisseur'
+        is_customer.old: 'Client'
+        is_supplier.old: 'Fournisseur'
+        is_individual.old: Est un individu
+        last_catalogue_sent_date.old: 'Date dernier envoi catalogue'
+        last_name.old: Nom de famille
+        list_circle_name.old: 'Groupe'
+        list_customer_name.old: 'Client'
+        list_organism_name.old: 'Tiers'
+        main_address.old: 'Adresse du tiers'
+        organism.old: 'Tiers'
+        organism_contact_filter.old: 'Contact'
+        organism_description.old: 'Bloc-notes'
+        organism_name.old: 'Nom / Raison sociale'
+        organism_name_filter.old: 'Nom du tiers'
+        organisms.old: 'Tiers'
+        organisms_count.old: 'Tiers'
+        parent_node.old: 'Noeud parent'
+        phone.old: 'Téléphone'
+        phone_number_long.old: 'Numéro de téléphone'
+        phone_type.old: 'Type'
+        phones.old: 'Numéros de téléphone'
+        position_label.old: 'Libellé de la fonction'
+        position_type.old: 'Type de fonction'
+        position_type_name.old: 'Type de fonction'
+        positions.old: 'Fonctions'
+        positions_count.old: 'Fonctions'
+        post_code.old: Code postal
+        shortname.old: 'Nom court'
+        source.old: 'Source'
+        street.old: Rue
+        supplier_code.old: 'Code fournisseur'
+        title.old: 'Titre / civilité'
+        url.old: 'Site web'
+        users.old: Utilisateurs
+        validate_vat.old: 'Vérifier le n° TVA'
+        validating_vat.old: 'Vérification en cours...'
+        vat.old: 'N° TVA'
+        tree_parent.old: 'Catégorie parente'
+        set_default_address.old: 'Adresse principale'
+        set_default_phone.old: 'Principal'
+        individual.old: 'Individu'
+        organization.old: 'Organisation'
+        siret.old: 'N° Siret'
+    link.old:
+        category_list.old: 'Liste des catégories de tiers'
+        circle_list.old: 'Liste des groupes'
+        contact_list.old: 'Liste des contacts'
+        customer_list.old: 'Liste des clients'
+        organism_create.old: 'Nouveau Tiers'
+        organism_list.old: 'Liste des tiers'
+        phone_type_list.old: 'Liste des types de téléphone'
+        position_type_create.old: 'Nouveau type de fonction'
+        position_type_list.old: 'Liste des types de fonction'
+        circle_create.old: 'Nouveau groupe'
+        category_create.old: 'Nouvelle catégorie de tiers'
+        organism_group_list.old: 'Liste des groupes de tiers'
+        organismgroup_list.old: 'Liste des groupes de tiers'
+        phone_type_create.old: 'Créer un type de téléphone'
+        phonetype_list.old: 'Types de téléphone'
+        positiontype_list.old: 'Types de fonction'
+    placeholder.old:
+        customer_code.old: 'Code client'
+        supplier_code.old: 'Code fournisseur'
+    msg.old:
+        validating_vat.old: Validation du numéro de TVA
+    btn.old:
+        generateFakeEmail.old: Générer un email
+        manage.old: Gérer
+        add.old: Ajouter
+
+librinfo_crm.old:
+    label.old:
+        admin.old:
+            category.old: 'Catégorie de Tiers'
+            circle.old: 'Groupes'
+            customer.old: 'Clients'
+            organism.old: 'Tiers'
+            organism_phone.old: 'Téléphones de tiers'
+            phone_type.old: 'Types de téléphones'
+            position.old: 'Fonctions'
+            position_type.old: 'Type de fonctions'
+            organism_group.old: 'Groupes de tiers'
+            city.old: 'Villes'
+            address.old: 'Addresses'
+            role.old: 'Rôles'
+            individual.old: 'Individus'
+            organization.old: 'Organisations'

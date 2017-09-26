@@ -65,8 +65,7 @@ parameters:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig'
                             category.name: ~
                             url: ~
-                            description:
-                                label: librinfo.label.organism_description
+                            description: ~
                             email:
                                 template: 'LibrinfoCRMBundle:CRUD:show_field_email.html.twig'
                             _options:
@@ -149,9 +148,10 @@ parameters:
                             isIndividual:
                                 # only_new: true
                                 type: choice
+                                # @todo change this label
                                 choices:
-                                    librinfo.label.collective_organism: 0
-                                    librinfo.label.individual_organism: 1
+                                    librinfo.crmbundle.organism.collective: 0
+                                    librinfo.crmbundle.organism.individual: 1
                                 expanded: true
                                 label: false
                             active:
@@ -169,7 +169,6 @@ parameters:
                             name:
                                 type: Blast\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
-                                label: librinfo.label.organism_name
                                 attr:
                                     maxlength: 35
                             isCustomer: ~
@@ -208,7 +207,6 @@ parameters:
                             description:
                                 type: textarea
                                 required: false
-                                label: librinfo.label.organism_description
                             _options:
                                 fieldsOrder:
                                     - isIndividual
@@ -380,7 +378,6 @@ parameters:
                 add:
                     fulltextName:
                         identifier: true
-                        label: librinfo.label.contact
                         sortable: name
                     email:
                         identifier: true
@@ -486,7 +483,6 @@ parameters:
                     createdAt: ~
                     name:
                         identifier: true
-                        label: librinfo.label.list_customer_name
                     customerCode: ~
                     _options:
                         fieldsOrder:
@@ -521,8 +517,7 @@ parameters:
                     form_tab_general:
                         '':
                             phoneType: ~
-                            number:
-                                label: librinfo.label.phone_number_long
+                            number: ~
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     form_tab_general:
@@ -536,7 +531,6 @@ parameters:
                                     - Fixe
                                     - Mobile
                             number:
-                                label: librinfo.label.phone_number_long
                                 required: true
                             organism:
                                 _options:
@@ -577,6 +571,7 @@ parameters:
 #                                _options:
 #                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_positions_count.html.twig
                         _options:
+                            # @todo change this label
                             groupsOrder:
                                 - librinfo.crm.circle_admin.label
                                 - form_group_members
@@ -623,7 +618,6 @@ parameters:
                 add:
                     name:
                         identifier: true
-                        label: librinfo.label.list_circle_name
                     code: ~
 #                    owner: ~
                     users: ~
@@ -654,8 +648,7 @@ parameters:
                                 admin_code: librinfo_crm.admin.organism
                             department: ~
                             positionType.name: ~
-                            label:
-                                label: librinfo.label.position_label
+                            label: ~
                             email: ~
                             phone: ~
                             description: ~
@@ -704,8 +697,7 @@ parameters:
                             department: ~
                             positionType:
                                 placeholder: ''
-                            label:
-                                label: librinfo.label.position_label
+                            label: ~
                             email:
                                 type: email
                                 required: false
@@ -741,9 +733,7 @@ parameters:
                     individual.name:
                         type: doctrine_orm_callback
                         callback: [Librinfo\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
-                        label: librinfo.label.organization_individual_filter
-                    organism.name:
-                        label: librinfo.label.organization_organism_filter
+                    organism.name: ~
                     email: ~
                     label: ~
                     _options:
