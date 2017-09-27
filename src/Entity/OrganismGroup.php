@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
 
 /**
  * OrganismGroup.
@@ -23,7 +24,8 @@ use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
 class OrganismGroup
 {
     use BaseEntity,
-        Nameable
+        Nameable,
+        Stringable
     ;
 
     /**
