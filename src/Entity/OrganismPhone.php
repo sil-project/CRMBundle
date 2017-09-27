@@ -12,8 +12,12 @@
 
 namespace Librinfo\CRMBundle\Entity;
 
+use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
+
 class OrganismPhone extends Phone
 {
+    use Stringable;
+    
     /**
      * @var Organism
      */
