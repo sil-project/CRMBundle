@@ -730,18 +730,20 @@ parameters:
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-                    individual.name:
-                        type: doctrine_orm_callback
-                        callback: [Librinfo\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
-                    organism.name: ~
+                    individual.name: ~
+                        #type: doctrine_orm_callback
+                        # callback: [Librinfo\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
+                        #serviceCallback: [librinfo_crm.admin.position, individualsCallback, callback]
+                    organism.name:
+                        type: doctrine_orm_string
                     email: ~
                     label: ~
-                    _options:
-                        fieldsOrder:
-                            - individual.name
-                            - organization.name
-                            - label
-                            - email
+                 #   _options:
+                 #       fieldsOrder:
+                 #           - individual.name
+                 #           - organization.name
+                 #           - label
+                 #           - email
 
 ############
 # CIRCLABLE Trait
