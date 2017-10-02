@@ -2,120 +2,116 @@ librinfo:
     crmbundle:
         address:
             breadcrumb:
-                address_create: ~
-                address_list: ~
-                organism_create: 'Nouveau Tiers'
-                organism_list: 'Liste des tiers'
+                address_create: Créer une adresse
+                address_list: List des adresse
+                organism_create: Nouveau Tiers
+                organism_list: Liste des tiers
             form:
-                city: 'Villes'
-                countrycode: ~
-                firstname: 'Prénom'
-                lastname: 'Nom de famille'
-                npai: 'NPAI'
-                postcode: ~
+                city: Villes
+                countrycode: Code pays
+                firstname: Prénom
+                lastname: Nom de famille
+                npai: NPAI
+                postcode: Code Postal
                 street: Rue
-        admin:
-            category: ~
-            circle: ~
-            city: ~
+
         category:
             breadcrumb:
-                category_create: 'Nouvelle catégorie de tiers'
-                category_list: 'Liste des catégories de tiers'
+                category_create: Nouvelle catégorie de tiers
+                category_list: Liste des catégories de tiers
             form:
-                alert: 'Alerte'
-                category: 'Catégorie de Tiers'
+                alert: Alerte
+                category: Catégorie de Tiers
                 description: Description
-                email: 'Email'
-                emailnonewsletter: ~
-                emailnpai: ~
-                iban: 'RIB (IBAN)'
-                name: 'Nom'
-                treeparent: ~
-                url: 'Site web'
-                vat: 'N° TVA'
+                email: Email
+                emailnonewsletter: Pas de Newsletter
+                emailnpai: Mauvais courriel
+                iban: RIB (IBAN)
+                name: Nom
+                url: Site web
+                vat: N° TVA
         circle:
             breadcrumb:
-                circle_create: 'Nouveau groupe'
-                circle_list: 'Liste des groupes'
+                circle_create: Nouveau groupe
+                circle_list: Liste des groupes
             form:
-                active: 'Actif'
-                circles: 'Groupes'
+                active: Actif
+                circles: Groupes
                 code: Code
-                createdat: ~
-                createdby: ~
+                createdat: Créé le
+                createdby: Crée par
                 description: Description
-                firstname: 'Prénom'
-                iscustomer: ~
-                issupplier: ~
-                lastname: 'Nom de famille'
-                name: 'Nom'
-                title: 'Titre / civilité'
+                firstname: Prénom
+                iscustomer: Client
+                issupplier: Fournisseur
+                lastname: Nom de famille
+                name: Nom
+                title: Titre / civilité
                 type: Type
-                updatedat: ~
-                updatedby: ~
+                updatedat: Modifié le
+                updatedby: Modifié par
         city:
             breadcrumb:
-                city_create: ~
-                city_list: ~
+                city_create: Créer une ville
+                city_list: Liste des villes
             form:
-                city: 'Villes'
+                city: Villes
                 country_code: Pays
-                zip: 'Code postal'
+                zip: Code postal
         organism:
             breadcrumb:
-                organismphone_create: ~
-                organismphone_list: ~
-            collective: ~
+                organismphone_create: Ajouter un téléphone de tiers
+                organismphone_list: Liste des téléphones de tiers
             form:
-                createdat: ~
-                department: 'Service'
-                individual: 'Individus'
-                organism: 'Tiers'
-                organization: 'Organisations'
-                updatedat: ~
-            individual: ~
+                createdat: Créé le
+                department: Service
+                individual: Individus
+                organism: Tiers
+                organization: Organisations
+                updatedat: Modifié le
+                individual: Est un Individu
         organismgroup:
             breadcrumb:
-                organismgroup_create: ~
-                organismgroup_list: 'Liste des groupes de tiers'
+                organismgroup_create: Créer un groupe de tiers
+                organismgroup_list: Liste des groupes de tiers
             form:
-                name: 'Nom'
+                name: Nom
         organismphone:
-                catalogue_send_mean: 'Méthode d''envoi'
-                catalogue_sent: 'Catalogue envoyé'
-                catalogue_type: 'Type de catalogue'
-                first_catalogue_sent_date: 'Date premier envoi catalogue'
-                last_catalogue_sent_date: 'Date dernier envoi catalogue'
-                number: ~
-                phonetype: ~
-                source: 'Source'
+                catalogue_send_mean: Méthode d'envoi
+                #'
+                catalogue_sent: Catalogue envoyé
+                catalogue_type: Type de catalogue
+                first_catalogue_sent_date: Date premier envoi catalogue
+                last_catalogue_sent_date: Date dernier envoi catalogue
+                number: Numéro
+                phonetype: Types de téléphone
+                source: Source
         phonetype:
             breadcrumb:
-                phonetype_create: ~
-                phonetype_list: 'Types de téléphone'
+                phonetype_create: Créer un types de téléphone
+                phonetype_list: Liste des types de téléphone
             form:
                 label: Organisme certificateur
         positiontype:
             breadcrumb:
-                position_create: ~
-                position_list: ~
-                positiontype_create: ~
-                positiontype_list: 'Types de fonction'
+                position_create: Créer une fonction
+                position_list: Liste des fonctions
+                positiontype_create: Créer un type de fonction
+                positiontype_list: Liste des types de fonction
             form:
-                email: 'Email'
-                emailnonewsletter: ~
-                emailnpai: ~
+                email: Email
+                emailnonewsletter: Pas de Newsletter
+                emailnpai: Mauvais Courriel
                 label: Organisme certificateur
-                name: 'Nom'
-                phone: 'Téléphone'
-                positiontype: ~
+                name: Nom
+                phone: Téléphone
+                positiontype: Type de fonction
         role:
             breadcrumb:
-                role_create: ~
-                role_list: ~
+                role_create: Créer un rôle
+                role_list: Liste des rôles
             form:
-                name: 'Nom'
+                name: Nom
 
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
