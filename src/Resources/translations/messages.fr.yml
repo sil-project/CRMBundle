@@ -1,4 +1,20 @@
 librinfo:
+    error:
+        provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
+    help:
+        vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
+        vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
+        iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
+        individual: 'Créera automatiquement un contact physique avec les mêmes informations'
+    placeholder:
+        customer_code: 'Code client'
+        supplier_code: 'Code fournisseur'
+    msg:
+        validating_vat: Validation du numéro de TVA
+    btn:
+        generateFakeEmail: Générer un email
+        manage: Gérer
+        add: Ajouter
     crmbundle:
         address:
             breadcrumb:
@@ -113,6 +129,24 @@ librinfo:
             form:
                 name: Nom
 
+# should it be removed ?
+librinfo_crm:
+    label:
+        admin:
+            category: 'Catégorie de Tiers'
+            circle: 'Groupes'
+            customer: 'Clients'
+            organism: 'Tiers'
+            organism_phone: 'Téléphones de tiers'
+            phone_type: 'Types de téléphones'
+            position: 'Fonctions'
+            position_type: 'Type de fonctions'
+            organism_group: 'Groupes de tiers'
+            city: 'Villes'
+            address: 'Addresses'
+            role: 'Rôles'
+            individual: 'Individus'
+            organization: 'Organisations'
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
