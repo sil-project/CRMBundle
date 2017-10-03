@@ -16,6 +16,10 @@ librinfo:
         manage: Gérer
         add: Ajouter
     crmbundle:
+        admin:
+            category: Catégorie
+            circle: Groupes
+            city: Ville
         address:
             breadcrumb:
                 address_create: Créer une adresse
@@ -44,6 +48,7 @@ librinfo:
                 emailnpai: Mauvais courriel
                 iban: RIB (IBAN)
                 name: Nom
+                treeparent: Catégorie parente
                 url: Site web
                 vat: N° TVA
         circle:
@@ -75,6 +80,8 @@ librinfo:
                 country_code: Pays
                 zip: Code postal
         organism:
+            collective: Collectif (entreprise, association...)
+            individual: Individu privé
             breadcrumb:
                 organismphone_create: Ajouter un téléphone de tiers
                 organismphone_list: Liste des téléphones de tiers
@@ -93,6 +100,7 @@ librinfo:
             form:
                 name: Nom
         organismphone:
+            form:
                 catalogue_send_mean: Méthode d'envoi
                 #'
                 catalogue_sent: Catalogue envoyé
