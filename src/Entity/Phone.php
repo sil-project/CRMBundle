@@ -33,7 +33,7 @@ abstract class Phone
      */
     private $phoneType;
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->number;
         if ($this->phoneType) {
