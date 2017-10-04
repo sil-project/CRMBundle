@@ -20,6 +20,9 @@ librinfo:
             category: Catégorie
             circle: Groupes
             city: Ville
+        link:
+            category_list: Liste des catégories
+            circle_list: Liste des groupes
         address:
             breadcrumb:
                 address_create: Créer une adresse
@@ -39,6 +42,8 @@ librinfo:
             breadcrumb:
                 category_create: Nouvelle catégorie de tiers
                 category_list: Liste des catégories de tiers
+            filter:
+                name: Nom
             form:
                 alert: Alerte
                 category: Catégorie de Tiers
@@ -51,10 +56,15 @@ librinfo:
                 treeparent: Catégorie parente
                 url: Site web
                 vat: N° TVA
+            list:
+                _action: Action
+                name: Nom
         circle:
             breadcrumb:
                 circle_create: Nouveau groupe
                 circle_list: Liste des groupes
+            filter:
+                type: Type
             form:
                 active: Actif
                 circles: Groupes
@@ -71,6 +81,14 @@ librinfo:
                 type: Type
                 updatedat: Modifié le
                 updatedby: Modifié par
+            list:
+                _action: Action
+                code: Code
+                name: Nom
+                organismscount: Tiers
+                type: Type
+                users: Utilisateurs
+                    
         city:
             breadcrumb:
                 city_create: Créer une ville
@@ -137,24 +155,7 @@ librinfo:
             form:
                 name: Nom
 
-# should it be removed ?
-librinfo_crm:
-    label:
-        admin:
-            category: 'Catégorie de Tiers'
-            circle: 'Groupes'
-            customer: 'Clients'
-            organism: 'Tiers'
-            organism_phone: 'Téléphones de tiers'
-            phone_type: 'Types de téléphones'
-            position: 'Fonctions'
-            position_type: 'Type de fonctions'
-            organism_group: 'Groupes de tiers'
-            city: 'Villes'
-            address: 'Addresses'
-            role: 'Rôles'
-            individual: 'Individus'
-            organization: 'Organisations'
+
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
