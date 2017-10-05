@@ -17,6 +17,7 @@ librinfo:
         manage: Gérer
         add: Ajouter
     crmbundle:
+        label: Relations publiques
         admin:
             category: Catégorie
             circle: Groupes
@@ -24,9 +25,10 @@ librinfo:
         link:
             category_list: Liste des catégories
             circle_list: Liste des groupes
-
-        collective: Collectif (entreprise, association...)
-        individual: Individu privé
+        organism:
+            collective: Collectif (entreprise, association...)
+            individual: Individu privé
+            
         _action: Action
         active: Actif
         address: Adresse
