@@ -28,8 +28,8 @@ librinfo:
         organism:
             collective: Collectif (entreprise, association...)
             individual: Individu privé
-            
-        _action: Action
+
+        _action: Action    
         active: Actif
         address: Adresse
         address_create: Créer une adresse
@@ -41,6 +41,7 @@ librinfo:
         category: Catégorie
         category_create: Nouvelle catégorie de tiers
         category_list: Liste des catégories de tiers
+        category_name: Catégorie de tiers
         circle_create: Nouveau groupe
         circle_list: Liste des groupes
         circles: Groupes
@@ -52,6 +53,8 @@ librinfo:
         countrycode: Code pays
         createdat: Créé le
         createdby: Crée par
+        culture: Culture
+        customercode: Code Client
         department: Service
         description: Description
         email: Email
@@ -59,9 +62,12 @@ librinfo:
         emailnpai: Mauvais Courriel
         first_catalogue_sent_date: Date premier envoi catalogue
         firstname: Prénom
+        fulltextname: Nom
         iban: RIB (IBAN)
         individual: Individu
+        individual_name: Nom
         iscustomer: Est un client
+        isindividual: Est un individu
         issupplier: Est un fournisseur
         last_catalogue_sent_date: Date dernier envoi catalogue
         lastname: Nom de famille
@@ -69,13 +75,16 @@ librinfo:
         npai: NPAI
         number: Numéro
         organism: Contact
+        organism: Tiers 
         organism_create: Nouveau Contact
         organism_list: Liste des contacts
+        organism_name: Nom / Raison sociale
         organismgroup_create: Créer un groupe de tiers
         organismgroup_list: Liste des groupes de tiers
         organismphone:
         organismphone_create: Ajouter un téléphone de tiers
         organismphone_list: Liste des téléphones de tiers
+        organismscount: Tiers ?
         organization: Organisations
         phone: Téléphone
         phonetype: Types de téléphone
@@ -91,10 +100,9 @@ librinfo:
         role_list: Liste des rôles
         source: Source
         street: Rue
+        suppliercode: Code fournisseur
         title: Titre / civilité
         treeparent: Catégorie parente
-        type: Type
-        type: Type
         type: Type
         updatedat: Modifié le
         updatedby: Modifié par
@@ -102,6 +110,7 @@ librinfo:
         users: Utilisateurs
         vat: N° TVA
         zip: Code postal
+        
 
 
 
