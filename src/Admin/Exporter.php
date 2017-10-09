@@ -29,6 +29,7 @@ class Exporter extends CoreExporter
 
         switch ($format) {
         case 'group':
+            // @TODO: Remove this method that doesn't have to be as export action, but should be in a dedicated batch action
             // creates the circle
             $circle = new Circle();
             $circle->setName(

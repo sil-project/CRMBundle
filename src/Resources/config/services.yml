@@ -3,20 +3,20 @@ services:
     blast_core.label.strategy.librinfo_crm:
         class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
         arguments: ['Librinfo\CRMBundle']
-        
+
     security.access.circle_voter:
         class:      Librinfo\CRMBundle\Security\Authorization\Voter\CircleVoter
         public:     false
         tags:
             - { name: security.voter }
 
-    sonata.admin.exporter:
-        class: Librinfo\CRMBundle\Admin\Exporter
-        calls:
-            - [setTokenStorage, ['@security.token_storage']]
-            - [setTranslator, ['@translator']]
-            - [setTwig, ['@twig']]
-            - [setRouter, ['@router']]
+    # sonata.admin.exporter:
+    #     class: Librinfo\CRMBundle\Admin\Exporter
+    #     calls:
+    #         - [setTokenStorage, ['@security.token_storage']]
+    #         - [setTranslator, ['@translator']]
+    #         - [setTwig, ['@twig']]
+    #         - [setRouter, ['@router']]
 
     # repository as a service
     librinfo_crm.repository.circle:
