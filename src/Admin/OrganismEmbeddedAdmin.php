@@ -21,8 +21,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class OrganismEmbeddedAdmin extends CoreAdmin
 {
-    protected $baseRouteName = 'admin_vendor_bundlename_adminclassname';
-    protected $baseRoutePattern = 'unique-route-pattern';
+    // protected $baseRouteName = 'admin_vendor_bundlename_adminclassname';
+    // protected $baseRoutePattern = 'unique-route-pattern';
 
     /**
      * @param DatagridMapper $datagridMapper
