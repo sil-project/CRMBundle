@@ -1,5 +1,7 @@
 
 librinfo:
+    label:
+        default_address: Adresse principale
     error:
         provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
     help:
@@ -159,14 +161,14 @@ form_group_sales: Ventes
 form_group_ticketing: Billetterie
 form_group_info: Catalogue
 form_tab_phones: Numéros de téléphone
-form_tab_address_book: Carnet d'adresses
+form_tab_address_book: 'Carnet d''adresses'
 form_tab_history.form_group_history: Historique
 form_tab_info: Renseignements divers
 form_tab_organisms: Tiers
 form_tab_organisms_description: Liste des Tiers auxquels appartient le Contact
 form_tab_position.form_group_general: Fonction
 show_tab_phones: Numéros de téléphone
-show_tab_addresses: Carnet d'adresses
+show_tab_addresses: 'Carnet d''adresses'
 show_tab_individuals: Individus
 show_tab_organizations: Organisations
 show_tab_info: Renseignements divers
