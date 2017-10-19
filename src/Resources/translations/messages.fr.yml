@@ -1,3 +1,121 @@
+
+librinfo:
+    label:
+        default_address: Adresse principale
+    error:
+        provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
+    help:
+        vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
+        vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
+        iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
+        individual: 'Créera automatiquement un contact physique avec les mêmes informations'
+    placeholder:
+        customer_code: 'Code client'
+        supplier_code: 'Code fournisseur'
+    msg:
+        validating_vat: Validation du numéro de TVA
+    btn:
+        generateFakeEmail: Générer un email
+        manage: Gérer
+        add: Ajouter
+    crmbundle:
+        label: Relations publiques
+        admin:
+            category: Catégorie
+            circle: Groupes
+            city: Ville
+        link:
+            category_list: Liste des catégories
+            circle_list: Liste des groupes
+        organism:
+            collective: Collectif (entreprise, association...)
+            individual: Individu privé
+
+        _action: Action    
+        active: Actif
+        address: Adresse
+        address_create: Créer une adresse
+        address_list: List des adresse
+        alert: Alerte
+        catalogue_send_mean: 'Méthode d''envoi'
+        catalogue_sent: Catalogue envoyé
+        catalogue_type: Type de catalogue
+        category: Catégorie
+        category_create: Nouvelle catégorie de tiers
+        category_list: Liste des catégories de tiers
+        category_name: Catégorie de tiers
+        circle_create: Nouveau groupe
+        circle_list: Liste des groupes
+        circles: Groupes
+        city: Ville
+        city_create: Créer une ville
+        city_list: Liste des villes
+        code: Code
+        country_code: Code Pays
+        countrycode: Code pays
+        createdat: Créé le
+        createdby: Crée par
+        culture: Culture
+        customercode: Code Client
+        department: Service
+        description: Description
+        email: Email
+        emailnonewsletter: Pas de Newsletter
+        emailnpai: Mauvais Courriel
+        first_catalogue_sent_date: Date premier envoi catalogue
+        firstname: Prénom
+        fulltextname: Nom
+        iban: RIB (IBAN)
+        individual: Individu
+        individual_name: Nom
+        iscustomer: Est un client
+        isindividual: Est un individu
+        issupplier: Est un fournisseur
+        last_catalogue_sent_date: Date dernier envoi catalogue
+        lastname: Nom de famille
+        name: Nom
+        npai: NPAI
+        number: Numéro
+        organism: Contact
+        organism: Tiers 
+        organism_create: Nouveau Contact
+        organism_list: Liste des contacts
+        organism_name: Nom / Raison sociale
+        organismgroup_create: Créer un groupe de tiers
+        organismgroup_list: Liste des groupes de tiers
+        organismphone:
+        organismphone_create: Ajouter un téléphone de tiers
+        organismphone_list: Liste des téléphones de tiers
+        organismscount: Tiers ?
+        organization: Organisations
+        phone: Téléphone
+        phonetype: Types de téléphone
+        phonetype_create: Créer un types de téléphone
+        phonetype_list: Liste des types de téléphone
+        position_create: Créer une fonction
+        position_list: Liste des fonctions
+        positiontype: Type de fonction
+        positiontype_create: Créer un type de fonction
+        positiontype_list: Liste des types de fonction
+        postcode: Code Postal
+        role_create: Créer un rôle
+        role_list: Liste des rôles
+        source: Source
+        street: Rue
+        suppliercode: Code fournisseur
+        title: Titre / civilité
+        treeparent: Catégorie parente
+        type: Type
+        updatedat: Modifié le
+        updatedby: Modifié par
+        url: Site web
+        users: Utilisateurs
+        vat: N° TVA
+        zip: Code postal
+        
+
+
+
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
 'Alert': 'Alerte'
@@ -43,158 +161,17 @@ form_group_sales: Ventes
 form_group_ticketing: Billetterie
 form_group_info: Catalogue
 form_tab_phones: Numéros de téléphone
-form_tab_address_book: Carnet d'adresses
+form_tab_address_book: 'Carnet d''adresses'
 form_tab_history.form_group_history: Historique
 form_tab_info: Renseignements divers
 form_tab_organisms: Tiers
 form_tab_organisms_description: Liste des Tiers auxquels appartient le Contact
 form_tab_position.form_group_general: Fonction
 show_tab_phones: Numéros de téléphone
-show_tab_addresses: Carnet d'adresses
+show_tab_addresses: 'Carnet d''adresses'
 show_tab_individuals: Individus
 show_tab_organizations: Organisations
 show_tab_info: Renseignements divers
 show_group_administrative: Administratif
 show_group_phones: Téléphones
 
-librinfo:
-    error:
-        provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
-    help:
-        vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
-        vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
-        iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
-        individual: 'Créera automatiquement un contact physique avec les mêmes informations'
-    label:
-        active: 'Actif'
-        administrative_number: 'Numéro administratif'
-        addresses: 'Adresses'
-        alert: 'Alerte'
-        catalogue_send_mean: 'Méthode d''envoi'
-        catalogue_sent: 'Catalogue envoyé'
-        catalogue_type: 'Type de catalogue'
-        category: 'Categorie'
-        category_name: 'Catégorie de tiers'
-        circles: 'Groupes'
-        city: Ville
-        collective_organism: 'Collectif (entreprise, association...)'
-        color: 'Couleur'
-        contact: 'Contact'
-        contacts: 'Contacts'
-        contacts_count: 'Contacts'
-        country: Pays
-        country_code: Pays
-        culture: 'Langue'
-        customer_code: 'Code client'
-        customer_supplier: 'Client / Fournisseur'
-        default_address: Addresse principale
-        default_phone: Téléphone principal
-        department: 'Service'
-        email: 'Email'
-        email_npai: 'Mauvais courriel'
-        email_no_newsletter: 'Pas de Newsletter'
-        family_contact: 'Contact de famille'
-        first_catalogue_sent_date: 'Date premier envoi catalogue'
-        first_name: Prénom
-        firstname: 'Prénom'
-        lastname: 'Nom de famille'
-        flash_on_control: 'S''affiche au contrôle'
-        fulltext_address: 'Adresse du contact'
-        fulltext_name: 'Nom'
-        generate_customer_code: 'Générer code'
-        generate_supplier_code: 'Générer code'
-        iban: 'RIB (IBAN)'
-        individuals: Individus
-        organizations: Organisations
-        individual_organism: 'Individu privé'
-        isCustomer: 'Client'
-        isNotCustomer: 'N''est pas un client'
-        isNotSupplier: 'N''est pas un fournisseur'
-        isSupplier: 'Fournisseur'
-        is_customer: 'Client'
-        is_supplier: 'Fournisseur'
-        is_individual: Est un individu
-        last_catalogue_sent_date: 'Date dernier envoi catalogue'
-        last_name: Nom de famille
-        list_circle_name: 'Groupe'
-        list_customer_name: 'Client'
-        list_organism_name: 'Tiers'
-        main_address: 'Adresse du tiers'
-        organism: 'Tiers'
-        organism_contact_filter: 'Contact'
-        organism_description: 'Bloc-notes'
-        organism_name: 'Nom / Raison sociale'
-        organism_name_filter: 'Nom du tiers'
-        organisms: 'Tiers'
-        organisms_count: 'Tiers'
-        parent_node: 'Noeud parent'
-        phone: 'Téléphone'
-        phone_number_long: 'Numéro de téléphone'
-        phone_type: 'Type'
-        phones: 'Numéros de téléphone'
-        position_label: 'Libellé de la fonction'
-        position_type: 'Type de fonction'
-        position_type_name: 'Type de fonction'
-        positions: 'Fonctions'
-        positions_count: 'Fonctions'
-        post_code: Code postal
-        shortname: 'Nom court'
-        source: 'Source'
-        street: Rue
-        supplier_code: 'Code fournisseur'
-        title: 'Titre / civilité'
-        url: 'Site web'
-        users: Utilisateurs
-        validate_vat: 'Vérifier le n° TVA'
-        validating_vat: 'Vérification en cours...'
-        vat: 'N° TVA'
-        tree_parent: 'Catégorie parente'
-        set_default_address: 'Adresse principale'
-        set_default_phone: 'Principal'
-        individual: 'Individu'
-        organization: 'Organisation'
-        siret: 'N° Siret'
-    link:
-        category_list: 'Liste des catégories de tiers'
-        circle_list: 'Liste des groupes'
-        contact_list: 'Liste des contacts'
-        customer_list: 'Liste des clients'
-        organism_create: 'Nouveau Tiers'
-        organism_list: 'Liste des tiers'
-        phone_type_list: 'Liste des types de téléphone'
-        position_type_create: 'Nouveau type de fonction'
-        position_type_list: 'Liste des types de fonction'
-        circle_create: 'Nouveau groupe'
-        category_create: 'Nouvelle catégorie de tiers'
-        organism_group_list: 'Liste des groupes de tiers'
-        organismgroup_list: 'Liste des groupes de tiers'
-        phone_type_create: 'Créer un type de téléphone'
-        phonetype_list: 'Types de téléphone'
-        positiontype_list: 'Types de fonction'
-    placeholder:
-        customer_code: 'Code client'
-        supplier_code: 'Code fournisseur'
-    msg:
-        validating_vat: Validation du numéro de TVA
-    btn:
-        generateFakeEmail: Générer un email
-        manage: Gérer
-        add: Ajouter
-
-librinfo_crm:
-    label:
-        admin:
-            category: 'Catégorie de Tiers'
-            circle: 'Groupes'
-            customer: 'Clients'
-            organism: 'Tiers'
-            organism_phone: 'Téléphones de tiers'
-            phone_type: 'Types de téléphones'
-            position: 'Fonctions'
-            position_type: 'Type de fonctions'
-            organism_group: 'Groupes de tiers'
-            city: 'Villes'
-            address: 'Addresses'
-            role: 'Rôles'
-            individual: 'Individus'
-            organization: 'Organisations'

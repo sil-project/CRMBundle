@@ -146,8 +146,8 @@ class OrganismGroup
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->getId();
+        return (string) $this->getId();
     }
 }
