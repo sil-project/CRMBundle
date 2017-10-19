@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.5.2](https://github.com/libre-informatique/CRMBundle/tree/0.5.2) (2017-10-19)
+[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.5.1...0.5.2)
+
+**Merged pull requests:**
+
+- Lisem fix & features [\#41](https://github.com/libre-informatique/CRMBundle/pull/41) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Label Translation Strategy Update [\#40](https://github.com/libre-informatique/CRMBundle/pull/40) ([FanchTheSystem](https://github.com/FanchTheSystem))
+
 ## [0.5.1](https://github.com/libre-informatique/CRMBundle/tree/0.5.1) (2017-09-15)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.5...0.5.1)
 
@@ -12,7 +20,7 @@
 - Lisem fix & features [\#39](https://github.com/libre-informatique/CRMBundle/pull/39) ([FanchTheSystem](https://github.com/FanchTheSystem))
 - Lisem fix & features [\#38](https://github.com/libre-informatique/CRMBundle/pull/38) ([FanchTheSystem](https://github.com/FanchTheSystem))
 - Lisem fix & features [\#37](https://github.com/libre-informatique/CRMBundle/pull/37) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Wip test [\#34](https://github.com/libre-informatique/CRMBundle/pull/34) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+- Wip test [\#34](https://github.com/libre-informatique/CRMBundle/pull/34) ([ghost](https://github.com/ghost))
 
 ## [0.4.5](https://github.com/libre-informatique/CRMBundle/tree/0.4.5) (2017-07-28)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.4...0.4.5)
@@ -21,11 +29,11 @@
 
 - Lisem fix & features [\#33](https://github.com/libre-informatique/CRMBundle/pull/33) ([FanchTheSystem](https://github.com/FanchTheSystem))
 - Lisem fix & features [\#29](https://github.com/libre-informatique/CRMBundle/pull/29) ([FanchTheSystem](https://github.com/FanchTheSystem))
--  add new tests [\#26](https://github.com/libre-informatique/CRMBundle/pull/26) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
-- Init and corrections  [\#24](https://github.com/libre-informatique/CRMBundle/pull/24) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
-- \(entity Position\) init $circles [\#22](https://github.com/libre-informatique/CRMBundle/pull/22) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+-  add new tests [\#26](https://github.com/libre-informatique/CRMBundle/pull/26) ([ghost](https://github.com/ghost))
+- Init and corrections  [\#24](https://github.com/libre-informatique/CRMBundle/pull/24) ([ghost](https://github.com/ghost))
+- \(entity Position\) init $circles [\#22](https://github.com/libre-informatique/CRMBundle/pull/22) ([ghost](https://github.com/ghost))
 - Wip lisem [\#21](https://github.com/libre-informatique/CRMBundle/pull/21) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Wip test clean [\#17](https://github.com/libre-informatique/CRMBundle/pull/17) ([AhamadaMBARAKA](https://github.com/AhamadaMBARAKA))
+- Wip test clean [\#17](https://github.com/libre-informatique/CRMBundle/pull/17) ([ghost](https://github.com/ghost))
 
 ## [0.4.4](https://github.com/libre-informatique/CRMBundle/tree/0.4.4) (2017-06-27)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.4.3...0.4.4)
