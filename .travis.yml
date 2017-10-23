@@ -51,7 +51,11 @@ install:
 before_script:
   - if [ -x ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh; fi;
 
-script: make $TARGET
+script:
+    - if [ -x ${SCRIPTS_FOLDER}/run_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/run_${TARGET}.sh; fi;make $TARGET
 
 after_success:
-- if [ -x ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh; fi;
+    - if [ -x ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh; fi;
+
+after_failure:
+    - if [ -x ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh; fi; 
