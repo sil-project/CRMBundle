@@ -15,7 +15,8 @@
         "friendsofsymfony/jsrouting-bundle": ">=1.6"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": ">=3.2"
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "6.4"
     },
     "license": "LGPL-3.0",
     "keywords": [
