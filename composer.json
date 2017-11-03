@@ -40,6 +40,5 @@
         "psr-4": {
             "Librinfo\\CRMBundle\\": "src/"
         }
-    },
-    "version": "0.6.4"
+    }
 }
