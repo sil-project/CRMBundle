@@ -1,0 +1,13 @@
+filter:
+    excluded_paths:
+        - 'vendor/*'
+        - 'bin/*'
+        - '*.min.js'
+checks:
+    php: true
+    javascript: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
