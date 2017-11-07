@@ -1,5 +1,5 @@
 # user mapping
-Librinfo\CRMBundle\Entity\Phone:
+Sil\Bundle\CRMBundle\Entity\Phone:
     type: mappedSuperclass
     fields:
         number:

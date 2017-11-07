@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Treeable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Treeable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 

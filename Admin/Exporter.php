@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
 use Exporter\Source\SourceIteratorInterface;
-use Blast\CoreBundle\Admin\Exporter as CoreExporter;
-use Librinfo\CRMBundle\Entity\Circle;
+use Blast\Bundle\CoreBundle\Admin\Exporter as CoreExporter;
+use Sil\Bundle\CRMBundle\Entity\Circle;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-use Librinfo\CRMBundle\Admin\Writer\VCardWriter;
+use Sil\Bundle\CRMBundle\Admin\Writer\VCardWriter;
 
 class Exporter extends CoreExporter
 {

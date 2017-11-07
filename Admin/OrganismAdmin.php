@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
-use Librinfo\CRMBundle\Entity\Organism;
-use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
-use Librinfo\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
+use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
+use Sil\Bundle\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\CoreBundle\Validator\ErrorElement;
@@ -215,7 +215,7 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 'Librinfo\CRMBundle\Entity\Organism',
+                 'Sil\Bundle\CRMBundle\Entity\Organism',
                  ['customerCode' => $code]
              );
             if ($organisms) {
@@ -273,7 +273,7 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 'Librinfo\CRMBundle\Entity\Organism',
+                 'Sil\Bundle\CRMBundle\Entity\Organism',
                  ['supplierCode' => $code]
              );
             if ($organisms) {

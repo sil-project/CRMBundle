@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Security\Authorization\Voter;
+namespace Sil\Bundle\CRMBundle\Security\Authorization\Voter;
 
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-//use Librinfo\SonataSyliusUserBundle\Entity\SonataUser; There should be no dependency to SonataSyliusUserBundle
+//use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser; There should be no dependency to SonataSyliusUserBundle
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Librinfo\CRMBundle\Entity\Circle;
+use Sil\Bundle\CRMBundle\Entity\Circle;
 
 class CircleVoter extends Voter
 {

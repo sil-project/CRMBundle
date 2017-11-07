@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * Phone.
@@ -20,7 +20,7 @@ use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 abstract class Phone
 {
     use BaseEntity,
-        \AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\PhoneExtension
+        \AppBundle\Entity\OuterExtension\SilCRMBundle\PhoneExtension
     ;
 
     /**

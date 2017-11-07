@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity\Repository;
+namespace Sil\Bundle\CRMBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

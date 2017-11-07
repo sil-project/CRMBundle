@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Tests\Controller;
+namespace Sil\Bundle\CRMBundle\Tests\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Librinfo\CRMBundle\Entity\Contact;
-use Librinfo\CRMBundle\Entity\ContactGroup;
-use Librinfo\CRMBundle\Entity\Organism;
-use Librinfo\CRMBundle\Entity\Role;
+use Sil\Bundle\CRMBundle\Entity\Contact;
+use Sil\Bundle\CRMBundle\Entity\ContactGroup;
+use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\Role;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ContactGroupControllerTest extends WebTestCase

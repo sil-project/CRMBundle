@@ -62,7 +62,7 @@
 **Closed issues:**
 
 - DataFixtures/ORM/LoadCRMData.php should not be inside this bundle [\#4](https://github.com/libre-informatique/CRMBundle/issues/4)
-- Errornous references to LibrinfoUserBundle [\#3](https://github.com/libre-informatique/CRMBundle/issues/3)
+- Errornous references to SilUserBundle [\#3](https://github.com/libre-informatique/CRMBundle/issues/3)
 - LibrinfoCRMExtension has a use of $loader which is not defined in LibrinfoCRMExtension::prepend\(\) [\#2](https://github.com/libre-informatique/CRMBundle/issues/2)
 
 

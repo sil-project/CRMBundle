@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\PositionType:
+Sil\Bundle\CRMBundle\Entity\PositionType:
     type: entity
 
     lifecycleCallbacks: {  }

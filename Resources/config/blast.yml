@@ -11,7 +11,7 @@ parameters:
 # CATEGORY
 ############
 
-        Librinfo\CRMBundle\Entity\Category:
+        Sil\Bundle\CRMBundle\Entity\Category:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
@@ -23,8 +23,8 @@ parameters:
                             name:
                                 required: true
                             treeParent:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\CRMBundle\Entity\Category
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\CRMBundle\Entity\Category
                                 required: false
                                 placeholder: ''
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -36,11 +36,11 @@ parameters:
 # ORGANISM
 ############
 
-        Librinfo\CRMBundle\Entity\Organism:
+        Sil\Bundle\CRMBundle\Entity\Organism:
             form_theme:
-                - LibrinfoCRMBundle:Form:fields.html.twig
+                - SilCRMBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
-                titleTemplate: LibrinfoCRMBundle:OrganismAdmin:show_title.html.twig
+                titleTemplate: SilCRMBundle:OrganismAdmin:show_title.html.twig
                 forceTabs: true
                 remove:
                     name: ~
@@ -60,14 +60,14 @@ parameters:
                             description: ~
                             active: ~
                             isCustomer:
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_customer.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_customer.html.twig'
                             isSupplier:
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_supplier.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_supplier.html.twig'
                             category.name: ~
                             url: ~
                             description: ~
                             email:
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_email.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_email.html.twig'
                             _options:
                                 fieldsOrder:
                                     - name
@@ -80,7 +80,7 @@ parameters:
                                     - url
                         show_group_administrative:
                             vat:
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_vat.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_vat.html.twig'
                             iban: ~
                         _options:
                             groupsOrder:
@@ -90,23 +90,23 @@ parameters:
                         show_group_addresses:
                             addresses:
                                 label: false
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_addresses.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_addresses.html.twig'
                     show_tab_phones:
                         show_group_phones:
                             phones:
                                 label: false
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_phones.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_phones.html.twig'
 
                     show_tab_individuals:
                         '':
                             individuals:
-                                template: LibrinfoCRMBundle:CRUD:show_field_individuals.html.twig
+                                template: SilCRMBundle:CRUD:show_field_individuals.html.twig
                             organizations:
-                                template: LibrinfoCRMBundle:CRUD:show_field_organizations.html.twig
+                                template: SilCRMBundle:CRUD:show_field_organizations.html.twig
                     show_tab_info:
                         '':
                             source:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
                                 blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
                                 required: false
@@ -131,7 +131,7 @@ parameters:
                           class: framacalc
 
             Sonata\AdminBundle\Form\FormMapper:
-                titleTemplate: LibrinfoCRMBundle:OrganismAdmin:show_title.html.twig
+                titleTemplate: SilCRMBundle:OrganismAdmin:show_title.html.twig
                 remove:
                     name: ~
                     circles: ~
@@ -158,7 +158,7 @@ parameters:
                                 type: checkbox
                                 required: false
                             title:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 blast_choices: ['Mr', 'Mrs']
                                 choices_field: organism.title
                                 required: false
@@ -167,19 +167,19 @@ parameters:
                             lastname:
                                 type: text
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 attr:
                                     maxlength: 35
                             isCustomer: ~
                             customerCode:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     placeholder: librinfo.placeholder.customer_code
                                 only_not_new: true
                             isSupplier: ~
                             supplierCode:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     placeholder: librinfo.placeholder.supplier_code
                                 only_not_new: true
@@ -189,15 +189,15 @@ parameters:
                                 expanded: false
                                 btn_add: false
                                 required: false
-                                class: Librinfo\CRMBundle\Entity\Circle
-                                query: [Librinfo\CRMBundle\Admin\CircleAdmin, orderedCirclesQuery]
+                                class: Sil\Bundle\CRMBundle\Entity\Circle
+                                query: [Sil\Bundle\CRMBundle\Admin\CircleAdmin, orderedCirclesQuery]
                             category:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\CRMBundle\Entity\Category
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\CRMBundle\Entity\Category
                                 required: false
                             url: ~
                             email:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                             emailNpai: ~
                             emailNoNewsletter: ~
@@ -236,13 +236,13 @@ parameters:
                                 help: librinfo.help.iban
                         form_group_main_address:
                             defaultAddress:
-                                type: Librinfo\CRMBundle\Form\Type\MainAddressType
+                                type: Sil\Bundle\CRMBundle\Form\Type\MainAddressType
                                 disabled: true
                                 label: false
                                 required: false
                         form_group_default_phone:
                             defaultPhone:
-                                type: Librinfo\CRMBundle\Form\Type\MainPhoneType
+                                type: Sil\Bundle\CRMBundle\Form\Type\MainPhoneType
                                 disabled: true
                                 label: false
                                 required: false
@@ -251,7 +251,7 @@ parameters:
                                 type: checkbox
                                 required: false
                             catalogue_type:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 attr:
                                     class: columns-2 multiple-checkbox
                                 expanded: true
@@ -263,7 +263,7 @@ parameters:
                                     - Maraichers
                                 choices_field: catalogue_type
                             source:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.source
                                 blast_choices: [Catalogue, Foire, Ami, Internet, Magazine]
                                 required: false
@@ -271,7 +271,7 @@ parameters:
                                     class: inline-block
                                     width: 45
                             catalogue_send_mean:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: organism.catalogue_send_mean
                                 blast_choices: [Courrier, Email]
                                 required: false
@@ -382,9 +382,9 @@ parameters:
                     email:
                         identifier: true
                     customerCode:
-                        template: LibrinfoCRMBundle:OrganismAdmin:list_field_customer.html.twig
+                        template: SilCRMBundle:OrganismAdmin:list_field_customer.html.twig
                     supplierCode:
-                        template: LibrinfoCRMBundle:OrganismAdmin:list_field_supplier.html.twig
+                        template: SilCRMBundle:OrganismAdmin:list_field_supplier.html.twig
                     category.name: ~
                     circles: ~
                     alert: ~
@@ -445,7 +445,7 @@ parameters:
 ############
 
         # SHOW
-        Librinfo\CRMBundle\Admin\CustomerAdmin:
+        Sil\Bundle\CRMBundle\Admin\CustomerAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     customerCode: ~
@@ -511,7 +511,7 @@ parameters:
 # ORGANISM PHONE
 ################
 
-        Librinfo\CRMBundle\Entity\OrganismPhone:
+        Sil\Bundle\CRMBundle\Entity\OrganismPhone:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_tab_general:
@@ -524,7 +524,7 @@ parameters:
                         '':
                             phoneType:
                                 required: true
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: phoneType
                                 blast_choices:
                                     - Standard
@@ -550,7 +550,7 @@ parameters:
 # CIRCLE
 ##########
 
-        Librinfo\CRMBundle\Entity\Circle:
+        Sil\Bundle\CRMBundle\Entity\Circle:
             managedManyToMany: [organisms]
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -563,13 +563,13 @@ parameters:
                         form_group_members:
                             organismsCount:
                                 _options:
-                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
+                                    template: SilCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
 #                            contactsCount:
 #                                _options:
-#                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
+#                                    template: SilCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
 #                            positionsCount:
 #                                _options:
-#                                    template: LibrinfoCRMBundle:CircleAdmin:show_field_positions_count.html.twig
+#                                    template: SilCRMBundle:CircleAdmin:show_field_positions_count.html.twig
                         _options:
                             # @todo change this label
                             groupsOrder:
@@ -622,11 +622,11 @@ parameters:
 #                    owner: ~
                     users: ~
                     organismsCount:
-                        template: LibrinfoCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
+                        template: SilCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
 #                    contactsCount:
-#                        template: LibrinfoCRMBundle:CircleAdmin:list_field_contacts_count.html.twig
+#                        template: SilCRMBundle:CircleAdmin:list_field_contacts_count.html.twig
 #                    positionsCount:
-#                        template: LibrinfoCRMBundle:CircleAdmin:list_field_positions_count.html.twig
+#                        template: SilCRMBundle:CircleAdmin:list_field_positions_count.html.twig
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add: ~
                 remove:
@@ -637,7 +637,7 @@ parameters:
 # POSITION
 ############
 
-        Librinfo\CRMBundle\Entity\Position:
+        Sil\Bundle\CRMBundle\Entity\Position:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     '':
@@ -683,15 +683,15 @@ parameters:
                     form_tab_position:
                         form_group_general:
                             individual:
-                                type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 required: true
-                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::individualsCallback
+                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 _options:
                                     admin_code: librinfo_crm.admin.organism
                             organization:
-                                type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 required: true
-                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::organizationsCallback
+                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
                                     admin_code: librinfo_crm.admin.organism
                             department: ~
@@ -732,7 +732,7 @@ parameters:
                 add:
                     individual.name: ~
                         #type: doctrine_orm_callback
-                        # callback: [Librinfo\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
+                        # callback: [Sil\Bundle\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
                         #serviceCallback: [librinfo_crm.admin.position, individualsCallback, callback]
                     organism.name:
                         type: doctrine_orm_string
@@ -749,7 +749,7 @@ parameters:
 # CIRCLABLE Trait
 ############
 
-        Librinfo\CRMBundle\Entity\Traits\Circlable:
+        Sil\Bundle\CRMBundle\Entity\Traits\Circlable:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
@@ -765,7 +765,7 @@ parameters:
 # POSITIONABLE Trait
 ############
 
-#        Librinfo\CRMBundle\Entity\Traits\Positionable:
+#        Sil\Bundle\CRMBundle\Entity\Traits\Positionable:
 #            Sonata\AdminBundle\Show\ShowMapper:
 #                add:
 #                    '':
@@ -795,7 +795,7 @@ parameters:
 # POSITION_TYPE
 #################
 
-        Librinfo\CRMBundle\Entity\PositionType:
+        Sil\Bundle\CRMBundle\Entity\PositionType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
@@ -811,7 +811,7 @@ parameters:
 # PHONE_TYPE
 #################
 
-        Librinfo\CRMBundle\Entity\PhoneType:
+        Sil\Bundle\CRMBundle\Entity\PhoneType:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
@@ -831,7 +831,7 @@ parameters:
 # ADDRESSABLE
 #################
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Addressable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     zip: ~
@@ -852,10 +852,10 @@ parameters:
                                 type: textarea
                                 required: false
                             zip:
-                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
                                 required: true
                             city:
-                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
                                 required: true
                             country:
                                 type: country
@@ -870,7 +870,7 @@ parameters:
                                 disabled: true
                                 required: false
         ### ContactSearchIndex  ###
-        Librinfo\CRMBundle\Entity\ContactSearchIndex:
+        Sil\Bundle\CRMBundle\Entity\ContactSearchIndex:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -912,7 +912,7 @@ parameters:
 ################
 # ADDRESS
 ###############
-        Librinfo\CRMBundle\Entity\Address:
+        Sil\Bundle\CRMBundle\Entity\Address:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -942,11 +942,11 @@ parameters:
                                 required: true
                             street: ~
                             city:
-                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
                                 zip_field: postCode
                                 required: true
                             postCode:
-                                type: Librinfo\CRMBundle\Form\Type\ZipCityType
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
                                 zip_field: postCode
                                 required: true
                             countryCode:

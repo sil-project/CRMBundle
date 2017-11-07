@@ -1,6 +1,6 @@
-Librinfo\CRMBundle\Entity\City:
+Sil\Bundle\CRMBundle\Entity\City:
     type: entity
-    repositoryClass: Librinfo\CRMBundle\Entity\Repository\CityRepository
+    repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
 
     indexes:
       country_index:

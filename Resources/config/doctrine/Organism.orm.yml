@@ -1,6 +1,6 @@
-Librinfo\CRMBundle\Entity\Organism:
+Sil\Bundle\CRMBundle\Entity\Organism:
     type: entity
-    repositoryClass: Librinfo\CRMBundle\Entity\Repository\OrganismRepository
+    repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
     inheritanceType: JOINED
     discriminatorColumn:
         name: discriminator
@@ -96,14 +96,14 @@ Librinfo\CRMBundle\Entity\Organism:
 
     oneToOne:
         defaultAddress:
-            targetEntity: Librinfo\CRMBundle\Entity\Address
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Address
             joinColumn:
                 name: default_address_id
                 onDelete: SET NULL
             cascade: [persist, remove]
             orphanRemoval: true
         defaultPhone:
-            targetEntity: Librinfo\CRMBundle\Entity\OrganismPhone
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismPhone
             joinColumn:
                 name: default_phone_id
                 onDelete: SET NULL
@@ -117,17 +117,17 @@ Librinfo\CRMBundle\Entity\Organism:
             cascade: [ persist, remove ]
             orphanRemoval: true
         individuals:
-            targetEntity: Librinfo\CRMBundle\Entity\Position
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Position
             mappedBy: organization
             cascade: [ persist, remove ]
             orphanRemoval: true
         organizations:
-            targetEntity: Librinfo\CRMBundle\Entity\Position
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Position
             mappedBy: individual
             cascade: [ persist, remove ]
             orphanRemoval: true
         addresses:
-            targetEntity: Librinfo\CRMBundle\Entity\Address
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Address
             mappedBy: customer
             cascade: [ persist, remove ]
             orphanRemoval: true
@@ -135,7 +135,7 @@ Librinfo\CRMBundle\Entity\Organism:
     manyToMany:
         circles:
             orderBy: { 'code': 'ASC' }
-            targetEntity: Librinfo\CRMBundle\Entity\Circle
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
                 name: ~
@@ -148,7 +148,7 @@ Librinfo\CRMBundle\Entity\Organism:
 
     manyToOne:
         category:
-            targetEntity: Librinfo\CRMBundle\Entity\Category
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Category
             inversedBy: organisms
             joinColumn:
                 name: category_id

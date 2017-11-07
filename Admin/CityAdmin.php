@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;

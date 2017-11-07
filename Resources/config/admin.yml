@@ -1,11 +1,11 @@
 parameters:
-    librinfo_crm.admin.address.entity.class: Librinfo\CRMBundle\Entity\Address
+    librinfo_crm.admin.address.entity.class: Sil\Bundle\CRMBundle\Entity\Address
 
 services:
 
     librinfo_crm.admin.organism_embedded:
-        class: Librinfo\CRMBundle\Admin\OrganismEmbeddedAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\OrganismEmbeddedAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -14,8 +14,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.individual:
-        class: Librinfo\CRMBundle\Admin\IndividualAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\IndividualAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -23,12 +23,12 @@ services:
               label: librinfo.crmbundle.admin.individual
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
         calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_crm.admin.organization:
-        class: Librinfo\CRMBundle\Admin\OrganizationAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\OrganizationAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -36,12 +36,12 @@ services:
               label: librinfo.crmbundle.admin.organization
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
         calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_crm.admin.organism:
-        class: Librinfo\CRMBundle\Admin\OrganismAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\OrganismAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -49,12 +49,12 @@ services:
               label: librinfo.crmbundle.admin.organism
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
         calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_crm.admin.customer:
-        class: Librinfo\CRMBundle\Admin\CustomerAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\CustomerAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -63,12 +63,12 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
         calls:
             - [ setCodeGenerator, ['@librinfo_crm.code_generator.customer'] ]
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig] ]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig] ]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig] ]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig] ]
 
     librinfo_crm.admin.organism_phone:
-        class: Librinfo\CRMBundle\Admin\OrganismPhoneAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\OrganismPhoneAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -77,8 +77,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.category:
-        class: Librinfo\CRMBundle\Admin\CategoryAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\CategoryAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -87,8 +87,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.role:
-        class: Librinfo\CRMBundle\Admin\RoleAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Role, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\RoleAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Role, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -97,8 +97,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.organism_group:
-        class: Librinfo\CRMBundle\Admin\OrganismGroupAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\OrganismGroup, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\OrganismGroupAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismGroup, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -107,8 +107,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.circle:
-        class: Librinfo\CRMBundle\Admin\CircleAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\CircleAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Circle, SilCRMBundle:CircleAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -117,8 +117,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.position:
-        class: Librinfo\CRMBundle\Admin\PositionAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Position, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\PositionAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Position, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -127,8 +127,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.position_type:
-        class: Librinfo\CRMBundle\Admin\PositionTypeAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\PositionTypeAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -137,8 +137,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.phone_type:
-        class: Librinfo\CRMBundle\Admin\PhoneTypeAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\CRMBundle\Admin\PhoneTypeAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -147,8 +147,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.city:
-        class: Librinfo\CRMBundle\Admin\CityAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\City, LibrinfoCRMBundle:CityAdmin]
+        class: Sil\Bundle\CRMBundle\Admin\CityAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\City, SilCRMBundle:CityAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -157,7 +157,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
 
     librinfo_crm.admin.address:
-        class: Librinfo\CRMBundle\Admin\AddressAdmin
+        class: Sil\Bundle\CRMBundle\Admin\AddressAdmin
         arguments: [~, %librinfo_crm.admin.address.entity.class%, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
@@ -166,4 +166,4 @@ services:
               label: librinfo.crmbundle.admin.address
               label_translator_strategy: blast_core.label.strategy.librinfo_crm
         calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:AddressAdmin:edit.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
 
 class OrganismPhone extends Phone
 {

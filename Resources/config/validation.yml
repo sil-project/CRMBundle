@@ -1,8 +1,8 @@
-Librinfo\CRMBundle\Entity\Contact:
+Sil\Bundle\CRMBundle\Entity\Contact:
     constraints:
         - Callback: validateName
 
-Librinfo\CRMBundle\Entity\Organism:
+Sil\Bundle\CRMBundle\Entity\Organism:
     properties:
         iban:
             - Iban:
@@ -15,12 +15,12 @@ Librinfo\CRMBundle\Entity\Organism:
             - Email:
                 groups: [librinfo_ecommerce_organism]
 
-Librinfo\CRMBundle\Entity\Position:
+Sil\Bundle\CRMBundle\Entity\Position:
     properties:
         individual:
             - Valid: ~
 
-Librinfo\CRMBundle\Entity\Address:
+Sil\Bundle\CRMBundle\Entity\Address:
     properties:
         organism:
             - Valid: ~

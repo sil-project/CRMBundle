@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Librinfo\EcommerceBundle\Entity\OuterExtension\LibrinfoCRMBundle\AddressExtensionInterface as BaseAddressInterface;
+use Sil\Bundle\EcommerceBundle\Entity\OuterExtension\SilCRMBundle\AddressExtensionInterface as BaseAddressInterface;
 
 interface AddressInterface extends BaseAddressInterface
 {

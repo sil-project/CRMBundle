@@ -1,4 +1,4 @@
-# SymfonyLibrinfoCRMBundle
+# SymfonySilCRMBundle
 
 
 [![Build Status](https://travis-ci.org/libre-informatique/CRMBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/CRMBundle)
@@ -113,8 +113,8 @@ Edit your app/AppKernel.php file and add the required bundles, here:
             // ...
             
             // The libre-informatique bundles
-            new Blast\CoreBundle\BlastCoreBundle(),
-            new Librinfo\CRMBundle\LibrinfoCRMBundle(),
+            new Blast\Bundle\CoreBundle\BlastCoreBundle(),
+            new Sil\Bundle\CRMBundle\SilCRMBundle(),
             
             // your personal bundles
         );

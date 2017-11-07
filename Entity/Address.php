@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\AddressExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilCRMBundle\AddressExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Address.
@@ -87,7 +87,7 @@ class Address implements AddressInterface, VCardableInterface
     private $confirmed = true;
 
     /**
-     * @var \Librinfo\CRMBundle\Entity\Organism
+     * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
     private $organism;
 
@@ -366,10 +366,10 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Set organism.
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $organism
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organism
      *
      */
-    public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $organism = null): void
+    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $organism = null): void
     {
         $this->organism = $organism;
     }
@@ -377,9 +377,9 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Get organism.
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism
+     * @return \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    public function getOrganism(): ?\Librinfo\CRMBundle\Entity\Organism
+    public function getOrganism(): ?\Sil\Bundle\CRMBundle\Entity\Organism
     {
         return $this->organism;
     }

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Labelable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Sortable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Sortable;
 
 class PhoneType
 {

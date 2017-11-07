@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\DependencyInjection;
+namespace Sil\Bundle\CRMBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -38,8 +38,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('code_generator')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('supplier')->defaultValue('Librinfo\CRMBundle\CodeGenerator\SupplierCodeGenerator')->end()
-                        ->scalarNode('customer')->defaultValue('Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator')->end()
+                        ->scalarNode('supplier')->defaultValue('Sil\Bundle\CRMBundle\CodeGenerator\SupplierCodeGenerator')->end()
+                        ->scalarNode('customer')->defaultValue('Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator')->end()
                     ->end()
                 ->end()
                 ->arrayNode('Circle')

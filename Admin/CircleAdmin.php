@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class CircleAdmin extends CoreAdmin
 {
@@ -75,7 +75,7 @@ class CircleAdmin extends CoreAdmin
         // 1. the Circle has no Owner and no Users...
         $subquery1 = $query->getEntityManager()->createQueryBuilder()
             ->select('u1.id')
-            ->from('Librinfo\CRMBundle\Entity\Circle', 'c1')
+            ->from('Sil\Bundle\CRMBundle\Entity\Circle', 'c1')
             ->join('c1.users', 'u1')
             ->where($expr->eq('c1', $ra));
         $dql1 = $expr->andX(
@@ -88,7 +88,7 @@ class CircleAdmin extends CoreAdmin
         // 3. the current user belongs to the circle users
         $subquery3 = $query->getEntityManager()->createQueryBuilder()
             ->select('c3.id')
-            ->from('Librinfo\CRMBundle\Entity\Circle', 'c3')
+            ->from('Sil\Bundle\CRMBundle\Entity\Circle', 'c3')
             ->join('c3.users', 'u3')
             ->where($expr->eq('u3', ':user3'))
             ->andWhere($expr->eq('c3', $ra));

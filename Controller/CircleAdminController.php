@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Controller;
+namespace Sil\Bundle\CRMBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
 class IndividualAdmin extends OrganismAdmin
 {

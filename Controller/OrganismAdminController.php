@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Controller;
+namespace Sil\Bundle\CRMBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
-use Librinfo\CRMBundle\Entity\Organism;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -70,7 +70,7 @@ class OrganismAdminController extends CRUDController
      */
     protected function preEdit(Request $request, $object)
     {
-        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
+        if ($this->admin instanceof \Sil\Bundle\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
             throw new NotFoundHttpException();
         }
     }
@@ -83,7 +83,7 @@ class OrganismAdminController extends CRUDController
      */
     protected function preShow(Request $request, $object)
     {
-        if ($this->admin instanceof \Librinfo\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
+        if ($this->admin instanceof \Sil\Bundle\CRMBundle\Admin\CustomerAdmin && !$object->isCustomer()) {
             throw new NotFoundHttpException();
         }
     }
@@ -91,8 +91,8 @@ class OrganismAdminController extends CRUDController
     public function setDefaultAddressAction($organismId, $addressId)
     {
         $manager = $this->getDoctrine()->getManager();
-        $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
-        $address = $manager->getRepository('LibrinfoCRMBundle:Address')->find($addressId);
+        $organism = $manager->getRepository('SilCRMBundle:Organism')->find($organismId);
+        $address = $manager->getRepository('SilCRMBundle:Address')->find($addressId);
 
         if ($organism->hasAddress($address)) {
             $organism->setDefaultAddress($address);
@@ -110,8 +110,8 @@ class OrganismAdminController extends CRUDController
     public function setDefaultPhoneAction($organismId, $phoneId)
     {
         $manager = $this->getDoctrine()->getManager();
-        $organism = $manager->getRepository('LibrinfoCRMBundle:Organism')->find($organismId);
-        $phone = $manager->getRepository('LibrinfoCRMBundle:OrganismPhone')->find($phoneId);
+        $organism = $manager->getRepository('SilCRMBundle:Organism')->find($organismId);
+        $phone = $manager->getRepository('SilCRMBundle:OrganismPhone')->find($phoneId);
 
         if ($organism->hasPhone($phone)) {
             $organism->setDefaultPhone($phone);

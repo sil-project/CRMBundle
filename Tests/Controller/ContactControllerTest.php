@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Tests\Controller;
+namespace Sil\Bundle\CRMBundle\Tests\Controller;
 
-use Librinfo\CRMBundle\Entity\Contact;
+use Sil\Bundle\CRMBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ContactControllerTest extends WebTestCase

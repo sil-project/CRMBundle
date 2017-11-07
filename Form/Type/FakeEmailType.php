@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Form\Type;
+namespace Sil\Bundle\CRMBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Blast\UtilsBundle\Form\Type\UniqueFieldType;
+use Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType;
 
 class FakeEmailType extends AbstractType
 {

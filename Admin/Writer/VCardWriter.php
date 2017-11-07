@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin\Writer;
+namespace Sil\Bundle\CRMBundle\Admin\Writer;
 
-use Blast\CoreBundle\Admin\BaseWriter;
+use Blast\Bundle\CoreBundle\Admin\BaseWriter;
 use JeroenDesloovere\VCard\VCard;
 
 class VCardWriter extends BaseWriter

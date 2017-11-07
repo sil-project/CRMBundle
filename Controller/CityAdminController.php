@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Controller;
+namespace Sil\Bundle\CRMBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
-use Librinfo\CRMBundle\Entity\City;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
+use Sil\Bundle\CRMBundle\Entity\City;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

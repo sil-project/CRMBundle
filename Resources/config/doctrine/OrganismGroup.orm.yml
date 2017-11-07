@@ -1,14 +1,14 @@
-Librinfo\CRMBundle\Entity\OrganismGroup:
+Sil\Bundle\CRMBundle\Entity\OrganismGroup:
     type:  entity
     manyToOne:
         organism:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             joinColumn:
                 name: organism_id
                 referencedColumnName: id
     manyToMany:
         roles:
-            targetEntity: Librinfo\CRMBundle\Entity\Role
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Role
             inversedBy: contactGroups
             joinTable:
                 name: ~

@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\CRMBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
 
 /**
  * HasAddresses trait.

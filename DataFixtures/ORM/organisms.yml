@@ -1,10 +1,10 @@
-Librinfo\CRMBundle\Entity\Contact:
+Sil\Bundle\CRMBundle\Entity\Contact:
     con{1..50}:
         firstname: '<firstname()>'
         name: '<lastname()>'
 
 
-Librinfo\CRMBundle\Entity\Organism:
+Sil\Bundle\CRMBundle\Entity\Organism:
     org{1..50}:
         name: '@con<current()>'
         individual: true
@@ -19,7 +19,7 @@ Librinfo\CRMBundle\Entity\Organism:
         customerCode (unique): 'CLI<numberBetween(1, 100)>'
 
 
-Librinfo\CRMBundle\Entity\Position:
+Sil\Bundle\CRMBundle\Entity\Position:
     pos{1..50}:
         contact: '@con<current()>'
         organism: '@org<current()>'

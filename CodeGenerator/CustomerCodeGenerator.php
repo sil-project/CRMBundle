@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\CodeGenerator;
+namespace Sil\Bundle\CRMBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Librinfo\CRMBundle\Entity\Organism;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 
 class CustomerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Librinfo\CRMBundle\Entity\Organism';
+    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\Organism';
     const ENTITY_FIELD = 'customerCode';
 
     /**

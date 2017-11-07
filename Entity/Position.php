@@ -10,17 +10,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\PositionExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Labelable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Librinfo\CRMBundle\Entity\Traits\Circlable;
+use AppBundle\Entity\OuterExtension\SilCRMBundle\PositionExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -50,12 +50,12 @@ class Position implements VCardableInterface
     private $department;
 
     /**
-     * @var \Librinfo\CRMBundle\Entity\Organism
+     * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
     private $individual;
 
     /**
-     * @var \Librinfo\CRMBundle\Entity\Organism
+     * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
     private $organization;
 
@@ -169,11 +169,11 @@ class Position implements VCardableInterface
     /**
      * Set individual.
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $individual
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $individual
      *
      * @return Position
      */
-    public function setIndividual(\Librinfo\CRMBundle\Entity\Organism $individual)
+    public function setIndividual(\Sil\Bundle\CRMBundle\Entity\Organism $individual)
     {
         $this->individual = $individual;
 
@@ -183,7 +183,7 @@ class Position implements VCardableInterface
     /**
      * Get individual.
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism
+     * @return \Sil\Bundle\CRMBundle\Entity\Organism
      */
     public function getIndividual()
     {
@@ -193,11 +193,11 @@ class Position implements VCardableInterface
     /**
      * Set organization.
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $organization
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organization
      *
      * @return Position
      */
-    public function setOrganization(\Librinfo\CRMBundle\Entity\Organism $organization)
+    public function setOrganization(\Sil\Bundle\CRMBundle\Entity\Organism $organization)
     {
         $this->organization = $organization;
 
@@ -207,7 +207,7 @@ class Position implements VCardableInterface
     /**
      * Get organization.
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism
+     * @return \Sil\Bundle\CRMBundle\Entity\Organism
      */
     public function getOrganization()
     {

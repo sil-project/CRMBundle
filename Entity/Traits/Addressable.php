@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity\Traits;
+namespace Sil\Bundle\CRMBundle\Entity\Traits;
 
-use Librinfo\CRMBundle\Entity\Address;
+use Sil\Bundle\CRMBundle\Entity\Address;
 use Doctrine\Common\Collections\Collection;
 
 /**

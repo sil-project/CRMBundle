@@ -1,8 +1,8 @@
-Librinfo\CRMBundle\Entity\Role:
+Sil\Bundle\CRMBundle\Entity\Role:
     type: entity
     fields: ~
     manyToMany:
         contactGroups:
-            targetEntity: Librinfo\CRMBundle\Entity\OrganismGroup
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismGroup
             mappedBy: roles
 

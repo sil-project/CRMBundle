@@ -25,7 +25,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilCRMBundle",
     "authors": [
         {
             "name": "Baptiste SIMON",
@@ -38,7 +38,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\CRMBundle\\": "/"
+            "Librinfo\\CRMBundle\\": "."
         }
     }
 }

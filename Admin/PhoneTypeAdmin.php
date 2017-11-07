@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class PhoneTypeAdmin extends CoreAdmin
 {

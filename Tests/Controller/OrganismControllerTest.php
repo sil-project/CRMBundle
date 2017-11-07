@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Tests\Controller;
+namespace Sil\Bundle\CRMBundle\Tests\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Librinfo\CRMBundle\Entity\Category;
-use Librinfo\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\Category;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class OrganismControllerTest extends WebTestCase

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Services\Filters;
+namespace Sil\Bundle\CRMBundle\Services\Filters;
 
 use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 

@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\Address:
+Sil\Bundle\CRMBundle\Entity\Address:
     type: entity
 
     fields:
@@ -37,7 +37,7 @@ Librinfo\CRMBundle\Entity\Address:
 
     manyToOne:
         customer:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             inversedBy: addresses
             joinColumn:
                 name: organism_id

@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\Position:
+Sil\Bundle\CRMBundle\Entity\Position:
     type: entity
     fields:
         phone:
@@ -11,7 +11,7 @@ Librinfo\CRMBundle\Entity\Position:
             nullable: true
     manyToOne:
         individual:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             inversedBy: organizations
             joinColumn:
                 name: individual_id
@@ -21,7 +21,7 @@ Librinfo\CRMBundle\Entity\Position:
                 - persist
             orphanRemoval: true
         organization:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             inversedBy: individuals
             joinColumn:
                 name: organization_id
@@ -30,10 +30,10 @@ Librinfo\CRMBundle\Entity\Position:
             cascade:
                 - persist
         positionType:
-            targetEntity: Librinfo\CRMBundle\Entity\PositionType
+            targetEntity: Sil\Bundle\CRMBundle\Entity\PositionType
     manyToMany:
         circles:
-            targetEntity: Librinfo\CRMBundle\Entity\Circle
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: positions
             joinTable:
                 name: ~

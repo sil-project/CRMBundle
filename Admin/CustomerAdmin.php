@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Admin;
+namespace Sil\Bundle\CRMBundle\Admin;
 
-use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
-use Librinfo\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
-use Librinfo\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
+use Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator;
+use Sil\Bundle\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
+use Sil\Bundle\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
 
 class CustomerAdmin extends BaseOrganismAdmin

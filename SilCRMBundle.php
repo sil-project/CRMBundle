@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle;
+namespace Sil\Bundle\CRMBundle;
 
-use Librinfo\CRMBundle\DependencyInjection\Compiler\AppCirclesCompilerPass;
-use Librinfo\CRMBundle\DependencyInjection\Compiler\NormalizerCompilerPass;
+use Sil\Bundle\CRMBundle\DependencyInjection\Compiler\AppCirclesCompilerPass;
+use Sil\Bundle\CRMBundle\DependencyInjection\Compiler\NormalizerCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class LibrinfoCRMBundle extends Bundle
+class SilCRMBundle extends Bundle
 {
     /**
      * {@inheritdoc}

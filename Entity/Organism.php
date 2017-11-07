@@ -10,22 +10,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtension;
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\OrganismExtensionInterface;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Emailable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilCRMBundle\OrganismExtension;
+use AppBundle\Entity\OuterExtension\SilCRMBundle\OrganismExtensionInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\CRMBundle\Entity\Traits\Circlable;
-use Librinfo\CRMBundle\Entity\Traits\Positionable;
+use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
+use Sil\Bundle\CRMBundle\Entity\Traits\Positionable;
 
 /**
  * Organism.
@@ -976,11 +976,11 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Add individual.
      *
-     * @param \Librinfo\CRMBundle\Entity\Position $individual
+     * @param \Sil\Bundle\CRMBundle\Entity\Position $individual
      *
      * @return Organism
      */
-    public function addIndividual(\Librinfo\CRMBundle\Entity\Position $individual)
+    public function addIndividual(\Sil\Bundle\CRMBundle\Entity\Position $individual)
     {
         $this->individuals[] = $individual;
 
@@ -990,9 +990,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Remove individual.
      *
-     * @param \Librinfo\CRMBundle\Entity\Position $individual
+     * @param \Sil\Bundle\CRMBundle\Entity\Position $individual
      */
-    public function removeIndividual(\Librinfo\CRMBundle\Entity\Position $individual)
+    public function removeIndividual(\Sil\Bundle\CRMBundle\Entity\Position $individual)
     {
         $this->individuals->removeElement($individual);
     }
@@ -1010,11 +1010,11 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Add organization.
      *
-     * @param \Librinfo\CRMBundle\Entity\Position $organization
+     * @param \Sil\Bundle\CRMBundle\Entity\Position $organization
      *
      * @return Organism
      */
-    public function addOrganization(\Librinfo\CRMBundle\Entity\Position $organization)
+    public function addOrganization(\Sil\Bundle\CRMBundle\Entity\Position $organization)
     {
         $this->organizations[] = $organization;
 
@@ -1024,9 +1024,9 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
     /**
      * Remove organization.
      *
-     * @param \Librinfo\CRMBundle\Entity\Position $organization
+     * @param \Sil\Bundle\CRMBundle\Entity\Position $organization
      */
-    public function removeOrganization(\Librinfo\CRMBundle\Entity\Position $organization)
+    public function removeOrganization(\Sil\Bundle\CRMBundle\Entity\Position $organization)
     {
         $this->organizations->removeElement($organization);
     }

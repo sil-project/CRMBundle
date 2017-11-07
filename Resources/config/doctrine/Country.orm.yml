@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\Country:
+Sil\Bundle\CRMBundle\Entity\Country:
     type: entity
 
     fields:
@@ -11,7 +11,7 @@ Librinfo\CRMBundle\Entity\Country:
 
     oneToMany:
         provinces:
-            targetEntity: Librinfo\CRMBundle\Entity\Province
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Province
             mappedBy: country
             orphanRemoval: true
             cascade: [ all ]

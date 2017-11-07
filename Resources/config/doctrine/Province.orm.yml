@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\Province:
+Sil\Bundle\CRMBundle\Entity\Province:
     type: entity
 
     fields:
@@ -13,7 +13,7 @@ Librinfo\CRMBundle\Entity\Province:
 
     manyToOne:
         country:
-            targetEntity: Librinfo\CRMBundle\Entity\Country
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Country
             inversedBy: provinces
             joinColumn:
                 name: country_id

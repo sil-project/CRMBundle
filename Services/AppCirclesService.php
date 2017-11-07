@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Services;
+namespace Sil\Bundle\CRMBundle\Services;
 
 use Doctrine\ORM\EntityRepository;
-use Librinfo\CRMBundle\Entity\Contact;
-use Librinfo\CRMBundle\Entity\Organism;
-use Librinfo\CRMBundle\Entity\Position;
+use Sil\Bundle\CRMBundle\Entity\Contact;
+use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\Position;
 
 class AppCirclesService
 {

@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoCRMBundle\CircleExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilCRMBundle\CircleExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 

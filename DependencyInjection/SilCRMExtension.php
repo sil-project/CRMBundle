@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\DependencyInjection;
+namespace Sil\Bundle\CRMBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
@@ -23,7 +23,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensionInterface
+class SilCRMExtension extends BlastCoreExtension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -55,8 +55,8 @@ class LibrinfoCRMExtension extends BlastCoreExtension implements PrependExtensio
      */
     public function loadSecurity(ContainerBuilder $container)
     {
-        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator')) {
-            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        if (class_exists('\Sil\Bundle\SecurityBundle\Configurator\SecurityConfigurator')) {
+            \Sil\Bundle\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
         }
 
         return $this;

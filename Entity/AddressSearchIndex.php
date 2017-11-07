@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
 class AddressSearchIndex extends SearchIndexEntity
 {

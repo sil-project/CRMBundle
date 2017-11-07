@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Command;
+namespace Sil\Bundle\CRMBundle\Command;
 
-use Librinfo\CRMBundle\Entity\Circle;
+use Sil\Bundle\CRMBundle\Entity\Circle;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -52,7 +52,7 @@ class InitCirclesCommand extends ContainerAwareCommand
         $app_circles = $librinfo_crm['Circle']['app_circles'];
         foreach ($app_circles as $app_circle) {
             $exists = false;
-            $circle = $em->getRepository('LibrinfoCRMBundle:Circle')->findOneById($app_circle['id']);
+            $circle = $em->getRepository('SilCRMBundle:Circle')->findOneById($app_circle['id']);
             if (!$circle) {
                 $output->write(sprintf('Creating circle "%s" (id: %s)', $app_circle['name'], $app_circle['id']));
                 $circle = $this->createCircle($em, $app_circle['id']);

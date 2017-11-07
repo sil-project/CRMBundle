@@ -1,6 +1,6 @@
 blast_base_entities:
     entity_search_indexes:
-        Librinfo\CRMBundle\Entity\Organism:
+        Sil\Bundle\CRMBundle\Entity\Organism:
             fields:
                 - name
                 - fulltextName
@@ -9,7 +9,7 @@ blast_base_entities:
                 - description
                 - email
                 - url
-        Librinfo\CRMBundle\Entity\Address:
+        Sil\Bundle\CRMBundle\Entity\Address:
             fields:
                 - lastName
                 - firstName
@@ -19,7 +19,7 @@ blast_base_entities:
                 - countryCode
                 - provinceCode
                 - provinceName
-        Librinfo\CRMBundle\Entity\Position:
+        Sil\Bundle\CRMBundle\Entity\Position:
             fields:
                 - label
                 - description

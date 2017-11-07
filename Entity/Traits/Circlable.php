@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Entity\Traits;
+namespace Sil\Bundle\CRMBundle\Entity\Traits;
 
-use Librinfo\CRMBundle\Entity\Circle;
+use Sil\Bundle\CRMBundle\Entity\Circle;
 
 /**
  * Circlable trait.
@@ -27,7 +27,7 @@ trait Circlable
     /**
      * This function is called by the owning side (Circle::addContact) of the N-N relationship.
      *
-     * @param \Librinfo\CRMBundle\Entity\Circle $circle
+     * @param \Sil\Bundle\CRMBundle\Entity\Circle $circle
      *
      * @return Contact
      */

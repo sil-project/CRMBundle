@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\CRMBundle\Form\DataTransformer;
+namespace Sil\Bundle\CRMBundle\Form\DataTransformer;
 
-use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
+use Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator;
 use Symfony\Component\Form\DataTransformerInterface;
 
 class CustomerCodeTransformer implements DataTransformerInterface
