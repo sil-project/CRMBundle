@@ -12,8 +12,6 @@
 
 namespace Sil\Bundle\CRMBundle\Entity;
 
-use Sil\Bundle\EcommerceBundle\Entity\OuterExtension\SilCRMBundle\AddressExtensionInterface as BaseAddressInterface;
-
-interface AddressInterface extends BaseAddressInterface
+interface AddressInterface
 {
 }

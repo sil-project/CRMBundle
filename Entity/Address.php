@@ -12,11 +12,9 @@
 
 namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\SilCRMBundle\AddressExtension;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Address.
@@ -25,10 +23,8 @@ use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 class Address implements AddressInterface, VCardableInterface
 {
     use BaseEntity,
-        OuterExtensible,
         Timestampable,
-        Searchable,
-        AddressExtension
+        Searchable
     ;
 
     /**
@@ -298,7 +294,7 @@ class Address implements AddressInterface, VCardableInterface
     {
         return $this->npai;
     }
-    
+
     /**
      * Get npai.
      *

@@ -19,9 +19,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
  */
 abstract class Phone
 {
-    use BaseEntity,
-        \AppBundle\Entity\OuterExtension\SilCRMBundle\PhoneExtension
-    ;
+    use BaseEntity;
 
     /**
      * @var string

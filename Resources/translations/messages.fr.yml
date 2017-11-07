@@ -31,7 +31,7 @@ librinfo:
             collective: Collectif (entreprise, association...)
             individual: Individu privé
 
-        _action: Action    
+        _action: Action
         active: Actif
         address: Adresse
         address_create: Créer une adresse
@@ -77,7 +77,6 @@ librinfo:
         npai: NPAI
         number: Numéro
         organism: Contact
-        organism: Tiers 
         organism_create: Nouveau Contact
         organism_list: Liste des contacts
         organism_name: Nom / Raison sociale
@@ -112,7 +111,7 @@ librinfo:
         users: Utilisateurs
         vat: N° TVA
         zip: Code postal
-        
+
 
 
 
@@ -174,4 +173,3 @@ show_tab_organizations: Organisations
 show_tab_info: Renseignements divers
 show_group_administrative: Administratif
 show_group_phones: Téléphones
-

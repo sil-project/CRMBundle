@@ -12,8 +12,6 @@
 
 namespace Sil\Bundle\CRMBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\SilCRMBundle\OrganismExtension;
-use AppBundle\Entity\OuterExtension\SilCRMBundle\OrganismExtensionInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
@@ -21,7 +19,6 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
@@ -30,10 +27,9 @@ use Sil\Bundle\CRMBundle\Entity\Traits\Positionable;
 /**
  * Organism.
  */
-class Organism implements VCardableInterface, OrganismExtensionInterface
+class Organism implements VCardableInterface
 {
     use BaseEntity,
-        OuterExtensible,
         Nameable,
         Timestampable,
         Emailable,
@@ -41,8 +37,7 @@ class Organism implements VCardableInterface, OrganismExtensionInterface
         Circlable,
         Descriptible,
         Searchable,
-        Loggable,
-        OrganismExtension
+        Loggable
     ;
 
     /**

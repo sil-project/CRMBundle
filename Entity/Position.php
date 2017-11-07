@@ -19,7 +19,6 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -29,14 +28,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Position implements VCardableInterface
 {
     use BaseEntity,
-        OuterExtensible,
         Timestampable,
         Labelable,
         Emailable,
         Circlable,
         Descriptible,
-        Searchable,
-        PositionExtension
+        Searchable
     ;
 
     /**
