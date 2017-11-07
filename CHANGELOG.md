@@ -1,14 +1,5 @@
 # Change Log
 
-## [0.6.4](https://github.com/libre-informatique/CRMBundle/tree/0.6.4) (2017-11-03)
-[Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.5.2...0.6.4)
-
-**Merged pull requests:**
-
-- Lisem fix & features [\#45](https://github.com/libre-informatique/CRMBundle/pull/45) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- DevKit updates for CRMBundle [\#44](https://github.com/libre-informatique/CRMBundle/pull/44) ([BlastCI](https://github.com/BlastCI))
-- DevKit updates for CRMBundle [\#42](https://github.com/libre-informatique/CRMBundle/pull/42) ([BlastCI](https://github.com/BlastCI))
-
 ## [0.5.2](https://github.com/libre-informatique/CRMBundle/tree/0.5.2) (2017-10-19)
 [Full Changelog](https://github.com/libre-informatique/CRMBundle/compare/0.5.1...0.5.2)
 
