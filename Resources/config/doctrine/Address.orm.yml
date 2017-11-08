@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Address:
-    type: entity
+    type: mappedSuperclass
 
     fields:
         firstName:
@@ -34,14 +34,4 @@ Sil\Bundle\CRMBundle\Entity\Address:
         confirmed:
             type: boolean
             default: true
-
-    manyToOne:
-        customer:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
-            inversedBy: addresses
-            joinColumn:
-                name: organism_id
-                referencedColumnName: id
-                nullable: true
-                onDelete: SET NULL
 #            cascade: [ persist]
