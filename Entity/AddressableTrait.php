@@ -25,12 +25,12 @@ trait AddressableTrait
     protected $defaultAddress;
 
     /**
-     * @var Collection|Address[]
+     * @var Collection|AddressInterface[]
      */
     protected $addresses;
 
     /**
-     * @return Address
+     * @return AddressInterface
      */
     public function getDefaultAddress()
     {
@@ -38,11 +38,11 @@ trait AddressableTrait
     }
 
     /**
-     * @param Address $defaultAddress
+     * @param AddressInterface $defaultAddress
      *
      * @return self
      */
-    public function setDefaultAddress(Address $defaultAddress = null)
+    public function setDefaultAddress(AddressInterface $defaultAddress = null)
     {
         $this->defaultAddress = $defaultAddress;
 
@@ -58,7 +58,7 @@ trait AddressableTrait
      *
      * @return self
      */
-    public function addAddress(Address $address)
+    public function addAddress(AddressInterface $address)
     {
         if (!$this->hasAddress($address)) {
             $this->addresses->add($address);
@@ -73,11 +73,9 @@ trait AddressableTrait
     }
 
     /**
-     * @param Address $address
-     *
-     * @return self
+     * @param AddressInterface $address
      */
-    public function removeAddress(Address $address)
+    public function removeAddress(AddressInterface $address)
     {
         $this->addresses->removeElement($address);
 
@@ -88,22 +86,20 @@ trait AddressableTrait
                 $this->defaultAddress = null;
             }
         }
-
-        return $this;
     }
 
     /**
-     * @param Address $address
+     * @param AddressInterface $address
      *
      * @return bool
      */
-    public function hasAddress(Address $address)
+    public function hasAddress(AddressInterface $address)
     {
         return $this->addresses->contains($address);
     }
 
     /**
-     * @return Collection|Address[]
+     * @return Collection|AddressInterface[]
      */
     public function getAddresses()
     {
