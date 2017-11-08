@@ -43,152 +43,152 @@ class Organism implements VCardableInterface
     /**
      * @var string
      */
-    private $firstname;
+    protected $firstname;
 
     /**
      * @var string
      */
-    private $lastname;
+    protected $lastname;
 
     /**
      * @var string
      */
-    private $shortname;
+    protected $shortname;
 
     /**
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      */
-    private $flashOnControl;
+    protected $flashOnControl;
 
     /**
      * @var bool
      */
-    private $familyContact;
+    protected $familyContact;
 
     /**
      * @var string
      */
-    private $culture;
+    protected $culture;
 
     /**
      * @var string
      */
-    private $url;
+    protected $url;
 
     /**
      * @var string
      */
-    private $administrativeNumber;
+    protected $administrativeNumber;
 
     /**
      * @var Category
      */
-    private $category;
+    protected $category;
 
     /**
      * @var bool
      */
-    private $isIndividual = false;
+    protected $isIndividual = false;
 
     /**
      * @var bool
      */
-    private $isCustomer = false;
+    protected $isCustomer = false;
 
     /**
      * @var string
      */
-    private $customerCode;
+    protected $customerCode;
 
     /**
      * @var bool
      */
-    private $isSupplier = false;
+    protected $isSupplier = false;
 
     /**
      * @var string
      */
-    private $supplierCode;
+    protected $supplierCode;
 
     /**
      * @var string
      */
-    private $iban;
+    protected $iban;
 
     /**
      * @var string
      */
-    private $vat;
+    protected $vat;
 
     /**
      * @var int
      */
-    private $vatVerified = 0;
+    protected $vatVerified = 0;
 
     /**
      * @var string
      */
-    private $alert;
+    protected $alert;
 
     /**
      * @var bool
      */
-    private $active;
+    protected $active;
 
     /**
      * @var bool
      */
-    private $catalogue_sent;
+    protected $catalogue_sent;
 
     /**
      * @var \DateTime
      */
-    private $last_catalogue_sent_date;
+    protected $last_catalogue_sent_date;
 
     /**
      * @var \DateTime
      */
-    private $first_catalogue_sent_date;
+    protected $first_catalogue_sent_date;
 
     /**
      * @ var string
      */
-    private $catalogue_send_mean;
+    protected $catalogue_send_mean;
 
     /**
      * @var string
      */
-    private $catalogue_type;
+    protected $catalogue_type;
 
     /**
      * @var string
      */
-    private $source;
+    protected $source;
 
     /**
      * @var Phone
      */
-    private $defaultPhone;
+    protected $defaultPhone;
 
     /**
      * @var Collection|Phone[]
      */
-    private $phones;
+    protected $phones;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $individuals;
+    protected $individuals;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $organizations;
+    protected $organizations;
 
     public function initOrganism()
     {

@@ -29,7 +29,7 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * @var string
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
@@ -39,52 +39,52 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * @var string
      */
-    private $postCode;
+    protected $postCode;
 
     /**
      * @var string
      */
-    private $street;
+    protected $street;
 
     /**
      * @var string
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      */
-    private $countryCode = 'FR';
+    protected $countryCode = 'FR';
 
     /**
      * @var string
      */
-    private $provinceCode;
+    protected $provinceCode;
 
     /**
      * @var string
      */
-    private $provinceName;
+    protected $provinceName;
 
     /**
      * @var bool
      */
-    private $npai = false;
+    protected $npai = false;
 
     /**
      * @var string
      */
-    private $vcardUid;
+    protected $vcardUid;
 
     /**
      * @var bool
      */
-    private $confirmed = true;
+    protected $confirmed = true;
 
     /**
      * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    private $organism;
+    protected $organism;
 
     /**
      * Organism constructor.

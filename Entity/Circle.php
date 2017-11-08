@@ -34,37 +34,37 @@ class Circle
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string
      */
-    private $color;
+    protected $color;
 
     /**
      * @var bool
      */
-    private $translatable = false;
+    protected $translatable = false;
 
     /**
      * @var bool
      */
-    private $editable = true;
+    protected $editable = true;
 
     /**
      * @var string
      */
-    private $type;
+    protected $type;
 
     /**
      * @var Collection
      */
-    private $organisms;
+    protected $organisms;
 
     /**
      * @var Collection
      */
-    private $positions;
+    protected $positions;
 
     public function __construct()
     {

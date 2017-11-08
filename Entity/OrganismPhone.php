@@ -21,7 +21,7 @@ class OrganismPhone extends Phone
     /**
      * @var Organism
      */
-    private $organism;
+    protected $organism;
 
     /**
      * Get organism.

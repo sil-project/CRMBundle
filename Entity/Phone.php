@@ -24,12 +24,12 @@ abstract class Phone
     /**
      * @var string
      */
-    private $number;
+    protected $number;
 
     /**
      * @var string
      */
-    private $phoneType;
+    protected $phoneType;
 
     public function __toString(): string
     {

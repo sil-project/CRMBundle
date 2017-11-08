@@ -31,7 +31,7 @@ class Role
     /**
      * @var Collection
      */
-    private $contactGroups;
+    protected $contactGroups;
 
     public function __construct()
     {

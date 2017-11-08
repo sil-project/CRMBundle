@@ -26,17 +26,17 @@ class Country
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var bool
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $provinces;
+    protected $provinces;
 
     /**
      * Constructor.

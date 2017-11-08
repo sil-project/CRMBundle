@@ -24,17 +24,17 @@ class City
     /**
      * @var string
      */
-    private $country_code;
+    protected $country_code;
 
     /**
      * @var string
      */
-    private $zip;
+    protected $zip;
 
     /**
      * @var string
      */
-    private $city;
+    protected $city;
 
     /**
      * Set countryCode.

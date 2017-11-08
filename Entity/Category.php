@@ -31,7 +31,7 @@ class Category
     /**
      * @var Collection
      */
-    private $organisms;
+    protected $organisms;
 
     /**
      * Constructor.

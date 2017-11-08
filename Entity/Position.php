@@ -37,27 +37,27 @@ class Position implements VCardableInterface
     /**
      * @var string
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @var string
      */
-    private $department;
+    protected $department;
 
     /**
      * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    private $individual;
+    protected $individual;
 
     /**
      * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    private $organization;
+    protected $organization;
 
     /**
      * @var PositionType
      */
-    private $positionType;
+    protected $positionType;
 
     public function __construct()
     {

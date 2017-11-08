@@ -29,17 +29,17 @@ class OrganismGroup
     /**
      * @var Contact
      */
-    private $contact;
+    protected $contact;
 
     /**
      * @var Organism
      */
-    private $organism;
+    protected $organism;
 
     /**
      * @var Collection
      */
-    private $roles;
+    protected $roles;
 
     public function __construct()
     {
