@@ -123,7 +123,7 @@ Sil\Bundle\CRMBundle\Entity\Organism:
             cascade: [ persist, remove ]
             orphanRemoval: true
         addresses:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Address
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
             mappedBy: customer
             cascade: [ persist, remove ]
             orphanRemoval: true
