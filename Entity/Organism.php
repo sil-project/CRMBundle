@@ -25,7 +25,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Organism.
  */
-class Organism implements VCardableInterface
+class Organism implements OrganismInterface, VCardableInterface
 {
     use BaseEntity,
         Nameable,

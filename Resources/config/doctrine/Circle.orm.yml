@@ -25,5 +25,5 @@ Sil\Bundle\CRMBundle\Entity\Circle:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Position
             mappedBy: circles
         organisms:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             mappedBy: circles

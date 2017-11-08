@@ -2,7 +2,7 @@ Sil\Bundle\CRMBundle\Entity\OrganismPhone:
     type: entity
     manyToOne:
         organism:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: phones
             joinColumn:
                 name: organism_id

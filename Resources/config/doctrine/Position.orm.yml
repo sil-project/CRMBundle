@@ -11,7 +11,7 @@ Sil\Bundle\CRMBundle\Entity\Position:
             nullable: true
     manyToOne:
         individual:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: organizations
             joinColumn:
                 name: individual_id
@@ -21,7 +21,7 @@ Sil\Bundle\CRMBundle\Entity\Position:
                 - persist
             orphanRemoval: true
         organization:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: individuals
             joinColumn:
                 name: organization_id
@@ -46,4 +46,3 @@ Sil\Bundle\CRMBundle\Entity\Position:
 
 
     lifecycleCallbacks: {  }
-
