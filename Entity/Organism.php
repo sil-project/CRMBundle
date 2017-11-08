@@ -23,6 +23,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
 use Sil\Bundle\CRMBundle\Entity\Traits\Positionable;
+use Sil\Bundle\CRMBundle\Entity\Traits\Addressable;
 
 /**
  * Organism.
@@ -37,7 +38,8 @@ class Organism implements VCardableInterface
         Circlable,
         Descriptible,
         Searchable,
-        Loggable
+        Loggable,
+        Addressable
     ;
 
     /**
