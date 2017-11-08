@@ -45,8 +45,8 @@ class SilCRMExtension extends BlastCoreExtension implements PrependExtensionInte
         }
 
         if ($circles) {
-            $container->prependExtensionConfig('librinfo_crm', ['Circle' => ['app_circles' => $circles]]);
-            $container->prependExtensionConfig('twig', ['globals' => ['librinfo_app_circles' => $circles]]);
+            $container->prependExtensionConfig('sil_crm', ['Circle' => ['app_circles' => $circles]]);
+            $container->prependExtensionConfig('twig', ['globals' => ['sil_app_circles' => $circles]]);
         }
     }
 
@@ -81,12 +81,12 @@ class SilCRMExtension extends BlastCoreExtension implements PrependExtensionInte
     public function loadCodeGenerators(ContainerBuilder $container, array $config)
     {
         // Entity code generators
-        $container->setParameter('librinfo_crm', $config);
-        $container->setParameter('librinfo_crm.code_generator.supplier',
-            $container->getParameter('librinfo_crm')['code_generator']['supplier']
+        $container->setParameter('sil_crm', $config);
+        $container->setParameter('sil_crm.code_generator.supplier',
+            $container->getParameter('sil_crm')['code_generator']['supplier']
         );
-        $container->setParameter('librinfo_crm.code_generator.customer',
-            $container->getParameter('librinfo_crm')['code_generator']['customer']
+        $container->setParameter('sil_crm.code_generator.customer',
+            $container->getParameter('sil_crm')['code_generator']['customer']
         );
 
         return $this;

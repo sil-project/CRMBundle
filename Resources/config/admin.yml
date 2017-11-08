@@ -1,169 +1,169 @@
 parameters:
-    librinfo_crm.admin.address.entity.class: Sil\Bundle\CRMBundle\Entity\Address
+    sil_crm.admin.address.entity.class: Sil\Bundle\CRMBundle\Entity\Address
 
 services:
 
-    librinfo_crm.admin.organism_embedded:
+    sil_crm.admin.organism_embedded:
         class: Sil\Bundle\CRMBundle\Admin\OrganismEmbeddedAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: admin
-              label: librinfo.crmbundle.admin.organism_embedded
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.organism_embedded
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.individual:
+    sil_crm.admin.individual:
         class: Sil\Bundle\CRMBundle\Admin\IndividualAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.individual
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.individual
+              label_translator_strategy: blast_core.label.strategy.sil_crm
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
-    librinfo_crm.admin.organization:
+    sil_crm.admin.organization:
         class: Sil\Bundle\CRMBundle\Admin\OrganizationAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.organization
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.organization
+              label_translator_strategy: blast_core.label.strategy.sil_crm
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
-    librinfo_crm.admin.organism:
+    sil_crm.admin.organism:
         class: Sil\Bundle\CRMBundle\Admin\OrganismAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.organism
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.organism
+              label_translator_strategy: blast_core.label.strategy.sil_crm
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
-    librinfo_crm.admin.customer:
+    sil_crm.admin.customer:
         class: Sil\Bundle\CRMBundle\Admin\CustomerAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.customer
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.customer
+              label_translator_strategy: blast_core.label.strategy.sil_crm
         calls:
-            - [ setCodeGenerator, ['@librinfo_crm.code_generator.customer'] ]
+            - [ setCodeGenerator, ['@sil_crm.code_generator.customer'] ]
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig] ]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig] ]
 
-    librinfo_crm.admin.organism_phone:
+    sil_crm.admin.organism_phone:
         class: Sil\Bundle\CRMBundle\Admin\OrganismPhoneAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.organism_phone
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.organism_phone
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.category:
+    sil_crm.admin.category:
         class: Sil\Bundle\CRMBundle\Admin\CategoryAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.category
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.category
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.role:
+    sil_crm.admin.role:
         class: Sil\Bundle\CRMBundle\Admin\RoleAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Role, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.role
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.role
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.organism_group:
+    sil_crm.admin.organism_group:
         class: Sil\Bundle\CRMBundle\Admin\OrganismGroupAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismGroup, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.organism_group
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.organism_group
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.circle:
+    sil_crm.admin.circle:
         class: Sil\Bundle\CRMBundle\Admin\CircleAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Circle, SilCRMBundle:CircleAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.circle
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.circle
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.position:
+    sil_crm.admin.position:
         class: Sil\Bundle\CRMBundle\Admin\PositionAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Position, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.position
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.position
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.position_type:
+    sil_crm.admin.position_type:
         class: Sil\Bundle\CRMBundle\Admin\PositionTypeAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.position_type
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.position_type
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.phone_type:
+    sil_crm.admin.phone_type:
         class: Sil\Bundle\CRMBundle\Admin\PhoneTypeAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.phone_type
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.phone_type
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.city:
+    sil_crm.admin.city:
         class: Sil\Bundle\CRMBundle\Admin\CityAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\City, SilCRMBundle:CityAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: Customers Relationship Management
-              label: librinfo.crmbundle.admin.city
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.city
+              label_translator_strategy: blast_core.label.strategy.sil_crm
 
-    librinfo_crm.admin.address:
+    sil_crm.admin.address:
         class: Sil\Bundle\CRMBundle\Admin\AddressAdmin
-        arguments: [~, %librinfo_crm.admin.address.entity.class%, BlastCoreBundle:CRUD]
+        arguments: [~, %sil_crm.admin.address.entity.class%, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: admin
-              label: librinfo.crmbundle.admin.address
-              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+              label: sil.crmbundle.admin.address
+              label_translator_strategy: blast_core.label.strategy.sil_crm
         calls:
             - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

@@ -26,7 +26,7 @@ class OrganismControllerTest extends WebTestCase
     {
         $this->client = static::createClient();
 
-        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.crmbundle.datafixtures');
+        $this->datafixtures = $this->client->getContainer()->getParameter('sil.crmbundle.datafixtures');
     }
 
     /**

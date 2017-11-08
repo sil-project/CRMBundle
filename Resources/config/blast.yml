@@ -150,8 +150,8 @@ parameters:
                                 type: choice
                                 # @todo change this label
                                 choices:
-                                    librinfo.crmbundle.organism.collective: 0
-                                    librinfo.crmbundle.organism.individual: 1
+                                    sil.crmbundle.organism.collective: 0
+                                    sil.crmbundle.organism.individual: 1
                                 expanded: true
                                 label: false
                             active:
@@ -175,13 +175,13 @@ parameters:
                             customerCode:
                                 type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
-                                    placeholder: librinfo.placeholder.customer_code
+                                    placeholder: sil.placeholder.customer_code
                                 only_not_new: true
                             isSupplier: ~
                             supplierCode:
                                 type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
-                                    placeholder: librinfo.placeholder.supplier_code
+                                    placeholder: sil.placeholder.supplier_code
                                 only_not_new: true
                             circles:
                                 type: sonata_type_model
@@ -231,9 +231,9 @@ parameters:
                             vatVerified:
                                 type: hidden
                             vat:
-                                help: librinfo.help.vat
+                                help: sil.help.vat
                             iban:
-                                help: librinfo.help.iban
+                                help: sil.help.iban
                         form_group_main_address:
                             defaultAddress:
                                 type: Sil\Bundle\CRMBundle\Form\Type\MainAddressType
@@ -414,7 +414,7 @@ parameters:
                 add:
                     fulltextName:
                         type: doctrine_orm_callback
-                        serviceCallback: [librinfo.crm.filters.customer, filterOnFullname, callback]
+                        serviceCallback: [sil.crm.filters.customer, filterOnFullname, callback]
                     active: ~
                     isIndividual: ~
                     culture: ~
@@ -534,11 +534,11 @@ parameters:
                                 required: true
                             organism:
                                 _options:
-                                    admin_code: librinfo_crm.admin.organism
+                                    admin_code: sil_crm.admin.organism
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     organism:
-                        admin_code: librinfo_crm.admin.organism
+                        admin_code: sil_crm.admin.organism
                     phoneType: ~
                     number: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
@@ -573,7 +573,7 @@ parameters:
                         _options:
                             # @todo change this label
                             groupsOrder:
-                                - librinfo.crm.circle_admin.label
+                                - sil.crm.circle_admin.label
                                 - form_group_members
                                 - form_group_description
                                 - form_group_history
@@ -643,9 +643,9 @@ parameters:
                     '':
                         form_group_organization:
                             individual:
-                                admin_code: librinfo_crm.admin.organism
+                                admin_code: sil_crm.admin.organism
                             organization:
-                                admin_code: librinfo_crm.admin.organism
+                                admin_code: sil_crm.admin.organism
                             department: ~
                             positionType.name: ~
                             label: ~
@@ -687,13 +687,13 @@ parameters:
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 _options:
-                                    admin_code: librinfo_crm.admin.organism
+                                    admin_code: sil_crm.admin.organism
                             organization:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
-                                    admin_code: librinfo_crm.admin.organism
+                                    admin_code: sil_crm.admin.organism
                             department: ~
                             positionType:
                                 placeholder: ''
@@ -723,17 +723,17 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     individual:
-                        admin_code: librinfo_crm.admin.individual
+                        admin_code: sil_crm.admin.individual
                     position_type: ~
                     organization:
-                        admin_code: librinfo_crm.admin.organism
+                        admin_code: sil_crm.admin.organism
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     individual.name: ~
                         #type: doctrine_orm_callback
                         # callback: [Sil\Bundle\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
-                        #serviceCallback: [librinfo_crm.admin.position, individualsCallback, callback]
+                        #serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
                     organism.name:
                         type: doctrine_orm_string
                     email: ~

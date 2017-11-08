@@ -27,6 +27,6 @@ class FakeEmailType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'librinfo_fake_email';
+        return 'sil_fake_email';
     }
 }

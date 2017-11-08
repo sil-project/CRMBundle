@@ -1,5 +1,5 @@
 
-librinfo:
+sil:
     error:
         provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
 'This customer code is already in use': 'Ce code client est déjà utilisé ailleurs'

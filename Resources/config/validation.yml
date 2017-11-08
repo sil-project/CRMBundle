@@ -11,9 +11,9 @@ Sil\Bundle\CRMBundle\Entity\Organism:
             - Valid: ~
         email:
             - NotNull:
-                groups: [librinfo_ecommerce_organism]
+                groups: [sil_ecommerce_organism]
             - Email:
-                groups: [librinfo_ecommerce_organism]
+                groups: [sil_ecommerce_organism]
 
 Sil\Bundle\CRMBundle\Entity\Position:
     properties:
@@ -26,16 +26,16 @@ Sil\Bundle\CRMBundle\Entity\Address:
             - Valid: ~
         firstName:
             - NotNull:
-                groups: [librinfo_ecommerce_address]
+                groups: [sil_ecommerce_address]
         lastName:
             - NotNull:
-                groups: [librinfo_ecommerce_address]
+                groups: [sil_ecommerce_address]
         postCode:
             - NotNull:
-                groups: [librinfo_ecommerce_address]
+                groups: [sil_ecommerce_address]
         city:
             - NotNull:
-                groups: [librinfo_ecommerce_address]
+                groups: [sil_ecommerce_address]
         street:
             - NotNull:
-                groups: [librinfo_ecommerce_address]
+                groups: [sil_ecommerce_address]

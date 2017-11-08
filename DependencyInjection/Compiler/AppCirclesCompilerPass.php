@@ -23,15 +23,15 @@ class AppCirclesCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('librinfo_crm.app_circles')) {
+        if (!$container->has('sil_crm.app_circles')) {
             return;
         }
 
-        $registry = $container->findDefinition('librinfo_crm.app_circles');
+        $registry = $container->findDefinition('sil_crm.app_circles');
 
-        $librinfo_crm = $container->getParameter('librinfo_crm');
-        if (isset($librinfo_crm['Circle']['app_circles'])) {
-            foreach ($librinfo_crm['Circle']['app_circles'] as $key => $circle) {
+        $sil_crm = $container->getParameter('sil_crm');
+        if (isset($sil_crm['Circle']['app_circles'])) {
+            foreach ($sil_crm['Circle']['app_circles'] as $key => $circle) {
                 $registry->addMethodCall('addCircle', [$key, $circle]);
             }
         }

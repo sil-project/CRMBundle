@@ -26,6 +26,6 @@ class MainPhoneType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'librinfo_main_phone';
+        return 'sil_main_phone';
     }
 }

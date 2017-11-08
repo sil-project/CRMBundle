@@ -1,5 +1,5 @@
 parameters:
-    librinfo.crmbundle.datafixtures:
+    sil.crmbundle.datafixtures:
         user:
             username: 'SDW'
             password: 'testSDW'

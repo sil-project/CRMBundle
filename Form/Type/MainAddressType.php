@@ -26,6 +26,6 @@ class MainAddressType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'librinfo_main_address';
+        return 'sil_main_address';
     }
 }

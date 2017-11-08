@@ -26,7 +26,7 @@ class InitCirclesCommand extends ContainerAwareCommand
     {
         $this
             // the name of the command (the part after "bin/console")
-            ->setName('librinfo:crm:init-circles')
+            ->setName('sil:crm:init-circles')
 
             // the short description shown while running "php bin/console list"
             ->setDescription('Creates the application circles in database.')
@@ -34,7 +34,7 @@ class InitCirclesCommand extends ContainerAwareCommand
             // the full command description shown when running the command with
             // the "--help" option
             ->setHelp('Creates the application circles in database.'
-                . "\nApplication circles are defined in librinfo_crm.Circle.app_circles configuration parameter."
+                . "\nApplication circles are defined in sil_crm.Circle.app_circles configuration parameter."
                 . "\nCircles that already exist in database are updated.")
         ;
     }
@@ -42,14 +42,14 @@ class InitCirclesCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
-        $librinfo_crm = $this->getContainer()->getParameter('librinfo_crm');
+        $sil_crm = $this->getContainer()->getParameter('sil_crm');
 
-        if (!isset($librinfo_crm['Circle']['app_circles'])) {
+        if (!isset($sil_crm['Circle']['app_circles'])) {
             $output->writeln('No application circle defined. Nothing to do.');
             exit(0);
         }
 
-        $app_circles = $librinfo_crm['Circle']['app_circles'];
+        $app_circles = $sil_crm['Circle']['app_circles'];
         foreach ($app_circles as $app_circle) {
             $exists = false;
             $circle = $em->getRepository('SilCRMBundle:Circle')->findOneById($app_circle['id']);

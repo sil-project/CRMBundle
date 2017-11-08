@@ -67,14 +67,14 @@
                                             {% if sonata_admin.admin.subject.defaultPhone and nested_group_field.vars.value.id and nested_group_field.vars.value.id != sonata_admin.admin.subject.defaultPhone.id %}
                                                 <td>
                                                     <a class="btn btn-info btn-sm" href="{{ path(
-                                                        'admin_librinfo_crm_organism_set_default_phone',
+                                                        'admin_sil_crm_organism_set_default_phone',
                                                         {
                                                             'organismId': sonata_admin.admin.subject.id,
                                                             'phoneId': nested_group_field.vars.value.id
                                                         }
                                                     )
                                                     }}">
-                                                        {{ 'librinfo.label.set_default_phone'|trans() }}
+                                                        {{ 'sil.label.set_default_phone'|trans() }}
                                                     </a>
                                                 </td>
                                             {% endif %}
@@ -138,14 +138,14 @@
                                             {% endfor %}
                                             {% if sonata_admin.admin.subject.defaultAddress and nested_group_field.vars.value.id and nested_group_field.vars.value.id != sonata_admin.admin.subject.defaultAddress.id %}
                                                 <a class="btn btn-info btn-sm" href="{{ path(
-                                                        'admin_librinfo_crm_organism_set_default_address',
+                                                        'admin_sil_crm_organism_set_default_address',
                                                         {
                                                             'organismId': sonata_admin.admin.subject.id,
                                                             'addressId': nested_group_field.vars.value.id
                                                         }
                                                     )
                                                    }}">
-                                                    {{ 'librinfo.label.set_default_address'|trans() }}
+                                                    {{ 'sil.label.set_default_address'|trans() }}
                                                 </a>
                                             {% endif %}
                                         </div>

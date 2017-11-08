@@ -28,7 +28,7 @@ class CircleAdmin extends CoreAdmin
     {
         $query = parent::createQuery($context);
 
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_crm');
 
         if (!isset($config['Circle']['enabled']) || $config['Circle']['enabled'] == false) {
             return $query;
@@ -110,7 +110,7 @@ class CircleAdmin extends CoreAdmin
     {
         parent::configureShowFields($mapper);
 
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_crm');
         if (!$config['Circle']['allow_organizations']) {
             $mapper->remove('organismsCount');
         }
@@ -129,7 +129,7 @@ class CircleAdmin extends CoreAdmin
     {
         parent::configureListFields($mapper);
 
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_crm');
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_crm');
         if (!$config['Circle']['allow_organizations']) {
             $mapper->remove('organismsCount');
         }

@@ -5,7 +5,7 @@
     <strong>{% transchoice count %}{0} No organism|{1} 1 organism|[2, Inf[ %count% organisms{% endtranschoice %}</strong>
 
     {% if count %}
-        &nbsp; − <a href="{{ path('admin_librinfo_crm_organism_list', {'filter[circles][value]': object.id}) }}">{{ 'View list'|trans() }}</a>
+        &nbsp; − <a href="{{ path('admin_sil_crm_organism_list', {'filter[circles][value]': object.id}) }}">{{ 'View list'|trans() }}</a>
     {% endif %}
 {% endblock %}
 

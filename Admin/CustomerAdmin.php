@@ -24,8 +24,8 @@ class CustomerAdmin extends BaseOrganismAdmin
      */
     private $codeGenerator;
 
-    protected $baseRouteName = 'admin_librinfo_crm_customer';
-    protected $baseRoutePattern = 'librinfo/crm/customer';
+    protected $baseRouteName = 'admin_sil_crm_customer';
+    protected $baseRoutePattern = 'sil/crm/customer';
     protected $classnameLabel = 'Customer';
 
     public function configureFormFields(FormMapper $mapper)

@@ -1,4 +1,4 @@
-librinfo.security:
+sil.security:
     # Checking Controllers and/or Services access
     method_access_control:
         'Librinfo\\UIBundle\\Twig\\Extension\\AdminMenu::showAdminMenu$': 'hasRole("ROLE_USER")'

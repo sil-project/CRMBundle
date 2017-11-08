@@ -33,7 +33,7 @@ class Exporter extends CoreExporter
             // creates the circle
             $circle = new Circle();
             $circle->setName(
-                $this->translator->trans('librinfo_crm_export_new_group')
+                $this->translator->trans('sil_crm_export_new_group')
                 . ' | ' .
                 twig_date_format_filter($this->twig, time())
             );
@@ -53,7 +53,7 @@ class Exporter extends CoreExporter
             $em->flush();
 
             // redirect to the list
-            return new RedirectResponse($this->router->generate('admin_librinfo_crm_circle_edit', array(
+            return new RedirectResponse($this->router->generate('admin_sil_crm_circle_edit', array(
                 'id' => $circle->getId(),
             )));
         break;

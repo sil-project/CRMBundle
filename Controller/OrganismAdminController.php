@@ -128,7 +128,7 @@ class OrganismAdminController extends CRUDController
 
     public function generateFakeEmailAction(Request $request)
     {
-        $fakeEmailParameters = $this->getParameter('librinfo.fake_email', 'fake.email');
+        $fakeEmailParameters = $this->getParameter('sil.fake_email', 'fake.email');
         $emailDomain = $fakeEmailParameters['domain'] ?: 'fake.email';
         $emailPrefix = $fakeEmailParameters['prefix'] ?: 'fake_';
         $emailSuffix = $fakeEmailParameters['suffix'] ?: '';

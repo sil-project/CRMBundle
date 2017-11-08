@@ -1,16 +1,16 @@
 <p style="color: #EEE">
     {% if object.isIndividual %}
-        {{ 'librinfo.label.individual'|trans() }}:
+        {{ 'sil.label.individual'|trans() }}:
         <b>{{ object.firstName }} {{ object.lastName }}</b>
     {% else %}
-        {{ 'librinfo.label.organization'|trans() }}
+        {{ 'sil.label.organization'|trans() }}
         <b>{{ object.name }}</b>
     {% endif %}
 
     {% if object.customerCode is not null and object.customerCode != '' %}
-        &nbsp;|&nbsp;{{'librinfo.label.customer_code'|trans}}: <b>{{object.customerCode}}</b>
+        &nbsp;|&nbsp;{{'sil.label.customer_code'|trans}}: <b>{{object.customerCode}}</b>
     {% endif %}
     {% if object.supplierCode is not null and object.supplierCode != '' %}
-        &nbsp;|&nbsp;{{'librinfo.label.supplier_code'|trans}}: <b>{{object.supplierCode}}</b>
+        &nbsp;|&nbsp;{{'sil.label.supplier_code'|trans}}: <b>{{object.supplierCode}}</b>
     {% endif %}
 </p>

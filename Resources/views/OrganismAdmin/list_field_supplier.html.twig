@@ -2,9 +2,9 @@
 
 {% block field %}
     {% if object.supplier is defined and object.isSupplier() == true %}
-        <span aria-hidden="true" class="glyphicon glyphicon-ok is-supplier" title="{{ 'librinfo.label.isSupplier'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-ok is-supplier" title="{{ 'sil.label.isSupplier'|trans() }}"></span>
     {% else %}
-        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-supplier" title="{{ 'librinfo.label.isNotSupplier'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-supplier" title="{{ 'sil.label.isNotSupplier'|trans() }}"></span>
     {% endif %}
     {{ object.supplierCode }}
 {% endblock %}

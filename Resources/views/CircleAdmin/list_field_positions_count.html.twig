@@ -4,7 +4,7 @@
     {% set count = object.countPositions() %}
 
     {% if count %}
-        <a href="{{ path('admin_librinfo_crm_position_list', {'filter[circles][value]': object.id}) }}">
+        <a href="{{ path('admin_sil_crm_position_list', {'filter[circles][value]': object.id}) }}">
             {% transchoice count %}{0} No position|{1} 1 position|[2, Inf[ %count% positions{% endtranschoice %}
         </a>
     {% endif %}
