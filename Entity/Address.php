@@ -18,7 +18,6 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 
 /**
  * Address.
- * https://github.com/Sylius/Sylius/issues/8345 & https://ocramius.github.io/blog/fluent-interfaces-are-evil/.
  */
 class Address implements AddressInterface, VCardableInterface
 {

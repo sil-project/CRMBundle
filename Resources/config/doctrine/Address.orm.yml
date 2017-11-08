@@ -34,4 +34,3 @@ Sil\Bundle\CRMBundle\Entity\Address:
         confirmed:
             type: boolean
             default: true
-#            cascade: [ persist]
