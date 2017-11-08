@@ -1,5 +1,3 @@
-# info: OrganismPhone extends Phone (mapped superclass)
-
 Sil\Bundle\CRMBundle\Entity\OrganismPhone:
     type: entity
     manyToOne:

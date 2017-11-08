@@ -10,24 +10,24 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\Traits;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Sil\Bundle\CRMBundle\Entity\Circle;
 
 /**
  * Circlable trait.
  */
-trait Circlable
+trait CirclableTrait
 {
     /**
      * @var Collection
      */
-    private $circles;
+    protected $circles;
 
     /**
      * This function is called by the owning side (Circle::addContact) of the N-N relationship.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Circle $circle
+     * @param Circle $circle
      *
      * @return Contact
      */

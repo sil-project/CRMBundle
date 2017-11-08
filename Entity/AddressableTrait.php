@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\Traits;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Sil\Bundle\CRMBundle\Entity\Address;
 use Doctrine\Common\Collections\Collection;
@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-trait Addressable
+trait AddressableTrait
 {
     /**
      * @var Address

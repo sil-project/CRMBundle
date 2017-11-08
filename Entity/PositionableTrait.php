@@ -10,19 +10,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\Traits;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Sil\Bundle\CRMBundle\Entity\Position;
 
 /**
  * Positionable trait.
  */
-trait Positionable
+trait PositionableTrait
 {
     /*
      * @var Collection
      */
-    private $positions;
+    protected $positions;
 
     /**
      * @param Position $position

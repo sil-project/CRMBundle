@@ -1,10 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Organism:
-    type: entity
+    type: mappedSuperclass
     repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
-    inheritanceType: JOINED
-    discriminatorColumn:
-        name: discriminator
-        type: string
     blast:
         loggable: true
     fields:
@@ -112,7 +108,7 @@ Sil\Bundle\CRMBundle\Entity\Organism:
 
     oneToMany:
         phones:
-            targetEntity: OrganismPhone
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismPhone
             mappedBy: organism
             cascade: [ persist, remove ]
             orphanRemoval: true

@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -21,9 +21,6 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
-use Sil\Bundle\CRMBundle\Entity\Traits\Positionable;
-use Sil\Bundle\CRMBundle\Entity\Traits\Addressable;
 
 /**
  * Organism.
@@ -34,13 +31,14 @@ class Organism implements VCardableInterface
         Nameable,
         Timestampable,
         Emailable,
-        Positionable,
-        Circlable,
         Descriptible,
         Searchable,
-        Loggable,
-        Addressable
-    ;
+        Loggable;
+
+    use
+        AddressableTrait,
+        PositionableTrait,
+        CirclableTrait;
 
     /**
      * @var string
