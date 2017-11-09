@@ -45,12 +45,12 @@ class Position implements VCardableInterface
     protected $department;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $individual;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $organization;
 
@@ -163,11 +163,11 @@ class Position implements VCardableInterface
     /**
      * Set individual.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $individual
+     * @param OrganismInterface $individual
      *
      * @return Position
      */
-    public function setIndividual(\Sil\Bundle\CRMBundle\Entity\Organism $individual)
+    public function setIndividual(OrganismInterface $individual)
     {
         $this->individual = $individual;
 
@@ -177,7 +177,7 @@ class Position implements VCardableInterface
     /**
      * Get individual.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getIndividual()
     {
@@ -187,11 +187,11 @@ class Position implements VCardableInterface
     /**
      * Set organization.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organization
+     * @param OrganismInterface $organization
      *
      * @return Position
      */
-    public function setOrganization(\Sil\Bundle\CRMBundle\Entity\Organism $organization)
+    public function setOrganization(OrganismInterface $organization)
     {
         $this->organization = $organization;
 
@@ -201,7 +201,7 @@ class Position implements VCardableInterface
     /**
      * Get organization.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getOrganization()
     {

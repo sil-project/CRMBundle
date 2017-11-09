@@ -14,11 +14,11 @@ namespace Sil\Bundle\CRMBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class SupplierCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\Organism';
+    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
     const ENTITY_FIELD = 'supplierCode';
 
     /**
@@ -36,14 +36,14 @@ class SupplierCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param Organism $organism
+     * @param OrganismInterface $organism
      *
      * @return string
      */
     public static function generate($organism)
     {
         if ($organism->isSupplier()) {
-            $repo = self::$em->getRepository(Organism::class);
+            $repo = self::$em->getRepository(OrganismInterface::class);
             $regexp = sprintf('^%s(\d{%d})$', self::$codePrefix, self::$codeLength);
             $res = $repo->createQueryBuilder('c')
                 ->select("SUBSTRING(c.supplierCode, '$regexp') AS code")

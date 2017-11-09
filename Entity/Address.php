@@ -82,7 +82,7 @@ class Address implements AddressInterface, VCardableInterface
     protected $confirmed = true;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $organism;
 
@@ -346,9 +346,9 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Set organism.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organism
+     * @param OrganismInterface $organism
      */
-    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $organism = null): void
+    public function setOrganism(OrganismInterface $organism = null): void
     {
         $this->organism = $organism;
     }
@@ -356,9 +356,9 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Get organism.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
-    public function getOrganism(): ?\Sil\Bundle\CRMBundle\Entity\Organism
+    public function getOrganism(): ?OrganismInterface
     {
         return $this->organism;
     }
