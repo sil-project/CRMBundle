@@ -94,11 +94,6 @@ class Address implements AddressInterface, VCardableInterface
         $this->initAddress();
     }
 
-    public function initAddress()
-    {
-        $this->initOuterExtendedClasses();
-    }
-
     public function __toString()
     {
         return sprintf(

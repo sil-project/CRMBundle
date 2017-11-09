@@ -62,7 +62,6 @@ class Position implements VCardableInterface
     public function __construct()
     {
         $this->circles = new ArrayCollection();
-        $this->initOuterExtendedClasses();
     }
 
     /**
