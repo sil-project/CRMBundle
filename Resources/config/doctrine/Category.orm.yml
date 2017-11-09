@@ -5,6 +5,6 @@ Sil\Bundle\CRMBundle\Entity\Category:
 
     oneToMany:
         organisms:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             mappedBy: category
             cascade: [ persist ]

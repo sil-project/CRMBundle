@@ -2,7 +2,7 @@ Sil\Bundle\CRMBundle\Entity\OrganismGroup:
     type:  entity
     manyToOne:
         organism:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             joinColumn:
                 name: organism_id
                 referencedColumnName: id
