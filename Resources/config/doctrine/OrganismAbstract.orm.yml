@@ -1,0 +1,126 @@
+Sil\Bundle\CRMBundle\Entity\OrganismAbstract:
+    type: mappedSuperclass
+    repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
+    blast:
+        loggable: true
+    fields:
+        firstname:
+            type:       string(255)
+            nullable:   true
+        lastname:
+            type:       string(255)
+            nullable: true
+        shortname:
+            type:       string(255)
+            nullable:   true
+        title:
+            type:       string(255)
+            nullable:   true
+        flashOnControl:
+            type:       string
+            nullable:   true
+        familyContact:
+            type:       boolean
+            nullable:   true
+        culture:
+            type:       string(2)
+            nullable:   true
+        url:
+            type:       string
+            length:     255
+            nullable:   true
+        administrativeNumber:
+            type:       string
+            length:     255
+            nullable:   true
+        isIndividual:
+            type: boolean
+            options:
+                default: false
+        isCustomer:
+            type: boolean
+            options:
+                default: false
+        customerCode:
+            type:       string
+            length:     255
+            nullable:   true
+        isSupplier:
+            type: boolean
+            options:
+                default: false
+        supplierCode:
+            type:       string
+            length:     255
+            nullable:   true
+        iban:
+            type:       string
+            length:     255
+            nullable:   true
+        vat:
+            type:       string
+            length:     255
+            nullable:   true
+        vatVerified:
+            type: smallint
+            options:
+                default: 0
+        alert:
+            type:       string
+            length:     255
+            nullable:   true
+        active:
+            type:       boolean
+        catalogue_sent:
+            type:       boolean
+            nullable:   true
+        last_catalogue_sent_date:
+            type:       date
+            nullable:   true
+        first_catalogue_sent_date:
+            type:       date
+            nullable:   true
+        catalogue_send_mean:
+            type: text
+            nullable: true
+        catalogue_type:
+            type: text
+            nullable: true
+        source:
+            type: text
+            nullable: true
+
+    oneToOne:
+        defaultPhone:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismPhone
+            joinColumn:
+                name: default_phone_id
+                onDelete: SET NULL
+            cascade: [persist]
+            orphanRemoval: true
+
+    oneToMany:
+        phones:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismPhone
+            mappedBy: organism
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        individuals:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Position
+            mappedBy: organization
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        organizations:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Position
+            mappedBy: individual
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+
+    manyToOne:
+        category:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Category
+            inversedBy: organisms
+            joinColumn:
+                name: category_id
+                onDelete: set null
+            cascade: [ persist ]

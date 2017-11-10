@@ -31,6 +31,11 @@ abstract class Phone
      */
     protected $phoneType;
 
+    public function __construct(string $number = null)
+    {
+        $this->number = $number;
+    }
+
     public function __toString(): string
     {
         $str = $this->number;

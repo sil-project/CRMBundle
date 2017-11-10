@@ -15,11 +15,13 @@ namespace Sil\Bundle\CRMBundle\Entity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sylius\Component\Core\Model\AddressInterface as SyliusAddressInterface;
+use Sylius\Component\Customer\Model\CustomerInterface;
 
 /**
  * Address.
  */
-class Address implements AddressInterface, VCardableInterface
+class Address implements AddressInterface, VCardableInterface, SyliusAddressInterface
 {
     use BaseEntity,
         Timestampable,
@@ -87,12 +89,19 @@ class Address implements AddressInterface, VCardableInterface
     protected $organism;
 
     /**
-     * Organism constructor.
+     * @var string
      */
-    public function __construct()
-    {
-        $this->initAddress();
-    }
+    protected $phoneNumber;
+
+    /**
+     * @var string
+     */
+    protected $company;
+
+    /**
+     * @var CustomerInterface
+     */
+    protected $customer;
 
     public function __toString()
     {
@@ -366,5 +375,65 @@ class Address implements AddressInterface, VCardableInterface
     public function isPersonal()
     {
         return true;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhoneNumber(): ?string
+    {
+        return $this->organism->getDefaultPhone()->getNumber();
+    }
+
+    /**
+     * @param string|null $phoneNumber
+     */
+    public function setPhoneNumber(?string $phoneNumber): void
+    {
+        $this->organism->addPhone(new OrganismPhone($phoneNumber));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCustomer(): ?CustomerInterface
+    {
+        return $this->customer;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCustomer(?CustomerInterface $customer): void
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCompany(?string $company): void
+    {
+        $this->company = $company;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFullName(): string
+    {
+        return sprintf(
+            '%s %s',
+            $this->firstName,
+            $this->lastName
+        );
     }
 }
