@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/CRMBundle.git
+	branch = wip-platform
+	commit = 6da96418ea5f615a5c5ae646c3bbb0f01e3ad283
+	parent = 948333b792bc3bcf65e1032a7282dbd4c44ca85c
+	cmdver = 0.3.1
