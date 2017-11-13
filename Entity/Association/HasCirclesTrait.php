@@ -12,16 +12,52 @@
 namespace Sil\Bundle\CRMBundle\Entity\Association;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sil\Bundle\CRMBundle\Entity\Circle;
 
 /**
  * HasCircles trait.
  */
 trait HasCirclesTrait
 {
-    use Circlable;
+    /**
+     * @var Collection
+     */
+    protected $circles;
 
     public function initCircles()
     {
         $this->circles = new ArrayCollection();
+    }
+
+    /**
+     * @param Circle $circle
+     *
+     * @return Circle
+     */
+    public function addCircle(Circle $circle)
+    {
+        $this->circles->add($circle);
+
+        return $this;
+    }
+
+    /**
+     * @param Circle $circle
+     *
+     * @return Circle
+     */
+    public function removeCircle(Circle $circle)
+    {
+        $this->circles->removeElement($circle);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCircles()
+    {
+        return $this->circles;
     }
 }

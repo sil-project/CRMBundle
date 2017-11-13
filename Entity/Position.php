@@ -17,6 +17,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Sil\Bundle\CRMBundle\Entity\Association\HasCirclesTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -31,7 +32,7 @@ class Position implements VCardableInterface
         Descriptible,
         Searchable;
 
-    use CirclableTrait;
+    use HasCirclesTrait;
 
     /**
      * @var string
