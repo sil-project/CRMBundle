@@ -7,5 +7,5 @@
 	remote = git@github.com:sil-project/CRMBundle.git
 	branch = wip-platform
 	commit = 436bf1c54304480b0dada96c13437b43c6bd7d23
-	parent = f78e33525e8e6cbca210d730762b706afcaeca05
+	parent = a98b2b1a2f5ccd871d477e02de889fbed45ea553
 	cmdver = 0.3.1
