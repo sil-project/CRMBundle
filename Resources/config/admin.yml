@@ -41,7 +41,7 @@ services:
 
     sil_crm.admin.organism:
         class: Sil\Bundle\CRMBundle\Admin\OrganismAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismInterface, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm

@@ -36,7 +36,7 @@ parameters:
 # ORGANISM
 ############
 
-        Sil\Bundle\CRMBundle\Entity\Organism:
+        Sil\Bundle\CRMBundle\Entity\OrganismInterface:
             form_theme:
                 - SilCRMBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
