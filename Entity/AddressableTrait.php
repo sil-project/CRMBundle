@@ -36,21 +36,21 @@ trait AddressableTrait
         return $this->defaultAddress;
     }
 
-    // /**
-    //  * @param AddressInterface $defaultAddress
-    //  *
-    //  * @return self
-    //  */
-    // public function setDefaultAddress(AddressInterface $defaultAddress = null)
-    // {
-    //     $this->defaultAddress = $defaultAddress;
-    //
-    //     if (null !== $defaultAddress) {
-    //         $this->addAddress($defaultAddress);
-    //     }
-    //
-    //     return $this;
-    // }
+    /**
+     * @param AddressInterface $defaultAddress
+     *
+     * @return self
+     */
+    public function setDefaultAddress(AddressInterface $defaultAddress = null)
+    {
+        $this->defaultAddress = $defaultAddress;
+
+        if (null !== $defaultAddress) {
+            $this->addAddress($defaultAddress);
+        }
+
+        return $this;
+    }
 
     /**
      * @param Address $address
