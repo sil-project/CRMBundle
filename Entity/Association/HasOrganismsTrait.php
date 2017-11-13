@@ -9,48 +9,48 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity\Association;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * HasAddresses trait.
+ * HasOrganisms trait.
  */
-trait HasAddressesTrait
+trait HasOrganismsTrait
 {
     /**
      * @var Collection
      */
-    private $addresses;
+    private $organisms;
 
-    public function initAddresses()
+    public function initOrganisms()
     {
-        $this->addresses = new ArrayCollection();
+        $this->organisms = new ArrayCollection();
     }
 
     /**
      * This function is called by the owning side of the N-N relationship.
      *
-     * @param Address $address
+     * @param Organism $organism
      *
      * @return self
      */
-    public function addAddress(Address $address)
+    public function addOrganism(Organism $organism)
     {
-        $this->addresses->add($address);
+        $this->organisms->add($organism);
 
         return $this;
     }
 
     /**
-     * @param Address $address
+     * @param Organism $organism
      *
      * @return self
      */
-    public function removeAddress(Address $address)
+    public function removeOrganism(Organism $organism)
     {
-        $this->addresses->removeElement($address);
+        $this->organisms->removeElement($organism);
 
         return $this;
     }
@@ -58,8 +58,8 @@ trait HasAddressesTrait
     /**
      * @return Collection
      */
-    public function getAddresses()
+    public function getOrganisms()
     {
-        return $this->addresses;
+        return $this->organisms;
     }
 }

@@ -12,6 +12,9 @@
 namespace Sil\Bundle\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sil\Bundle\CRMBundle\Entity\Association\HasAddressesTrait;
+use Sil\Bundle\CRMBundle\Entity\Association\HasPositionsTrait;
+use Sil\Bundle\CRMBundle\Entity\Association\HasCirclesTrait;
 
 /**
  * Organism.
@@ -19,9 +22,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Organism extends OrganismAbstract
 {
     use
-        AddressableTrait,
-        PositionableTrait,
-        CirclableTrait;
+        HasAddressesTrait,
+        HasPositionsTrait,
+        HasCirclesTrait;
 
     public function __construct()
     {

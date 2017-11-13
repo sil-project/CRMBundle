@@ -9,24 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity;
+namespace Sil\Bundle\CRMBundle\Entity\Association;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+ * HasAddresses trait.
  */
-trait AddressableTrait
+trait HasAddressesTrait
 {
     /**
-     * @var Address
+     * @var Collection
+     */
+    protected $addresses;
+
+    /**
+     * @var AddressInterface
      */
     protected $defaultAddress;
 
-    /**
-     * @var Collection|AddressInterface[]
-     */
-    protected $addresses;
+    public function initAddresses()
+    {
+        $this->addresses = new ArrayCollection();
+    }
 
     /**
      * @return AddressInterface
@@ -53,15 +59,14 @@ trait AddressableTrait
     }
 
     /**
-     * @param Address $address
+     * @param AddressInterface $address
      *
      * @return self
      */
     public function addAddress(AddressInterface $address)
     {
-        if (!$this->hasAddress($address)) {
+        if (!$this->addresses->contains($address)) {
             $this->addresses->add($address);
-            $address->setOrganism($this);
 
             if (!$this->getDefaultAddress()) {
                 $this->setDefaultAddress($address);
@@ -76,29 +81,21 @@ trait AddressableTrait
      */
     public function removeAddress(AddressInterface $address)
     {
-        $this->addresses->removeElement($address);
+        if ($this->addresses->contains($address)) {
+            $this->addresses->removeElement($address);
 
-        if ($address->getId() == $this->defaultAddress->getId()) {
-            if ($this->addresses->count() > 0) {
-                $this->defaultAddress = $this->addresses[0];
-            } else {
-                $this->defaultAddress = null;
+            if ($address->getId() == $this->defaultAddress->getId()) {
+                if ($this->addresses->count() > 0) {
+                    $this->defaultAddress = $this->addresses[0];
+                } else {
+                    $this->defaultAddress = null;
+                }
             }
         }
     }
 
     /**
-     * @param AddressInterface $address
-     *
-     * @return bool
-     */
-    public function hasAddress(AddressInterface $address)
-    {
-        return $this->addresses->contains($address);
-    }
-
-    /**
-     * @return Collection|AddressInterface[]
+     * @return Collection
      */
     public function getAddresses()
     {
