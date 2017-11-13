@@ -9,15 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Sil\Bundle\CRMBundle\Entity\Traits\Circlable;
 
 /**
  * HasAddresses trait.
  */
-trait HasCircles
+trait HasCirclesTrait
 {
     use Circlable;
 

@@ -9,49 +9,48 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sil\Bundle\CRMBundle\Entity\Organism;
 
 /**
- * HasOrganisms trait.
+ * HasContacts trait.
  */
-trait HasOrganisms
+trait HasContactsTrait
 {
     /**
      * @var Collection
      */
-    private $organisms;
+    private $contacts;
 
-    public function initOrganisms()
+    public function initContacts()
     {
-        $this->organisms = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
 
     /**
      * This function is called by the owning side of the N-N relationship.
      *
-     * @param Organism $organism
+     * @param Contact $contact
      *
      * @return self
      */
-    public function addOrganism(Organism $organism)
+    public function addContact($contact)
     {
-        $this->organisms->add($organism);
+        $this->contacts->add($contact);
 
         return $this;
     }
 
     /**
-     * @param Organism $organism
+     * @param Contact $contact
      *
      * @return self
      */
-    public function removeOrganism(Organism $organism)
+    public function removeContact($contact)
     {
-        $this->organisms->removeElement($organism);
+        $this->contacts->removeElement($contact);
 
         return $this;
     }
@@ -59,8 +58,8 @@ trait HasOrganisms
     /**
      * @return Collection
      */
-    public function getOrganisms()
+    public function getContacts()
     {
-        return $this->organisms;
+        return $this->contacts;
     }
 }

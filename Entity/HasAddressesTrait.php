@@ -9,48 +9,48 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * HasContacts trait.
+ * HasAddresses trait.
  */
-trait HasContacts
+trait HasAddressesTrait
 {
     /**
      * @var Collection
      */
-    private $contacts;
+    private $addresses;
 
-    public function initContacts()
+    public function initAddresses()
     {
-        $this->contacts = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
     }
 
     /**
      * This function is called by the owning side of the N-N relationship.
      *
-     * @param Contact $contact
+     * @param Address $address
      *
      * @return self
      */
-    public function addContact($contact)
+    public function addAddress(Address $address)
     {
-        $this->contacts->add($contact);
+        $this->addresses->add($address);
 
         return $this;
     }
 
     /**
-     * @param Contact $contact
+     * @param Address $address
      *
      * @return self
      */
-    public function removeContact($contact)
+    public function removeAddress(Address $address)
     {
-        $this->contacts->removeElement($contact);
+        $this->addresses->removeElement($address);
 
         return $this;
     }
@@ -58,8 +58,8 @@ trait HasContacts
     /**
      * @return Collection
      */
-    public function getContacts()
+    public function getAddresses()
     {
-        return $this->contacts;
+        return $this->addresses;
     }
 }

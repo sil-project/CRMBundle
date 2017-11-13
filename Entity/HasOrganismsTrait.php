@@ -9,49 +9,48 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\CRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\CRMBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sil\Bundle\CRMBundle\Entity\Position;
 
 /**
- * HasPositions trait.
+ * HasOrganisms trait.
  */
-trait HasPositions
+trait HasOrganismsTrait
 {
     /**
      * @var Collection
      */
-    private $positions;
+    private $organisms;
 
-    public function initPositions()
+    public function initOrganisms()
     {
-        $this->positions = new ArrayCollection();
+        $this->organisms = new ArrayCollection();
     }
 
     /**
      * This function is called by the owning side of the N-N relationship.
      *
-     * @param Position $position
+     * @param Organism $organism
      *
      * @return self
      */
-    public function addPosition(Position $position)
+    public function addOrganism(Organism $organism)
     {
-        $this->positions->add($position);
+        $this->organisms->add($organism);
 
         return $this;
     }
 
     /**
-     * @param Position $position
+     * @param Organism $organism
      *
      * @return self
      */
-    public function removePosition(Position $position)
+    public function removeOrganism(Organism $organism)
     {
-        $this->positions->removeElement($position);
+        $this->organisms->removeElement($organism);
 
         return $this;
     }
@@ -59,8 +58,8 @@ trait HasPositions
     /**
      * @return Collection
      */
-    public function getPositions()
+    public function getOrganisms()
     {
-        return $this->positions;
+        return $this->organisms;
     }
 }
