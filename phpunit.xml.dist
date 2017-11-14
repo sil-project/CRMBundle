@@ -9,16 +9,16 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="tests/Resources/bootstrap.php"
+         bootstrap="Tests/Resources/bootstrap.php"
 	 >
   
   
   <testsuites>
     <testsuite name="Unit">
-      <directory>./tests/Unit</directory>
+      <directory>./Tests/Unit</directory>
     </testsuite>
     <testsuite name="Functional">
-      <directory>./tests/Functional</directory>
+      <directory>./Tests/Functional</directory>
     </testsuite>
   </testsuites>
   
@@ -27,7 +27,7 @@
     <whitelist>
       <directory>./</directory>
       <exclude>
-        <directory>./tests/</directory>
+        <directory>./Tests/</directory>
         <directory>./DataFixtures/</directory>
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
@@ -37,7 +37,7 @@
   </filter>
   
   <php>
-    <server name="KERNEL_DIR" value="tests/Resources/App/" />
+    <server name="KERNEL_DIR" value="Tests/Resources/App/" />
     <server name="IS_DOCTRINE_ORM_SUPPORTED" value="true" />
     <ini name="display_errors" value="On" />
     <ini name="display_startup_errors" value="On" />
