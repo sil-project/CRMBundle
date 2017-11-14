@@ -1,6 +1,3 @@
-parameters:
-    sil_crm.entity.address.class: Sil\Bundle\CRMBundle\Entity\Address
-
 imports:
     - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_embedded.yml" }
     - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.individual.yml" }
