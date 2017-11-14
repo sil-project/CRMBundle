@@ -1,0 +1,12 @@
+
+services:
+    sil_crm.admin.position_type:
+        class: Sil\Bundle\CRMBundle\Admin\PositionTypeAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.crmbundle.admin.position_type
+                label_translator_strategy: blast_core.label.strategy.sil_crm

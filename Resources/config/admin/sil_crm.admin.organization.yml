@@ -1,0 +1,16 @@
+
+services:
+    sil_crm.admin.organization:
+        class: Sil\Bundle\CRMBundle\Admin\OrganizationAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
+        services:
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.crmbundle.admin.organization
+                label_translator_strategy: blast_core.label.strategy.sil_crm
+        calls:
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]

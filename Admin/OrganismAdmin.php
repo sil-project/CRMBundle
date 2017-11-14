@@ -214,7 +214,7 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 'Sil\Bundle\CRMBundle\Entity\Organism',
+                 OrganismInterface::class,
                  ['customerCode' => $code]
              );
             if ($organisms) {
@@ -272,7 +272,7 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 'Sil\Bundle\CRMBundle\Entity\Organism',
+                 OrganismInterface::class,
                  ['supplierCode' => $code]
              );
             if ($organisms) {

@@ -1,0 +1,16 @@
+
+services:
+    sil_crm.admin.customer:
+        class: Sil\Bundle\CRMBundle\Admin\CustomerAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.crmbundle.admin.customer
+                label_translator_strategy: blast_core.label.strategy.sil_crm
+        calls:
+            - [ setCodeGenerator, ['@sil_crm.code_generator.customer'] ]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig] ]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig] ]

@@ -1,0 +1,15 @@
+
+services:
+    sil_crm.admin.address:
+        class: Sil\Bundle\CRMBundle\Admin\AddressAdmin
+        services:
+        arguments: [~, %sil_crm.admin.address.entity.class%, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.crmbundle.admin.address
+                label_translator_strategy: blast_core.label.strategy.sil_crm
+        calls:
+            - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

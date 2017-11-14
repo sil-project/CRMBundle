@@ -1,0 +1,12 @@
+
+services:
+    sil_crm.admin.organism_phone:
+        class: Sil\Bundle\CRMBundle\Admin\OrganismPhoneAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.crmbundle.admin.organism_phone
+                label_translator_strategy: blast_core.label.strategy.sil_crm

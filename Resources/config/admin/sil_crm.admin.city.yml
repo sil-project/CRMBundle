@@ -1,0 +1,12 @@
+
+services:
+    sil_crm.admin.city:
+        class: Sil\Bundle\CRMBundle\Admin\CityAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\City, SilCRMBundle:CityAdmin]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.crmbundle.admin.city
+                label_translator_strategy: blast_core.label.strategy.sil_crm
