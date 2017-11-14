@@ -25,11 +25,11 @@
   
   <filter>
     <whitelist>
-      <directory>./src</directory>
+      <directory>./</directory>
       <exclude>
         <directory>./tests/</directory>
         <directory>./DataFixtures/</directory>
-        <directory>./src/Resources/</directory>
+        <directory>./Resources/</directory>
         <directory>./vendor/</directory>
         <directory>./coverage/</directory>
       </exclude>
