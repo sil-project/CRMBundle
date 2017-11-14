@@ -1,19 +1,19 @@
 parameters:
-    sil_crm.admin.address.entity.class: Sil\Bundle\CRMBundle\Entity\Address
+    sil_crm.entity.address.class: Sil\Bundle\CRMBundle\Entity\Address
 
 imports:
-    - { resource: admin/sil_crm.admin.organism_embedded.yml }
-    - { resource: admin/sil_crm.admin.individual.yml }
-    - { resource: admin/sil_crm.admin.organization.yml }
-    - { resource: admin/sil_crm.admin.organism.yml }
-    - { resource: admin/sil_crm.admin.customer.yml }
-    - { resource: admin/sil_crm.admin.organism_phone.yml }
-    - { resource: admin/sil_crm.admin.category.yml }
-    - { resource: admin/sil_crm.admin.role.yml }
-    - { resource: admin/sil_crm.admin.organism_group.yml }
-    - { resource: admin/sil_crm.admin.circle.yml }
-    - { resource: admin/sil_crm.admin.position.yml }
-    - { resource: admin/sil_crm.admin.position_type.yml }
-    - { resource: admin/sil_crm.admin.phone_type.yml }
-    - { resource: admin/sil_crm.admin.city.yml }
-    - { resource: admin/sil_crm.admin.address.yml }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_embedded.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.individual.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organization.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.customer.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_phone.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.category.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.role.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_group.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.circle.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.position.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.position_type.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.phone_type.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.city.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.address.yml" }

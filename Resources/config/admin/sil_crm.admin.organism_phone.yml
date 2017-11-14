@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.organism_phone:
         class: Sil\Bundle\CRMBundle\Admin\OrganismPhoneAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_crm.entity.organism_phone.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

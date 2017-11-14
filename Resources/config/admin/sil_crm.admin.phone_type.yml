@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.phone_type:
         class: Sil\Bundle\CRMBundle\Admin\PhoneTypeAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_crm.entity.phone_type.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

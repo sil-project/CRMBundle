@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.organization:
         class: Sil\Bundle\CRMBundle\Admin\OrganizationAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
+        arguments: [~, "%sil_crm.entity.organism.class%", SilCRMBundle:OrganismAdmin]
         services:
         tags:
             -
