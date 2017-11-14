@@ -40,5 +40,6 @@
         "psr-4": {
             "Sil\\Bundle\\CRMBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
