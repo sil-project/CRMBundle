@@ -1,12 +1,12 @@
 parameters:
-    sil_crm.entity.organism.class: Sil\Bundle\CRMBundle\Entity\Organism
-    sil_crm.entity.role.class: Sil\Bundle\CRMBundle\Entity\Role
-    sil_crm.entity.circle.class: Sil\Bundle\CRMBundle\Entity\Circle
-    sil_crm.entity.phone_type.class: Sil\Bundle\CRMBundle\Entity\PhoneType
-    sil_crm.entity.city.class: Sil\Bundle\CRMBundle\Entity\City
-    sil_crm.entity.category.class: Sil\Bundle\CRMBundle\Entity\Category
-    sil_crm.entity.address.class: Sil\Bundle\CRMBundle\Entity\Address
-    sil_crm.entity.organism_phone.class: Sil\Bundle\CRMBundle\Entity\OrganismPhone
-    sil_crm.entity.position_type.class: Sil\Bundle\CRMBundle\Entity\PositionType
-    sil_crm.entity.position.class: Sil\Bundle\CRMBundle\Entity\Position
-    sil_crm.entity.organism_group.class: Sil\Bundle\CRMBundle\Entity\OrganismGroup
+    sil_crm.entity.organism.class:              Sil\Bundle\CRMBundle\Entity\Organism
+    sil_crm.entity.role.class:                  Sil\Bundle\CRMBundle\Entity\Role
+    sil_crm.entity.circle.class:                Sil\Bundle\CRMBundle\Entity\Circle
+    sil_crm.entity.phone_type.class:            Sil\Bundle\CRMBundle\Entity\PhoneType
+    sil_crm.entity.city.class:                  Sil\Bundle\CRMBundle\Entity\City
+    sil_crm.entity.category.class:              Sil\Bundle\CRMBundle\Entity\Category
+    sil_crm.entity.address.class:               Sil\Bundle\CRMBundle\Entity\Address
+    sil_crm.entity.organism_phone.class:        Sil\Bundle\CRMBundle\Entity\OrganismPhone
+    sil_crm.entity.position_type.class:         Sil\Bundle\CRMBundle\Entity\PositionType
+    sil_crm.entity.position.class:              Sil\Bundle\CRMBundle\Entity\Position
+    sil_crm.entity.organism_group.class:        Sil\Bundle\CRMBundle\Entity\OrganismGroup
