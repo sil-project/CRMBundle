@@ -22,7 +22,7 @@ trait HasPositionsTrait
     /**
      * @var Collection
      */
-    private $positions;
+    protected $positions;
 
     /**
      * This function is called by the owning side of the N-N relationship.
