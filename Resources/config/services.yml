@@ -1,9 +1,5 @@
 services:
 
-    blast_core.label.strategy.sil_crm:
-        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Sil\Bundle\CRMBundle']
-
     security.access.circle_voter:
         class:      Sil\Bundle\CRMBundle\Security\Authorization\Voter\CircleVoter
         public:     false

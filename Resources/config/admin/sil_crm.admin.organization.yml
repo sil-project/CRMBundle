@@ -10,7 +10,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: sil.crmbundle.admin.organization
-                label_translator_strategy: blast_core.label.strategy.sil_crm
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]

@@ -34,9 +34,11 @@ trait HasCirclesTrait
      *
      * @return Circle
      */
-    public function addCircle(Circle $circle)
+    public function addCircle(Circle $circle = null)
     {
-        $this->circles->add($circle);
+        if ($circle && !$this->circles->contains($circle)) {
+            $this->circles->add($circle);
+        }
 
         return $this;
     }

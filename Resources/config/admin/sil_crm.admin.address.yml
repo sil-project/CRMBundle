@@ -10,6 +10,6 @@ services:
                 manager_type: orm
                 group: admin
                 label: sil.crmbundle.admin.address
-                label_translator_strategy: blast_core.label.strategy.sil_crm
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

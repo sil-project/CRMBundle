@@ -1,4 +1,4 @@
-<a href="{{ path('admin_sil_crm_organism_validateVat') }}" id="validate-vat-link" >
+<a href="{{ path(sonata_admin.admin.getBaseRouteName() ~ '_validateVat') }}" id="validate-vat-link" >
     {% trans %}sil.label.validate_vat{% endtrans %}
     <span aria-hidden="true" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
           title="{{ 'sil.help.vat_validation'|trans() }}"></span>
@@ -71,4 +71,3 @@
         }
     });
 </script>
-

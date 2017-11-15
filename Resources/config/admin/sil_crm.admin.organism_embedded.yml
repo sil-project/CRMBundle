@@ -9,4 +9,4 @@ services:
                 manager_type: orm
                 group: admin
                 label: sil.crmbundle.admin.organism_embedded
-                label_translator_strategy: blast_core.label.strategy.sil_crm
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

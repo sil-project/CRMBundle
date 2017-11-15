@@ -9,4 +9,4 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: sil.crmbundle.admin.phone_type
-                label_translator_strategy: blast_core.label.strategy.sil_crm
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
