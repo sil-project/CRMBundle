@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-vendor/phpunit/phpunit/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
+vendor/phpunit/phpunit/phpunit -v -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 
