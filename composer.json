@@ -40,5 +40,6 @@
         "psr-4": {
             "Librinfo\\CRMBundle\\": "src/"
         }
-    }
+    },
+    "version": "dev-wip-lisem"
 }
