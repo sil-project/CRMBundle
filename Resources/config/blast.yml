@@ -912,7 +912,7 @@ parameters:
 ################
 # ADDRESS
 ###############
-        Sil\Bundle\CRMBundle\Entity\Address:
+        Sil\Bundle\CRMBundle\Entity\AddressInterface:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
