@@ -1,2 +1,2 @@
 Sil\Bundle\CRMBundle\Entity\AddressSearchIndex:
-    type: entity
+    type: mappedSuperclass
