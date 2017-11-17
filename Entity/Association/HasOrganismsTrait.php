@@ -13,6 +13,7 @@ namespace Sil\Bundle\CRMBundle\Entity\Association;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 /**
  * HasOrganisms trait.
@@ -32,11 +33,11 @@ trait HasOrganismsTrait
     /**
      * This function is called by the owning side of the N-N relationship.
      *
-     * @param Organism $organism
+     * @param OrganismInterface $organism
      *
      * @return self
      */
-    public function addOrganism(Organism $organism)
+    public function addOrganism(OrganismInterface $organism)
     {
         $this->organisms->add($organism);
 
@@ -44,11 +45,11 @@ trait HasOrganismsTrait
     }
 
     /**
-     * @param Organism $organism
+     * @param OrganismInterface $organism
      *
      * @return self
      */
-    public function removeOrganism(Organism $organism)
+    public function removeOrganism(OrganismInterface $organism)
     {
         $this->organisms->removeElement($organism);
 
