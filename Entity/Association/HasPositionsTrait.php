@@ -11,8 +11,8 @@
 
 namespace Sil\Bundle\CRMBundle\Entity\Association;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\CRMBundle\Entity\Position;
 
 /**
  * HasPositions trait.
