@@ -3,7 +3,8 @@ sil:
         organism:
             breadcrumb:
                 link:
-                    list: Liste des organismes
+                    list: Liste des tiers
+                    create: Nouveau tiers
             list:
                 label:
                     action: Action
@@ -14,7 +15,7 @@ sil:
                     email: Email
                     fulltext_name: Nom complet
                     is_individual: Est un individus
-                    organism: Organisme
+                    organism: Tiers
                     supplier_code: Code fournisseur
             filter:
                 label:
@@ -34,6 +35,10 @@ sil:
                     name: Nom
                     supplier_code: Code fournisseur
             form:
+                action:
+                    generateFakeEmail: Générer un email
+                    manage: Gérer
+                    add: Ajouter
                 label:
                     active: Actif
                     alert: Alerte
@@ -60,6 +65,12 @@ sil:
                     updated_at: Mis à jour le
                     url: URL
                     vat: TVA
+                help:
+                    vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
+                    vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
+                    iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
+                msg:
+                    validating_vat: Validation du numéro de TVA
             show:
                 label:
                     active: Actif
@@ -95,7 +106,9 @@ sil:
                     npai: NPAI
                     post_code: Code postal
                     street: Rue
-            show: ~
+            show:
+                label:
+                    default_address: Adresse principale
         organism_phone:
             list: ~
             filter: ~
@@ -106,120 +119,40 @@ sil:
             show:
                 label:
                     default_phone: Téléphone principal
-    label:
-        default_address: Adresse principale
-    error:
-        provide_name_or_firstname: 'Vous devez remplir au moins le nom ou le prénom'
-    help:
-        vat: 'ex. FR 11 123456789 (avec ou sans espaces)'
-        vat_validation: 'Interroger le moteur de recherche de la Commission européenne afin de vérifier si une entreprise est enregistrée dans le cadre des échanges transfrontaliers au sein de l''UE'
-        iban: 'ex. FR12 1234 1234 1234 1234 1234 123 (avec ou sans espaces)'
-        individual: 'Créera automatiquement un contact physique avec les mêmes informations'
-    placeholder:
-        customer_code: 'Code client'
-        supplier_code: 'Code fournisseur'
-    msg:
-        validating_vat: Validation du numéro de TVA
-    btn:
-        generateFakeEmail: Générer un email
-        manage: Gérer
-        add: Ajouter
-    crmbundle:
-        label: Relations publiques
-        admin:
-            category: Catégorie
-            circle: Groupes
-            city: Ville
-        link:
-            category_list: Liste des catégories
-            circle_list: Liste des groupes
-        organism:
-            collective: Collectif (entreprise, association...)
-            individual: Individu privé
+        circle:
+            breadcrumb:
+                link:
+                    list: Liste des groupes
+            list:
+                label:
+                    action: Action
+                    circle: Groupe
+                    code: Code
+                    name: Nom
+                    organisms_count: Nombre de tiers
+                    type: Type
 
-        _action: Action
-        active: Actif
-        address: Adresse
-        address_create: Créer une adresse
-        address_list: List des adresse
-        alert: Alerte
-        catalogue_send_mean: 'Méthode d''envoi'
-        catalogue_sent: Catalogue envoyé
-        catalogue_type: Type de catalogue
-        category: Catégorie
-        category_create: Nouvelle catégorie de tiers
-        category_list: Liste des catégories de tiers
-        category_name: Catégorie de tiers
-        circle_create: Nouveau groupe
-        circle_list: Liste des groupes
-        circles: Groupes
-        city: Ville
-        city_create: Créer une ville
-        city_list: Liste des villes
-        code: Code
-        country_code: Code Pays
-        countrycode: Code pays
-        createdat: Créé le
-        createdby: Crée par
-        culture: Culture
-        customercode: Code Client
-        department: Service
-        description: Description
-        email: Email
-        emailnonewsletter: Pas de Newsletter
-        emailnpai: Mauvais Courriel
-        first_catalogue_sent_date: Date premier envoi catalogue
-        firstname: Prénom
-        fulltextname: Nom
-        iban: RIB (IBAN)
-        individual: Individu
-        individual_name: Nom
-        iscustomer: Est un client
-        isindividual: Est un individu
-        issupplier: Est un fournisseur
-        last_catalogue_sent_date: Date dernier envoi catalogue
-        lastname: Nom de famille
-        name: Nom
-        npai: NPAI
-        number: Numéro
-        organism: Contact
-        organism_create: Nouveau Contact
-        organism_list: Liste des contacts
-        organism_name: Nom / Raison sociale
-        organismgroup_create: Créer un groupe de tiers
-        organismgroup_list: Liste des groupes de tiers
-        organismphone:
-        organismphone_create: Ajouter un téléphone de tiers
-        organismphone_list: Liste des téléphones de tiers
-        organismscount: Tiers ?
-        organization: Organisations
-        phone: Téléphone
-        phonetype: Types de téléphone
-        phonetype_create: Créer un types de téléphone
-        phonetype_list: Liste des types de téléphone
-        position_create: Créer une fonction
-        position_list: Liste des fonctions
-        positiontype: Type de fonction
-        positiontype_create: Créer un type de fonction
-        positiontype_list: Liste des types de fonction
-        postcode: Code Postal
-        role_create: Créer un rôle
-        role_list: Liste des rôles
-        source: Source
-        street: Rue
-        suppliercode: Code fournisseur
-        title: Titre / civilité
-        treeparent: Catégorie parente
-        type: Type
-        updatedat: Modifié le
-        updatedby: Modifié par
-        url: Site web
-        users: Utilisateurs
-        vat: N° TVA
-        zip: Code postal
-
-
-
+            filter:
+                label:
+                    name: Nom
+                    type: Type
+            form:
+                label:
+                    code: Code
+                    name: Nom
+                    description: Description
+                    type: Type
+                    created_at: Créé le
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    organisms_count: Nombre de tiers
+                    type: Type
+                    updated_at: Mis à jour le
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'

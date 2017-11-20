@@ -175,13 +175,13 @@ parameters:
                             customerCode:
                                 type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
-                                    placeholder: sil.placeholder.customer_code
+                                    placeholder: sil.crm.organism.form.label.customer_code
                                 only_not_new: true
                             isSupplier: ~
                             supplierCode:
                                 type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
-                                    placeholder: sil.placeholder.supplier_code
+                                    placeholder: sil.crm.organism.form.label.supplier_code
                                 only_not_new: true
                             circles:
                                 type: sonata_type_model
@@ -199,6 +199,7 @@ parameters:
                             email:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
+                                required: true
                             emailNpai: ~
                             emailNoNewsletter: ~
                             alert:
@@ -231,9 +232,9 @@ parameters:
                             vatVerified:
                                 type: hidden
                             vat:
-                                help: sil.help.vat
+                                help: sil.crm.organism.form.help.vat
                             iban:
-                                help: sil.help.iban
+                                help: sil.crm.organism.form.help.iban
                         form_group_main_address:
                             defaultAddress:
                                 type: Sil\Bundle\CRMBundle\Form\Type\MainAddressType
@@ -558,18 +559,11 @@ parameters:
                         '':
                             code: ~
                             color: ~
-#                            owner: ~
-                            users: ~
+                            organisms: ~
                         form_group_members:
                             organismsCount:
                                 _options:
                                     template: SilCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
-#                            contactsCount:
-#                                _options:
-#                                    template: SilCRMBundle:CircleAdmin:show_field_contacts_count.html.twig
-#                            positionsCount:
-#                                _options:
-#                                    template: SilCRMBundle:CircleAdmin:show_field_positions_count.html.twig
                         _options:
                             # @todo change this label
                             groupsOrder:
@@ -592,20 +586,6 @@ parameters:
                             code: ~
                             description: ~
                             type: ~
-#                            owner:
-#                                type: sonata_type_model_autocomplete
-#                                route: { name: searchable_admin_retrieve_autocomplete_items }
-#                                by_reference: false
-#                                property: username # not used but required
-#                                multiple: false
-#                                required: false
-#                            users:
-#                                type: sonata_type_model_autocomplete
-#                                route: { name: searchable_admin_retrieve_autocomplete_items }
-#                                by_reference: false
-#                                property: username # not used but required
-#                                multiple: true
-#                                required: false
                     _options:
                         tabsOrder:
                             - form_tab_general
@@ -615,21 +595,18 @@ parameters:
                     owner: ~
                     name: ~
                     createdAt: ~
+                    users: ~
                 add:
                     name:
                         identifier: true
                     code: ~
-#                    owner: ~
-                    users: ~
                     organismsCount:
                         template: SilCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
-#                    contactsCount:
-#                        template: SilCRMBundle:CircleAdmin:list_field_contacts_count.html.twig
-#                    positionsCount:
-#                        template: SilCRMBundle:CircleAdmin:list_field_positions_count.html.twig
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: ~
+                add:
+                    organisms: ~
                 remove:
+                    users:
                     owner: ~
 
 
