@@ -9,7 +9,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.crmbundle.admin.address
+                label: sil.crm.menu_label.address
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

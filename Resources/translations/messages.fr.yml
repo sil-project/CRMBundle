@@ -1,5 +1,9 @@
 sil:
     crm:
+        menu_label:
+            position_type: Type de position
+            organism: Tiers
+            circle: Groupe
         organism:
             breadcrumb:
                 link:
@@ -95,8 +99,6 @@ sil:
                     updated_at: Mis à jour le
                     vat: TVA
         address:
-            list: ~
-            filter: ~
             form:
                 label:
                     city: Ville
@@ -110,8 +112,6 @@ sil:
                 label:
                     default_address: Adresse principale
         organism_phone:
-            list: ~
-            filter: ~
             form:
                 label:
                     phone_type: Type
@@ -131,7 +131,6 @@ sil:
                     name: Nom
                     organisms_count: Nombre de tiers
                     type: Type
-
             filter:
                 label:
                     name: Nom
@@ -153,6 +152,25 @@ sil:
                     organisms_count: Nombre de tiers
                     type: Type
                     updated_at: Mis à jour le
+        position_type:
+            breadcrumb:
+                link:
+                    list: Liste des types de position
+            list:
+                label:
+                    action: Action
+                    name: Nom
+                    positiontype: Type de position
+
+            filter:
+                label:
+                    name: Nom
+            form:
+                label:
+                    name: Nom
+            show:
+                label:
+                    name: Nom
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'

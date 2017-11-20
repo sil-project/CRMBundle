@@ -8,5 +8,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
-                label: sil.crmbundle.admin.circle
+                label: sil.crm.menu_label.circle
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix

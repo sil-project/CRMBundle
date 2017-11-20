@@ -8,7 +8,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
-                label: sil.crmbundle.admin.customer
+                label: sil.crm.menu_label.customer
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setCodeGenerator, ['@sil_crm.code_generator.customer'] ]

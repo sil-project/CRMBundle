@@ -9,7 +9,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
-                label: sil.crmbundle.admin.individual
+                label: sil.crm.menu_label.individual
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]

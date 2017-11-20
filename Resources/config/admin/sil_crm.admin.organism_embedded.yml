@@ -8,5 +8,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.crmbundle.admin.organism_embedded
+                label: sil.crm.menu_label.organism_embedded
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
