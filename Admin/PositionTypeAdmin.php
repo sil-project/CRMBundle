@@ -17,4 +17,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
 class PositionTypeAdmin extends CoreAdmin
 {
     use BaseAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.position_type';
 }

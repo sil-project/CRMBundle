@@ -15,6 +15,7 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Sil\Bundle\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 use Sil\Bundle\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -25,6 +26,11 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class OrganismAdmin extends CoreAdmin
 {
     use HandlesRelationsAdmin;
+
+    /**
+    * @var string
+    */
+    protected $translationLabelPrefix = 'sil.crm.organism';
 
     public function createQuery($context = 'list')
     {
@@ -201,7 +207,7 @@ class OrganismAdmin extends CoreAdmin
         }
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
-        $codeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
+        $codeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'customerCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
             $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
@@ -259,7 +265,7 @@ class OrganismAdmin extends CoreAdmin
         }
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
-        $codeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
+        $codeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'supplierCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
             $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement

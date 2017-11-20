@@ -13,4 +13,8 @@ namespace Sil\Bundle\CRMBundle\Admin;
 
 class OrganizationAdmin extends OrganismAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.organization';
 }

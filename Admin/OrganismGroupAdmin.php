@@ -17,4 +17,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
 class OrganismGroupAdmin extends CoreAdmin
 {
     use BaseAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.organism_group';
 }

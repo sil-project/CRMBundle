@@ -17,6 +17,11 @@ use Blast\Bundle\BaseEntitiesBundle\Admin\Traits\NestedTreeableAdmin;
 
 class CategoryAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.category';
+
     use BaseAdmin,
        NestedTreeableAdmin
     ;

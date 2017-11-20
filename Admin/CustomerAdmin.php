@@ -19,6 +19,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 class CustomerAdmin extends BaseOrganismAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.customer';
+
+    /**
      * @var CustomerCodeGenerator
      */
     private $codeGenerator;

@@ -20,6 +20,11 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class CityAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.city';
+
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_order' => 'ASC',

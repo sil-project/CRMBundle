@@ -20,6 +20,11 @@ class PositionAdmin extends CoreAdmin
     use EmbeddedAdmin;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.position';
+
+    /**
      * @param QueryBuilder $queryBuilder
      * @param string       $alias
      * @param string       $field

@@ -21,6 +21,11 @@ class CircleAdmin extends CoreAdmin
     use BaseAdmin;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.circle';
+
+    /**
      * {@inheritdoc}
      */
     public function createQuery($context = 'list')

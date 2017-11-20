@@ -19,6 +19,11 @@ class PhoneTypeAdmin extends CoreAdmin
     use BaseAdmin;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.phone_type';
+
+    /**
      * @todo : find a way to do this automatically for entities that have the Sortable trait
      */
     protected $datagridValues = array(

@@ -17,4 +17,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\EmbeddedAdmin;
 class ContactPhoneAdmin extends CoreAdmin
 {
     use EmbeddedAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.contact_phone';
 }

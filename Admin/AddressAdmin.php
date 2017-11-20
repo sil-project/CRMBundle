@@ -15,4 +15,8 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class AddressAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.crm.address';
 }

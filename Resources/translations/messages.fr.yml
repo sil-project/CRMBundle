@@ -1,4 +1,111 @@
 sil:
+    crm:
+        organism:
+            breadcrumb:
+                link:
+                    list: Liste des organismes
+            list:
+                label:
+                    action: Action
+                    active: Actif
+                    alert: Alerte
+                    circles: Groupes
+                    customer_code: Code client
+                    email: Email
+                    fulltext_name: Nom complet
+                    is_individual: Est un individus
+                    organism: Organisme
+                    supplier_code: Code fournisseur
+            filter:
+                label:
+                    active: Actif
+                    alert: Alerte
+                    category: Catégorie
+                    circles: Groupes
+                    culture: Culture
+                    customer_code: Code client
+                    email: Email
+                    email_no_newsletter: Pas de newsletter
+                    email_npai: NPAI
+                    fulltext_name: Nom complet
+                    is_customer: Est un client
+                    is_individual: Est un individus
+                    is_supplier: Est un fournisseur
+                    name: Nom
+                    supplier_code: Code fournisseur
+            form:
+                label:
+                    active: Actif
+                    alert: Alerte
+                    circles: Groupes
+                    created_at: Créé le
+                    customer_code: Code client
+                    date: Date
+                    description: Description
+                    email: Email
+                    email_no_newsletter: Pas de newsletter
+                    email_npai: NPAI
+                    iban: IBAN
+                    is_customer: Est un client
+                    is_supplier: Est un fournisseur
+                    mean: Moyens
+                    name: Nom
+                    seed_producer: Producteur de semence
+                    seed_producer_code: Code producteur de semence
+                    sent: Envoyé
+                    siret: SIRET
+                    source: Source
+                    supplier_code: Code fournisseur
+                    type: Type
+                    updated_at: Mis à jour le
+                    url: URL
+                    vat: TVA
+            show:
+                label:
+                    active: Actif
+                    category.name: Nom
+                    circles: Groupes
+                    created_at: Créé le
+                    date: Date
+                    description: Description
+                    email: Email
+                    fulltext_name: Nom complet
+                    iban: IBAN
+                    individuals: Individus
+                    is_customer: Est un client
+                    is_seed_producer: Producteur de semence
+                    is_supplier: Est un fournisseur
+                    mean: Moyens
+                    plots: Parcelles
+                    seed_batches: Lots
+                    sent: Envoyé
+                    siret: SIRET
+                    source: Source
+                    updated_at: Mis à jour le
+                    vat: TVA
+        address:
+            list: ~
+            filter: ~
+            form:
+                label:
+                    city: Ville
+                    country_code: Code pays
+                    first_name: Prénom
+                    last_name: Nom
+                    npai: NPAI
+                    post_code: Code postal
+                    street: Rue
+            show: ~
+        organism_phone:
+            list: ~
+            filter: ~
+            form:
+                label:
+                    phone_type: Type
+                    number: Numéro
+            show:
+                label:
+                    default_phone: Téléphone principal
     label:
         default_address: Adresse principale
     error:
