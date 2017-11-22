@@ -21,7 +21,6 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-    - UPSTREAM_URL=https://github.com/libre-informatique/CRMBundle.git
     - XMLLINT_INDENT="    "
 
 matrix:
@@ -39,7 +38,6 @@ matrix:
     - env: SONATA_BLOCK=dev-master@dev
 
 before_install:
-  - git remote add upstream ${UPSTREAM_URL} && git fetch --all
   - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
   - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
   - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
