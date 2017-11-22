@@ -4,6 +4,7 @@ sil:
             position_type: Type de position
             organism: Tiers
             circle: Groupe
+            category: Catégorie
         organism:
             breadcrumb:
                 link:
@@ -126,6 +127,7 @@ sil:
         circle:
             breadcrumb:
                 link:
+                    create: Nouveau groupe
                     list: Liste des groupes
             list:
                 label:
@@ -175,6 +177,29 @@ sil:
             show:
                 label:
                     name: Nom
+        category:
+            breadcrumb:
+                link:
+                    create: Nouvelle catégorie
+                    list: Liste des catégories
+            filter:
+                label:
+                    name: Nom
+            list:
+                label:
+                    action: Action
+                    name: Nom
+            form:
+                label:
+                    name: Nom
+                    tree_parent: Parent
+            list:
+                label:
+                    category: Catégorie
+
+
+
+
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'
