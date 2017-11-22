@@ -91,6 +91,8 @@ sil:
                     is_seed_producer: Producteur de semence
                     is_supplier: Est un fournisseur
                     mean: Moyens
+                    organism: Tiers
+                    organizations: Organisations
                     plots: Parcelles
                     seed_batches: Lots
                     sent: Envoyé
@@ -119,6 +121,8 @@ sil:
             show:
                 label:
                     default_phone: Téléphone principal
+                    phone_type: Type
+                    number: Numéro
         circle:
             breadcrumb:
                 link:

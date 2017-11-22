@@ -17,7 +17,7 @@
                 {% endif %}
                 <table class="table li-crm-phone blast-show-collection-element">
                     <tbody>
-                        <tr class="sonata-ba-view-container">
+                        <!-- <tr class="sonata-ba-view-container">
                             <th colspan="2">
                                 {% block phone %}
                                     {% if phone_admin.isGranted('SHOW') %}
@@ -27,7 +27,7 @@
                                     {% endif %}
                                 {% endblock %}
                             </th>
-                        </tr>
+                        </tr> -->
                         <tr class="sonata-ba-view-container">
                             {{ fields['phoneType']|render_view_element(phone) }}
                         </tr>
