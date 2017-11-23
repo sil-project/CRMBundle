@@ -13,6 +13,9 @@ namespace Sil\Bundle\CRMBundle\Controller;
 
 use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismPhone;
+use Sil\Bundle\CRMBundle\Entity\AddressInterface;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -90,8 +93,8 @@ class OrganismAdminController extends CRUDController
     public function setDefaultAddressAction($organismId, $addressId)
     {
         $manager = $this->getDoctrine()->getManager();
-        $organism = $manager->getRepository('SilCRMBundle:Organism')->find($organismId);
-        $address = $manager->getRepository('SilCRMBundle:Address')->find($addressId);
+        $organism = $manager->getRepository(OrganismInterface::class)->find($organismId);
+        $address = $manager->getRepository(AddressInterface::class)->find($addressId);
 
         if ($organism->hasAddress($address)) {
             $organism->setDefaultAddress($address);
@@ -109,8 +112,8 @@ class OrganismAdminController extends CRUDController
     public function setDefaultPhoneAction($organismId, $phoneId)
     {
         $manager = $this->getDoctrine()->getManager();
-        $organism = $manager->getRepository('SilCRMBundle:Organism')->find($organismId);
-        $phone = $manager->getRepository('SilCRMBundle:OrganismPhone')->find($phoneId);
+        $organism = $manager->getRepository(OrganismInterface::class)->find($organismId);
+        $phone = $manager->getRepository(OrganismPhone::class)->find($phoneId);
 
         if ($organism->hasPhone($phone)) {
             $organism->setDefaultPhone($phone);

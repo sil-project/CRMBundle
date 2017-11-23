@@ -51,7 +51,7 @@ class InitCirclesCommand extends ContainerAwareCommand
         $app_circles = $sil_crm['Circle']['app_circles'];
         foreach ($app_circles as $app_circle) {
             $exists = false;
-            $circle = $em->getRepository('SilCRMBundle:Circle')->findOneById($app_circle['id']);
+            $circle = $em->getRepository(Circle::class)->findOneById($app_circle['id']);
             if (!$circle) {
                 $output->write(sprintf('Creating circle "%s" (id: %s)', $app_circle['name'], $app_circle['id']));
                 $circle = $this->createCircle($em, $app_circle['id']);
