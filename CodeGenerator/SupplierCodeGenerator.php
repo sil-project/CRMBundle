@@ -17,8 +17,8 @@ use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class SupplierCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
-    const ENTITY_FIELD = 'supplierCode';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'supplierCode';
 
     /**
      * @var EntityManager

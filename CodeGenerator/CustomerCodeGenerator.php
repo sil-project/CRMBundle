@@ -17,8 +17,8 @@ use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class CustomerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
-    const ENTITY_FIELD = 'customerCode';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'customerCode';
 
     /**
      * @var EntityManager
