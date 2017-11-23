@@ -16,6 +16,7 @@ sil:
                     active: Actif
                     alert: Alerte
                     circles: Groupes
+                    customer: Client
                     customer_code: Code client
                     email: Email
                     fulltext_name: Nom complet
@@ -46,27 +47,31 @@ sil:
                     add: Ajouter
                 label:
                     active: Actif
+                    catalogue_send_mean: 'Méthode d''envoi'
+                    catalogue_sent: Catalogue envoyé
+                    catalogue_type: Type du catalogue
                     alert: Alerte
                     circles: Groupes
                     created_at: Créé le
                     customer_code: Code client
-                    date: Date
                     description: Description
                     email: Email
                     email_no_newsletter: Pas de newsletter
                     email_npai: NPAI
+                    firstname: Prénom
+                    first_catalogue_sent_date: Date du premier envoi
                     iban: IBAN
                     is_customer: Est un client
                     is_supplier: Est un fournisseur
-                    mean: Moyens
+                    lastname: Nom
+                    last_catalogue_sent_date: Date du dernier envoi
                     name: Nom
                     seed_producer: Producteur de semence
                     seed_producer_code: Code producteur de semence
-                    sent: Envoyé
                     siret: SIRET
                     source: Source
                     supplier_code: Code fournisseur
-                    type: Type
+                    title: Titre / Civilité
                     updated_at: Mis à jour le
                     url: URL
                     vat: TVA
@@ -79,18 +84,23 @@ sil:
             show:
                 label:
                     active: Actif
+                    catalogue_send_mean: 'Méthode d''envoi'
+                    catalogue_sent: Catalogue envoyé
+                    catalogue_type: Type du catalogue
                     category.name: Nom
                     circles: Groupes
                     created_at: Créé le
                     date: Date
                     description: Description
                     email: Email
+                    first_catalogue_sent_date: Date du premier envoi
                     fulltext_name: Nom complet
                     iban: IBAN
                     individuals: Individus
                     is_customer: Est un client
                     is_seed_producer: Producteur de semence
                     is_supplier: Est un fournisseur
+                    last_catalogue_sent_date: Date du dernier envoi
                     mean: Moyens
                     organism: Tiers
                     organizations: Organisations
