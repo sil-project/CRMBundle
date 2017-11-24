@@ -53,31 +53,29 @@ class PositionAdmin extends CoreAdmin
 
     public static function individualsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass() . 'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
-        $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
-            ->where('s.keyword LIKE :value')
-            ->andWhere("$alias.isIndividual = true")
-            ->setParameter('value', "%$value%")
-        ;
+            ->andWhere('o.isIndividual = true');
+
+        // @TODO: Refactor this callback
+        $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
+        $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
+        $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 
     public static function organizationsCallback($admin, $property, $value)
     {
-        $searchIndex = $admin->getClass() . 'SearchIndex';
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
-        $alias = $queryBuilder->getRootalias();
 
         $queryBuilder
-            ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
-            ->where('s.keyword LIKE :value')
-            ->andWhere("$alias.isIndividual = false")
-            ->setParameter('value', "%$value%")
-        ;
+            ->andWhere('o.isIndividual = false');
+
+        // @TODO: Refactor this callback
+        $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
+        $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
+        $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 }

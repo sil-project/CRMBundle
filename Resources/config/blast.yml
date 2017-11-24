@@ -660,13 +660,13 @@ parameters:
                     form_tab_position:
                         form_group_general:
                             individual:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 _options:
                                     admin_code: sil_crm.admin.organism
                             organization:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
@@ -846,45 +846,6 @@ parameters:
                                     readonly: true
                                 disabled: true
                                 required: false
-        ### ContactSearchIndex  ###
-        Sil\Bundle\CRMBundle\Entity\ContactSearchIndex:
-            # SHOW
-            Sonata\AdminBundle\Show\ShowMapper:
-                add:
-                    main_tab:
-                        main_group:
-                            id: ~
-                            field: ~
-                            keyword: ~
-
-            # FORM
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    main_tab:
-                        main_group:
-                            id: ~
-                            field: ~
-                            keyword: ~
-
-            # LIST
-            Sonata\AdminBundle\Datagrid\ListMapper:
-                add:
-                    id: ~
-                    field: ~
-                    keyword: ~
-
-                    _actions:
-                        show: ~
-                        edit: ~
-                        delete: ~
-                        duplicate:
-                            template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
-            # FILTERS
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add:
-                    id: ~
-                    field: ~
-                    keyword: ~
 
 ################
 # ADDRESS

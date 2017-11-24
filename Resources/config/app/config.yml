@@ -1,15 +1,17 @@
 blast_base_entities:
-    entity_search_indexes:
-        Sil\Bundle\CRMBundle\Entity\Organism:
+    entity_searchable_indexes:
+        -
+            class: "%sil_crm.entity.organism.class%"
             fields:
                 - name
-                - fulltextName
+                # - fulltextName
                 - firstname
                 - lastname
                 - description
                 - email
                 - url
-        Sil\Bundle\CRMBundle\Entity\Address:
+        -
+            class: "%sil_crm.entity.address.class%"
             fields:
                 - lastName
                 - firstName
@@ -19,7 +21,8 @@ blast_base_entities:
                 - countryCode
                 - provinceCode
                 - provinceName
-        Sil\Bundle\CRMBundle\Entity\Position:
+        -
+            class: "%sil_crm.entity.position.class%"
             fields:
                 - label
                 - description

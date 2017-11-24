@@ -4,9 +4,8 @@
     {% set count = object.countOrganisms() %}
 
     {% if count %}
-        <a href="{{ path('admin_sil_crm_organism_list', {'filter[circles][value]': object.id}) }}">
+        <a href="#">
             {% transchoice count %}{0} No organism|{1} 1 organism|[2, Inf[ %count% organisms{% endtranschoice %}
         </a>
     {% endif %}
 {% endblock %}
-
