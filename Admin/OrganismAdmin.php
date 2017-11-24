@@ -207,7 +207,7 @@ class OrganismAdmin extends CoreAdmin
         }
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
-        $codeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'customerCode');
+        $codeGenerator = $registry->getCodeGenerator($this->getClass(), 'customerCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
             $msg = 'Wrong format for customer code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
@@ -220,8 +220,8 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 OrganismInterface::class,
-                 ['customerCode' => $code]
+                $this->getClass(),
+                ['customerCode' => $code]
              );
             if ($organisms) {
                 if ($is_new) {
@@ -265,7 +265,7 @@ class OrganismAdmin extends CoreAdmin
         }
 
         $registry = $this->getConfigurationPool()->getContainer()->get('blast_core.code_generators');
-        $codeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'supplierCode');
+        $codeGenerator = $registry->getCodeGenerator($this->getClass(), 'supplierCode');
         if (!empty($code) && !$codeGenerator->validate($code)) {
             $msg = 'Wrong format for supplier code. It shoud be: ' . $codeGenerator::getHelp();
             $errorElement
@@ -278,8 +278,8 @@ class OrganismAdmin extends CoreAdmin
         if (!empty($code)) {
             $valid = true;
             $organisms = $this->getModelManager()->findBy(
-                 OrganismInterface::class,
-                 ['supplierCode' => $code]
+                $this->getClass(),
+                ['supplierCode' => $code]
              );
             if ($organisms) {
                 if ($is_new) {
