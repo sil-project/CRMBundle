@@ -15,7 +15,6 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sil\Bundle\CRMBundle\Entity\Organism;
-use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Sil\Bundle\CRMBundle\Form\DataTransformer\CustomerCodeTransformer;
 use Sil\Bundle\CRMBundle\Form\DataTransformer\SupplierCodeTransformer;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -28,8 +27,8 @@ class OrganismAdmin extends CoreAdmin
     use HandlesRelationsAdmin;
 
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $translationLabelPrefix = 'sil.crm.organism';
 
     public function createQuery($context = 'list')
@@ -377,5 +376,23 @@ class OrganismAdmin extends CoreAdmin
                 }
             }
         }
+    }
+
+    public function getExportFields()
+    {
+        // @TODO: This export must be done outside sonata
+
+        return [
+            'name',
+            'alert',
+            'email',
+            'url',
+            'description',
+            'createdAt',
+            'updatedAt',
+            'emailNpai',
+            'emailNoNewsletter',
+            'category'
+        ];
     }
 }

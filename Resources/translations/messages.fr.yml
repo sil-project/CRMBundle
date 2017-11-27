@@ -113,6 +113,18 @@ sil:
                     source: Source
                     updated_at: Mis à jour le
                     vat: TVA
+            export:
+                label:
+                    name: Nom
+                    alert: Alerte
+                    email: Email
+                    url: URL
+                    description: Description
+                    created_at: Créé le
+                    updated_at: Mis à jour le
+                    email_npai: Mauvais courriel
+                    email_no_newsletter: Pas de newsletter
+                    category: Categorie
         address:
             form:
                 label:
