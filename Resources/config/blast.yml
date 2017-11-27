@@ -150,8 +150,8 @@ parameters:
                                 type: choice
                                 # @todo change this label
                                 choices:
-                                    sil.crmbundle.organism.collective: 0
-                                    sil.crmbundle.organism.individual: 1
+                                    sil.crm.organism.form.label.collective: 0
+                                    sil.crm.organism.form.label.individual: 1
                                 expanded: true
                                 label: false
                             active:

@@ -54,6 +54,7 @@ sil:
                     circles: Groupes
                     created_at: Créé le
                     customer_code: Code client
+                    collective: Collectif (entreprise, association...)
                     description: Description
                     email: Email
                     email_no_newsletter: Pas de newsletter
@@ -61,6 +62,7 @@ sil:
                     firstname: Prénom
                     first_catalogue_sent_date: Date du premier envoi
                     iban: IBAN
+                    individual: Individu privé
                     is_customer: Est un client
                     is_supplier: Est un fournisseur
                     lastname: Nom
