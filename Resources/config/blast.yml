@@ -401,12 +401,6 @@ parameters:
                             - circles
                             - alert
                             - active
-                    _export_formats:
-                        csv: [name, addresses, alert, email, url, category, administrativeNumber, description, createdAt, updatedAt, vcardUid, npai, emailNpai, emailNoNewsletter, phones]
-                        xls: csv
-                        json: csv
-                        xml: csv
-                        vcard: [name, email, url, description, phones, addresses]
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_crm
                           title: Framacalc de validation
