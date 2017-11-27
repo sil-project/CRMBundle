@@ -729,8 +729,7 @@ parameters:
                         '':
                             circles: ~
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add:
-                    _export_formats: [group]
+                add: ~
 
 ############
 # POSITIONABLE Trait
