@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Country:
     type: entity
-
+    table: sil_crm_country
     fields:
         code:
             type: string
@@ -18,6 +18,5 @@ Sil\Bundle\CRMBundle\Entity\Country:
             orderBy: { 'name': 'ASC' }
 
     indexes:
-        code_index:
+        sil_crm_country_code_index:
             columns: [ code ]
-

@@ -21,7 +21,7 @@ class NormalizerCompilerPass implements CompilerPassInterface
         $service = $container->getDefinition('blast_base_entities.listener.normalize');
         $config = $container->getParameter('sil_crm');
         foreach ($config as $class => $settings) {
-            $class = 'Librinfo\\CRMBundle\\Entity\\' . $class;
+            $class = 'Sil\\Bundle\\CRMBundle\\Entity\\' . $class;
             if (class_exists($class, false) && !empty($settings['normalize'])) {
                 $arg = [$class => $settings['normalize']];
                 $service->addMethodCall('addActions', [$arg]);

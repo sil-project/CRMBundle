@@ -2,9 +2,9 @@
 
 {% block field %}
     {% if object.supplier is defined and object.isSupplier() == true %}
-        <span aria-hidden="true" class="glyphicon glyphicon-ok is-supplier" title="{{ 'sil.label.isSupplier'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-ok is-supplier" title="{{ 'sil.crm.organism.form.label.is_supplier'|trans() }}"></span>
     {% else %}
-        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-supplier" title="{{ 'sil.label.isNotSupplier'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-supplier" title="{{ 'sil.crm.organism.form.label.is_not_supplier'|trans() }}"></span>
     {% endif %}
     {{ object.supplierCode }}
 {% endblock %}

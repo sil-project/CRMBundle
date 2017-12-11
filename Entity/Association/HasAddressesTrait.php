@@ -66,6 +66,10 @@ trait HasAddressesTrait
      */
     public function addAddress(AddressInterface $address)
     {
+        if ($this->addresses === null) {
+            $this->initAddresses();
+        }
+
         if (!$this->addresses->contains($address)) {
             $this->addresses->add($address);
 
@@ -82,6 +86,10 @@ trait HasAddressesTrait
      */
     public function removeAddress(AddressInterface $address)
     {
+        if ($this->addresses === null) {
+            $this->initAddresses();
+        }
+
         if ($this->addresses->contains($address)) {
             $this->addresses->removeElement($address);
 
@@ -100,6 +108,10 @@ trait HasAddressesTrait
      */
     public function getAddresses()
     {
+        if ($this->addresses === null) {
+            $this->initAddresses();
+        }
+
         return $this->addresses;
     }
 }

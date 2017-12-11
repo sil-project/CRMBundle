@@ -1,14 +1,15 @@
 Sil\Bundle\CRMBundle\Entity\City:
     type: entity
+    table: sil_crm_city
     repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
 
     indexes:
-      country_index:
-        columns: [ country_code ]
-      zip_index:
-        columns: [ zip ]
-      city_index:
-        columns: [ city ]
+        sil_crm_city_country_index:
+            columns: [ country_code ]
+        sil_crm_city_zip_index:
+            columns: [ zip ]
+        sil_crm_city_city_index:
+            columns: [ city ]
 
     fields:
         country_code:
@@ -20,7 +21,3 @@ Sil\Bundle\CRMBundle\Entity\City:
         city:
             type:       string(255)
             nullable:   false
-
-#TODO : add division (FR: région, US: state), division_code, subdivision (FR: département, US: county), subdivision_code
-
-#TODO : add mulitcolumns unique index

@@ -12,6 +12,7 @@
 namespace Sil\Bundle\CRMBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sil\Bundle\CRMBundle\Entity\Position;
 
 /**
@@ -24,6 +25,11 @@ trait HasPositionsTrait
      */
     protected $positions;
 
+    public function initPositions()
+    {
+        $this->positions = new ArrayCollection();
+    }
+
     /**
      * This function is called by the owning side of the N-N relationship.
      *
@@ -33,6 +39,10 @@ trait HasPositionsTrait
      */
     public function addPosition(Position $position)
     {
+        if ($this->positions === null) {
+            $this->initPositions();
+        }
+
         $this->positions->add($position);
 
         return $this;
@@ -45,6 +55,10 @@ trait HasPositionsTrait
      */
     public function removePosition(Position $position)
     {
+        if ($this->positions === null) {
+            $this->initPositions();
+        }
+
         $this->positions->removeElement($position);
 
         return $this;
@@ -53,8 +67,12 @@ trait HasPositionsTrait
     /**
      * @return Collection
      */
-    public function getPositions()
+    public function getPositions(): Collection
     {
+        if ($this->positions === null) {
+            $this->initPositions();
+        }
+
         return $this->positions;
     }
 }

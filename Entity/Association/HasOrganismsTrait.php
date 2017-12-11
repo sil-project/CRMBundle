@@ -39,6 +39,10 @@ trait HasOrganismsTrait
      */
     public function addOrganism(OrganismInterface $organism)
     {
+        if ($this->organisms === null) {
+            $this->initOrganisms();
+        }
+
         $this->organisms->add($organism);
 
         return $this;
@@ -51,6 +55,10 @@ trait HasOrganismsTrait
      */
     public function removeOrganism(OrganismInterface $organism)
     {
+        if ($this->organisms === null) {
+            $this->initOrganisms();
+        }
+
         $this->organisms->removeElement($organism);
 
         return $this;
@@ -59,8 +67,12 @@ trait HasOrganismsTrait
     /**
      * @return Collection
      */
-    public function getOrganisms()
+    public function getOrganisms(): Collection
     {
+        if ($this->organisms === null) {
+            $this->initOrganisms();
+        }
+
         return $this->organisms;
     }
 }

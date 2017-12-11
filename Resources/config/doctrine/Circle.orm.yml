@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Circle:
     type: entity
-
+    table: sil_crm_circle
     fields:
         code:
             type:       string(255)

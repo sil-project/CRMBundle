@@ -1,8 +1,8 @@
 Sil\Bundle\CRMBundle\Entity\Role:
     type: entity
+    table: sil_crm_role
     fields: ~
     manyToMany:
         contactGroups:
             targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismGroup
             mappedBy: roles
-

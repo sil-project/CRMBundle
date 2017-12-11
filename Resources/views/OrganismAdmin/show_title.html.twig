@@ -1,16 +1,20 @@
 <p style="color: #EEE">
-    {% if object.isIndividual %}
-        {{ 'sil.label.individual'|trans() }}:
-        <b>{{ object.firstName }} {{ object.lastName }}</b>
+    {% if object.id is not null %}
+        {% if object.isIndividual %}
+            {{ 'sil.crm.organism.show.label.individual'|trans() }}:
+            <b>{{ object.firstName }} {{ object.lastName }}</b>
+        {% else %}
+            {{ 'sil.crm.organism.show.label.organization'|trans() }}
+            <b>{{ object.name }}</b>
+        {% endif %}
     {% else %}
-        {{ 'sil.label.organization'|trans() }}
-        <b>{{ object.name }}</b>
+        {{ 'sil.crm.organism.show.label.organism'|trans() }}
     {% endif %}
 
     {% if object.customerCode is not null and object.customerCode != '' %}
-        &nbsp;|&nbsp;{{'sil.label.customer_code'|trans}}: <b>{{object.customerCode}}</b>
+        &nbsp;|&nbsp;{{'sil.crm.organism.show.label.customer_code'|trans}}: <b>{{object.customerCode}}</b>
     {% endif %}
     {% if object.supplierCode is not null and object.supplierCode != '' %}
-        &nbsp;|&nbsp;{{'sil.label.supplier_code'|trans}}: <b>{{object.supplierCode}}</b>
+        &nbsp;|&nbsp;{{'sil.crm.organism.show.label.supplier_code'|trans}}: <b>{{object.supplierCode}}</b>
     {% endif %}
 </p>

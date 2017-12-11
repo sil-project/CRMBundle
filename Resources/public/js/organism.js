@@ -18,7 +18,7 @@ $(document).ready(function() {
             $('#' + prefix + 'name').prop('disabled', true);
 
             $('.sonata-ba-field-' + prefix + 'addresses-firstName').show().find('input').prop('disabled', false);
-            $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('sil.label.last_name', {}, 'messages'));
+            $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('sil.crm.organism.form.label.lastname', {}, 'messages'));
         } else {
             $('#sonata-ba-field-container-' + prefix + 'title').hide();
             $('#' + prefix + 'title').prop('disabled', true);
@@ -30,7 +30,7 @@ $(document).ready(function() {
             $('#sonata-ba-field-container-' + prefix + 'name').show();
 
             $('.sonata-ba-field-' + prefix + 'addresses-firstName').hide().find('input').prop('disabled', true);
-            $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('sil.label.organism_name', {}, 'messages'));
+            $('.sonata-ba-field-' + prefix + 'addresses-lastName').find('label.control-label').html(Translator.trans('sil.crm.organism.form.label.name', {}, 'messages'));
         }
     }
 

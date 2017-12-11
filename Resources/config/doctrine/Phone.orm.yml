@@ -1,6 +1,7 @@
 # user mapping
 Sil\Bundle\CRMBundle\Entity\Phone:
     type: mappedSuperclass
+    table: sil_crm_phone
     fields:
         number:
             type: string
@@ -9,4 +10,3 @@ Sil\Bundle\CRMBundle\Entity\Phone:
             type: string
             length: 255
             nullable: true
-

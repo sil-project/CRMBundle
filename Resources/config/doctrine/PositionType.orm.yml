@@ -1,4 +1,3 @@
 Sil\Bundle\CRMBundle\Entity\PositionType:
     type: entity
-
-    lifecycleCallbacks: {  }
+    table: sil_crm_position_type

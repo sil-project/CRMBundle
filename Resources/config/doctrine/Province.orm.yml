@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Province:
     type: entity
-
+    table: sil_crm_province
     fields:
         code:
             type: string
@@ -21,5 +21,5 @@ Sil\Bundle\CRMBundle\Entity\Province:
             nullable: false
 
     uniqueConstraints:
-        country_provincename_idx:
+        sil_crm_province_country_provincename_idx:
             columns: [ country_id, name ]

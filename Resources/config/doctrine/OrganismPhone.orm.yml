@@ -1,5 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\OrganismPhone:
     type: entity
+    table: sil_crm_organism_phone
     manyToOne:
         organism:
             targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface

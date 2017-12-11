@@ -1,5 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Position:
     type: entity
+    table: sil_crm_position
     fields:
         phone:
             type: string
@@ -36,7 +37,7 @@ Sil\Bundle\CRMBundle\Entity\Position:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: positions
             joinTable:
-                name: ~
+                name: sil_crm_position__circle
                 joinColumns:
                     position_id:
                         referencedColumnName: id

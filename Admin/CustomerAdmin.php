@@ -73,7 +73,7 @@ class CustomerAdmin extends BaseOrganismAdmin
     }
 
     /**
-     * @param SeedProducerCodeGenerator $codeGenerator
+     * @param CustomerCodeGenerator $codeGenerator
      */
     public function setCodeGenerator(CustomerCodeGenerator $codeGenerator)
     {

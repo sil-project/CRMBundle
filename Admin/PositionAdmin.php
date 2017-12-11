@@ -51,7 +51,7 @@ class PositionAdmin extends CoreAdmin
         return true;
     }
 
-    public static function individualsCallback($admin, $property, $value)
+    public function individualsCallback($admin, $property, $value)
     {
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();
@@ -65,7 +65,7 @@ class PositionAdmin extends CoreAdmin
         $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 
-    public static function organizationsCallback($admin, $property, $value)
+    public function organizationsCallback($admin, $property, $value)
     {
         $datagrid = $admin->getDatagrid();
         $queryBuilder = $datagrid->getQuery();

@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Category:
     type: entity
-
+    table: sil_crm_category
     fields: ~
 
     oneToMany:

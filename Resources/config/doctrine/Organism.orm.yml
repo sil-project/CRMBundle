@@ -1,5 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Organism:
     type: mappedSuperclass
+    table: sil_crm_organism
     repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
     blast:
         loggable: true
@@ -26,7 +27,7 @@ Sil\Bundle\CRMBundle\Entity\Organism:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
-                name: ~
+                name: sil_crm_organism__circle
                 joinColumns:
                     circle_id:
                         referencedColumnName: id

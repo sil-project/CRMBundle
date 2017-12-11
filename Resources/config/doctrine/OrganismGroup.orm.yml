@@ -1,5 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\OrganismGroup:
     type:  entity
+    table: sil_crm_organism_group
     manyToOne:
         organism:
             targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
@@ -11,7 +12,7 @@ Sil\Bundle\CRMBundle\Entity\OrganismGroup:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Role
             inversedBy: contactGroups
             joinTable:
-                name: ~
+                name: sil_crm_organsim_group__role
                 joinColumns:
                     role_id:
                         referencedColumnName: id

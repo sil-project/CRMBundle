@@ -38,6 +38,10 @@ trait HasContactsTrait
      */
     public function addContact($contact)
     {
+        if ($this->contacts === null) {
+            $this->initContacts();
+        }
+
         $this->contacts->add($contact);
 
         return $this;
@@ -50,6 +54,10 @@ trait HasContactsTrait
      */
     public function removeContact($contact)
     {
+        if ($this->contacts === null) {
+            $this->initContacts();
+        }
+
         $this->contacts->removeElement($contact);
 
         return $this;
@@ -58,8 +66,12 @@ trait HasContactsTrait
     /**
      * @return Collection
      */
-    public function getContacts()
+    public function getContacts(): Collection
     {
+        if ($this->contacts === null) {
+            $this->initContacts();
+        }
+
         return $this->contacts;
     }
 }

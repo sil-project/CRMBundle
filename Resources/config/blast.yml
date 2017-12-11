@@ -656,15 +656,17 @@ parameters:
                             individual:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
-                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
+                                serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
                                 _options:
                                     admin_code: sil_crm.admin.organism
+                                    btn_add: false
                             organization:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
-                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
+                                callback: [sil_crm.admin.position_type, organizationsCallback, callback]
                                 _options:
                                     admin_code: sil_crm.admin.organism
+                                    btn_add: false
                             department: ~
                             positionType:
                                 placeholder: ''

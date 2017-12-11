@@ -2,9 +2,9 @@
 
 {% block field %}
     {% if object.customer is defined and object.isCustomer() == true %}
-        <span aria-hidden="true" class="glyphicon glyphicon-ok is-customer" title="{{ 'sil.label.isCustomer'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-ok is-customer" title="{{ 'sil.crm.organism.form.label.is_customer'|trans() }}"></span>
     {% else %}
-        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-customer" title="{{ 'sil.label.isNotCustomer'|trans() }}"></span>
+        <span aria-hidden="true" class="glyphicon glyphicon-remove is-not-customer" title="{{ 'sil.crm.organism.form.label.is_not_customer'|trans() }}"></span>
     {% endif %}
     {{ object.customerCode }}
 {% endblock %}

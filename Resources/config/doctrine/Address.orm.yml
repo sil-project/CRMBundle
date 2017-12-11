@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Address:
     type: mappedSuperclass
-
+    table: sil_crm_address
     fields:
         firstName:
             type: string

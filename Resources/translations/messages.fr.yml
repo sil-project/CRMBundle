@@ -1,10 +1,16 @@
 sil:
     crm:
         menu_label:
+            crm: Relations Professionnelles
             position_type: Type de position
             organism: Tiers
             circle: Groupe
             category: Catégorie
+            crm_settings: Relations Professionnelles
+            crm_settings_circles: Groupes
+            crm_settings_categories: Catégories
+            crm_settings_position_types: Types de fonctions
+            crm_settings_phone_types: Types de téléphones
         organism:
             breadcrumb:
                 link:
@@ -15,6 +21,7 @@ sil:
                     action: Action
                     active: Actif
                     alert: Alerte
+                    category.name: Catégorie
                     circles: Groupes
                     customer: Client
                     customer_code: Code client
@@ -45,12 +52,14 @@ sil:
                     generateFakeEmail: Générer un email
                     manage: Gérer
                     add: Ajouter
+                    validate_vat: Valider le numéro
                 label:
                     active: Actif
                     catalogue_send_mean: 'Méthode d''envoi'
                     catalogue_sent: Catalogue envoyé
                     catalogue_type: Type du catalogue
                     alert: Alerte
+                    category: Catégorie
                     circles: Groupes
                     created_at: Créé le
                     customer_code: Code client
@@ -64,7 +73,9 @@ sil:
                     iban: IBAN
                     individual: Individu privé
                     is_customer: Est un client
+                    is_not_customer: 'N''est pas un client'
                     is_supplier: Est un fournisseur
+                    is_not_supplier: 'N''est un fournisseur'
                     lastname: Nom
                     last_catalogue_sent_date: Date du dernier envoi
                     name: Nom
@@ -92,12 +103,14 @@ sil:
                     category.name: Nom
                     circles: Groupes
                     created_at: Créé le
+                    customer_code: Code client
                     date: Date
                     description: Description
                     email: Email
                     first_catalogue_sent_date: Date du premier envoi
                     fulltext_name: Nom complet
                     iban: IBAN
+                    individual: Individu
                     individuals: Individus
                     is_customer: Est un client
                     is_seed_producer: Producteur de semence
@@ -105,12 +118,14 @@ sil:
                     last_catalogue_sent_date: Date du dernier envoi
                     mean: Moyens
                     organism: Tiers
+                    organization: Organisation
                     organizations: Organisations
                     plots: Parcelles
                     seed_batches: Lots
                     sent: Envoyé
                     siret: SIRET
                     source: Source
+                    supplier_code: Code fournisseur
                     updated_at: Mis à jour le
                     vat: TVA
             export:
@@ -127,6 +142,8 @@ sil:
                     category: Categorie
         address:
             form:
+                action:
+                    set_default_address: Définir par défaut
                 label:
                     city: Ville
                     country_code: Code pays
@@ -140,6 +157,8 @@ sil:
                     default_address: Adresse principale
         organism_phone:
             form:
+                action:
+                    set_default_phone: Définir par défaut
                 label:
                     phone_type: Type
                     number: Numéro
@@ -182,6 +201,17 @@ sil:
                     organisms_count: Nombre de tiers
                     type: Type
                     updated_at: Mis à jour le
+        position:
+            form:
+                label:
+                    position_type: Type
+                    individual: Individu
+                    department: Département
+                    label: Libélé
+                    email: Email
+                    email_npai: Email NPAI
+                    email_no_newsletter: Pas de newsletter
+                    phone: Téléphone
         position_type:
             breadcrumb:
                 link:
@@ -213,13 +243,12 @@ sil:
                 label:
                     action: Action
                     name: Nom
+                    category: Catégorie
             form:
                 label:
                     name: Nom
                     tree_parent: Parent
-            list:
-                label:
-                    category: Catégorie
+
 
 
 
