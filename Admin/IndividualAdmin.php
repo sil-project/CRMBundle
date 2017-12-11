@@ -17,4 +17,7 @@ class IndividualAdmin extends OrganismAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.crm.individual';
+
+    protected $baseRouteName = 'admin_sil_crm_individual';
+    protected $baseRoutePattern = 'crm/individual';
 }

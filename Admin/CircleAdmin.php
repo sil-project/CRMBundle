@@ -25,6 +25,9 @@ class CircleAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.circle';
 
+    protected $baseRouteName = 'admin_sil_crm_circle';
+    protected $baseRoutePattern = 'crm/circle';
+
     /**
      * {@inheritdoc}
      */

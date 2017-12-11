@@ -24,6 +24,9 @@ class PositionAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.position';
 
+    protected $baseRouteName = 'admin_sil_crm_position';
+    protected $baseRoutePattern = 'crm/position';
+
     /**
      * @param QueryBuilder $queryBuilder
      * @param string       $alias

@@ -19,4 +19,7 @@ class AddressAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.crm.address';
+
+    protected $baseRouteName = 'admin_sil_crm_address';
+    protected $baseRoutePattern = 'crm/address';
 }

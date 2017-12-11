@@ -25,8 +25,8 @@ class OrganismEmbeddedAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.organism';
 
-    // protected $baseRouteName = 'admin_vendor_bundlename_adminclassname';
-    // protected $baseRoutePattern = 'unique-route-pattern';
+    protected $baseRouteName = 'admin_sil_crm_organism';
+    protected $baseRoutePattern = 'crm/organism_embedded';
 
     /**
      * @param DatagridMapper $datagridMapper

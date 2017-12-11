@@ -22,4 +22,7 @@ class RoleAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.crm.role';
+
+    protected $baseRouteName = 'admin_sil_crm_role';
+    protected $baseRoutePattern = 'crm/role';
 }

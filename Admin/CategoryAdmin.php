@@ -22,6 +22,9 @@ class CategoryAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.category';
 
+    protected $baseRouteName = 'admin_sil_crm_category';
+    protected $baseRoutePattern = 'crm/category';
+
     use BaseAdmin,
        NestedTreeableAdmin
     ;

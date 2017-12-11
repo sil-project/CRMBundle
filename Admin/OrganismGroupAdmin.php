@@ -22,4 +22,7 @@ class OrganismGroupAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.crm.organism_group';
+
+    protected $baseRouteName = 'admin_sil_crm_organism_group';
+    protected $baseRoutePattern = 'crm/organism_group';
 }
