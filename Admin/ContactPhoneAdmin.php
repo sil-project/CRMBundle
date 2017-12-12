@@ -23,6 +23,6 @@ class ContactPhoneAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.contact_phone';
 
-    protected $baseRouteName = 'admin_sil_crm_contact_phone';
+    protected $baseRouteName = 'admin_crm_contact_phone';
     protected $baseRoutePattern = 'crm/contact_phone';
 }

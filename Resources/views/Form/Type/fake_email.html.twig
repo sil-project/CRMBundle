@@ -23,7 +23,7 @@
 
                 fieldContainer.prepend(inpuGroup.append(emailInput).append(generateBtn));
             }).on('click', '#fakeEmailContainer_{{id}} .fakeEmailBtn', function() {
-                $.get(Routing.generate('admin_sil_crm_organism_generateFakeEmail'), function(json) {
+                $.get(Routing.generate('admin_crm_organism_generateFakeEmail'), function(json) {
                     fieldContainer.find('#{{id}}').val(json.email);
                 });
             });

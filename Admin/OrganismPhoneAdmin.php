@@ -23,6 +23,6 @@ class OrganismPhoneAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.organism_phone';
 
-    protected $baseRouteName = 'admin_sil_crm_organism_phone';
+    protected $baseRouteName = 'admin_crm_organism_phone';
     protected $baseRoutePattern = 'crm/organism_phone';
 }

@@ -23,6 +23,6 @@ class PositionTypeAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.position_type';
 
-    protected $baseRouteName = 'admin_sil_crm_position_type';
+    protected $baseRouteName = 'admin_crm_position_type';
     protected $baseRoutePattern = 'crm/position_type';
 }

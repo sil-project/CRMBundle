@@ -5,7 +5,7 @@
     <strong>{% transchoice count %}{0} No contact|{1} 1 contact|[2, Inf[ %count% contacts{% endtranschoice %}</strong>
 
     {% if count %}
-        &nbsp; − <a href="{{ path('admin_sil_crm_contact_list', {'filter[circles][value]': object.id}) }}">{{ 'View list'|trans() }}</a>
+        &nbsp; − <a href="{{ path('admin_crm_contact_list', {'filter[circles][value]': object.id}) }}">{{ 'View list'|trans() }}</a>
     {% endif %}
 {% endblock %}
 

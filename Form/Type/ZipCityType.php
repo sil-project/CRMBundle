@@ -46,7 +46,7 @@ class ZipCityType extends AbstractType
 
             // ajax parameters
             'url'                           => '',
-            'route'                         => array('name' => 'admin_sil_crm_city_getAddressAutocompleteItems', 'parameters' => array()),
+            'route'                         => array('name' => 'admin_crm_city_getAddressAutocompleteItems', 'parameters' => array()),
             'req_params'                    => array(),
             'req_param_name_search'         => 'q',
             'req_param_name_page_number'    => '_page',

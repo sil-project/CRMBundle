@@ -28,7 +28,7 @@ class CustomerAdmin extends BaseOrganismAdmin
      */
     private $codeGenerator;
 
-    protected $baseRouteName = 'admin_sil_crm_customer';
+    protected $baseRouteName = 'admin_crm_customer';
     protected $baseRoutePattern = 'crm/customer';
 
     protected $classnameLabel = 'Customer';

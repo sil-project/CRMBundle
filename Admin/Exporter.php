@@ -52,7 +52,7 @@ class Exporter extends CoreExporter
             $em->flush();
 
             // redirect to the list
-            return new RedirectResponse($this->router->generate('admin_sil_crm_circle_edit', array(
+            return new RedirectResponse($this->router->generate('admin_crm_circle_edit', array(
                 'id' => $circle->getId(),
             )));
         break;

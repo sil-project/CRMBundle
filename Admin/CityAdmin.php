@@ -25,7 +25,7 @@ class CityAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.city';
 
-    protected $baseRouteName = 'admin_sil_crm_city';
+    protected $baseRouteName = 'admin_crm_city';
     protected $baseRoutePattern = 'crm/city';
 
     protected $datagridValues = array(

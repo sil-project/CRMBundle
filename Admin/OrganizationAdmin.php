@@ -18,6 +18,6 @@ class OrganizationAdmin extends OrganismAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.organization';
 
-    protected $baseRouteName = 'admin_sil_crm_organization';
+    protected $baseRouteName = 'admin_crm_organization';
     protected $baseRoutePattern = 'crm/organization';
 }

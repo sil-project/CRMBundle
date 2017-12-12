@@ -23,7 +23,7 @@ class PhoneTypeAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.phone_type';
 
-    protected $baseRouteName = 'admin_sil_crm_phone_type';
+    protected $baseRouteName = 'admin_crm_phone_type';
     protected $baseRoutePattern = 'crm/phone_type';
 
     /**

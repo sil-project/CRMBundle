@@ -31,7 +31,7 @@ class OrganismAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.crm.organism';
 
-    protected $baseRouteName = 'admin_sil_crm_organism';
+    protected $baseRouteName = 'admin_crm_organism';
     protected $baseRoutePattern = 'crm/organism';
 
     public function createQuery($context = 'list')

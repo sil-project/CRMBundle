@@ -138,7 +138,7 @@
                                             {% endfor %}
                                             {% if sonata_admin.admin.subject.defaultAddress and nested_group_field.vars.value.id and nested_group_field.vars.value.id != sonata_admin.admin.subject.defaultAddress.id %}
                                                 <a class="btn btn-info btn-sm" href="{{ path(
-                                                        'admin_sil_crm_organism_set_default_address',
+                                                        'admin_crm_organism_set_default_address',
                                                         {
                                                             'organismId': sonata_admin.admin.subject.id,
                                                             'addressId': nested_group_field.vars.value.id
