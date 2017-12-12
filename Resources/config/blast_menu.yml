@@ -1,39 +1,40 @@
 parameters:
-    blast_menu.root:
+    blast_menu:
+        root:
 
-        sil.crm.menu_label.crm:
-            icon: users
-            order: 10000
-            children:
+            sil.crm.menu_label.crm:
+                icon: users
+                order: 10000
+                children:
 
-                sil.crm.menu_label.organism:
-                    icon: address-card
-                    route: admin_crm_organism_list
-                    order: 10
+                    sil.crm.menu_label.organism:
+                        icon: address-card
+                        route: admin_crm_organism_list
+                        order: 10
 
-    blast_menu.settings:
+        settings:
 
-        sil.crm.menu_label.crm_settings:
-            icon: address-card
-            order: 10
-            children:
+            sil.crm.menu_label.crm_settings:
+                icon: address-card
+                order: 10
+                children:
 
-                sil.crm.menu_label.crm_settings_circles:
-                    icon: circle-o-notch
-                    route: admin_crm_circle_list
-                    order: 10
+                    sil.crm.menu_label.crm_settings_circles:
+                        icon: circle-o-notch
+                        route: admin_crm_circle_list
+                        order: 10
 
-                sil.crm.menu_label.crm_settings_categories:
-                    icon: tags
-                    route: admin_crm_category_list
-                    order: 20
+                    sil.crm.menu_label.crm_settings_categories:
+                        icon: tags
+                        route: admin_crm_category_list
+                        order: 20
 
-                sil.crm.menu_label.crm_settings_position_types:
-                    icon: id-badge
-                    route: admin_crm_position_type_list
-                    order: 30
+                    sil.crm.menu_label.crm_settings_position_types:
+                        icon: id-badge
+                        route: admin_crm_position_type_list
+                        order: 30
 
-                sil.crm.menu_label.crm_settings_phone_types:
-                    icon: phone-square
-                    route: admin_crm_phone_type_list
-                    order: 40
+                    sil.crm.menu_label.crm_settings_phone_types:
+                        icon: phone-square
+                        route: admin_crm_phone_type_list
+                        order: 40
