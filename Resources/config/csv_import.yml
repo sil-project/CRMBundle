@@ -1,0 +1,8 @@
+csv_mapping:
+    Sil\Bundle\CRMBundle\Entity\City:
+        delete: true
+        filename: france.csv
+        fields:
+            'pays':        country_code
+            'ville':       city
+            'code postal': zip
