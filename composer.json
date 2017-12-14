@@ -4,7 +4,7 @@
     "description": "CRM Bundle for Symfony",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "stof/doctrine-extensions-bundle": ">=1.2",
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "sparkling/vat-bundle": ">=0.1",
@@ -15,7 +15,7 @@
         "friendsofsymfony/jsrouting-bundle": ">=1.6"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "license": "LGPL-3.0",
@@ -41,5 +41,8 @@
             "Sil\\Bundle\\CRMBundle\\": "."
         }
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }
