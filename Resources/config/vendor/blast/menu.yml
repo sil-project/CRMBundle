@@ -4,7 +4,7 @@ blast_menu:
 
         sil.crm.menu_label.crm:
             icon: users
-            order: 10000
+            order: 10
             children:
 
                 sil.crm.menu_label.organism:
