@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -395,7 +394,7 @@ class OrganismAdmin extends CoreAdmin
             'updatedAt',
             'emailNpai',
             'emailNoNewsletter',
-            'category'
+            'category',
         ];
     }
 }

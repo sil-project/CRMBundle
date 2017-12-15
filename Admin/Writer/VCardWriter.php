@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -117,7 +116,7 @@ class VCardWriter extends BaseWriter
                     $vcard->addAddress('', '', $position['organism.address'], $position['organism.city'], '', $position['organism.zip'], $position['organism.country'], sprintf('%s;POSTAL', 'WORK'));
                 }
 
-                ++$i;
+                $i++;
             }
         }
 
