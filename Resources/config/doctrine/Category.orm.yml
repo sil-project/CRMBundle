@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Category:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_category
     fields: ~
 

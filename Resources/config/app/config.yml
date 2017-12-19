@@ -1,4 +1,5 @@
 imports:
+    - { resource: '@SilCRMBundle/Resources/config/vendor/blast/resource.yml' }
     - { resource: '@SilCRMBundle/Resources/config/vendor/blast/menu.yml' }
 
 blast_base_entities:

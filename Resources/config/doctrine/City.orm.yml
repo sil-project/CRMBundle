@@ -1,7 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\City:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_city
-    repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
 
     indexes:
         sil_crm_city_country_index:

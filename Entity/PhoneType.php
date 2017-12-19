@@ -12,11 +12,10 @@ namespace Sil\Bundle\CRMBundle\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
-use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Sortable;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-class PhoneType
+class PhoneType implements ResourceInterface
 {
     use Guidable,
-        Labelable,
-        Sortable;
+        Labelable;
 }

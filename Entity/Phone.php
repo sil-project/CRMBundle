@@ -11,11 +11,12 @@
 namespace Sil\Bundle\CRMBundle\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * Phone.
  */
-abstract class Phone
+abstract class Phone implements ResourceInterface
 {
     use BaseEntity;
 

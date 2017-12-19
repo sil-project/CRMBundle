@@ -1,0 +1,48 @@
+blast_resource:
+  resources:
+    crm_organism:
+      classes:
+        model:          Sil\Bundle\CRMBundle\Entity\Organism
+        repository: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
+
+    crm_phone_type:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\PhoneType
+
+    crm_phone:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\OrganismPhone
+
+    crm_city:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\City
+        repository: Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
+
+    crm_province:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Province
+
+    crm_country:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Country
+
+    crm_address:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Address
+
+    crm_circle:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Circle
+
+    crm_position:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Position
+
+    crm_category:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\Category
+        repository: Gedmo\Tree\Entity\Repository\NestedTreeRepository
+
+    crm_position_type:
+      classes:
+        model:      Sil\Bundle\CRMBundle\Entity\PositionType

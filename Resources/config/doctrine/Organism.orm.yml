@@ -1,7 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Organism:
     type: mappedSuperclass
     table: sil_crm_organism
-    repositoryClass: Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
     blast:
         loggable: true
 

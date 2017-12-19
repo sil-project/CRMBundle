@@ -894,7 +894,7 @@ parameters:
                     postCode: ~
                     street: ~
                     city: ~
-                    country: ~
+                    countryCode: ~
                     npai: ~
                     _actions:
                         show: ~
@@ -907,7 +907,7 @@ parameters:
                     postCode: ~
                     street: ~
                     city: ~
-                    country: ~
+                    countryCode: ~
                     npai: ~
                     confirmed: ~
                     createdAt: ~

@@ -19,8 +19,9 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
+abstract class OrganismAbstract implements OrganismInterface, VCardableInterface, ResourceInterface
 {
     use BaseEntity,
         Nameable,

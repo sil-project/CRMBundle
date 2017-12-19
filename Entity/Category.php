@@ -15,11 +15,12 @@ use Doctrine\Common\Collections\Collection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * Category.
  */
-class Category
+class Category implements ResourceInterface
 {
     use BaseEntity,
         Nameable,

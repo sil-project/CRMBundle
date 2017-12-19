@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Province:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_province
     fields:
         code:

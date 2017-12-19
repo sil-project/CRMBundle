@@ -10,6 +10,8 @@
 
 namespace Sil\Bundle\CRMBundle\Entity;
 
-interface AddressInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+
+interface AddressInterface extends ResourceInterface
 {
 }

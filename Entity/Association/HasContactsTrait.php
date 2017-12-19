@@ -21,7 +21,7 @@ trait HasContactsTrait
     /**
      * @var Collection
      */
-    private $contacts;
+    protected $contacts;
 
     public function initContacts()
     {

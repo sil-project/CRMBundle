@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\OrganismPhone:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_organism_phone
     manyToOne:
         organism:

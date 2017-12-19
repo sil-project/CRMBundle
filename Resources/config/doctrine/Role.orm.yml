@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Role:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_role
     fields: ~
     manyToMany:

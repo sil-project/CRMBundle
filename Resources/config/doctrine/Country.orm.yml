@@ -1,5 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Country:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_country
     fields:
         code:

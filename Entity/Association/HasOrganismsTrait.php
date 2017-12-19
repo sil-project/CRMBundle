@@ -22,7 +22,7 @@ trait HasOrganismsTrait
     /**
      * @var Collection
      */
-    private $organisms;
+    protected $organisms;
 
     public function initOrganisms()
     {
