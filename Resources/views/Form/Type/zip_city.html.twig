@@ -89,7 +89,9 @@
                 'url':  url ?: path(route.name, route.parameters|default([])),
                 'quietMillis': quiet_millis,
                 'cache': cache ? 'true' : 'false',
-                'data': ajaxData
+                'data': ajaxData,
+                'templateResult': 'function(data) {return data.text;}',
+                'templateSelection': 'function(data) {return data.text;}'
             }
         }|json_encode()|raw }}'
     />

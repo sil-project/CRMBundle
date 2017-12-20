@@ -1,0 +1,26 @@
+fos_elastica:
+    indexes:
+        global:
+            finder: ~
+            use_alias: true
+            index_name: "%blast_search.global_index_name%"
+            types:
+
+                city:
+                    properties:
+                        country_code: ~
+                        zip: ~
+                        city: ~
+                    persistence:
+                        driver: orm
+                        model: "%sil_crm.entity.city.class%"
+                        listener:
+                            defer: true
+                        finder: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+blast_search:
+    templates:
+        -
+            class: "%sil_crm.entity.city.class%"
+            template: SilCRMBundle:Search/Results:City.json.twig

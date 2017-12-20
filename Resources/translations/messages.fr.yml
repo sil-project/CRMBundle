@@ -204,14 +204,15 @@ sil:
         position:
             form:
                 label:
-                    position_type: Type
-                    individual: Individu
                     department: Département
-                    label: Libélé
-                    email: Email
-                    email_npai: Email NPAI
                     email_no_newsletter: Pas de newsletter
+                    email_npai: Email NPAI
+                    email: Email
+                    individual: Individu
+                    label: Libélé
+                    organization: Organisation
                     phone: Téléphone
+                    position_type: Type
         position_type:
             breadcrumb:
                 link:

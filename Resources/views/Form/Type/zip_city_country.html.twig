@@ -1,0 +1,94 @@
+{% set currentCity = attribute(form.parent.vars.value, city_field) %}
+{% set currentZip = attribute(form.parent.vars.value, zip_field) %}
+
+{% if use_city == true %}
+    {% if label_city %}
+        {{ form_label(form[city_field], label_city) }}
+    {% endif %}
+
+    {% include 'BlastSearchBundle:Form/Type:autocomplete.html.twig' with {
+        value:              currentCity,
+        id:                 form[city_field].vars['id'],
+        multiple:           false,
+        value:              form[city_field].vars['value'],
+        full_name:          form[city_field].vars['full_name'],
+        elastic_index:      elastic_index,
+        elastic_type:       elastic_type,
+        ajax_item_id:       'city',
+        ajax_item_label:    'text',
+    } %}
+{% endif %}
+
+{% if use_zip == true %}
+    {% if label_zip %}
+        {{ form_label(form[zip_field], label_zip) }}
+    {% endif %}
+
+    {% include 'BlastSearchBundle:Form/Type:autocomplete.html.twig' with {
+        value:              currentZip,
+        id:                 form[zip_field].vars['id'],
+        multiple:           false,
+        value:              form[zip_field].vars['value'],
+        full_name:          form[zip_field].vars['full_name'],
+        elastic_index:      elastic_index,
+        elastic_type:       elastic_type,
+        ajax_item_id:       'zip',
+        ajax_item_label:    'text',
+    } %}
+{% endif %}
+
+{% if use_country == true %}
+    {% if label_country %}
+        {{ form_label(form[country_field], label_country) }}
+    {% endif %}
+
+    {{ form_widget(form[country_field]) }}
+{% endif %}
+
+{% if use_city == true and use_zip == true %}
+    <script>
+    {% autoescape 'js' %}
+
+        var cityAutocompleteInput = $('#{{ form[city_field].vars['id'] }}_autocomplete_input');
+
+        cityAutocompleteInput.on('change', function(e) {
+            var action = 'remove';
+            var data = null;
+
+            if (typeof e.added !== 'undefined') {
+                action = 'add';
+                data = e.added;
+            } else {
+                data = e.removed;
+            }
+
+            if (typeof(data.new) === 'undefined') {
+                $('#{{ form[zip_field].vars['id'] }}_autocomplete_input')
+                    .select2('data', data)
+                    .data('syncData')(data, action);
+            }
+        });
+
+        var zipAutocompleteInput = $('#{{ form[zip_field].vars['id'] }}_autocomplete_input');
+
+        zipAutocompleteInput.on('change', function(e) {
+            var action = 'remove';
+            var data = null;
+
+            if (typeof e.added !== 'undefined') {
+                action = 'add';
+                data = e.added;
+            } else {
+                data = e.removed;
+            }
+
+            if (typeof(data.new) === 'undefined') {
+                $('#{{ form[city_field].vars['id'] }}_autocomplete_input')
+                    .select2('data', data)
+                    .data('syncData')(data, action);
+            }
+        });
+
+    {% endautoescape %}
+    </script>
+{% endif %}

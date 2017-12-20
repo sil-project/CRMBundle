@@ -7,13 +7,14 @@
         "symfony/symfony": "3.3.*",
         "stof/doctrine-extensions-bundle": ">=1.2",
         "jeroendesloovere/vcard-bundle": ">=1.2",
-        "sparkling/vat-bundle": ">=0.1",
+        "sparkling/vat-bundle": "^0.2",
         "blast-project/resource-bundle": "self.version",
         "blast-project/core-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/utils-bundle": "self.version",
-        "friendsofsymfony/jsrouting-bundle": ">=1.6"
+        "blast-project/search-bundle": "self.version",
+        "friendsofsymfony/jsrouting-bundle": "^2.1"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",

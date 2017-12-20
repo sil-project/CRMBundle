@@ -654,19 +654,13 @@ parameters:
                     form_tab_position:
                         form_group_general:
                             individual:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: individual
                                 required: true
-                                serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
-                                _options:
-                                    admin_code: sil_crm.admin.organism
-                                    btn_add: false
                             organization:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: organization
                                 required: true
-                                callback: [sil_crm.admin.position_type, organizationsCallback, callback]
-                                _options:
-                                    admin_code: sil_crm.admin.organism
-                                    btn_add: false
                             department: ~
                             positionType:
                                 placeholder: ''
@@ -823,15 +817,24 @@ parameters:
                             address:
                                 type: textarea
                                 required: false
-                            zip:
-                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
-                                required: true
-                            city:
-                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
-                                required: true
-                            country:
-                                type: country
-                                required: true
+                            zip_city_country:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityCountryType
+                                elastic_type: city
+                                label_city: sil.crm.address.form.label.city
+                                label_zip: sil.crm.address.form.label.zip
+                                label_country: sil.crm.address.form.label.country
+                                label: false
+                            # zip:
+                            #     type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                            #     elastic_type: city
+                            #     required: true
+                            # city:
+                            #     type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                            #     elastic_type: city
+                            #     required: true
+                            # country:
+                            #     type: country
+                            #     required: true
                             npai: ~
                     form_group_specifics:
                         form_group_communication:
@@ -874,17 +877,19 @@ parameters:
                                 type: text
                                 required: true
                             street: ~
-                            city:
-                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
+                            zip_city_country:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityCountryType
+                                elastic_type: city
+
+                                city_field: city
                                 zip_field: postCode
-                                required: true
-                            postCode:
-                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
-                                zip_field: postCode
-                                required: true
-                            countryCode:
-                                type: country
-                                required: true
+                                country_field: countryCode
+
+                                label_city: sil.crm.address.form.label.city
+                                label_zip: sil.crm.address.form.label.post_code
+                                label_country: sil.crm.address.form.label.country_code
+
+                                label: false
                             npai: ~
 
             # LIST
