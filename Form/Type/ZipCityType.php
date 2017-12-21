@@ -46,7 +46,7 @@ class ZipCityType extends AbstractType
             // ajax parameters
             'url'                           => '',
             'route'                         => array('name' => 'blast_search_term_ajax', 'parameters' => []),
-            'req_params'                    => ['index' => 'global','type' => 'city'],
+            'req_params'                    => ['index' => 'global', 'type' => 'city'],
             'req_param_name_search'         => 'q',
             'req_param_name_page_number'    => 'page',
             'req_param_name_items_per_page' => '_per_page',
