@@ -9,6 +9,7 @@
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "sparkling/vat-bundle": "^0.2",
         "blast-project/resource-bundle": "self.version",
+        "blast-project/resource": "self.version",
         "blast-project/core-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
