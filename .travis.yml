@@ -8,10 +8,7 @@ services:
   - mysql
   - postgresql
   
-sudo: false
-
 cache:
-  pip: true
   directories:
     - $HOME/.composer/cache/files
 
@@ -38,8 +35,6 @@ matrix:
     - env: SONATA_BLOCK=dev-master@dev
 
 before_install:
-  - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
-  - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
   - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
   - if [ -x ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh; fi;
   
