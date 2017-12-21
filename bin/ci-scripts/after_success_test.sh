@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -ev
 
-coveralls -v
+${HOME}/bin/coveralls -v
