@@ -3,6 +3,7 @@ filter:
         - 'vendor/*'
         - 'bin/*'
         - '*.min.js'
+        - 'Tests/*'
 checks:
     php:
         code_rating: true
