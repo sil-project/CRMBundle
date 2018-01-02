@@ -36,6 +36,21 @@ class City implements ResourceInterface
     protected $city;
 
     /**
+     * @var string
+     */
+    protected $insee_code;
+
+    /**
+     * @var float
+     */
+    protected $lat;
+
+    /**
+     * @var float
+     */
+    protected $lng;
+
+    /**
      * Set countryCode.
      *
      * @param string $countryCode
@@ -105,5 +120,53 @@ class City implements ResourceInterface
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInseeCode(): ?string
+    {
+        return $this->insee_code;
+    }
+
+    /**
+     * @param string $insee_code
+     */
+    public function setInseeCode(string $insee_code = null): void
+    {
+        $this->insee_code = $insee_code;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param float $lat
+     */
+    public function setLat(float $lat = null): void
+    {
+        $this->lat = $lat;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    /**
+     * @param float $lng
+     */
+    public function setLng(float $lng = null): void
+    {
+        $this->lng = $lng;
     }
 }

@@ -276,22 +276,30 @@ sil:
                     city: Ville
                     country_code: Code pays
                     zip: Code postal
+                    insee_code: Code INSEE
             form:
                 label:
                     city: Ville
                     country_code: Code pays
                     zip: Code postal
+                    insee_code: Code INSEE
+                    lat: Lat.
+                    lng: Lng.
             list:
                 label:
                     action: Action
                     city: Ville
                     country_code: Code pays
                     zip: Code postal
+                    insee_code: Code INSEE
             show:
                 label:
                     city: Ville
                     country_code: Code pays
                     zip: Code postal
+                    insee_code: Code INSEE
+                    lat: Lat.
+                    lng: Lng.
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'

@@ -6,3 +6,6 @@ csv_mapping:
             'pays':        country_code
             'ville':       city
             'code postal': zip
+            'code insee':  insee_code
+            'latitude':    lat
+            'longitude':   lng

@@ -20,3 +20,12 @@ Sil\Bundle\CRMBundle\Entity\City:
         city:
             type:       string(255)
             nullable:   false
+        insee_code:
+            type:       string(20)
+            nullable:   true
+        lat:
+            type:       float
+            nullable:   true
+        lng:
+            type:       float
+            nullable:   true
