@@ -3,7 +3,6 @@ services:
     sil_crm.admin.individual:
         class: Sil\Bundle\CRMBundle\Admin\IndividualAdmin
         arguments: [~, "%sil_crm.entity.organism.class%", SilCRMBundle:OrganismAdmin]
-        services:
         tags:
             -
                 name: sonata.admin
