@@ -97,6 +97,10 @@ class CityAdmin extends CoreAdmin
             ->add('insee_code')
             ->add('lat')
             ->add('lng')
+            ->add('map', null, [
+                'mapped'   => false,
+                'template' => 'SilCRMBundle:CRUD:show_field_map.html.twig',
+            ])
         ;
     }
 }

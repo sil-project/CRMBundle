@@ -1,6 +1,6 @@
 {% extends 'BlastSearchBundle:Search/Results:result.html.twig' %}
 
-{% set resultUrl = path('admin_crm_city_list', {'id': result.id}) %}
+{% set resultUrl = path('admin_crm_city_show', {'id': result.id}) %}
 
 {% block search_url %}
     {{ resultUrl }}
