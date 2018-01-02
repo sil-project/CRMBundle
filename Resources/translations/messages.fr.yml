@@ -5,12 +5,14 @@ sil:
             position_type: Type de position
             organism: Tiers
             circle: Groupe
+            city: Ville
             category: Catégorie
             crm_settings: Relations Professionnelles
             crm_settings_circles: Groupes
             crm_settings_categories: Catégories
             crm_settings_position_types: Types de fonctions
             crm_settings_phone_types: Types de téléphones
+            crm_settings_cities: Villes
         organism:
             breadcrumb:
                 link:
@@ -249,11 +251,47 @@ sil:
                 label:
                     name: Nom
                     tree_parent: Parent
+        phone_type:
+            breadcrumb:
+                link:
+                    create: Nouveau type de téléphone
+                    list: Liste des types de téléphone
+            filter:
+                label:
+                    label: Libélé
+            form:
+                label:
+                    label: Libélé
+            list:
+                label:
+                    phonetype: Type de téléphone
 
-
-
-
-
+        city:
+            breadcrumb:
+                link:
+                    create: Nouvelle ville
+                    list: Liste des villes
+            filter:
+                label:
+                    city: Ville
+                    country_code: Code pays
+                    zip: Code postal
+            form:
+                label:
+                    city: Ville
+                    country_code: Code pays
+                    zip: Code postal
+            list:
+                label:
+                    action: Action
+                    city: Ville
+                    country_code: Code pays
+                    zip: Code postal
+            show:
+                label:
+                    city: Ville
+                    country_code: Code pays
+                    zip: Code postal
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'

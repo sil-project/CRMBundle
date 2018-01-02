@@ -38,3 +38,8 @@ blast_menu:
                     icon: phone-square
                     route: admin_crm_phone_type_list
                     order: 40
+
+                sil.crm.menu_label.crm_settings_cities:
+                    icon: building
+                    route: admin_crm_city_list
+                    order: 50

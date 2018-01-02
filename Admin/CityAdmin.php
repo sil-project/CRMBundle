@@ -73,6 +73,7 @@ class CityAdmin extends CoreAdmin
             ->add('city')
             ->add('country_code')
         ;
+        parent::configureListFields($listMapper);
     }
 
     /**
