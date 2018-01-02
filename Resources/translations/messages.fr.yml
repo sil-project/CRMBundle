@@ -300,6 +300,7 @@ sil:
                     insee_code: Code INSEE
                     lat: Lat.
                     lng: Lng.
+                    map: Carte
 
 'A customer code is required for customers': 'Un code client est requis pour les clients.'
 'A supplier code is required for suppliers': 'Un code fournisseur est requis pour les fournisseurs.'

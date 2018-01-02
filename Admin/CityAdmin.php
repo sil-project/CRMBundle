@@ -100,6 +100,7 @@ class CityAdmin extends CoreAdmin
             ->add('map', null, [
                 'mapped'   => false,
                 'template' => 'SilCRMBundle:CRUD:show_field_map.html.twig',
+                'label'    => false,
             ])
         ;
     }
