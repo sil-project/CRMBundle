@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.circle:
         class: Sil\Bundle\CRMBundle\Admin\CircleAdmin
-        arguments: [~, %sil_crm.entity.circle.class%, SilCRMBundle:CircleAdmin]
+        arguments: [~, '%sil_crm.entity.circle.class%', SilCRMBundle:CircleAdmin]
         tags:
             -
                 name: sonata.admin

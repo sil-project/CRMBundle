@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.address:
         class: Sil\Bundle\CRMBundle\Admin\AddressAdmin
-        arguments: [~, %sil_crm.entity.address.class%, BlastCoreBundle:CRUD]
+        arguments: [~, '%sil_crm.entity.address.class%', BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin
