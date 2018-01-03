@@ -5,7 +5,7 @@ imports:
 blast_base_entities:
     entity_searchable_indexes:
         -
-            class: "%sil_crm.entity.organism.class%"
+            class: "%sil.model.crm_organism.class%"
             fields:
                 - name
                 # - fulltextName

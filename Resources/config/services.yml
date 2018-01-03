@@ -30,14 +30,14 @@ services:
     sil_crm.code_generator.supplier:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\SupplierCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_crm.code_generator.supplier%', '@doctrine.orm.entity_manager', '%sil_crm.entity.organism.class%']
+        arguments: ['%sil_crm.code_generator.supplier%', '@doctrine.orm.entity_manager', '%sil.model.crm_organism.class%']
         tags:
             - { name: blast.entity_code_generator }
 
     sil_crm.code_generator.customer:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\CustomerCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_crm.code_generator.customer%', '@doctrine.orm.entity_manager', '%sil_crm.entity.organism.class%']
+        arguments: ['%sil_crm.code_generator.customer%', '@doctrine.orm.entity_manager', '%sil.model.crm_organism.class%']
         tags:
             - { name: blast.entity_code_generator }
 

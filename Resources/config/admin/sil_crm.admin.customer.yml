@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.customer:
         class: Sil\Bundle\CRMBundle\Admin\CustomerAdmin
-        arguments: [~, "%sil_crm.entity.organism.class%", SilCRMBundle:OrganismAdmin]
+        arguments: [~, "%sil.model.crm_organism.class%", SilCRMBundle:OrganismAdmin]
         tags:
             -
                 name: sonata.admin
