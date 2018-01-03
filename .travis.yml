@@ -36,7 +36,7 @@ matrix:
 
 before_install:
   - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
-  - if [ -x ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh; fi;
+  - if [ -x ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh; fi;
   
 install:
   - if [ -x ${SCRIPTS_FOLDER}/install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/install_${TARGET}.sh; fi;
