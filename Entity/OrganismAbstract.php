@@ -172,12 +172,12 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     protected $phones;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $individuals;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $organizations;
 
@@ -960,11 +960,11 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Add individual.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Position $individual
+     * @param Position $individual
      *
      * @return Organism
      */
-    public function addIndividual(\Sil\Bundle\CRMBundle\Entity\Position $individual)
+    public function addIndividual(Position $individual)
     {
         $this->individuals[] = $individual;
 
@@ -974,9 +974,9 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Remove individual.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Position $individual
+     * @param Position $individual
      */
-    public function removeIndividual(\Sil\Bundle\CRMBundle\Entity\Position $individual)
+    public function removeIndividual(Position $individual)
     {
         $this->individuals->removeElement($individual);
     }
@@ -984,7 +984,7 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Get individuals.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getIndividuals()
     {
@@ -994,11 +994,11 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Add organization.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Position $organization
+     * @param Position $organization
      *
      * @return Organism
      */
-    public function addOrganization(\Sil\Bundle\CRMBundle\Entity\Position $organization)
+    public function addOrganization(Position $organization)
     {
         $this->organizations[] = $organization;
 
@@ -1008,9 +1008,9 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Remove organization.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Position $organization
+     * @param Position $organization
      */
-    public function removeOrganization(\Sil\Bundle\CRMBundle\Entity\Position $organization)
+    public function removeOrganization(Position $organization)
     {
         $this->organizations->removeElement($organization);
     }
@@ -1018,7 +1018,7 @@ abstract class OrganismAbstract implements OrganismInterface, VCardableInterface
     /**
      * Get organizations.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getOrganizations()
     {
