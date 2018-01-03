@@ -1,5 +1,4 @@
 parameters:
-    sil.model.crm_organism.class:              Sil\Bundle\CRMBundle\Entity\Organism
     sil_crm.entity.role.class:                  Sil\Bundle\CRMBundle\Entity\Role
     sil_crm.entity.circle.class:                Sil\Bundle\CRMBundle\Entity\Circle
     sil_crm.entity.phone_type.class:            Sil\Bundle\CRMBundle\Entity\PhoneType
