@@ -2,33 +2,33 @@ imports:
     - { resource: '@SilCRMBundle/Resources/config/vendor/blast/resource.yml' }
     - { resource: '@SilCRMBundle/Resources/config/vendor/blast/menu.yml' }
 
-blast_base_entities:
-    entity_searchable_indexes:
-        -
-            class: "%sil.model.crm_organism.class%"
-            fields:
-                - name
-                # - fulltextName
-                - firstname
-                - lastname
-                - description
-                - email
-                - url
-        -
-            class: "%sil_crm.entity.address.class%"
-            fields:
-                - lastName
-                - firstName
-                - postCode
-                - street
-                - city
-                - countryCode
-                - provinceCode
-                - provinceName
-        -
-            class: "%sil_crm.entity.position.class%"
-            fields:
-                - label
-                - description
-                - email
-                - department
+# blast_base_entities:
+#     entity_searchable_indexes:
+#         -
+#             class: "%sil.model.crm_organism.class%"
+#             fields:
+#                 - name
+#                 # - fulltextName
+#                 - firstname
+#                 - lastname
+#                 - description
+#                 - email
+#                 - url
+#         -
+#             class: "%sil_crm.entity.address.class%"
+#             fields:
+#                 - lastName
+#                 - firstName
+#                 - postCode
+#                 - street
+#                 - city
+#                 - countryCode
+#                 - provinceCode
+#                 - provinceName
+#         -
+#             class: "%sil_crm.entity.position.class%"
+#             fields:
+#                 - label
+#                 - description
+#                 - email
+#                 - department
