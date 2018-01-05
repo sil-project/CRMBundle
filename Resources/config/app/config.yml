@@ -15,7 +15,7 @@ imports:
 #                 - email
 #                 - url
 #         -
-#             class: "%sil_crm.entity.address.class%"
+#             class: "%sil.model.crm_address.class%"
 #             fields:
 #                 - lastName
 #                 - firstName
@@ -26,7 +26,7 @@ imports:
 #                 - provinceCode
 #                 - provinceName
 #         -
-#             class: "%sil_crm.entity.position.class%"
+#             class: "%sil.model.crm_position.class%"
 #             fields:
 #                 - label
 #                 - description

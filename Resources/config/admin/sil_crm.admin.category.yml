@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.category:
         class: Sil\Bundle\CRMBundle\Admin\CategoryAdmin
-        arguments: [~, "%sil_crm.entity.category.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.crm_category.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.position_type:
         class: Sil\Bundle\CRMBundle\Admin\PositionTypeAdmin
-        arguments: [~, "%sil_crm.entity.position_type.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.crm_position_type.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

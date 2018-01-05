@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.city:
         class: Sil\Bundle\CRMBundle\Admin\CityAdmin
-        arguments: [~, "%sil_crm.entity.city.class%", SilCRMBundle:CityAdmin]
+        arguments: [~, "%sil.model.crm_city.class%", SilCRMBundle:CityAdmin]
         tags:
             -
                 name: sonata.admin

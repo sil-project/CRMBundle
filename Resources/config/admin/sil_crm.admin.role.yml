@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.role:
         class: Sil\Bundle\CRMBundle\Admin\RoleAdmin
-        arguments: [~, "%sil_crm.entity.role.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.crm_role.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

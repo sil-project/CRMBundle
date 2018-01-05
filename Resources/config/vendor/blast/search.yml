@@ -13,7 +13,7 @@ fos_elastica:
                         city: ~
                     persistence:
                         driver: orm
-                        model: "%sil_crm.entity.city.class%"
+                        model: "%sil.model.crm_city.class%"
                         listener:
                             defer: true
                         finder: ~
@@ -22,5 +22,5 @@ fos_elastica:
 blast_search:
     templates:
         -
-            class: "%sil_crm.entity.city.class%"
+            class: "%sil.model.crm_city.class%"
             template: SilCRMBundle:Search/Results:City.html.twig

@@ -2,7 +2,7 @@
 services:
     sil_crm.admin.organism_group:
         class: Sil\Bundle\CRMBundle\Admin\OrganismGroupAdmin
-        arguments: [~, "%sil_crm.entity.organism_group.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.crm_organism_group.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin
