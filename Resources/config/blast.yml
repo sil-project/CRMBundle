@@ -657,10 +657,14 @@ parameters:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
                                 elastic_type: individual
                                 required: true
+                                _options:
+                                    admin_code: sil_crm.admin.organism
                             organization:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
                                 elastic_type: organization
                                 required: true
+                                _options:
+                                    admin_code: sil_crm.admin.organism
                             department: ~
                             positionType:
                                 placeholder: ''
@@ -697,10 +701,11 @@ parameters:
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-                    individual.name: ~
+                    individual.name:
                         #type: doctrine_orm_callback
                         # callback: [Sil\Bundle\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
                         #serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
+                        admin_code: sil_crm.admin.organism
                     organism.name:
                         type: doctrine_orm_string
                     email: ~
