@@ -702,9 +702,8 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     individual.name:
-                        #type: doctrine_orm_callback
-                        # callback: [Sil\Bundle\CRMBundle\Admin\PositionAdmin, individualFilterQueryBuilder]
-                        #serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
+                        type: doctrine_orm_callback
+                        serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
                         admin_code: sil_crm.admin.organism
                     organism.name:
                         type: doctrine_orm_string
