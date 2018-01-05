@@ -1,11 +1,3 @@
 parameters:
     sil.model.crm_role.class:                   Sil\Bundle\CRMBundle\Entity\Role
-    sil.model.crm_circle.class:                 Sil\Bundle\CRMBundle\Entity\Circle
-    sil.model.crm_phone_type.class:             Sil\Bundle\CRMBundle\Entity\PhoneType
-    sil.model.crm_city.class:                   Sil\Bundle\CRMBundle\Entity\City
-    sil.model.crm_category.class:               Sil\Bundle\CRMBundle\Entity\Category
-    sil.model.crm_address.class:                Sil\Bundle\CRMBundle\Entity\Address
-    sil.model.crm_organism_phone.class:         Sil\Bundle\CRMBundle\Entity\OrganismPhone
-    sil.model.crm_position_type.class:          Sil\Bundle\CRMBundle\Entity\PositionType
-    sil.model.crm_position.class:               Sil\Bundle\CRMBundle\Entity\Position
     sil.model.crm_organism_group.class:         Sil\Bundle\CRMBundle\Entity\OrganismGroup
