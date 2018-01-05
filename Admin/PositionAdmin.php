@@ -62,9 +62,9 @@ class PositionAdmin extends CoreAdmin
             ->andWhere('o.isIndividual = true');
 
         // @TODO: Refactor this callback
-        $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
-        $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
-        $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
+        // $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
+        // $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
+        // $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 
     public function organizationsCallback($admin, $property, $value)
@@ -76,8 +76,8 @@ class PositionAdmin extends CoreAdmin
             ->andWhere('o.isIndividual = false');
 
         // @TODO: Refactor this callback
-        $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
-        $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
-        $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
+        // $searchHandler = $this->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
+        // $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
+        // $queryBuilder = $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 }
