@@ -44,6 +44,9 @@ class ZipCityCountryType extends AutocompleteType
 
         $resolver->setDefault('label', null);
         $resolver->setDefault('allow_new_values', true);
+        $resolver->setDefault('empty_data', function (FormInterface $form) {
+            return $this->getDefaultData($form);
+        });
     }
 
     /**
@@ -119,8 +122,13 @@ class ZipCityCountryType extends AutocompleteType
             })
 
             ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($builder, $options) {
+                $form = $event->getForm();
                 $parentForm = $event->getForm()->getParent();
                 $parentData = $parentForm->getData();
+
+                if ($parentData === null) {
+                    $parentData = $this->getDefaultData($form);
+                }
 
                 $propertyAccessor = new PropertyAccessor();
                 if ($options['use_city'] === true) {
@@ -133,6 +141,13 @@ class ZipCityCountryType extends AutocompleteType
                 }
             })
         ;
+    }
+
+    private function getDefaultData(FormInterface $form)
+    {
+        $dataClass = $form->getParent()->getConfig()->getDataClass();
+
+        return new $dataClass();
     }
 
     /**
