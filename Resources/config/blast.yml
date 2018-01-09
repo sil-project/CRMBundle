@@ -342,6 +342,9 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                        _options:
+                            countChildItems:
+                                - phones
                     form_tab_address_book:
                         form_group_other_addresses:
                             addresses:
