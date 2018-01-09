@@ -705,19 +705,11 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     individual.name:
-                        type: doctrine_orm_callback
-                        serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
-                        admin_code: sil_crm.admin.organism
+                        type: doctrine_orm_string
                     organism.name:
                         type: doctrine_orm_string
                     email: ~
                     label: ~
-                 #   _options:
-                 #       fieldsOrder:
-                 #           - individual.name
-                 #           - organization.name
-                 #           - label
-                 #           - email
 
 ############
 # CIRCLABLE Trait
