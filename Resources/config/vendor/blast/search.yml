@@ -1,9 +1,9 @@
 fos_elastica:
     indexes:
         global:
-            finder: ~
             use_alias: true
-            index_name: "%blast_search.global_index_name%"
+            index_name: "%blast_search.elastic_search.global_index_alias%__%kernel.environment%"
+            finder: ~
             types:
 
                 city:
