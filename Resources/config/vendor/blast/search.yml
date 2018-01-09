@@ -2,7 +2,7 @@ fos_elastica:
     indexes:
         global:
             use_alias: true
-            index_name: "%blast_search.elastic_search.global_index_alias%__%kernel.environment%"
+            index_name: "%blast_search.global_index_alias%__%kernel.environment%"
             finder: ~
             types:
 
