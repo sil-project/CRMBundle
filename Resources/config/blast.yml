@@ -360,7 +360,6 @@ parameters:
                                             required: false
                                 required: true
                                 _options:
-                                    sortable: updatedAt
                                     edit: inline
                     _options:
                         tabsOrder:
@@ -875,20 +874,28 @@ parameters:
                             lastName:
                                 type: text
                                 required: true
-                            street: ~
-                            # zip_city_country:
-                            #     type: Sil\Bundle\CRMBundle\Form\Type\ZipCityCountryType
-                            #     elastic_type: city
-                            #
-                            #     city_field: city
-                            #     zip_field: postCode
-                            #     country_field: countryCode
-                            #
-                            #     label_city: sil.crm.address.form.label.city
-                            #     label_zip: sil.crm.address.form.label.post_code
-                            #     label_country: sil.crm.address.form.label.country_code
-                            #
-                            #     label: false
+                            street:
+                                type: text
+                                required: true
+                            postCode:
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: city
+                                required: true
+                                allow_new_values: true
+                                attr:
+                                    data-field-zip-city: postCode
+                                    data-linked-field: city
+                            city:
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: city
+                                required: true
+                                allow_new_values: true
+                                attr:
+                                    data-field-zip-city: city
+                                    data-linked-field: postCode
+                            countryCode:
+                                type: country
+                                required: true
                             npai: ~
 
             # LIST
