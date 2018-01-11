@@ -97,7 +97,6 @@ Sil\Bundle\CRMBundle\Entity\OrganismAbstract:
                 name: default_phone_id
                 onDelete: SET NULL
             cascade: [persist]
-            orphanRemoval: true
 
     oneToMany:
         phones:
