@@ -831,7 +831,7 @@ parameters:
                                 attr:
                                     data-field-zip-city: city
                                     data-linked-field: zip
-                            countryCode:
+                            country:
                                 type: country
                                 required: true
                             npai: ~
@@ -868,6 +868,7 @@ parameters:
                     updatedAt: ~
                     createdBy: ~
                     updatedBy: ~
+                    country: ~
                 add:
                     main_tab:
                         main_group:
