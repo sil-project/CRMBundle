@@ -6,13 +6,11 @@ services:
         tags:
             - { name: security.voter }
 
-    # sonata.admin.exporter:
-    #     class: Sil\Bundle\CRMBundle\Admin\Exporter
-    #     calls:
-    #         - [setTokenStorage, ['@security.token_storage']]
-    #         - [setTranslator, ['@translator']]
-    #         - [setTwig, ['@twig']]
-    #         - [setRouter, ['@router']]
+    sil_crm.hooks.layout.javascripts:
+        parent: blast_utils.hooks.abstract_hook
+        class: Sil\Bundle\CRMBundle\Hook\Layout\Javascripts
+        tags:
+            - { name: blast.hook, hook: layout.javascripts, template: SilCRMBundle:Hook/Layout:javascripts.html.twig }
 
     # repository as a service
     sil_crm.repository.circle:
@@ -43,11 +41,6 @@ services:
 
 ### FORM TYPES ###
 
-    sil_crm.form.type.zipcity:
-        class: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
-        tags:
-            - { name: form.type, alias: sil_zip_city }
-
     sil_crm.form.type.main_address:
         class: Sil\Bundle\CRMBundle\Form\Type\MainAddressType
         tags:
@@ -66,3 +59,15 @@ services:
 ### BLAST CALLBACKS ###
     sil.crm.filters.customer:
         class: Sil\Bundle\CRMBundle\Services\Filters\OrganismFilter
+
+    sil_crm.form.data_transformer.city_data_transformer:
+        shared: false
+        class: Sil\Bundle\CRMBundle\Form\DataTransformer\CityDataTransformer
+        calls:
+            - [setCityRepository, ['@sil.repository.crm_city']]
+
+    sil_crm.form.data_transformer.city_view_transformer:
+        shared: false
+        class: Sil\Bundle\CRMBundle\Form\DataTransformer\CityViewTransformer
+        calls:
+            - [setCityRepository, ['@sil.repository.crm_city']]

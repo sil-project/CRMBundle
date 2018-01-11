@@ -1,11 +1,19 @@
+if (LI === undefined)
+    var LI = {};
+
 $(document).ready(function() {
+    LI.handleZipCity();
+}).on('sonata.add_element', function() {
+    LI.handleZipCity();
+});
+
+LI.handleZipCity = function() {
     var fields = $('*[data-field-zip-city]');
 
     fields.each(function(i, item) {
+        var groupFormGroup = $(item).closest('.sonata-ba-collapsed-fields');
 
-        var linkedField = $('*[data-field-zip-city="' + $(item).attr('data-linked-field') + '"]');
-
-        console.info(linkedField);
+        var linkedField = $(groupFormGroup).find('*[data-field-zip-city="' + $(item).attr('data-linked-field') + '"]');
 
         $(item).on('change', function(e) {
             var action = 'remove';
@@ -25,4 +33,4 @@ $(document).ready(function() {
             }
         });
     });
-});
+};

@@ -11,9 +11,12 @@
 namespace Sil\Bundle\CRMBundle\Admin;
 
 use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Sil\Bundle\CRMBundle\Admin\Traits\ZipCityFormEventsHandler;
+use Sonata\AdminBundle\Form\FormMapper;
 
 class AddressAdmin extends CoreAdmin
 {
+    use ZipCityFormEventsHandler;
     /**
      * @var string
      */
@@ -21,4 +24,17 @@ class AddressAdmin extends CoreAdmin
 
     protected $baseRouteName = 'admin_crm_address';
     protected $baseRoutePattern = 'crm/address';
+
+    /**
+     * @param FormMapper $mapper
+     */
+    protected function configureFormFields(FormMapper $mapper)
+    {
+        parent::configureFormFields($mapper);
+
+        $this->handleZipCityFormType($mapper, [
+            'city'     => 'city',
+            'postCode' => 'zip',
+        ]);
+    }
 }
