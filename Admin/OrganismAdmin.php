@@ -162,14 +162,14 @@ class OrganismAdmin extends CoreAdmin
             $this->getModelManager()->delete($phone);
         }
 
-        foreach ($organism->getAddresses() as $phone) {
-            $this->getModelManager()->delete($phone);
+        foreach ($organism->getAddresses() as $address) {
+            $this->getModelManager()->delete($address);
         }
 
         parent::preRemove($organism);
     }
 
-    public function preBatchAction($actionName, \Sonata\AdminBundle\Datagrid\ProxyQueryInterface $query, array &$idx, $allElements)
+    public function preBatchAction($actionName, ProxyQueryInterface $query, array &$idx, $allElements)
     {
         parent::preBatchAction($actionName, $query, $idx, $allElements);
     }

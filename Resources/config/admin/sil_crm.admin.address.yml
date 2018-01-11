@@ -10,5 +10,3 @@ services:
                 group: admin
                 label: sil.crm.menu_label.address
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
-        calls:
-            - [ setTemplate, [edit, SilCRMBundle:AddressAdmin:edit.html.twig]]

@@ -95,11 +95,8 @@ class OrganismAdminController extends CRUDController
         $organism = $manager->getRepository(OrganismInterface::class)->find($organismId);
         $address = $manager->getRepository(AddressInterface::class)->find($addressId);
 
-        if ($organism->hasAddress($address)) {
+        if ($organism->getAddresses()->contains($address)) {
             $organism->setDefaultAddress($address);
-            $address->setOrganism($organism);
-            $manager->persist($organism);
-            $manager->persist($address);
             $manager->flush();
         }
 

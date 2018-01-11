@@ -51,8 +51,8 @@ trait HasAddressesTrait
     {
         $this->defaultAddress = $defaultAddress;
 
-        if (null !== $defaultAddress) {
-            $this->addAddress($defaultAddress);
+        if ($defaultAddress !== null && !$this->addresses->contains($defaultAddress)) {
+            $this->addresses->add($defaultAddress);
         }
 
         return $this;
