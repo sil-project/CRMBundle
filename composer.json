@@ -16,7 +16,7 @@
         "blast-project/utils-bundle": "self.version",
         "blast-project/search-bundle": "self.version",
         "friendsofsymfony/jsrouting-bundle": "^2.1",
-        "lootils/uuid": "^1.0"
+        "ramsey/uuid": "^3.7"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",

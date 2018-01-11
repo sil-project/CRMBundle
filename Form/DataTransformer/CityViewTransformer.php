@@ -13,7 +13,7 @@ namespace Sil\Bundle\CRMBundle\Form\DataTransformer;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Lootils\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 class CityViewTransformer implements DataTransformerInterface
 {
