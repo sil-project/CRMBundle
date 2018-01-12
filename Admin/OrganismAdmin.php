@@ -68,8 +68,9 @@ class OrganismAdmin extends CoreAdmin
     /**
      * @param FormMapper $mapper
      */
-    protected function postConfigureFormFields(FormMapper $mapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
+        parent::configureFormFields($mapper);
         $subject = $this->getSubject();
 
         if ($subject->getId()) {
@@ -107,8 +108,9 @@ class OrganismAdmin extends CoreAdmin
     /**
      * @param ShowMapper $mapper
      */
-    protected function postConfigureShowFields(ShowMapper $mapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
+        parent::configureShowFields($mapper);
         $subject = $this->getSubject();
 
         if ($subject) {

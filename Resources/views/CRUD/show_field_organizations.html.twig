@@ -7,9 +7,12 @@ TODO: put each organization in its own box (pseudo groups)
 
 #}
 
-{% block field %}
+{% block field %}%}
     {% set elems = field_description.associationadmin.show.elements %}
     {% set organism_admin = elems['organization'].associationadmin %}
+
+    {# WARNING : calling « organism_admin.show.elements » trigger twice the configureShowFields #}
+
     {% set organization_elems = organism_admin.show.elements %}
 
     <div class="blast-show-collection" data-field-name="{{field_description.name}}">
