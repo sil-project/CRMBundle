@@ -816,18 +816,14 @@ parameters:
                                 type: textarea
                                 required: false
                             zip:
-                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: city
-                                required: true
-                                allow_new_values: true
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipOrCityType
+                                targetField: zip
                                 attr:
                                     data-field-zip-city: zip
                                     data-linked-field: city
                             city:
-                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: city
-                                required: true
-                                allow_new_values: true
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipOrCityType
+                                targetField: city
                                 attr:
                                     data-field-zip-city: city
                                     data-linked-field: zip

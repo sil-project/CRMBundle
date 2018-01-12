@@ -71,3 +71,11 @@ services:
         class: Sil\Bundle\CRMBundle\Form\DataTransformer\CityViewTransformer
         calls:
             - [setCityRepository, ['@sil.repository.crm_city']]
+
+    sil_crm.form.type.zip_or_city_type:
+        class: Sil\Bundle\CRMBundle\Form\Type\ZipOrCityType
+        calls:
+            - [setDataTransformer, ['@sil_crm.form.data_transformer.city_data_transformer']]
+            - [setViewTransformer, ['@sil_crm.form.data_transformer.city_view_transformer']]
+        tags:
+            - { name: form.type }
