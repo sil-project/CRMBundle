@@ -264,6 +264,8 @@ sil:
                     label: Libélé
             list:
                 label:
+                    action: Action
+                    label: Libélé
                     phonetype: Type de téléphone
 
         city:
