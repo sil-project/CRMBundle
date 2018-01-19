@@ -168,7 +168,6 @@ parameters:
                                 type: text
                             name:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
-                                return_link: true
                                 attr:
                                     maxlength: 35
                             isCustomer: ~
@@ -198,7 +197,6 @@ parameters:
                             url: ~
                             email:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
-                                return_link: true
                                 required: true
                             emailNpai: ~
                             emailNoNewsletter: ~
