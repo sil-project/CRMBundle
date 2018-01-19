@@ -1,11 +1,12 @@
 fos_elastica:
     indexes:
-        global:
-            use_alias: true
-            index_name: "%blast_search.global_index_alias%__%kernel.environment%"
+        -
+            use_alias: false
+            name: "%blast_search.global_index_alias%_%kernel.environment%_city"
             finder: ~
+            settings:
+                index.max_result_window: 100000
             types:
-
                 city:
                     properties:
                         country_code: ~

@@ -50,7 +50,7 @@ class ZipOrCityType extends AutocompleteType
         parent::configureOptions($resolver);
 
         $resolver->setDefault('allow_new_values', true);
-        $resolver->setDefault('elastic_type', 'city');
+        $resolver->setDefault('elastic_index', 'city');
         $resolver->setDefault('targetField', 'city');
     }
 

@@ -657,13 +657,13 @@ parameters:
                         form_group_general:
                             individual:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: individual
+                                elastic_index: individual
                                 required: true
                                 _options:
                                     admin_code: sil_crm.admin.organism
                             organization:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: organization
+                                elastic_index: organization
                                 required: true
                                 _options:
                                     admin_code: sil_crm.admin.organism
@@ -877,7 +877,7 @@ parameters:
                                 required: true
                             postCode:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: city
+                                elastic_index: city
                                 required: true
                                 allow_new_values: true
                                 attr:
@@ -885,7 +885,7 @@ parameters:
                                     data-linked-field: city
                             city:
                                 type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                                elastic_type: city
+                                elastic_index: city
                                 required: true
                                 allow_new_values: true
                                 attr:
