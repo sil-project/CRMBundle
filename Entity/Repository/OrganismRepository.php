@@ -10,8 +10,8 @@
 
 namespace Sil\Bundle\CRMBundle\Entity\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 
-class OrganismRepository extends EntityRepository
+class OrganismRepository extends ResourceRepository
 {
 }

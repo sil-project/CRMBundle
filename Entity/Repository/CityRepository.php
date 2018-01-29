@@ -10,9 +10,9 @@
 
 namespace Sil\Bundle\CRMBundle\Entity\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 
-class CityRepository extends EntityRepository
+class CityRepository extends ResourceRepository
 {
     /**
      * @param string      $field          the field to search by ("zip" or "city")
