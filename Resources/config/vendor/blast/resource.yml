@@ -1,52 +1,52 @@
 blast_resource:
-  resources:
-    sil.crm_organism:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Organism
-        repository:         Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
-        interfaces:
-          - Sil\Bundle\CRMBundle\Entity\OrganismInterface
+    resources:
+        sil.crm_organism:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Organism
+                repository:         Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository
+                interfaces:
+                    -               Sil\Bundle\CRMBundle\Entity\OrganismInterface
 
-    sil.crm_phone_type:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\PhoneType
+        sil.crm_phone_type:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\PhoneType
 
-    sil.crm_phone:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\OrganismPhone
+        sil.crm_phone:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\OrganismPhone
 
-    sil.crm_city:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\City
-        repository:         Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
+        sil.crm_city:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\City
+                repository:         Sil\Bundle\CRMBundle\Entity\Repository\CityRepository
 
-    sil.crm_province:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Province
+        sil.crm_province:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Province
 
-    sil.crm_country:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Country
+        sil.crm_country:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Country
 
-    sil.crm_address:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Address
-        interfaces:
-          - Sil\Bundle\CRMBundle\Entity\AddressInterface
+        sil.crm_address:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Address
+                interfaces:
+                    -               Sil\Bundle\CRMBundle\Entity\AddressInterface
 
-    sil.crm_circle:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Circle
+        sil.crm_circle:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Circle
 
-    sil.crm_position:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Position
+        sil.crm_position:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Position
 
-    sil.crm_category:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\Category
-        repository:         Gedmo\Tree\Entity\Repository\NestedTreeRepository
+        sil.crm_category:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\Category
+                repository:         Gedmo\Tree\Entity\Repository\NestedTreeRepository
 
-    sil.crm_position_type:
-      classes:
-        model:              Sil\Bundle\CRMBundle\Entity\PositionType
+        sil.crm_position_type:
+            classes:
+                model:              Sil\Bundle\CRMBundle\Entity\PositionType
