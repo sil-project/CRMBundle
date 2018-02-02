@@ -25,46 +25,64 @@ pipeline {
         }
 	stage ('Set Env') {
             steps {
-                sh "ln -fs ${WORKSPACE}/.env.jenkins ${WORKSPACE}/.env"
-                sh "cat ${WORKSPACE}/.env"
+                sh "ln -fs ./.env.jenkins ./.env"
+                sh "cat ./.env"
+                sh "mkdir -p build"
             }
         }
-	stage ('Prepare Host') {
+
+
+        stage ('Prepare') {
             steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
+                sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
             }
         }
+
         stage ('Create Database') {
             steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_table_test.sh"
+                sh "./bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
+                sh "./bin/ci-scripts/do_run.sh create_database_test.sh"
+                sh "./bin/ci-scripts/do_run.sh create_table_test.sh"
 
             }
         }
-        stage ('Build Project') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
+
+        stage('Parallel Install') {
+            parallel {
+                stage ('Install Test') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh install_test.sh"
+                    }
+                }
+
+                stage ('Install Doc') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh install_doc.sh"
+                    }
+                }
             }
         }
-        stage ('Start Project') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
-            }
-	}
+        stage('Parallel Start') {
+            parallel {
+                stage ('Start Project') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh before_script_test.sh"
+                    }
+	        }
 
-        stage ('Start Selenium') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh launch_selenium_test.sh"
+                stage ('Start Selenium') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
+                    }
+	        }
             }
-	}
+        }
 
         stage('Parallel Report') {
             parallel {
-
                 stage ('Run Test') {
                     steps {
-                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
+                        sh "./bin/ci-scripts/do_run.sh run_test.sh"
                         step([
                             $class: 'XUnitBuilder',
                             thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
@@ -73,6 +91,13 @@ pipeline {
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
                     }
 	        }
+
+                stage ('Run Doc') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh run_doc.sh"
+                    }
+                }
+
 
                 stage('Check Style') {
                     steps {
