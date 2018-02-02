@@ -13,6 +13,7 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps()
+        disableConcurrentBuilds()
     }
 
     stages {
@@ -101,14 +102,14 @@ pipeline {
 
                 stage('Check Style') {
                     steps {
-                        sh 'phpcs --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./ || exit 0'
+                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./ || exit 0'
                         checkstyle pattern: 'build/checkstyle.xml'
                     }
                 }
 
                 stage('Copy Paste Detection') {
                     steps {
-                        sh 'phpcpd --log-pmd build/pmd-cpd.xml ./ || exit 0'
+                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml ./ || exit 0'
                         dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
                     }
                 }
