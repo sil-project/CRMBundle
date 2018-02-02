@@ -4,13 +4,19 @@ php:
   - '7.1'
   - nightly
 
+
 services:
-  - mysql
   - postgresql
-  
+  - elasticsearch
+
+sudo: required
+
 cache:
   directories:
+    - $HOME/bin/
     - $HOME/.composer/cache/files
+    - $HOME/.npm/
+    - node_modules
 
 env:
   global:
@@ -18,7 +24,7 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-    - XMLLINT_INDENT="    "
+    - WHORUN=travis
 
 matrix:
   fast_finish: true
@@ -30,25 +36,25 @@ matrix:
   allow_failures:
     - php: nightly
     - env: SYMFONY_DEPRECATIONS_HELPER=0
-    - env: SYMFONY=dev-master@dev
-    - env: SONATA_CORE=dev-master@dev
-    - env: SONATA_BLOCK=dev-master@dev
 
 before_install:
-  - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
-  - if [ -x ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh; fi;
-  
+    - ln -s .env.travis .env # Enable env
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh create_table_test.sh
+
 install:
-  - if [ -x ${SCRIPTS_FOLDER}/install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/install_${TARGET}.sh; fi;
+    - ${SCRIPTS_FOLDER}/do_run.sh install_${TARGET}.sh
 
 before_script:
-  - if [ -x ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh; fi;
+    - ${SCRIPTS_FOLDER}/do_run.sh before_script_${TARGET}.sh
 
 script:
-    - if [ -x ${SCRIPTS_FOLDER}/run_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/run_${TARGET}.sh; fi;
+    - travis_wait 42 ${SCRIPTS_FOLDER}/do_run.sh run_${TARGET}.sh
 
 after_success:
-    - if [ -x ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh; fi;
+    -  ${SCRIPTS_FOLDER}/do_run.sh after_success_${TARGET}.sh
 
 after_failure:
-    - if [ -x ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh; fi; 
+    -  ${SCRIPTS_FOLDER}/do_run.sh after_failure_${TARGET}.sh

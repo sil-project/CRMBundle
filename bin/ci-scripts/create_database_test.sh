@@ -1,5 +1,23 @@
-#!/usr/bin/env sh
-set -ev
+#!/usr/bin/env bash
+set -v
+
+# TODO share this between script (in an include)
+if [ -f .env ]
+then
+    source .env
+else
+    echo "Please run this script from project root, and check .env file as it is mandatory"
+    echo "If it is missing a quick solution is :"
+    echo "ln -s .env.travis .env"
+    exit 42
+fi
+
+if [ -z "${DBHOST}" ]
+then
+    echo "Please add DBHOST in .env file as it is mandatory"
+    exit 42
+fi
+
 
 # Database creation
 
@@ -15,21 +33,26 @@ set -ev
 ### postgresql
 ###
 
+#psql auto password
+#echo  localhost:5432:*:postgres:postgres24 >> ~/.pgpass
+
 # needed in .travis.yml
 #services:
 #  - postgresql
 # or here :  sudo /etc/init.d/postgresql start
 
+
+psql -w -h ${DBHOST} -c "DROP DATABASE IF EXISTS ${DBAPPNAME};" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "DROP ROLE IF EXISTS ${DBAPPUSER};" -U ${DBROOTUSER}
+
+
 # (we try to create a travis user)
-# psql -c 'CREATE USER travis;' -U postgres
-# psql -c 'ALTER ROLE travis WITH CREATEDB;' -U postgres
+psql -w -h ${DBHOST} -c "CREATE USER ${DBAPPUSER} WITH PASSWORD '${DBAPPPASSWORD}';" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "ALTER ROLE ${DBAPPUSER} WITH CREATEDB;" -U ${DBROOTUSER}
 
-psql -c 'CREATE DATABASE travis;' -U postgres
-psql -c 'ALTER DATABASE travis OWNER TO travis' -U postgres
+psql -w -h ${DBHOST} -c "CREATE DATABASE ${DBAPPNAME};" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "ALTER DATABASE ${DBAPPNAME} OWNER TO ${DBAPPUSER};" -U ${DBROOTUSER}
 
 
-#psql -U postgres -c "CREATE EXTENSION 'uuid-ossp';"
+psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U ${DBROOTUSER} -d ${DBAPPNAME}
 
-###
-###
-###

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -ev
 
 # TODO share this between script (in an include)
 if [ -f .env ]
@@ -12,12 +11,16 @@ else
     exit 42
 fi
 
-export SILURL
-
-
-if [ -n "$PHPUNITCMD" ]
+if [ -z "${DBHOST}" ]
 then
-    $PHPUNITCMD
+    echo "Please add DBHOST in .env file as it is mandatory"
+    exit 42
 fi
 
-#bin/ci-scripts/do_it_for_bundle.sh run test
+psql -w -h ${DBHOST}  -U ${DBROOTUSER} -d ${DBAPPNAME} <<EOF
+SELECT 'Hello ${DBAPPUSER}'
+EOF
+
+psql -w -h ${DBHOST}  -U ${DBROOTUSER} -d ${DBAPPNAME} <<EOF
+SELECT 'Hello ${DBAPPUSER}'
+EOF
