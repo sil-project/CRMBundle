@@ -1,3 +1,8 @@
 parameters:
-    sil.model.crm_role.class:                   Sil\Bundle\CRMBundle\Entity\Role
-    sil.model.crm_organism_group.class:         Sil\Bundle\CRMBundle\Entity\OrganismGroup
+    database_driver: pdo_pgsql
+    database_host: 127.0.0.1
+    database_port: 5432
+    database_name: blast_test
+    database_user: blast_test_user
+    database_password: blast_test
+    secret: 'I love secret'

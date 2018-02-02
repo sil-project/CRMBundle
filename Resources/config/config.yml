@@ -1,0 +1,27 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+parameters:
+    locale: en
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+    form: ~
+    csrf_protection: ~
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    session:
+        # http://symfony.com/doc/current/components/http_foundation/session_testing.html
+        storage_id:  session.storage.mock_file
+    fragments: ~
+    http_method_override: true
+    test: ~
+    php_errors:
+        log: true
+
