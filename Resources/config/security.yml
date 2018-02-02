@@ -1,24 +1,56 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/security.html
-security:
-
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-    providers:
-        in_memory:
-            memory: ~
-
-    firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
-            #form_login: ~
+sil.security:
+    # Checking Controllers and/or Services access
+    method_access_control:
+        'Librinfo\\UIBundle\\Twig\\Extension\\AdminMenu::showAdminMenu$': 'hasRole("ROLE_USER")'
+    # Defining custom Roles hierarchy (as a tree)
+    security.role_hierarchy.roles:
+        ROLE_SUPER_ADMIN:
+            - ROLE_CRM_MANAGER:
+                - ROLE_CRM_CONTACT_MANAGER:
+                    - ROLE_CRM_CONTACT_EDITOR:
+                        - ROLE_CRM_CONTACT_CREATE
+                        - ROLE_CRM_CONTACT_EDIT
+                        - ROLE_CRM_CONTACT_EXPORT
+                        - ROLE_CRM_CONTACT_VIEWER:
+                            - ROLE_CRM_CONTACT_LIST
+                            - ROLE_CRM_CONTACT_VIEW
+                - ROLE_CRM_ORGANISM_MANAGER:
+                    - ROLE_CRM_ORGANISM_EDITOR:
+                        - ROLE_CRM_ORGANISM_CREATE
+                        - ROLE_CRM_ORGANISM_EDIT
+                        - ROLE_CRM_ORGANISM_EXPORT
+                        - ROLE_CRM_ORGANISM_VIEWER:
+                            - ROLE_CRM_ORGANISM_LIST
+                            - ROLE_CRM_ORGANISM_VIEW
+                - ROLE_CRM_CATEGORY_MANAGER:
+                    - ROLE_CRM_CATEGORY_EDITOR:
+                        - ROLE_CRM_CATEGORY_CREATE
+                        - ROLE_CRM_CATEGORY_EDIT
+                        - ROLE_CRM_CATEGORY_EXPORT
+                        - ROLE_CRM_CATEGORY_VIEWER:
+                            - ROLE_CRM_CATEGORY_LIST
+                            - ROLE_CRM_CATEGORY_VIEW
+                - ROLE_CRM_CIRCLE_MANAGER:
+                    - ROLE_CRM_CIRCLE_EDITOR:
+                        - ROLE_CRM_CIRCLE_CREATE
+                        - ROLE_CRM_CIRCLE_EDIT
+                        - ROLE_CRM_CIRCLE_EXPORT
+                        - ROLE_CRM_CIRCLE_VIEWER:
+                            - ROLE_CRM_CIRCLE_LIST
+                            - ROLE_CRM_CIRCLE_VIEW
+                - ROLE_CRM_ROLE_MANAGER:
+                    - ROLE_CRM_ROLE_EDITOR:
+                        - ROLE_CRM_ROLE_CREATE
+                        - ROLE_CRM_ROLE_EDIT
+                        - ROLE_CRM_ROLE_EXPORT
+                        - ROLE_CRM_ROLE_VIEWER:
+                            - ROLE_CRM_ROLE_LIST
+                            - ROLE_CRM_ROLE_VIEW
+                - ROLE_CRM_CONTACTGROUP_MANAGER:
+                    - ROLE_CRM_CONTACTGROUP_EDITOR:
+                        - ROLE_CRM_CONTACTGROUP_CREATE
+                        - ROLE_CRM_CONTACTGROUP_EDIT
+                        - ROLE_CRM_CONTACTGROUP_EXPORT
+                        - ROLE_CRM_CONTACTGROUP_VIEWER:
+                            - ROLE_CRM_CONTACTGROUP_LIST
+                            - ROLE_CRM_CONTACTGROUP_VIEW

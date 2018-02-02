@@ -4,8 +4,13 @@ imports:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_sqlite
-        database_path: "%kernel.root_dir%/var/data/data_test.sqlite"
+        driver: pdo_mysql
+        host: 127.0.0.1
+        port: null
+        dbname: travis
+        user: travis
+        password: ~
         charset: UTF8
     orm:
         auto_mapping: true
+
