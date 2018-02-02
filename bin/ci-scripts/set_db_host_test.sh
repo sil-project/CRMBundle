@@ -38,3 +38,5 @@ then
     chmod 600  $HOME/.pgpass
     cat  $HOME/.pgpass
 fi
+
+cat Tests/Resources/App/config/parameters.yml
