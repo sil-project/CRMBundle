@@ -102,28 +102,28 @@ pipeline {
 
                 stage('Check Style') {
                     steps {
-                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./ || exit 0'
+                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php --ignore=vendor ./ || exit 0'
                         checkstyle pattern: 'build/checkstyle.xml'
                     }
                 }
 
                 stage('Copy Paste Detection') {
                     steps {
-                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml ./ || exit 0'
+                        sh 'phpcpd -q --exclude=vendor --log-pmd build/pmd-cpd.xml ./ || exit 0'
                         dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
                     }
                 }
 
                 stage('Mess Detection') {
                     steps {
-                        sh 'phpmd ./ xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
+                        sh 'phpmd ./ xml phpmd.xml.dist --exclude vendor --reportfile build/pmd.xml || exit 0'
                         pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
                     }
                 }
 
                 stage('Collect Metrics') {
                     steps {
-                        sh "phpmetrics --quiet --report-html=build/metrics.html ./"
+                        sh "phpmetrics --quiet --excluded-dirs=vendor --report-html=build/metrics.html ./"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
                     }
                 }
