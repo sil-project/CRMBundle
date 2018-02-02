@@ -25,11 +25,15 @@ fi
 # sed -e s/'database_host: 127.0.0.1'/'database_host: ${DBHOST}'/g -i app/config/parameters.yml.dist
 if [ -n "${DBHOST}" ]
 then
-    sed -e s/'127.0.0.1'/${DBHOST}/g -i Tests/Resources/App/config/parameters.yml
-    sed -e s/'blast_test_user'/${DBAPPUSER}/g -i Tests/Resources/App/config/parameters.yml
-    sed -e s/'blast_test_password'/${DBAPPPASSWORD}/g -i Tests/Resources/App/config/parameters.yml
-    sed -e s/'blast_test_db'/${DBAPPNAME}/g -i Tests/Resources/App/config/parameters.yml
 
+    if [ -f  Tests/Resources/App/config/parameters.yml ]
+    then
+        sed -e s/'127.0.0.1'/${DBHOST}/g -i Tests/Resources/App/config/parameters.yml
+        sed -e s/'blast_test_user'/${DBAPPUSER}/g -i Tests/Resources/App/config/parameters.yml
+        sed -e s/'blast_test_password'/${DBAPPPASSWORD}/g -i Tests/Resources/App/config/parameters.yml
+        sed -e s/'blast_test_db'/${DBAPPNAME}/g -i Tests/Resources/App/config/parameters.yml
+        cat Tests/Resources/App/config/parameters.yml
+    fi
 
     #TODO
     # should use env var from etcd (for password)
@@ -38,5 +42,3 @@ then
     chmod 600  $HOME/.pgpass
     cat  $HOME/.pgpass
 fi
-
-cat Tests/Resources/App/config/parameters.yml
