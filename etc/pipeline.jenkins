@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            filename "etc/dockerfile.jenkins"
+            filename "/dockerfile.jenkins"
             args '--network=ci.network'
         }
     }
@@ -101,28 +101,28 @@ pipeline {
 
                 stage('Check Style') {
                     steps {
-                        sh 'phpcs --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./src || exit 0'
+                        sh 'phpcs --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./ || exit 0'
                         checkstyle pattern: 'build/checkstyle.xml'
                     }
                 }
 
                 stage('Copy Paste Detection') {
                     steps {
-                        sh 'phpcpd --log-pmd build/pmd-cpd.xml ./src || exit 0'
+                        sh 'phpcpd --log-pmd build/pmd-cpd.xml ./ || exit 0'
                         dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
                     }
                 }
 
                 stage('Mess Detection') {
                     steps {
-                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
+                        sh 'phpmd ./ xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
                         pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
                     }
                 }
 
                 stage('Collect Metrics') {
                     steps {
-                        sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
+                        sh "phpmetrics --quiet --report-html=build/metrics.html ./"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
                     }
                 }
