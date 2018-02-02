@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            filename "/dockerfile.jenkins"
+            filename "etc/dockerfile.jenkins"
             args '--network=ci.network'
         }
     }
