@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/crm-bundle",
+    "name": "sil-project/crm-bundle",
     "type": "symfony-bundle",
     "description": "CRM Bundle for Symfony",
     "require": {
@@ -30,7 +30,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonySilCRMBundle",
+    "homepage": "https://github.com/sil-project/SymfonySilCRMBundle",
     "authors": [
         {
             "name": "Baptiste SIMON",
