@@ -7,12 +7,17 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
+         stopOnFailure="true"
+         syntaxCheck="true"
+	 verbose="true"
+         beStrictAboutOutputDuringTests="false"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         beStrictAboutCoversAnnotation="false"
+         logIncompleteSkipped="false"
          bootstrap="Tests/Resources/bootstrap.php"
 	 >
-  
-  
+
+
   <testsuites>
     <testsuite name="Unit">
       <directory>./Tests/Unit</directory>
@@ -21,8 +26,8 @@
       <directory>./Tests/Functional</directory>
     </testsuite>
   </testsuites>
-  
-  
+
+
   <filter>
     <whitelist>
       <directory>./</directory>
@@ -31,16 +36,26 @@
         <directory>./DataFixtures/</directory>
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
-        <directory>./coverage/</directory>
       </exclude>
     </whitelist>
   </filter>
-  
+
   <php>
     <server name="KERNEL_DIR" value="Tests/Resources/App/" />
     <server name="IS_DOCTRINE_ORM_SUPPORTED" value="true" />
     <ini name="display_errors" value="On" />
     <ini name="display_startup_errors" value="On" />
+    <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
   </php>
-  
+
+ <logging>
+    <log type="coverage-html" target="build/coverage"/>
+    <log type="coverage-clover" target="build/clover.xml"/>
+    <log type="coverage-crap4j" target="build/crap4j.xml"/>
+    <log type="junit" target="build/junit.xml" logIncompleteSkipped="false"/>
+ </logging>
+
+ <listeners>
+   <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+ </listeners>
 </phpunit>
