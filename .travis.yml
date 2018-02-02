@@ -42,7 +42,7 @@ before_install:
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
-    - ${SCRIPTS_FOLDER}/do_run.sh create_table_test.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh create_table_${TARGET}.sh
 
 install:
     - ${SCRIPTS_FOLDER}/do_run.sh install_${TARGET}.sh
