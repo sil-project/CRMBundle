@@ -1,5 +1,5 @@
 {
-    "name": "sil-project/crm-bundle",
+    "name": "libre-informatique/crm-bundle",
     "type": "symfony-bundle",
     "description": "CRM Bundle for Symfony",
     "require": {
