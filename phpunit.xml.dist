@@ -49,7 +49,7 @@
   </php>
 
  <logging>
-    <log type="coverage-html" target="build/coverage"/>
+    <log type="coverage-html" target="build/coverage" lowUpperBound="30" highLowerBound="70"/>
     <log type="coverage-clover" target="build/clover.xml"/>
     <log type="coverage-crap4j" target="build/crap4j.xml"/>
     <log type="junit" target="build/junit.xml" logIncompleteSkipped="false"/>
