@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-// fix encoding issue while running text on different host with different locale configuration
-setlocale(LC_ALL, 'en_US.UTF-8');
 if (file_exists($file = __DIR__ . '/autoload.php')) {
     require_once $file;
 } elseif (file_exists($file = __DIR__ . '/autoload.php.dist')) {
@@ -24,9 +22,4 @@ $files = array_filter(array(
 
 if ($files) {
     require_once current($files);
-}
-
-// try to get outer extension fake file
-if (file_exists($file = __DIR__ . '/autoload_outer_extension.php')) {
-    require_once $file;
 }

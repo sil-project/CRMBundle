@@ -1,0 +1,8 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: 127.0.0.1
+    database_port: 5432
+    database_name: blast_test_db
+    database_user: blast_test_user
+    database_password: blast_test_password
+    secret: 'I love secret'
