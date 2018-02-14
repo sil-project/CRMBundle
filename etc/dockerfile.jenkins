@@ -5,7 +5,7 @@ FROM debian:latest
 
 RUN apt-get update
 
-RUN apt-get install -y apt-transport-https lsb-release ca-certificates git curl wget build-essential g++ unzip net-tools lsof dnsutils vim python-pip python-sphinx
+RUN apt-get install -y apt-transport-https lsb-release ca-certificates git curl wget build-essential g++ unzip net-tools lsof dnsutils vim python-pip
 
 RUN echo "deb http://ftp.debian.org/debian $(lsb_release -sc)-backports main" >> /etc/apt/sources.list && apt-get update
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list && apt-get update
@@ -56,10 +56,11 @@ USER $USER:$GROUP
 WORKDIR $HOME
 
 #should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:$HOME/bin
+ENV PATH=$PATH:$HOME/bin:$HOME/.local/bin/
 
 # Add some before install step to run test faster
 RUN composer self-update --no-progress --stable && composer global config bin-dir ${HOME}/bin
+RUN pip install --upgrade pip
 
 RUN for i in "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction; done
 
@@ -72,6 +73,7 @@ RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-
 RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" && chmod u+x "${HOME}/bin/coveralls"
 
 
+
 # Maybe use a docker shared volume for .composer as cache in all build
 # try to cache some composer & npm package
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
+RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && rm composer.lock &&  composer update --no-ansi --no-interaction --no-scripts --prefer-dist && pip install -r doc/requirements.txt --user && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
