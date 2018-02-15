@@ -71,9 +71,3 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh
 RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz &&  gunzip -f geckodriver-v0.19.1-linux64.tar.gz && tar -xvf geckodriver-v0.19.1-linux64.tar &&  mv geckodriver ${HOME}/bin/
 RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar &&  mv selenium-server-standalone-3.7.0.jar ${HOME}/bin/selenium-server-standalone.jar
 RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" && chmod u+x "${HOME}/bin/coveralls"
-
-
-
-# Maybe use a docker shared volume for .composer as cache in all build
-# try to cache some composer & npm package
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && rm composer.lock &&  composer update --no-ansi --no-interaction --no-scripts --prefer-dist && pip install -r doc/requirements.txt --user && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
