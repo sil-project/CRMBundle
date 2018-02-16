@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-set -ev
+set -ex
 
 coveralls -v

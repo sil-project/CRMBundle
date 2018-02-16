@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-set -ev
+set -ex
 
 composer self-update --stable
 

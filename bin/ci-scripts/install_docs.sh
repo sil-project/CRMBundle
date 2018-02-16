@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-set -ev
+set -ex
 
 pip install -r Resources/doc/requirements.txt --user

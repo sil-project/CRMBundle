@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -v
+set -x
 
 # TODO share this between script (in an include)
 if [ -f .env ]
