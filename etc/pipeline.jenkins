@@ -17,14 +17,14 @@ pipeline {
     }
 
     stages {
-    	stage ('Where Am I') {
+        stage('Where Am I') {
             steps {
                 sh "uname -a"
                 sh "php -v"
                 sh "composer -V"
             }
         }
-	stage ('Set Env') {
+        stage('Set Env') {
             steps {
                 sh "ln -fs ./.env.jenkins ./.env"
                 sh "cat ./.env"
@@ -33,13 +33,13 @@ pipeline {
         }
 
 
-        stage ('Prepare') {
+        stage('Prepare') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
             }
         }
 
-        stage ('Create Database') {
+        stage('Create Database') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
                 sh "./bin/ci-scripts/do_run.sh create_database_test.sh"
@@ -50,13 +50,13 @@ pipeline {
 
         stage('Parallel Install') {
             parallel {
-                stage ('Install Test') {
+                stage('Install Test') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh install_test.sh"
                     }
                 }
 
-                stage ('Install Doc') {
+                stage('Install Doc') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh install_doc.sh"
                     }
@@ -65,23 +65,23 @@ pipeline {
         }
         stage('Parallel Start') {
             parallel {
-                stage ('Start Project') {
+                stage('Start Project') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh before_script_test.sh"
                     }
-	        }
+                }
 
-                stage ('Start Selenium') {
+                stage('Start Selenium') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
                     }
-	        }
+                }
             }
         }
 
         stage('Parallel Report') {
             parallel {
-                stage ('Run Test') {
+                stage('Run Test') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh run_test.sh"
                         step([
@@ -91,9 +91,9 @@ pipeline {
                         ])
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
                     }
-	        }
+                }
 
-                stage ('Run Doc') {
+                stage('Run Doc') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh run_doc.sh"
                     }

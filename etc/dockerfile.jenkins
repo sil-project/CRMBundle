@@ -53,28 +53,29 @@ ENV PATH=$PATH:$HOME/bin:$HOME/.local/bin/
 RUN pip install --upgrade pip
 
 # Add some before install step to run test faster
-RUN composer self-update --no-progress --stable \
-    && composer global config bin-dir ${HOME}/bin \
-    && for i in "hirak/prestissimo" "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction; done \
-    && composer clear-cache
+RUN composer self-update --no-ansi --no-progress --stable \
+    && composer global config bin-dir ${HOME}/bin  --no-ansi\
+    && for i in "hirak/prestissimo" "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction --no-ansi; done \
+    && composer clear-cache --no-ansi
 
-ENV NVM_DIR="$HOME/.nvm"
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash \
-    && [ -s "$NVM_DIR/nvm.sh" ] \
-    && . "$NVM_DIR/nvm.sh" \
-    && nvm install 8.9 \
-    && npm config set color false \
-    && nvm clear-cache \
-    && npm cache clean --force
-
-RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz \
-    && gunzip -f geckodriver-v0.19.1-linux64.tar.gz \
-    && tar -xvf geckodriver-v0.19.1-linux64.tar \
-    && mv geckodriver ${HOME}/bin/ \
-    && rm -f geckodriver-v0.19.1-linux64.tar
-
-RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar \
-    && mv selenium-server-standalone-3.7.0.jar ${HOME}/bin/selenium-server-standalone.jar
-
-RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" \
-    && chmod u+x "${HOME}/bin/coveralls"
+#ENV NVM_DIR="$HOME/.nvm"
+#RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
+#    && [ -s "$NVM_DIR/nvm.sh" ] \
+#    && . "$NVM_DIR/nvm.sh" \
+#    && nvm install 8.9 \
+#    && npm config set color false \
+#    && nvm clear-cache \
+#    && npm cache clean --force
+#
+#RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz \
+#    && gunzip -f geckodriver-v0.19.1-linux64.tar.gz \
+#    && tar -xvf geckodriver-v0.19.1-linux64.tar \
+#    && mv geckodriver ${HOME}/bin/ \
+#    && rm -f geckodriver-v0.19.1-linux64.tar
+#
+#RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar \
+#    && mv selenium-server-standalone-3.7.0.jar ${HOME}/bin/selenium-server-standalone.jar
+#
+#RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" \
+#    && chmod u+x "${HOME}/bin/coveralls"
+#
