@@ -130,6 +130,7 @@ sil:
                     supplier_code: Code fournisseur
                     updated_at: Mis à jour le
                     vat: TVA
+                    url: Site web
             export:
                 label:
                     name: Nom
