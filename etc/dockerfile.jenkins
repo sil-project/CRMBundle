@@ -3,10 +3,15 @@ FROM debian:stable
 # https://issues.jenkins-ci.org/browse/JENKINS-31507
 #as phpcli_for_platform
 
-RUN apt-get update && apt-get install --no-install-recommends -y apt-transport-https lsb-release ca-certificates git curl wget build-essential unzip net-tools lsof postgresql-client python-pip python-setuptools \
+RUN apt-get update && apt-get install --no-install-recommends -y apt-transport-https lsb-release ca-certificates net-tools lsof postgresql-client wget \
+    && apt-get install --no-install-recommends -y git curl build-essential unzip python-pip python-setuptools \
+    && apt-get install --no-install-recommends -y default-jre-headless xvfb dnsutils vim-nox\
     && apt-get autoremove -y && apt-get clean
+
+RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.list.d/firefox.list && apt-get update && apt-get install --no-install-recommends -y firefox\
+    && apt-get autoremove -y && apt-get clean
+
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
-# chromium chromium-l10n
 
 ARG PHPVER=7.1
 RUN echo "deb http://ftp.debian.org/debian $(lsb_release -sc)-backports main" >> /etc/apt/sources.list \
@@ -15,10 +20,12 @@ RUN echo "deb http://ftp.debian.org/debian $(lsb_release -sc)-backports main" >>
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
     && apt-get install --no-install-recommends -y php${PHPVER} php${PHPVER}-cli php${PHPVER}-pgsql php${PHPVER}-mysql php${PHPVER}-curl php${PHPVER}-json php${PHPVER}-gd php${PHPVER}-mcrypt php${PHPVER}-intl php${PHPVER}-sqlite3 php${PHPVER}-gmp php${PHPVER}-geoip php${PHPVER}-mbstring php${PHPVER}-redis php${PHPVER}-xml php${PHPVER}-zip php${PHPVER}-xdebug \
+    && apt-get install --no-install-recommends -y php${PHPVER}-xdebug \
     && apt-get autoremove -y && apt-get clean
 
 RUN echo "phar.readonly = Off" >> /etc/php/${PHPVER}/cli/conf.d/42-phar-readonly.ini \
-    && echo "memory_limit=-1" >> /etc/php/${PHPVER}/cli/conf.d/42-memory-limit.ini
+    && echo "memory_limit=-1" >> /etc/php/${PHPVER}/cli/conf.d/42-memory-limit.ini \
+    && echo "date.timezone=Europe/Paris" >>  /etc/php/${PHPVER}/cli/conf.d/68-date-timezone.ini
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
@@ -47,8 +54,12 @@ RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER \
 
 USER $USER:$GROUP
 WORKDIR $HOME
+
+ENV GOROOT=/usr/local/go
+ENV GOPATH=$HOME/go
 #should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:$HOME/bin:$HOME/.local/bin/
+ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/bin:$HOME/.local/bin/
+
 
 RUN pip install --upgrade pip
 
@@ -58,24 +69,11 @@ RUN composer self-update --no-ansi --no-progress --stable \
     && for i in "hirak/prestissimo" "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction --no-ansi; done \
     && composer clear-cache --no-ansi
 
-#ENV NVM_DIR="$HOME/.nvm"
-#RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
-#    && [ -s "$NVM_DIR/nvm.sh" ] \
-#    && . "$NVM_DIR/nvm.sh" \
-#    && nvm install 8.9 \
-#    && npm config set color false \
-#    && nvm clear-cache \
-#    && npm cache clean --force
-#
-#RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz \
-#    && gunzip -f geckodriver-v0.19.1-linux64.tar.gz \
-#    && tar -xvf geckodriver-v0.19.1-linux64.tar \
-#    && mv geckodriver ${HOME}/bin/ \
-#    && rm -f geckodriver-v0.19.1-linux64.tar
-#
-#RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar \
-#    && mv selenium-server-standalone-3.7.0.jar ${HOME}/bin/selenium-server-standalone.jar
-#
-#RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" \
-#    && chmod u+x "${HOME}/bin/coveralls"
-#
+ENV NVM_DIR="$HOME/.nvm"
+RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
+    && [ -s "$NVM_DIR/nvm.sh" ] \
+    && . "$NVM_DIR/nvm.sh" \
+    && nvm install 8.9 \
+    && npm config set color false -g \
+    && nvm clear-cache \
+    && npm cache clean --force

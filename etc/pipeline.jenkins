@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.jenkins"
-            args '--network=ci.network --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache'
+            args '--network=ci.network --volume $HOME/cache/composer:/home/jenkins/.composer/cache'
         }
     }
 
