@@ -11,7 +11,6 @@
         "blast-project/resource-bundle": "self.version",
         "blast-project/resource": "self.version",
         "blast-project/core-bundle": "self.version",
-        "blast-project/outer-extension-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/utils-bundle": "self.version",
         "blast-project/search-bundle": "self.version",
