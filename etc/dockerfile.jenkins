@@ -48,7 +48,8 @@ ENV GROUP=users
 # RUN mkdir -p $HOME \ && mkdir -p $HOME/bin \ && chown -R $USER:$GROUP $HOME
 
 ARG UID=1004
-RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER \
+ARG GID=100
+RUN useradd -d $HOME -g ${GID} -u ${UID} -m $USER \
     && mkdir -p $HOME/bin \
     && chown -R $USER:$GROUP $HOME
 
