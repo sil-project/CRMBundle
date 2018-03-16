@@ -18,41 +18,20 @@ then
     exit 42
 fi
 
+# Check if database exist before drop and re-create
+psql -w -h ${DBHOST} -U ${DBROOTUSER} -lqt | grep -w ${DBAPPUSER} | grep -w ${DBAPPNAME}
+if [ $? -ne 0 ]
+   then
 
-# Database creation
+       psql -w -h ${DBHOST} -c "DROP DATABASE IF EXISTS ${DBAPPNAME};" -U ${DBROOTUSER}
+       psql -w -h ${DBHOST} -c "DROP ROLE IF EXISTS ${DBAPPUSER};" -U ${DBROOTUSER}
 
-###
-### mysql
-###
+       # (we try to create a travis user)
+       psql -w -h ${DBHOST} -c "CREATE USER ${DBAPPUSER} WITH PASSWORD '${DBAPPPASSWORD}';" -U ${DBROOTUSER}
+       psql -w -h ${DBHOST} -c "ALTER ROLE ${DBAPPUSER} WITH CREATEDB;" -U ${DBROOTUSER}
 
-# (mysql service is started by default by travis for each build instance
-# (mysql travis user is created by travis for each build instance
-# mysql -u travis -e 'CREATE DATABASE travis;' -v
+       psql -w -h ${DBHOST} -c "CREATE DATABASE ${DBAPPNAME};" -U ${DBROOTUSER}
+       psql -w -h ${DBHOST} -c "ALTER DATABASE ${DBAPPNAME} OWNER TO ${DBAPPUSER};" -U ${DBROOTUSER}
 
-###
-### postgresql
-###
-
-#psql auto password
-#echo  localhost:5432:*:postgres:postgres24 >> ~/.pgpass
-
-# needed in .travis.yml
-#services:
-#  - postgresql
-# or here :  sudo /etc/init.d/postgresql start
-
-
-psql -w -h ${DBHOST} -c "DROP DATABASE IF EXISTS ${DBAPPNAME};" -U ${DBROOTUSER}
-psql -w -h ${DBHOST} -c "DROP ROLE IF EXISTS ${DBAPPUSER};" -U ${DBROOTUSER}
-
-
-# (we try to create a travis user)
-psql -w -h ${DBHOST} -c "CREATE USER ${DBAPPUSER} WITH PASSWORD '${DBAPPPASSWORD}';" -U ${DBROOTUSER}
-psql -w -h ${DBHOST} -c "ALTER ROLE ${DBAPPUSER} WITH CREATEDB;" -U ${DBROOTUSER}
-
-psql -w -h ${DBHOST} -c "CREATE DATABASE ${DBAPPNAME};" -U ${DBROOTUSER}
-psql -w -h ${DBHOST} -c "ALTER DATABASE ${DBAPPNAME} OWNER TO ${DBAPPUSER};" -U ${DBROOTUSER}
-
-
-psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U ${DBROOTUSER} -d ${DBAPPNAME}
-
+       psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U ${DBROOTUSER} -d ${DBAPPNAME}
+fi
