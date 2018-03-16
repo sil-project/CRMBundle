@@ -28,11 +28,6 @@ env:
 
 matrix:
   fast_finish: true
-  include:
-    - php: '7.1'
-      env: TARGET=docs
-    - php: '7.1'
-      env: TARGET=lint
   allow_failures:
     - php: nightly
     - env: SYMFONY_DEPRECATIONS_HELPER=0
